@@ -171,6 +171,40 @@ body {
     margin-bottom: 0.2em;
 }
 
+.main-nav {
+    background: #f5faff;
+    border-radius: 8px;
+    padding: 8px 16px;
+    box-shadow: 0 2px 8px rgba(0, 90, 135, 0.04);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.main-nav a {
+    margin-right: 18px;
+    color: #005a87;
+    font-weight: 500;
+    font-size: 1.05em;
+    transition: color 0.2s;
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.main-nav a:hover {
+    color: #0080c6;
+    background: #e6f3fa;
+    text-decoration: underline;
+}
+
+
+/* Remove old header image styling if present */
+
+.header-content img {
+    display: none;
+}
+
 
 /* Section cards */
 
