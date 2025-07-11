@@ -14,6 +14,7 @@
             <img src="profile.png" alt="Shelton Bumhe" class="profile-pic" />
             <div>
                 <h1>Shelton Bumhe</h1>
+                <button id="darkModeToggle" class="dark-mode-toggle" title="Toggle dark mode">🌙</button>
                 <nav>
                     <a href="#about">About Me</a>
                     <a href="#skills">Skills</a>
@@ -27,7 +28,7 @@
 
     <main>
         <section id="about">
-            <h2><em>Who I Am</em></h2>
+            <h2><em>About Me</em> <span class="annotation" title="A brief introduction about myself." aria-label="About annotation">ℹ️</span></h2>
             <p>
                 I’m Shelton — a sophomore at the University of Nebraska–Lincoln majoring in Computer Science. I love solving real-world problems with tech, especially using AI. Whether it's predicting touchdowns or building tools for smarter decisions, I’m always experimenting
                 and building.
@@ -35,13 +36,13 @@
         </section>
 
         <section id="skills">
-            <h2><em>Skills</em> ℹ️</h2>
+            <h2><em>Skills</em> <span class="annotation" title="Technologies and concepts I know or am learning." aria-label="Skills annotation">ℹ️</span></h2>
             <p>
                 Over the last few years, I’ve picked up several tools and skills from working on hands-on projects. Here’s a mix of what I use now and what I’m actively learning:
             </p>
             <ul class="columns">
-                <li><strong>Languages:</strong> Python, Java, JavaScript, C, C++, SQL</li>
-                <li><strong>Web:</strong> HTML, CSS, JavaScript</li>
+                <li><strong>Languages:</strong> <span class="lang-icon" title="Python">🐍</span> Python, <span class="lang-icon" title="Java">☕</span> Java, <span class="lang-icon" title="JavaScript">🟨</span> JavaScript, <span class="lang-icon" title="C">🌊</span>                    C, <span class="lang-icon" title="C++">➕➕</span> C++, <span class="lang-icon" title="SQL">🗄️</span> SQL</li>
+                <li><strong>Web:</strong> <span class="lang-icon" title="HTML">🌐</span> HTML, <span class="lang-icon" title="CSS">🎨</span> CSS, <span class="lang-icon" title="JavaScript">🟨</span> JavaScript</li>
                 <li><strong>Tools:</strong> VS Code, Git, Eclipse, Jupyter Notebook</li>
                 <li><strong>Libraries:</strong> Pandas, NumPy, Matplotlib, Scikit-learn, TensorFlow</li>
                 <li><strong>Concepts:</strong> Machine Learning, OOP, APIs, Databases</li>
@@ -50,10 +51,10 @@
         </section>
 
         <section id="projects">
-            <h2><em>Some Projects I've Built</em> ℹ️</h2>
+            <h2><em>Some Projects I've Built</em> <span class="annotation" title="A showcase of my favorite projects." aria-label="Projects annotation">ℹ️</span></h2>
 
             <div class="project">
-                <h3>🏈 NFL QB Touchdown Predictor</h3>
+                <h3> NFL QB Touchdown Predictor</h3>
                 <p>
                     I trained a machine learning model to predict if a quarterback would throw a touchdown in an NFL game. It pulls in stats like recent performance and trends, and reached about 88% accuracy.
                 </p>
@@ -64,7 +65,7 @@
             </div>
 
             <div class="project">
-                <h3>📦 Invoice Management System</h3>
+                <h3> Invoice Management System</h3>
                 <p>
                     I built a Java program that helps companies manage their rentals, purchases, and leases. It connects to a MySQL database and generates reports. I handled the full backend logic and wrote JUnit tests to verify it all worked smoothly.
                 </p>
@@ -81,7 +82,7 @@
         </section>
 
         <section id="journey">
-            <h2><em>My Journey So Far</em> ℹ️</h2>
+            <h2><em>My Journey So Far</em> <span class="annotation" title="A timeline of my work and learning experiences." aria-label="Journey annotation">ℹ️</span></h2>
 
             <div class="job">
                 <h3>🔧 Lead Installer – Thrasher Concrete (Summer 2024)</h3>
@@ -91,7 +92,7 @@
             </div>
 
             <div class="job">
-                <h3>📚 Math Tutor – Dominion College, Zimbabwe (2022–2023)</h3>
+                <h3> Math Tutor – Dominion College, Zimbabwe (2022–2023)</h3>
                 <p>
                     I helped high school students understand math better by breaking it down in simple ways. Almost all my students passed — some with flying colors. It made me realize how much I enjoy helping others learn.
                 </p>
@@ -99,7 +100,7 @@
         </section>
 
         <section id="contact">
-            <h2><em>Let’s Connect</em> ℹ️</h2>
+            <h2><em>Let’s Connect</em> <span class="annotation" title="How to reach me for collaboration or questions." aria-label="Contact annotation"></span></h2>
             <p>
                 I’m always happy to chat about AI, school, side projects, or opportunities. Feel free to reach out, especially if you’re building something cool or need a collaborator.
             </p>
@@ -116,6 +117,14 @@
     </footer>
 
     <script src="Edit.js"></script>
+    <script>
+        // Dark mode toggle
+        const toggle = document.getElementById('darkModeToggle');
+        toggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            toggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+        });
+    </script>
 </body>
 
 </html>

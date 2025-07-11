@@ -318,3 +318,120 @@ li {
     border: 1.5px solid #005a87;
     font-weight: 500;
 }
+
+
+/* Programming language icons */
+
+.lang-icon {
+    font-size: 1.2em;
+    margin-right: 2px;
+    vertical-align: middle;
+}
+
+
+/* Annotation icon: more visible */
+
+.annotation {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #005a87;
+    background: #e6f3fa;
+    border: 2px solid #005a87;
+    border-radius: 50%;
+    padding: 2px 7px 2px 7px;
+    margin-left: 8px;
+    margin-right: 2px;
+    box-shadow: 0 2px 8px rgba(0, 90, 135, 0.10);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+.annotation:hover {
+    background: #005a87;
+    color: #fff;
+    border-color: #005a87;
+}
+
+
+/* Dark mode styles */
+
+body.dark-mode {
+    background: linear-gradient(120deg, #23272f 0%, #181a20 100%);
+    color: #e0e6ed;
+}
+
+body.dark-mode .main-card,
+body.dark-mode .section-card {
+    background: #23272f;
+    color: #e0e6ed;
+    box-shadow: 0 6px 32px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+    color: #7ecfff;
+}
+
+body.dark-mode nav,
+body.dark-mode .main-nav {
+    background: #23272f;
+    box-shadow: 0 2px 8px rgba(126, 207, 255, 0.04);
+}
+
+body.dark-mode nav a,
+body.dark-mode .main-nav a {
+    color: #7ecfff;
+}
+
+body.dark-mode nav a:hover,
+body.dark-mode .main-nav a:hover {
+    color: #fff;
+    background: #005a87;
+}
+
+body.dark-mode .annotation {
+    background: #23272f;
+    color: #7ecfff;
+    border-color: #7ecfff;
+}
+
+body.dark-mode .annotation:hover {
+    background: #7ecfff;
+    color: #23272f;
+    border-color: #7ecfff;
+}
+
+body.dark-mode .footer-content {
+    color: #7ecfff;
+}
+
+body.dark-mode .project {
+    background: #181a20;
+    color: #e0e6ed;
+}
+
+body.dark-mode .lang-icon {
+    filter: brightness(1.2) contrast(1.2);
+}
+
+
+/* Dark mode toggle button */
+
+.dark-mode-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-left: 18px;
+    color: #005a87;
+    transition: color 0.2s;
+}
+
+.dark-mode-toggle:hover {
+    color: #0080c6;
+}
+
+body.dark-mode .dark-mode-toggle {
+    color: #7ecfff;
+}
