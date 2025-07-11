@@ -149,3 +149,138 @@ nav a:hover {
 body {
     background: linear-gradient(120deg, #f5faff 0%, #fdfdfd 100%);
 }
+
+
+/* Sticky header */
+
+.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 900;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 12px rgba(0, 90, 135, 0.07);
+    margin-bottom: 32px;
+    padding-top: 8px;
+}
+
+.header-content h1 {
+    font-family: 'Segoe UI', 'Inter', Arial, sans-serif;
+    font-size: 2.2em;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.2em;
+}
+
+
+/* Section cards */
+
+.section-card {
+    background: #f8fbff;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0, 90, 135, 0.04);
+    padding: 32px 28px 24px 28px;
+    margin-bottom: 32px;
+    transition: box-shadow 0.2s;
+}
+
+.section-card:hover {
+    box-shadow: 0 6px 24px rgba(0, 90, 135, 0.10);
+}
+
+
+/* Project cards */
+
+.project {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 6px rgba(0, 90, 135, 0.06);
+    padding: 18px 20px 14px 20px;
+    margin-bottom: 18px;
+    transition: box-shadow 0.2s;
+}
+
+.project:hover {
+    box-shadow: 0 4px 16px rgba(0, 90, 135, 0.13);
+}
+
+
+/* Improved typography */
+
+body,
+.main-card {
+    font-family: 'Segoe UI', 'Inter', Arial, sans-serif;
+    font-size: 1.08em;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+    color: #005a87;
+}
+
+h3 {
+    font-size: 1.15em;
+    font-weight: 500;
+    margin-bottom: 0.3em;
+    color: #222;
+}
+
+p,
+ul,
+li {
+    font-size: 1em;
+    margin-bottom: 0.7em;
+}
+
+
+/* Responsive layout */
+
+@media (max-width: 700px) {
+    .main-card {
+        padding: 10px 2vw 10px 2vw;
+    }
+    .section-card {
+        padding: 18px 6px 14px 6px;
+    }
+    .profile-pic-corner {
+        width: 60px;
+        height: 60px;
+        top: 10px;
+        left: 10px;
+    }
+    .header-content h1 {
+        font-size: 1.3em;
+    }
+}
+
+
+/* Footer divider and content */
+
+.footer-divider {
+    border: none;
+    border-top: 1.5px solid #e0e6ed;
+    margin: 30px 0 10px 0;
+}
+
+.footer-content {
+    text-align: center;
+    font-size: 1.08em;
+    color: #888;
+    padding-bottom: 10px;
+}
+
+
+/* Enhanced annotation tooltip */
+
+.annotation[title]:hover::after {
+    left: 0;
+    top: 120%;
+    min-width: 180px;
+    max-width: 320px;
+    text-align: left;
+    background: #f5faff;
+    color: #005a87;
+    border: 1.5px solid #005a87;
+    font-weight: 500;
+}
