@@ -12,113 +12,218 @@
     <!-- Corner profile picture -->
     <img src="profile.png" alt="Shelton Bumhe" class="profile-pic-corner" />
 
-    <header>
+    <header class="main-header">
         <div class="header-content">
-            <div>
+            <div class="header-text">
                 <h1>Shelton Bumhe</h1>
+                <p class="tagline">AI Enthusiast • Software Developer • Student</p>
                 <button id="darkModeToggle" class="dark-mode-toggle" title="Toggle dark mode">🌙</button>
-                <nav>
-                    <a href="#about">About Me</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#journey">My Journey</a>
-                    <a href="#contact">Contact</a>
-                </nav>
             </div>
+            <nav class="main-nav">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </div>
     </header>
 
-    <main>
-        <section id="about">
-            <h2>About Me <span class="annotation" title="A brief introduction about myself." aria-label="About annotation"></span></h2>
-            <p>
-                I’m Shelton — a sophomore at the University of Nebraska–Lincoln majoring in Computer Science. I love solving real-world problems with tech, especially using AI. Whether it's predicting touchdowns or building tools for smarter decisions, I’m always experimenting
-                and building.
-            </p>
-        </section>
-
-        <section id="skills">
-            <h2>Skills <span class="annotation" title="Technologies and concepts I know or am learning." aria-label="Skills annotation"></span></h2>
-            <p>
-                Over the last few years, I’ve picked up several tools and skills from working on hands-on projects. Here’s a mix of what I use now and what I’m actively learning:
-            </p>
-            <ul class="columns">
-                <li><strong>Languages:</strong> <img src="logos/python.svg" alt="Python" class="lang-icon" title="Python" /> Python, <img src="logos/java.svg" alt="Java" class="lang-icon" title="Java" /> Java, <img src="logos/javascript.svg" alt="JavaScript"
-                        class="lang-icon" title="JavaScript" /> JavaScript, <img src="logos/c.svg" alt="C" class="lang-icon" title="C" /> C, <img src="logos/cpp.svg" alt="C++" class="lang-icon" title="C++" /> C++, <img src="logos/sql.svg" alt="SQL" class="lang-icon"
-                        title="SQL" /> SQL</li>
-                <li><strong>Web:</strong> <img src="logos/html5.svg" alt="HTML5" class="lang-icon" title="HTML5" /> HTML, <img src="logos/css3.svg" alt="CSS3" class="lang-icon" title="CSS3" /> CSS, <img src="logos/javascript.svg" alt="JavaScript" class="lang-icon"
-                        title="JavaScript" /> JavaScript</li>
-                <li><strong>Tools:</strong> VS Code, Git, Eclipse, Jupyter Notebook</li>
-                <li><strong>Libraries:</strong> Pandas, NumPy, Matplotlib, Scikit-learn, TensorFlow</li>
-                <li><strong>Concepts:</strong> Machine Learning, OOP, APIs, Databases</li>
-                <li><strong>Other:</strong> Writing clean code, organizing teams, presenting ideas</li>
-            </ul>
-        </section>
-
-        <section id="projects">
-            <h2>Some Projects I've Built <span class="annotation" title="A showcase of my favorite projects." aria-label="Projects annotation"></span></h2>
-
-            <div class="project">
-                <h3> NFL QB Touchdown Predictor</h3>
+    <main class="main-content">
+        <section id="about" class="content-section">
+            <h2>About Me</h2>
+            <div class="about-content">
                 <p>
-                    I trained a machine learning model to predict if a quarterback would throw a touchdown in an NFL game. It pulls in stats like recent performance and trends, and reached about 88% accuracy.
+                    I'm Shelton — a sophomore at the University of Nebraska–Lincoln majoring in Computer Science. I love solving real-world problems with tech, especially using AI. Whether it's predicting touchdowns or building tools for smarter decisions, I'm always experimenting
+                    and building.
                 </p>
-                <p>
-                    I also created a web app using Streamlit so users can upload stats and get predictions, with SHAP visualizations to explain how it works.
-                </p>
-                <p><a href="https://github.com/SheltonBumhe/machine-learning-nfl-touchdowns" target="_blank">🔗 See My Code on GitHub</a></p>
-            </div>
-
-            <div class="project">
-                <h3> Invoice Management System</h3>
-                <p>
-                    I built a Java program that helps companies manage their rentals, purchases, and leases. It connects to a MySQL database and generates reports. I handled the full backend logic and wrote JUnit tests to verify it all worked smoothly.
-                </p>
-                <p><a href="https://github.com/SheltonBumhe/Inventory-Mnagement-System-" target="_blank">🔗 See My Code on GitHub</a></p>
-            </div>
-
-            <div class="project">
-                <h3>♞ Knight’s Solver</h3>
-                <p>
-                    I wrote a Python tool that solves knight’s tour puzzles using recursion. It visualizes every move as the knight tries to cover the entire board — without repeating any square.
-                </p>
-                <p><em>Coming soon to GitHub</em></p>
+                <div class="about-details">
+                    <div class="detail-item">
+                        <strong>Education:</strong> University of Nebraska–Lincoln
+                    </div>
+                    <div class="detail-item">
+                        <strong>Major:</strong> Computer Science
+                    </div>
+                    <div class="detail-item">
+                        <strong>Location:</strong> Lincoln, NE
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="journey">
-            <h2>My Journey So Far <span class="annotation" title="A timeline of my work and learning experiences." aria-label="Journey annotation"></span></h2>
+        <section id="skills" class="content-section">
+            <h2>Skills <span class="annotation" title="Technologies and concepts I know or am learning." aria-label="Skills annotation">ℹ️</span></h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-items">
+                        <span class="skill-item"><img src="logos/python.svg" alt="Python" class="lang-icon" />Python</span>
+                        <span class="skill-item"><img src="logos/java.svg" alt="Java" class="lang-icon" />Java</span>
+                        <span class="skill-item"><img src="logos/javascript.svg" alt="JavaScript" class="lang-icon" />JavaScript</span>
+                        <span class="skill-item"><img src="logos/c.svg" alt="C" class="lang-icon" />C</span>
+                        <span class="skill-item"><img src="logos/cpp.svg" alt="C++" class="lang-icon" />C++</span>
+                        <span class="skill-item"><img src="logos/sql.svg" alt="SQL" class="lang-icon" />SQL</span>
+                    </div>
+                </div>
 
-            <div class="job">
-                <h3>🔧 Lead Installer – Thrasher Concrete (Summer 2024)</h3>
-                <p>
-                    I worked hands-on fixing real homes with foundation issues. I led a team of 4 people, making sure everything was safe and up to standard. The job taught me responsibility, teamwork, and how to stay calm when things get tough.
-                </p>
-            </div>
+                <div class="skill-category">
+                    <h3>Web Technologies</h3>
+                    <div class="skill-items">
+                        <span class="skill-item"><img src="logos/html5.svg" alt="HTML5" class="lang-icon" />HTML5</span>
+                        <span class="skill-item"><img src="logos/css3.svg" alt="CSS3" class="lang-icon" />CSS3</span>
+                        <span class="skill-item"><img src="logos/javascript.svg" alt="JavaScript" class="lang-icon" />JavaScript</span>
+                    </div>
+                </div>
 
-            <div class="job">
-                <h3> Math Tutor – Dominion College, Zimbabwe (2022–2023)</h3>
-                <p>
-                    I helped high school students understand math better by breaking it down in simple ways. Almost all my students passed — some with flying colors. It made me realize how much I enjoy helping others learn.
-                </p>
+                <div class="skill-category">
+                    <h3>Tools & Libraries</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">VS Code</span>
+                        <span class="skill-item">Git</span>
+                        <span class="skill-item">Eclipse</span>
+                        <span class="skill-item">Jupyter Notebook</span>
+                        <span class="skill-item">Pandas</span>
+                        <span class="skill-item">NumPy</span>
+                        <span class="skill-item">Matplotlib</span>
+                        <span class="skill-item">Scikit-learn</span>
+                        <span class="skill-item">TensorFlow</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Concepts</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Machine Learning</span>
+                        <span class="skill-item">OOP</span>
+                        <span class="skill-item">APIs</span>
+                        <span class="skill-item">Databases</span>
+                        <span class="skill-item">Clean Code</span>
+                        <span class="skill-item">Team Leadership</span>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="contact">
-            <h2>Let’s Connect</h2>
-            <p>
-                I’m always happy to chat about AI, school, side projects, or opportunities. Feel free to reach out, especially if you’re building something cool or need a collaborator.
-            </p>
-            <p>
-                📍 Lincoln, NE<br> 📞 (308) 663-3469<br> 📧 <a href="mailto:sbumhe2@huskers.unl.edu">sbumhe2@huskers.unl.edu</a><br> 🔗 <a href="https://linkedin.com/in/shelton-bumhe-027476312">LinkedIn</a> |
-                <a href="https://github.com/SheltonBumhe">GitHub</a> |
-                <a href="https://sheltonbumhe.com">sheltonbumhe.com</a>
-            </p>
+        <section id="projects" class="content-section">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>NFL QB Touchdown Predictor</h3>
+                        <div class="project-links">
+                            <a href="https://github.com/SheltonBumhe/machine-learning-nfl-touchdowns" target="_blank" class="project-link">View Code</a>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        I trained a machine learning model to predict if a quarterback would throw a touchdown in an NFL game. It pulls in stats like recent performance and trends, and reached about 88% accuracy.
+                    </p>
+                    <p class="project-description">
+                        I also created a web app using Streamlit so users can upload stats and get predictions, with SHAP visualizations to explain how it works.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">Streamlit</span>
+                        <span class="tech-tag">SHAP</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Invoice Management System</h3>
+                        <div class="project-links">
+                            <a href="https://github.com/SheltonBumhe/Inventory-Mnagement-System-" target="_blank" class="project-link">View Code</a>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        I built a Java program that helps companies manage their rentals, purchases, and leases. It connects to a MySQL database and generates reports. I handled the full backend logic and wrote JUnit tests to verify it all worked smoothly.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">JUnit</span>
+                        <span class="tech-tag">OOP</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Knight's Solver</h3>
+                        <div class="project-links">
+                            <span class="project-link coming-soon">Coming Soon</span>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        I wrote a Python tool that solves knight's tour puzzles using recursion. It visualizes every move as the knight tries to cover the entire board — without repeating any square.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Recursion</span>
+                        <span class="tech-tag">Algorithms</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="content-section">
+            <h2>Experience</h2>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Lead Installer</h3>
+                        <span class="company">Thrasher Concrete</span>
+                        <span class="duration">Summer 2024</span>
+                    </div>
+                    <p class="experience-description">
+                        I worked hands-on fixing real homes with foundation issues. I led a team of 4 people, making sure everything was safe and up to standard. The job taught me responsibility, teamwork, and how to stay calm when things get tough.
+                    </p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Math Tutor</h3>
+                        <span class="company">Dominion College, Zimbabwe</span>
+                        <span class="duration">2022–2023</span>
+                    </div>
+                    <p class="experience-description">
+                        I helped high school students understand math better by breaking it down in simple ways. Almost all my students passed — some with flying colors. It made me realize how much I enjoy helping others learn.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="content-section">
+            <h2>Contact</h2>
+            <div class="contact-content">
+                <p class="contact-intro">
+                    I'm always happy to chat about AI, school, side projects, or opportunities. Feel free to reach out, especially if you're building something cool or need a collaborator.
+                </p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <span>Lincoln, NE</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <span>(308) 663-3469</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <a href="mailto:sbumhe2@huskers.unl.edu">sbumhe2@huskers.unl.edu</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">🔗</span>
+                        <a href="https://linkedin.com/in/shelton-bumhe-027476312" target="_blank">LinkedIn</a> |
+                        <a href="https://github.com/SheltonBumhe" target="_blank">GitHub</a> |
+                        <a href="https://sheltonbumhe.com" target="_blank">sheltonbumhe.com</a>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
-    <footer>
-        &copy; 2025 Shelton Bumhe — AI enthusiast, builder, and lifelong learner 💡
+    <footer class="main-footer">
+        <p>&copy; 2025 Shelton Bumhe — AI enthusiast, builder, and lifelong learner 💡</p>
     </footer>
 
     <script src="Edit.js"></script>
