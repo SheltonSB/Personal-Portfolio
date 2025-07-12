@@ -323,9 +323,16 @@ li {
 /* Programming language icons */
 
 .lang-icon {
-    font-size: 1.2em;
-    margin-right: 2px;
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
     vertical-align: middle;
+    border-radius: 3px;
+    transition: transform 0.2s ease;
+}
+
+.lang-icon:hover {
+    transform: scale(1.1);
 }
 
 
