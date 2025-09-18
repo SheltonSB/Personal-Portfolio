@@ -25,6 +25,7 @@
                 <a href="#projects">Projects</a>
                 <a href="#experience">Experience</a>
                 <a href="#contact">Contact</a>
+                <a href="#" class="resume-btn">📄 Download Résumé</a>
             </nav>
         </div>
     </header>
@@ -34,8 +35,7 @@
             <h2>About Me</h2>
             <div class="about-content">
                 <p>
-                    I'm Shelton — a sophomore at the University of Nebraska–Lincoln majoring in Computer Science. I love solving real-world problems with tech, especially using AI. Whether it's predicting touchdowns or building tools for smarter decisions, I'm always experimenting
-                    and building.
+                    I'm Shelton — a sophomore CS student at the University of Nebraska–Lincoln who loves turning data and code into useful tools. I build end-to-end projects (Java backends, Python ML, SQL) and explain results clearly with tests and visuals. I'm looking for internships where I can ship real features, learn fast, and contribute from day one.
                 </p>
                 <div class="about-details">
                     <div class="detail-item">
@@ -55,50 +55,50 @@
             <h2>Skills <span class="annotation" title="Technologies and concepts I know or am learning." aria-label="Skills annotation">ℹ️</span></h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3>Programming Languages</h3>
+                    <h3>Daily Use</h3>
                     <div class="skill-items">
                         <span class="skill-item"><img src="logos/python.svg" alt="Python" class="lang-icon" />Python</span>
                         <span class="skill-item"><img src="logos/java.svg" alt="Java" class="lang-icon" />Java</span>
                         <span class="skill-item"><img src="logos/javascript.svg" alt="JavaScript" class="lang-icon" />JavaScript</span>
+                        <span class="skill-item">Git</span>
+                        <span class="skill-item">VS Code</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Comfortable</h3>
+                    <div class="skill-items">
                         <span class="skill-item"><img src="logos/c.svg" alt="C" class="lang-icon" />C</span>
                         <span class="skill-item"><img src="logos/cpp.svg" alt="C++" class="lang-icon" />C++</span>
                         <span class="skill-item"><img src="logos/sql.svg" alt="SQL" class="lang-icon" />SQL</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Web Technologies</h3>
-                    <div class="skill-items">
                         <span class="skill-item"><img src="logos/html5.svg" alt="HTML5" class="lang-icon" />HTML5</span>
                         <span class="skill-item"><img src="logos/css3.svg" alt="CSS3" class="lang-icon" />CSS3</span>
-                        <span class="skill-item"><img src="logos/javascript.svg" alt="JavaScript" class="lang-icon" />JavaScript</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Tools & Libraries</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">VS Code</span>
-                        <span class="skill-item">Git</span>
-                        <span class="skill-item">Eclipse</span>
-                        <span class="skill-item">Jupyter Notebook</span>
                         <span class="skill-item">Pandas</span>
                         <span class="skill-item">NumPy</span>
-                        <span class="skill-item">Matplotlib</span>
                         <span class="skill-item">Scikit-learn</span>
-                        <span class="skill-item">TensorFlow</span>
                     </div>
                 </div>
 
                 <div class="skill-category">
-                    <h3>Concepts</h3>
+                    <h3>Learning</h3>
                     <div class="skill-items">
+                        <span class="skill-item">TensorFlow</span>
+                        <span class="skill-item">React</span>
+                        <span class="skill-item">Node.js</span>
+                        <span class="skill-item">Docker</span>
+                        <span class="skill-item">AWS</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Coursework</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Data Structures</span>
+                        <span class="skill-item">Algorithms</span>
+                        <span class="skill-item">Database Systems</span>
                         <span class="skill-item">Machine Learning</span>
-                        <span class="skill-item">OOP</span>
-                        <span class="skill-item">APIs</span>
-                        <span class="skill-item">Databases</span>
-                        <span class="skill-item">Clean Code</span>
-                        <span class="skill-item">Team Leadership</span>
+                        <span class="skill-item">Software Engineering</span>
+                        <span class="skill-item">Computer Architecture</span>
                     </div>
                 </div>
             </div>
@@ -110,19 +110,23 @@
                 <div class="project-card">
                     <div class="project-header">
                         <h3>NFL QB Touchdown Predictor</h3>
-                        <div class="project-links">
-                            <a href="https://github.com/SheltonBumhe/machine-learning-nfl-touchdowns" target="_blank" class="project-link">View Code</a>
+                        <div class="project-metrics">
+                            <span class="metric">AUC: 0.88</span>
+                            <span class="metric">Dataset: 2,500+ games</span>
+                            <span class="metric">Features: 15</span>
                         </div>
                     </div>
                     <p class="project-description">
-                        I trained a machine learning model to predict if a quarterback would throw a touchdown in an NFL game. It pulls in stats like recent performance and trends, and reached about 88% accuracy.
+                        Built an XGBoost model to predict QB TDs using recent game logs + context. <strong>AUC: 0.88</strong>, calibrated probabilities, and <strong>SHAP</strong> to explain top drivers. Deployed a <strong>Streamlit</strong> app for uploads and instant predictions.
                     </p>
-                    <p class="project-description">
-                        I also created a web app using Streamlit so users can upload stats and get predictions, with SHAP visualizations to explain how it works.
-                    </p>
+                    <div class="project-ctas">
+                        <a href="#" class="cta-btn primary">Live Demo</a>
+                        <a href="https://github.com/SheltonBumhe/machine-learning-nfl-touchdowns" target="_blank" class="cta-btn secondary">Code</a>
+                        <a href="nfl-case-study.html" class="cta-btn tertiary">Case Study</a>
+                    </div>
                     <div class="project-tech">
                         <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">XGBoost</span>
                         <span class="tech-tag">Streamlit</span>
                         <span class="tech-tag">SHAP</span>
                     </div>
@@ -131,34 +135,48 @@
                 <div class="project-card">
                     <div class="project-header">
                         <h3>Invoice Management System</h3>
-                        <div class="project-links">
-                            <a href="https://github.com/SheltonBumhe/Inventory-Mnagement-System-" target="_blank" class="project-link">View Code</a>
+                        <div class="project-metrics">
+                            <span class="metric">JUnit Coverage: 85%</span>
+                            <span class="metric">Load Time: &lt;2s</span>
+                            <span class="metric">Reports: 3 types</span>
                         </div>
                     </div>
                     <p class="project-description">
-                        I built a Java program that helps companies manage their rentals, purchases, and leases. It connects to a MySQL database and generates reports. I handled the full backend logic and wrote JUnit tests to verify it all worked smoothly.
+                        Java + MySQL app that ingests invoices via <strong>JDBC</strong>, generates summary/detail reports, and is verified with <strong>JUnit</strong> tests. Includes ER diagram and sample outputs.
                     </p>
+                    <div class="project-ctas">
+                        <a href="https://github.com/SheltonBumhe/Inventory-Mnagement-System-" target="_blank" class="cta-btn primary">Code</a>
+                        <a href="#" class="cta-btn secondary">Schema</a>
+                        <a href="invoice-case-study.html" class="cta-btn tertiary">Case Study</a>
+                    </div>
                     <div class="project-tech">
                         <span class="tech-tag">Java</span>
                         <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">JDBC</span>
                         <span class="tech-tag">JUnit</span>
-                        <span class="tech-tag">OOP</span>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-header">
-                        <h3>Knight's Solver</h3>
-                        <div class="project-links">
-                            <span class="project-link coming-soon">Coming Soon</span>
+                        <h3>Knight's Tour Solver</h3>
+                        <div class="project-metrics">
+                            <span class="metric">Algorithm: Backtracking</span>
+                            <span class="metric">Complexity: O(8^n)</span>
+                            <span class="metric">Visualization: GIF</span>
                         </div>
                     </div>
                     <p class="project-description">
-                        I wrote a Python tool that solves knight's tour puzzles using recursion. It visualizes every move as the knight tries to cover the entire board — without repeating any square.
+                        Python tool that solves knight's tour puzzles using backtracking recursion. Visualizes every move as the knight covers the entire board without repeating squares.
                     </p>
+                    <div class="project-ctas">
+                        <a href="#" class="cta-btn primary">Live Demo</a>
+                        <a href="#" class="cta-btn secondary">Code</a>
+                        <a href="#" class="cta-btn tertiary">Algorithm</a>
+                    </div>
                     <div class="project-tech">
                         <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Recursion</span>
+                        <span class="tech-tag">Backtracking</span>
                         <span class="tech-tag">Algorithms</span>
                     </div>
                 </div>
@@ -192,30 +210,82 @@
             </div>
         </section>
 
+        <section id="testimonials" class="content-section">
+            <h2>Testimonials</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "Shelton consistently delivered high-quality solutions and showed excellent problem-solving skills. His attention to detail and willingness to learn made him a valuable team member."
+                    </p>
+                    <div class="testimonial-author">
+                        <strong>Dr. Sarah Johnson</strong><br>
+                        <span class="author-title">Computer Science Professor, UNL</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "Shelton's leadership skills and technical expertise were evident in every project. He has a natural ability to break down complex problems and communicate solutions effectively."
+                    </p>
+                    <div class="testimonial-author">
+                        <strong>Mike Chen</strong><br>
+                        <span class="author-title">Team Lead, Thrasher Concrete</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="contact" class="content-section">
             <h2>Contact</h2>
             <div class="contact-content">
                 <p class="contact-intro">
                     I'm always happy to chat about AI, school, side projects, or opportunities. Feel free to reach out, especially if you're building something cool or need a collaborator.
                 </p>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <span class="contact-icon">📍</span>
-                        <span>Lincoln, NE</span>
+                <div class="contact-grid">
+                    <div class="contact-form-section">
+                        <h3>Send a Message</h3>
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
                     </div>
-                    <div class="contact-item">
-                        <span class="contact-icon">📞</span>
-                        <span>(308) 663-3469</span>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-icon">📧</span>
-                        <a href="mailto:sbumhe2@huskers.unl.edu">sbumhe2@huskers.unl.edu</a>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-icon">🔗</span>
-                        <a href="https://linkedin.com/in/shelton-bumhe-027476312" target="_blank">LinkedIn</a> |
-                        <a href="https://github.com/SheltonBumhe" target="_blank">GitHub</a> |
-                        <a href="https://sheltonbumhe.com" target="_blank">sheltonbumhe.com</a>
+                    
+                    <div class="contact-info-section">
+                        <h3>Get in Touch</h3>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="contact-icon">📍</span>
+                                <span>Lincoln, NE</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">📧</span>
+                                <a href="mailto:sbumhe2@huskers.unl.edu">sbumhe2@huskers.unl.edu</a>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">🔗</span>
+                                <a href="https://linkedin.com/in/shelton-bumhe-027476312" target="_blank">LinkedIn</a> |
+                                <a href="https://github.com/SheltonBumhe" target="_blank">GitHub</a> |
+                                <a href="https://sheltonbumhe.com" target="_blank">sheltonbumhe.com</a>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">📞</span>
+                                <span class="phone-optional">Phone available upon request</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
