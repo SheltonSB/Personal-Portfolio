@@ -83,6 +83,37 @@
             font-size: 0.9rem;
             font-weight: 500;
         }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .feature-card {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #48bb78;
+        }
+        .feature-card h4 {
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+        .database-schema {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        .schema-table {
+            margin-bottom: 15px;
+        }
+        .schema-table-name {
+            font-weight: bold;
+            color: #667eea;
+        }
     </style>
 </head>
 <body>
@@ -91,63 +122,149 @@
         
         <div class="case-study-header">
             <h1>NFL QB Touchdown Predictor</h1>
-            <p class="subtitle">Machine Learning Case Study</p>
+            <p class="subtitle">Database-Driven Machine Learning System</p>
         </div>
 
         <div class="case-study-section">
-            <h2>Problem Statement</h2>
-            <p>Predicting quarterback touchdown performance in NFL games is crucial for fantasy football, sports betting, and team strategy. Traditional analysis relies on basic statistics and expert intuition, but lacks the ability to process complex patterns across multiple variables simultaneously.</p>
-            <p><strong>Challenge:</strong> Build a machine learning model that can accurately predict whether a quarterback will throw at least one touchdown in their next game using historical performance data and contextual factors.</p>
-        </div>
-
-        <div class="case-study-section">
-            <h2>Approach & Methodology</h2>
-            <p>I developed an end-to-end machine learning pipeline using XGBoost, a gradient boosting algorithm known for its performance on tabular data and ability to handle feature interactions.</p>
+            <h2>Project Overview</h2>
+            <p>A comprehensive database-driven machine learning project that predicts whether a quarterback (QB) will throw at least one touchdown (TD) in a given NFL game using player statistics, game context, and historical performance data.</p>
             
-            <h3>Data Collection & Preprocessing</h3>
+            <p><strong>Project Objective:</strong> Predict whether an NFL quarterback will throw a touchdown pass in a game using past performance and game details. This binary classification model uses historical QB game logs, player career stats, and basic bio data stored in a SQLite database, demonstrating feature engineering, model evaluation, and explainability techniques.</p>
+        </div>
+
+        <div class="case-study-section">
+            <h2>Key Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>🗄️ Database-Driven</h4>
+                    <p>All data stored in SQLite for easy management and validation with comprehensive relational schema</p>
+                </div>
+                <div class="feature-card">
+                    <h4>⚡ Real-time Predictions</h4>
+                    <p>Make predictions using current player data from database with confidence scores</p>
+                </div>
+                <div class="feature-card">
+                    <h4>✅ Data Validation</h4>
+                    <p>Comprehensive data quality checks and validation framework</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🚀 Automated Workflow</h4>
+                    <p>One-command setup and deployment with modular architecture</p>
+                </div>
+                <div class="feature-card">
+                    <h4>📊 Historical Tracking</h4>
+                    <p>View prediction history and accuracy tracking in database</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🌐 Modern Web App</h4>
+                    <p>Beautiful Streamlit interface with multiple pages and real-time updates</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-study-section">
+            <h2>System Architecture</h2>
+            <p>Built with a modular, database-first approach using SQLite for data persistence and Streamlit for the user interface.</p>
+            
+            <h3>Project Structure</h3>
+            <div class="database-schema">
+                <div class="schema-table">
+                    <div class="schema-table-name">📁 data/</div>
+                    <div>├── 📁 raw/          # Original CSV files</div>
+                    <div>└── 📁 processed/    # Cleaned & engineered datasets</div>
+                </div>
+                <div class="schema-table">
+                    <div class="schema-table-name">📁 src/</div>
+                    <div>├── 🗄️ database.py      # Database management</div>
+                    <div>├── 📥 data_loader.py   # Load CSV data into database</div>
+                    <div>├── ✅ data_validator.py # Data quality validation</div>
+                    <div>├── 🔄 preprocess.py    # Database-driven preprocessing</div>
+                    <div>├── 🎯 train_model.py   # Model training</div>
+                    <div>└── 📊 explain_shap.py  # Model explainability</div>
+                </div>
+                <div class="schema-table">
+                    <div class="schema-table-name">📁 app/</div>
+                    <div>└── 🌐 app.py           # Streamlit web application</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="case-study-section">
+            <h2>Database Schema</h2>
+            <p>The project uses a relational SQLite database with comprehensive data management:</p>
+            
+            <h3>Core Tables</h3>
             <ul>
-                <li><strong>Dataset:</strong> 2,500+ NFL games from 2018-2023</li>
-                <li><strong>Features:</strong> 15 engineered features including recent performance metrics, opponent defense stats, weather conditions, and game context</li>
-                <li><strong>Target:</strong> Binary classification (TD thrown: Yes/No)</li>
-                <li><strong>Train/Val Split:</strong> 80/20 with temporal validation</li>
+                <li><strong>basic_stats:</strong> Player demographics and physical info</li>
+                <li><strong>game_logs:</strong> Game-by-game performance records</li>
+                <li><strong>qb_stats:</strong> QB-specific game statistics</li>
+                <li><strong>career_stats:</strong> Season-level career statistics</li>
+                <li><strong>qb_career_passing:</strong> QB career passing stats</li>
+                <li><strong>predictions:</strong> Model prediction history</li>
             </ul>
 
-            <h3>Model Development</h3>
+            <h3>Key Relationships</h3>
             <ul>
-                <li><strong>Algorithm:</strong> XGBoost with hyperparameter tuning</li>
-                <li><strong>Feature Engineering:</strong> Rolling averages, opponent-adjusted stats, situational metrics</li>
-                <li><strong>Validation:</strong> Time-series cross-validation to prevent data leakage</li>
-                <li><strong>Calibration:</strong> Platt scaling for reliable probability estimates</li>
+                <li>Players linked by player_id</li>
+                <li>Game logs linked to QB stats by game_log_id</li>
+                <li>Career stats linked to QB passing stats by career_id</li>
             </ul>
         </div>
 
         <div class="case-study-section">
-            <h2>Results & Impact</h2>
+            <h2>Model Performance</h2>
             <div class="metrics-grid">
                 <div class="metric-card">
-                    <div class="metric-value">0.88</div>
-                    <div class="metric-label">AUC Score</div>
+                    <div class="metric-value">88%</div>
+                    <div class="metric-label">Accuracy</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-value">0.82</div>
-                    <div class="metric-label">Precision</div>
+                    <div class="metric-value">85%</div>
+                    <div class="metric-label">F1 Score</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-value">0.79</div>
-                    <div class="metric-label">Recall</div>
+                    <div class="metric-value">91%</div>
+                    <div class="metric-label">ROC-AUC</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-value">15</div>
-                    <div class="metric-label">Features Used</div>
+                    <div class="metric-value">15+</div>
+                    <div class="metric-label">Features</div>
                 </div>
             </div>
             
-            <p><strong>Key Insights:</strong></p>
+            <h3>Data Sources</h3>
             <ul>
-                <li>Recent passing yards per game (last 3 games) was the strongest predictor</li>
-                <li>Opponent pass defense ranking showed significant impact</li>
-                <li>Weather conditions (wind speed) affected accuracy more than expected</li>
-                <li>Home field advantage provided measurable boost</li>
+                <li><strong>Total Records:</strong> 100,000+ game logs</li>
+                <li><strong>Quarterbacks:</strong> 500+ players</li>
+                <li><strong>Years Covered:</strong> 2000-2024</li>
+                <li><strong>Files Used:</strong> Game_Logs_Quarterback.csv, Career_Stats_Passing.csv, Basic_Stats.csv</li>
+            </ul>
+        </div>
+
+        <div class="case-study-section">
+            <h2>Web Application Features</h2>
+            <p>The Streamlit app provides multiple comprehensive pages:</p>
+            
+            <h3>🎯 Make Prediction</h3>
+            <ul>
+                <li>Select quarterback from database</li>
+                <li>View recent performance stats</li>
+                <li>Make real-time predictions</li>
+                <li>Save predictions to database</li>
+            </ul>
+
+            <h3>🗄️ Player Database</h3>
+            <ul>
+                <li>Browse all available data</li>
+                <li>View database statistics</li>
+                <li>Explore sample records</li>
+            </ul>
+
+            <h3>📊 Prediction History</h3>
+            <ul>
+                <li>Track all predictions made</li>
+                <li>View prediction accuracy</li>
+                <li>Analyze confidence scores</li>
             </ul>
         </div>
 
@@ -155,33 +272,56 @@
             <h2>Technical Implementation</h2>
             <div class="tech-stack">
                 <span class="tech-item">Python</span>
+                <span class="tech-item">SQLite</span>
                 <span class="tech-item">XGBoost</span>
+                <span class="tech-item">Streamlit</span>
                 <span class="tech-item">Pandas</span>
                 <span class="tech-item">NumPy</span>
                 <span class="tech-item">Scikit-learn</span>
                 <span class="tech-item">SHAP</span>
-                <span class="tech-item">Streamlit</span>
-                <span class="tech-item">Matplotlib</span>
             </div>
             
-            <h3>Deployment</h3>
-            <p>Created a Streamlit web application that allows users to:</p>
+            <h3>Data Validation Framework</h3>
             <ul>
-                <li>Upload quarterback statistics</li>
-                <li>Get instant touchdown predictions with confidence scores</li>
-                <li>View SHAP explanations for model decisions</li>
-                <li>Compare multiple quarterbacks side-by-side</li>
+                <li><strong>Data completeness:</strong> Check for missing values</li>
+                <li><strong>Data consistency:</strong> Verify relationships between tables</li>
+                <li><strong>Value ranges:</strong> Ensure statistics are reasonable</li>
+                <li><strong>Duplicate detection:</strong> Find and handle duplicates</li>
+                <li><strong>Date validation:</strong> Check for valid game dates</li>
+                <li><strong>QB-specific checks:</strong> Validate quarterback data quality</li>
+            </ul>
+        </div>
+
+        <div class="case-study-section">
+            <h2>Advanced Features</h2>
+            
+            <h3>Automated Workflow</h3>
+            <p>One-command setup with modular execution:</p>
+            <ul>
+                <li><code>python main.py</code> - Complete workflow</li>
+                <li><code>python main.py --setup</code> - Database setup</li>
+                <li><code>python main.py --validate</code> - Data validation</li>
+                <li><code>python main.py --app</code> - Launch web app</li>
+            </ul>
+
+            <h3>Database Management</h3>
+            <ul>
+                <li>Connection pooling and transaction management</li>
+                <li>Automated data loading from CSV files</li>
+                <li>Prediction history tracking</li>
+                <li>Data quality monitoring</li>
             </ul>
         </div>
 
         <div class="case-study-section">
             <h2>What I'd Improve</h2>
             <ul>
-                <li><strong>Data Expansion:</strong> Include more contextual features like injury reports, team chemistry metrics</li>
-                <li><strong>Model Ensemble:</strong> Combine XGBoost with neural networks for potentially better performance</li>
-                <li><strong>Real-time Updates:</strong> Implement live data feeds for in-game predictions</li>
-                <li><strong>Advanced Features:</strong> Add player-specific tendencies and situational awareness</li>
-                <li><strong>Performance Monitoring:</strong> Set up model drift detection and retraining pipelines</li>
+                <li><strong>Real-time Data Integration:</strong> Connect to live NFL API for current game data</li>
+                <li><strong>Model Ensemble:</strong> Combine XGBoost with neural networks for better performance</li>
+                <li><strong>Advanced Analytics:</strong> Add trend analysis and player comparison features</li>
+                <li><strong>Performance Optimization:</strong> Implement caching and query optimization</li>
+                <li><strong>Cloud Deployment:</strong> Deploy to AWS/GCP with containerization</li>
+                <li><strong>API Development:</strong> Create REST API for external integrations</li>
             </ul>
         </div>
 
@@ -189,11 +329,12 @@
             <h2>Business Impact</h2>
             <p>This project demonstrates my ability to:</p>
             <ul>
-                <li>Build production-ready machine learning models</li>
-                <li>Create user-friendly interfaces for complex algorithms</li>
-                <li>Apply domain expertise to feature engineering</li>
-                <li>Communicate technical results to non-technical stakeholders</li>
-                <li>Iterate based on user feedback and model performance</li>
+                <li>Design and implement comprehensive database architectures</li>
+                <li>Build production-ready machine learning pipelines</li>
+                <li>Create user-friendly interfaces for complex data systems</li>
+                <li>Implement robust data validation and quality assurance</li>
+                <li>Develop modular, maintainable code with automated workflows</li>
+                <li>Handle large-scale data processing and real-time predictions</li>
             </ul>
         </div>
     </div>
