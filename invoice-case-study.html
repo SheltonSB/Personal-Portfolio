@@ -83,21 +83,41 @@
             font-size: 0.9rem;
             font-weight: 500;
         }
-        .feature-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-        .feature-item {
+        .business-rule {
             background: #f7fafc;
             padding: 20px;
             border-radius: 10px;
+            margin: 15px 0;
             border-left: 4px solid #48bb78;
         }
-        .feature-item h4 {
+        .business-rule h4 {
             color: #2d3748;
             margin-bottom: 10px;
+        }
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        .architecture-diagram {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
         }
     </style>
 </head>
@@ -106,152 +126,247 @@
         <a href="index.html" class="back-link">← Back to Portfolio</a>
         
         <div class="case-study-header">
-            <h1>Invoice Management System</h1>
-            <p class="subtitle">Java Backend Development Case Study</p>
+            <h1>Invoice Management System (IMS)</h1>
+            <p class="subtitle">The Very Good Building & Development Company (VGB)</p>
+        </div>
+
+        <div class="case-study-section">
+            <h2>Project Overview</h2>
+            <p><strong>Role:</strong> Software Engineer (Java)<br>
+            <strong>Timeline:</strong> 6 weeks (MVP)<br>
+            <strong>Team:</strong> Solo project (course project)<br>
+            <strong>Stack:</strong> Java • JDBC • MySQL • JUnit • CSV → DB migration • OOP<br>
+            <strong>Focus:</strong> Pricing & tax rules engine, invoice generation, data integrity</p>
+            
+            <h3>Executive Summary</h3>
+            <p>VGB managed invoices with spreadsheets and paper, leading to slow billing cycles and error-prone tax calculations. I built a robust <strong>Invoice Management System (IMS)</strong> that encodes business rules for equipment sales, leases, rentals, material sales, and subcontractor contracts. The system automates invoice creation, applies the correct tax logic per item type, and exports detailed and summary reports—<span class="highlight">always rounded to the nearest cent</span>.</p>
         </div>
 
         <div class="case-study-section">
             <h2>Problem Statement</h2>
-            <p>Small to medium businesses often struggle with manual invoice processing, leading to errors, delays, and difficulty tracking financial data. The challenge was to create a robust system that could handle invoice ingestion, data validation, and report generation while maintaining data integrity and performance.</p>
-            <p><strong>Requirements:</strong></p>
             <ul>
-                <li>Process invoices from multiple sources (CSV, manual entry)</li>
-                <li>Generate summary and detailed reports</li>
-                <li>Maintain data consistency and validation</li>
-                <li>Ensure system reliability through comprehensive testing</li>
-                <li>Handle concurrent operations efficiently</li>
+                <li>Manual spreadsheets → miscalculations, inconsistent rounding, and slow reporting</li>
+                <li>Complex pricing/tax rules across <strong>five item types</strong> (Equipment Purchase/Lease/Rental, Material, Contract)</li>
+                <li>Need for <strong>auditable</strong>, <strong>deterministic</strong> outputs and reliable data storage</li>
             </ul>
+        </div>
+
+        <div class="case-study-section">
+            <h2>Solution Architecture</h2>
+            <ul>
+                <li><strong>Object-Oriented Java</strong> domain model with dedicated classes per item type</li>
+                <li><strong>Relational DB (MySQL)</strong> for persistent, queryable records</li>
+                <li><strong>Rules engine inside item subclasses</strong>—each class owns its subtotal/tax/total logic</li>
+                <li><strong>Exact-decimal math</strong> via <code>BigDecimal</code> with HALF_UP rounding to <strong>$0.01</strong></li>
+                <li><strong>JUnit</strong> test suite for every rule + invoice totals</li>
+            </ul>
+        </div>
+
+        <div class="case-study-section">
+            <h2>Business Rules Implemented</h2>
+            
+            <div class="business-rule">
+                <h4>Equipment — Purchase</h4>
+                <p>Subtotal = <code>retail_price</code><br>
+                Tax = <strong>5.25% use tax</strong> of subtotal<br>
+                Total = <code>subtotal + tax</code></p>
+            </div>
+
+            <div class="business-rule">
+                <h4>Equipment — Lease</h4>
+                <p>Monthly base = <code>retail_price / 60</code> (5 years)<br>
+                Monthly with markup = <code>1.5 × base</code><br>
+                Subtotal = <code>months × monthly_with_markup</code><br>
+                Lease-tax tier: <strong>small = untaxed</strong>, <strong>mid = $500 flat</strong>, <strong>large = $1,500 flat</strong> (thresholds configurable)</p>
+            </div>
+
+            <div class="business-rule">
+                <h4>Equipment — Rental</h4>
+                <p>Hourly rate = <strong>0.1% of retail</strong> = <code>0.001 × retail_price</code><br>
+                Subtotal = <code>hours × hourly_rate</code><br>
+                Tax = <strong>4.38% sales tax</strong> of subtotal</p>
+            </div>
+
+            <div class="business-rule">
+                <h4>Material Sale</h4>
+                <p>Subtotal = <code>unit_price × quantity</code> (<strong>quantity must be an integer > 0</strong>)<br>
+                Tax = <strong>7.15% sales tax</strong> of subtotal</p>
+            </div>
+
+            <div class="business-rule">
+                <h4>Contract (Subcontractor)</h4>
+                <p>Subtotal = <code>contract_amount</code><br>
+                Tax = <strong>exempt</strong></p>
+            </div>
+
+            <p><strong>Note:</strong> All money values rounded to <span class="highlight">nearest cent</span> after each line-item computation.</p>
         </div>
 
         <div class="case-study-section">
             <h2>System Architecture</h2>
-            <p>Built a three-tier architecture using Java, MySQL, and JDBC for robust data management and business logic separation.</p>
-            
-            <h3>Database Design</h3>
-            <ul>
-                <li><strong>Tables:</strong> invoices, customers, products, invoice_items</li>
-                <li><strong>Relationships:</strong> Proper foreign key constraints and referential integrity</li>
-                <li><strong>Indexing:</strong> Optimized queries with strategic indexes on frequently accessed columns</li>
-                <li><strong>Normalization:</strong> 3NF design to eliminate redundancy</li>
-            </ul>
+            <div class="architecture-diagram">
+                <div>UI[Invoice CLI / Report Export] --> SVC[Invoice Service]</div>
+                <div>SVC -->|reads/writes| DB[(MySQL)]</div>
+                <div>SVC --> RULES[Item Rules (OOP)]</div>
+                <div>RULES --> EP[EquipmentPurchase]</div>
+                <div>RULES --> EL[EquipmentLease]</div>
+                <div>RULES --> ER[EquipmentRental]</div>
+                <div>RULES --> MAT[Material]</div>
+                <div>RULES --> CON[Contract]</div>
+            </div>
 
-            <h3>Core Components</h3>
-            <div class="feature-list">
-                <div class="feature-item">
-                    <h4>Data Access Layer</h4>
-                    <p>JDBC-based DAO pattern for database operations with connection pooling and transaction management.</p>
-                </div>
-                <div class="feature-item">
-                    <h4>Business Logic Layer</h4>
-                    <p>Service classes handling invoice processing, validation rules, and business calculations.</p>
-                </div>
-                <div class="feature-item">
-                    <h4>Report Generation</h4>
-                    <p>Multiple report formats including summary dashboards and detailed transaction logs.</p>
-                </div>
-                <div class="feature-item">
-                    <h4>Error Handling</h4>
-                    <p>Comprehensive exception handling with logging and user-friendly error messages.</p>
-                </div>
+            <h3>Data Model</h3>
+            <div class="code-block">
+COMPANY ||--o{ INVOICE : has
+INVOICE ||--|{ INVOICE_ITEM : contains
+ITEM ||--o{ INVOICE_ITEM : referenced
+
+COMPANY {
+  uuid company_id PK
+  string name
+}
+
+INVOICE {
+  uuid invoice_id PK
+  uuid company_id FK
+  date invoice_date
+}
+
+ITEM {
+  uuid item_uuid PK
+  string item_type
+  decimal retail_price
+  decimal unit_price
+}
+
+INVOICE_ITEM {
+  uuid invoice_item_id PK
+  uuid invoice_id FK
+  uuid item_uuid FK
+  int quantity
+  int hours
+  int months
+  decimal contract_amount
+}
             </div>
         </div>
 
         <div class="case-study-section">
-            <h2>Key Features & Implementation</h2>
+            <h2>Implementation Highlights</h2>
             
-            <h3>Invoice Processing</h3>
-            <ul>
-                <li><strong>CSV Import:</strong> Batch processing with validation and error reporting</li>
-                <li><strong>Data Validation:</strong> Business rule enforcement (amounts, dates, required fields)</li>
-                <li><strong>Duplicate Detection:</strong> Prevents duplicate invoice entries</li>
-                <li><strong>Transaction Management:</strong> ACID compliance for data consistency</li>
-            </ul>
+            <h3>Encapsulation</h3>
+            <p><code>LineItem</code> (abstract) → subclasses compute <code>subtotal()</code>, <code>tax()</code>, <code>total()</code></p>
 
-            <h3>Report Generation</h3>
-            <ul>
-                <li><strong>Summary Reports:</strong> Monthly/yearly totals, customer breakdowns</li>
-                <li><strong>Detail Reports:</strong> Line-item analysis, payment tracking</li>
-                <li><strong>Export Formats:</strong> CSV, formatted text output</li>
-                <li><strong>Performance:</strong> Optimized queries with pagination for large datasets</li>
-            </ul>
+            <h3>Precision</h3>
+            <p><code>BigDecimal</code> with <code>setScale(2, RoundingMode.HALF_UP)</code>; no floating-point drift</p>
+
+            <h3>Validation</h3>
+            <p>Integer quantities for materials, non-negative hours/months, non-negative prices</p>
+
+            <h3>Configuration</h3>
+            <p>Tax rates & lease tiers externalized for future changes</p>
+
+            <h3>Testing</h3>
+            <p>JUnit tests cover each rule + edge cases (zero quantities, tier boundaries)</p>
+
+            <h3>Example Implementation</h3>
+            <div class="code-block">
+BigDecimal toCents(BigDecimal x) { 
+    return x.setScale(2, RoundingMode.HALF_UP); 
+}
+
+class EquipmentRental extends LineItem {
+    BigDecimal rate(BigDecimal retail) { // 0.1% of retail per hour
+        return retail.multiply(new BigDecimal("0.001"));
+    }
+    
+    public BigDecimal subtotal() {
+        return toCents(rate(retailPrice).multiply(new BigDecimal(hours)));
+    }
+    
+    public BigDecimal tax() {
+        return toCents(subtotal().multiply(new BigDecimal("0.0438")));
+    }
+}
+            </div>
         </div>
 
         <div class="case-study-section">
-            <h2>Testing & Quality Assurance</h2>
+            <h2>Results & Performance</h2>
             <div class="metrics-grid">
                 <div class="metric-card">
-                    <div class="metric-value">85%</div>
-                    <div class="metric-label">JUnit Coverage</div>
+                    <div class="metric-value">5</div>
+                    <div class="metric-label">Item Types</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-value">&lt;2s</div>
-                    <div class="metric-label">Load Time</div>
+                    <div class="metric-value">100%</div>
+                    <div class="metric-label">Rule Coverage</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-value">3</div>
-                    <div class="metric-label">Report Types</div>
+                    <div class="metric-value">&lt;1s</div>
+                    <div class="metric-label">Report Generation</div>
                 </div>
                 <div class="metric-card">
-                    <div class="metric-value">1000+</div>
-                    <div class="metric-label">Test Cases</div>
+                    <div class="metric-value">$0.01</div>
+                    <div class="metric-label">Rounding Precision</div>
                 </div>
             </div>
             
-            <h3>Testing Strategy</h3>
+            <h3>Key Achievements</h3>
             <ul>
-                <li><strong>Unit Tests:</strong> Individual component testing with JUnit</li>
-                <li><strong>Integration Tests:</strong> Database interaction validation</li>
-                <li><strong>Performance Tests:</strong> Load testing with large datasets</li>
-                <li><strong>Edge Cases:</strong> Boundary condition testing and error scenarios</li>
+                <li><strong>Automated invoice creation</strong> with deterministic rounding and rule enforcement</li>
+                <li><strong>Speed:</strong> CLI generates detailed + summary reports in seconds for multi-item invoices</li>
+                <li><strong>Quality:</strong> Unit tests prevent regressions when tax rates or tiers change</li>
+                <li><strong>Lesson:</strong> Keeping calculations inside each subclass made the code safer and easier to extend</li>
             </ul>
         </div>
 
         <div class="case-study-section">
             <h2>Technical Implementation</h2>
             <div class="tech-stack">
-                <span class="tech-item">Java 11</span>
-                <span class="tech-item">MySQL</span>
+                <span class="tech-item">Java</span>
                 <span class="tech-item">JDBC</span>
-                <span class="tech-item">JUnit 5</span>
-                <span class="tech-item">Maven</span>
-                <span class="tech-item">Git</span>
-                <span class="tech-item">Eclipse</span>
+                <span class="tech-item">MySQL</span>
+                <span class="tech-item">JUnit</span>
+                <span class="tech-item">BigDecimal</span>
+                <span class="tech-item">OOP</span>
+                <span class="tech-item">CSV Migration</span>
             </div>
             
-            <h3>Performance Optimizations</h3>
+            <h3>Key Technical Decisions</h3>
             <ul>
-                <li><strong>Connection Pooling:</strong> Efficient database connection management</li>
-                <li><strong>Batch Processing:</strong> Bulk operations for large data imports</li>
-                <li><strong>Query Optimization:</strong> Indexed queries and prepared statements</li>
-                <li><strong>Memory Management:</strong> Stream processing for large files</li>
+                <li><strong>BigDecimal for Financial Calculations:</strong> Eliminates floating-point precision errors</li>
+                <li><strong>Polymorphic Design:</strong> Each item type encapsulates its own business logic</li>
+                <li><strong>Database Normalization:</strong> Proper relational design with foreign key constraints</li>
+                <li><strong>Comprehensive Testing:</strong> Unit tests for every business rule and edge case</li>
+                <li><strong>Configuration Management:</strong> Externalized tax rates and thresholds</li>
             </ul>
         </div>
 
         <div class="case-study-section">
             <h2>Challenges & Solutions</h2>
             
+            <h3>Financial Precision</h3>
+            <p><strong>Challenge:</strong> Ensuring exact cent-level accuracy in all calculations</p>
+            <p><strong>Solution:</strong> Implemented BigDecimal with HALF_UP rounding and centralized rounding method</p>
+
+            <h3>Complex Business Rules</h3>
+            <p><strong>Challenge:</strong> Managing different tax rates and calculation methods per item type</p>
+            <p><strong>Solution:</strong> Polymorphic design with abstract LineItem class and specialized subclasses</p>
+
             <h3>Data Integrity</h3>
-            <p><strong>Challenge:</strong> Ensuring data consistency across concurrent operations</p>
-            <p><strong>Solution:</strong> Implemented transaction management with rollback capabilities and proper locking mechanisms.</p>
-
-            <h3>Performance</h3>
-            <p><strong>Challenge:</strong> Processing large CSV files without memory issues</p>
-            <p><strong>Solution:</strong> Stream-based processing with batch inserts and progress tracking.</p>
-
-            <h3>Error Handling</h3>
-            <p><strong>Challenge:</strong> Providing meaningful feedback for data validation failures</p>
-            <p><strong>Solution:</strong> Detailed error reporting with line numbers and specific validation messages.</p>
+            <p><strong>Challenge:</strong> Ensuring data consistency across invoice items and calculations</p>
+            <p><strong>Solution:</strong> Database constraints, validation rules, and comprehensive unit testing</p>
         </div>
 
         <div class="case-study-section">
-            <h2>What I'd Improve</h2>
+            <h2>Next Steps & Future Enhancements</h2>
             <ul>
-                <li><strong>Web Interface:</strong> Add a REST API and web frontend for better user experience</li>
-                <li><strong>Advanced Analytics:</strong> Implement data visualization and trend analysis</li>
-                <li><strong>Cloud Deployment:</strong> Containerize with Docker and deploy to cloud platforms</li>
-                <li><strong>Real-time Processing:</strong> Add event-driven architecture for live updates</li>
-                <li><strong>Security:</strong> Implement authentication, authorization, and data encryption</li>
-                <li><strong>Monitoring:</strong> Add application monitoring and alerting systems</li>
+                <li><strong>Web UI:</strong> Spring Boot + Thymeleaf/React with CSV upload → DB</li>
+                <li><strong>Security:</strong> Role-based access + audit logs</li>
+                <li><strong>Automation:</strong> Scheduled monthly reports and per-customer dashboards</li>
+                <li><strong>Integration:</strong> API endpoints for external system integration</li>
+                <li><strong>Analytics:</strong> Business intelligence and reporting dashboard</li>
             </ul>
         </div>
 
@@ -259,12 +374,12 @@
             <h2>Business Impact</h2>
             <p>This project demonstrates my ability to:</p>
             <ul>
-                <li>Design and implement robust database schemas</li>
-                <li>Write clean, maintainable Java code following OOP principles</li>
-                <li>Implement comprehensive testing strategies</li>
-                <li>Handle complex business logic and data validation</li>
-                <li>Optimize performance for production environments</li>
-                <li>Document and communicate technical solutions effectively</li>
+                <li>Design and implement complex business rule engines</li>
+                <li>Handle financial calculations with precision and accuracy</li>
+                <li>Build maintainable, testable object-oriented systems</li>
+                <li>Create robust database schemas with proper normalization</li>
+                <li>Implement comprehensive testing strategies for business logic</li>
+                <li>Translate complex business requirements into technical solutions</li>
             </ul>
         </div>
     </div>
