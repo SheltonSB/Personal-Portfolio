@@ -812,6 +812,42 @@ body.dark-mode .phone-optional {
     color: #a0aec0;
 }
 
+body.dark-mode .about-content p,
+body.dark-mode .project-description,
+body.dark-mode .experience-description,
+body.dark-mode .contact-intro {
+    color: #e2e8f0;
+}
+
+body.dark-mode .detail-item strong,
+body.dark-mode .skill-category h3,
+body.dark-mode .project-header h3,
+body.dark-mode .experience-header h3 {
+    color: #f7fafc;
+}
+
+body.dark-mode .company {
+    color: #7ecfff;
+}
+
+body.dark-mode .duration {
+    color: #cbd5e0;
+    background: #4a5568;
+}
+
+body.dark-mode .contact-item a {
+    color: #7ecfff;
+}
+
+body.dark-mode .contact-icon {
+    color: #e2e8f0;
+}
+
+body.dark-mode .project-link.coming-soon {
+    color: #cbd5e0;
+    background: #4a5568;
+}
+
 
 /* Keyframe animations */
 
