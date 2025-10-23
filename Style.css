@@ -613,6 +613,97 @@ body {
     gap: 30px;
 }
 
+/* Contributions section */
+
+.contributions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+}
+
+.contribution-item {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid #48bb78;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contribution-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(72, 187, 120, 0.05), transparent);
+    transition: left 0.6s ease;
+}
+
+.contribution-item:hover {
+    transform: translateX(8px) translateY(-2px);
+    box-shadow: 0 15px 40px rgba(72, 187, 120, 0.15);
+    border-left-width: 6px;
+}
+
+.contribution-item:hover::before {
+    left: 100%;
+}
+
+.contribution-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.contribution-header h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.contribution-type {
+    color: #48bb78;
+    font-weight: 500;
+    background: #f0fff4;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+}
+
+.contribution-description {
+    color: #4a5568;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.contribution-links {
+    display: flex;
+    gap: 10px;
+}
+
+.contribution-link {
+    color: #48bb78;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    border-radius: 15px;
+    background: #f0fff4;
+    transition: all 0.3s ease;
+}
+
+.contribution-link:hover {
+    background: #48bb78;
+    color: white;
+}
+
 .involvement-item {
     background: white;
     padding: 30px;
@@ -781,6 +872,7 @@ body.dark-mode .skill-category,
 body.dark-mode .project-card,
 body.dark-mode .experience-item,
 body.dark-mode .involvement-item,
+body.dark-mode .contribution-item,
 body.dark-mode .contact-content {
     background: #2d3748;
     color: #e2e8f0;
@@ -967,6 +1059,69 @@ body.dark-mode .project-link.coming-soon {
 
 /* Responsive design */
 
+/* Print styles for professional PDF export */
+
+@media print {
+    /* Hide navigation and interactive elements */
+    .main-nav,
+    .dark-mode-toggle,
+    .profile-pic-corner,
+    .main-footer,
+    .contact-form,
+    .cta-btn.primary:not([href]),
+    .cta-btn.secondary:not([href]) {
+        display: none !important;
+    }
+    
+    /* Ensure links are underlined in print */
+    a {
+        text-decoration: underline !important;
+        color: #000 !important;
+    }
+    
+    /* Optimize for print layout */
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+        color: #000 !important;
+        background: white !important;
+    }
+    
+    .main-header {
+        background: white !important;
+        color: #000 !important;
+        padding: 20px 0 !important;
+    }
+    
+    .content-section {
+        break-inside: avoid;
+        margin-bottom: 30px;
+    }
+    
+    .project-card,
+    .experience-item,
+    .involvement-item,
+    .contribution-item {
+        break-inside: avoid;
+        border: 1px solid #ccc !important;
+        background: white !important;
+        color: #000 !important;
+    }
+    
+    /* Ensure high-DPI images */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Hide decorative elements */
+    .project-card::before,
+    .experience-item::before,
+    .involvement-item::before {
+        display: none !important;
+    }
+}
+
 /* Responsive design - Mobile First */
 
 @media (max-width: 768px) {
@@ -1008,7 +1163,8 @@ body.dark-mode .project-link.coming-soon {
         gap: 20px;
     }
     .testimonials-grid,
-    .involvement-grid {
+    .involvement-grid,
+    .contributions-grid {
         grid-template-columns: 1fr;
     }
     .project-ctas {
