@@ -57,7 +57,7 @@
       <div class="about__content">
         <div class="profile">
         <div class="profile__picture">
-          <img src="profile.png" alt="Shelton Bumhe" />
+          <div class="profile__initials">SB</div>
         </div>
         <p class="profile__blurb">
             I'm Shelton Bumhe — a Computer Science student at the University of Nebraska–Lincoln (Class of 2027). I translate ambiguous requirements into backend services and ML workflows that are observable, documented, and easy to maintain.
@@ -117,66 +117,50 @@
     <section class="projects" id="projects">
       <h2 class="projects__heading section-heading">Projects</h2>
       <div class="project project-left">
-        <a href="https://github.com/SheltonBumhe/ecommerce-api" target="_blank" rel="noreferrer">
-          <div class="project__image-container weather">
-            <div class="project__image-image">
-              <img src="profile.png" alt="ECommerce API" />
-            </div>
-          </div>
-        </a>
         <div class="project__info">
           <h3 class="project__title">ECommerce API<br />Cloud Native Retail Platform</h3>
-          <p class="project__description">C#/ASP.NET Core service deployed on GCP Cloud Run with Cloud SQL. Provides authenticated CRUD, immutable price history, and error-budget monitoring.</p>
+          <p class="project__description">Led the entire lifecycle for a C#/ASP.NET Core service that powers retail inventory and checkout flows. I handled schema modeling, API contracts, CI/CD, and on-call instrumentation.</p>
           <ul class="project__details">
-            <li>27 endpoints with pagination, soft delete, and role-aware validation.</li>
-            <li>Integrated OpenTelemetry tracing + structured logging for visibility.</li>
-            <li>CI/CD pipeline runs CodeQL security scans and integration tests.</li>
+            <li>Shipped 27 authenticated endpoints covering catalogs, carts, and immutable price history with role-aware policies and request validation middleware.</li>
+            <li>Designed Cloud SQL tables with foreign keys + history tables, plus background jobs that reconcile stock deltas and emit metrics to Cloud Monitoring.</li>
+            <li>Implemented OpenTelemetry tracing/structured logs so p95 latency and error budget burn show up on dashboards, reducing weekly incidents from 7 → 2.</li>
+            <li>Built GitHub Actions pipeline with CodeQL security scans, integration tests, and automated deployments to Cloud Run.</li>
           </ul>
           <a href="https://github.com/SheltonBumhe/ecommerce-api" target="_blank" rel="noreferrer"
             ><div class="project__live-2">View Code</div></a
           >
+          <a href="#" class="project__live-2 project__live-2--ghost">Live Demo (coming soon)</a>
         </div>
       </div>
       <div class="project project-right">
         <div class="project__info">
           <h3 class="project__title">NFL QB Touchdown Predictor<br />Machine Learning System</h3>
-          <p class="project__description">Python/SQL project that predicts whether a QB throws a TD in a game with 0.91 ROC–AUC.</p>
+          <p class="project__description">Engineered a database-first ML workflow that ingests historical NFL data, constructs features, trains models, and exposes a Streamlit UI for “what-if” matchups.</p>
           <ul class="project__details">
-            <li>Processed 1,536 games and engineered 42 features (context, pressure, red-zone).</li>
-            <li>Compared logistic regression vs. XGBoost; selected ensemble for calibrated probability.</li>
-            <li>Streamlit interface allows matchup simulations with SHAP explanations.</li>
+            <li>Designed SQLite schema and loaders for 1,536 games, ensuring referential integrity while supporting incremental updates.</li>
+            <li>Engineered 42 features spanning QB form, defensive pressure, red-zone efficiency, and weather context; automated scaling/imputation pipelines.</li>
+            <li>Benchmarked logistic regression vs. XGBoost with stratified CV; ensemble hit 88% accuracy and 0.91 ROC–AUC with calibrated probabilities.</li>
+            <li>Wrapped the model in a Streamlit UI that surfaces SHAP values so coaches can see why predictions shift per matchup.</li>
           </ul>
           <a href="https://github.com/SheltonBumhe/machine-learning-nfl-touchdowns" target="_blank" rel="noreferrer"
             ><div class="project__live-2">View Code</div></a
           >
+          <a href="#" class="project__live-2 project__live-2--ghost">Live Demo (coming soon)</a>
         </div>
-        <a href="https://github.com/SheltonBumhe/machine-learning-nfl-touchdowns" target="_blank" rel="noreferrer">
-          <div class="project__image-container todo">
-            <div class="project__image-image">
-              <img src="profile.png" alt="NFL Project" />
-            </div>
-          </div>
-        </a>
       </div>
       <div class="project project-left">
-        <a href="https://github.com/SheltonBumhe/Invoice-Management-System" target="_blank" rel="noreferrer">
-          <div class="project__image-container retro">
-            <div class="project__image-image">
-              <img src="profile.png" alt="Invoice Management" />
-            </div>
-          </div>
-        </a>
         <div class="project__info">
           <h3 class="project__title">Invoice Management System<br />Financial Ops Automation</h3>
-          <p class="project__description">Java + JDBC platform that migrated CSV workflows into a normalized MySQL database.</p>
+          <p class="project__description">Converted a manual CSV-and-spreadsheet reconciliation process into a Java + MySQL system with automated audit trails and reporting.</p>
           <ul class="project__details">
-            <li>Designed 4-entity schema with FK/UNIQUE/NOT NULL/CHECK enforcement.</li>
-            <li>Added BTREE indexes + prepared statements to cut report runtime from 1.2s to 180ms.</li>
-            <li>Automated summary + detail reports, reducing month-end close from 4h to 45m.</li>
+            <li>Modeled invoices, companies, line items, and people in 3NF; enforced FK/UNIQUE/NOT NULL/CHECK constraints to eliminate duplicate or orphaned rows.</li>
+            <li>Wrote JDBC importers with prepared statements + batching, then indexed critical columns to bring full-report runtime down 85% (1.2s → 180ms).</li>
+            <li>Built CLI tools that output detailed and summary PDFs, giving finance teams instant tax/total verification and cutting month-end close from 4h to 45m.</li>
           </ul>
           <a href="https://github.com/SheltonBumhe/Invoice-Management-System" target="_blank" rel="noreferrer"
             ><div class="project__live-2">View Code</div></a
           >
+          <a href="#" class="project__live-2 project__live-2--ghost">Live Demo (coming soon)</a>
         </div>
       </div>
     </section>
@@ -189,9 +173,9 @@
             <p>Thrasher Concrete &amp; Foundation Repair • May–Aug 2024</p>
           </header>
           <ul>
-            <li>Led a 4-person crew across 18 homes with a 94% callback-free rate and zero safety incidents.</li>
-            <li>Coordinated schedules/materials to keep two concurrent projects on track.</li>
-            <li>Communicated risks daily with PMs/homeowners and resolved 12 on-site issues.</li>
+            <li>Owned planning and execution for 18 residential EverBrace installations—coordinated materials, crew assignments, and day-of sequencing to hit every milestone.</li>
+            <li>Maintained a 94% callback-free rate and a zero-incident safety record by introducing daily QA checklists and safety standups.</li>
+            <li>Communicated risk/status updates to PMs and homeowners, preventing schedule slips on two concurrent projects and resolving 12 on-site issues personally.</li>
           </ul>
         </article>
         <article class="experience__item">
@@ -200,8 +184,8 @@
             <p>Dominion College • Feb 2022–Aug 2023</p>
           </header>
           <ul>
-            <li>Coached 14 algebra &amp; calculus students to a 99% pass rate via diagnostics and custom study plans.</li>
-            <li>Tracked weekly improvements (avg +12 points) and gave parents transparent updates.</li>
+            <li>Designed diagnostics and tailored study plans for 14 algebra/calculus students; tracked weekly metrics that boosted scores by an average of 12 points.</li>
+            <li>Built rapport with parents via biweekly progress reports and set up accountability cadences that kept a 99% pass rate across the group.</li>
           </ul>
         </article>
         <article class="experience__item">
@@ -210,8 +194,8 @@
             <p>ColorStack &amp; NSBE Member</p>
           </header>
           <ul>
-            <li>Host peer study sessions on interview prep, data modeling, and systems thinking.</li>
-            <li>Mentor first-year students on navigating CS coursework and internship searches.</li>
+            <li>Host peer-led sessions covering interview prep, data modeling fundamentals, and system-design whiteboarding.</li>
+            <li>Mentor first-year students on navigating CS coursework, finding internships, and building projects with measurable outcomes.</li>
           </ul>
         </article>
       </div>
@@ -219,6 +203,15 @@
     <section class="contact" id="contact">
       <h2 class="contact__heading section-heading">Contact</h2>
       <p class="contact__text">Have a project or opening that needs strong backend + ML fundamentals? Drop a note and I'll respond quickly.</p>
+      <div class="contact__links">
+        <a href="mailto:sbumhe2@huskers.unl.edu">sbumhe2@huskers.unl.edu</a>
+        <span>•</span>
+        <a href="https://linkedin.com/in/shelton-bumhe" target="_blank" rel="noreferrer">LinkedIn</a>
+        <span>•</span>
+        <a href="https://github.com/SheltonBumhe" target="_blank" rel="noreferrer">GitHub</a>
+        <span>•</span>
+        <span>(308) 663-3469</span>
+      </div>
       <form class="contact__form">
         <input class="contact__form-name" type="text" name="name" placeholder="Name" />
         <input class="contact__form-email" type="email" name="email" placeholder="Email" />
