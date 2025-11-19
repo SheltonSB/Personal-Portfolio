@@ -1,11 +1,37 @@
 // Highlight section in nav and handle contact form
 document.addEventListener("DOMContentLoaded", () => {
-    const links = document.querySelectorAll("nav a");
-    links.forEach(link => {
-        if (link.href === window.location.href) {
-            link.style.fontWeight = "bold";
+    const navLinks = document.querySelectorAll(".main-nav a[href^='#']");
+
+    const setActiveLink = (id) => {
+        navLinks.forEach(link => {
+            const targetId = link.getAttribute('href');
+            if (targetId === id) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    };
+
+    const observedSections = [];
+    navLinks.forEach(link => {
+        const section = document.querySelector(link.getAttribute('href'));
+        if (section) {
+            observedSections.push(section);
         }
     });
+
+    if (observedSections.length) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setActiveLink(`#${entry.target.id}`);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        observedSections.forEach(section => observer.observe(section));
+    }
 
     // Contact form handling
     const contactForm = document.getElementById('contactForm');
@@ -43,12 +69,14 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const hash = this.getAttribute('href');
+            const target = document.querySelector(hash);
             if (target) {
                 target.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
+                history.replaceState(null, '', hash);
             }
         });
     });

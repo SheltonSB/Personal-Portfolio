@@ -17,7 +17,7 @@
             <div class="header-text">
                 <h1>Shelton Bumhe</h1>
                 <p class="subtitle">Data Science and AI Engineering</p>
-                <p class="tagline">Software Engineering (Backend/ML) Intern, Summer 2026</p>
+                <p class="tagline">Aspiring Backend/ML Engineer • Seeking Summer 2026 Internship</p>
                 <button id="darkModeToggle" class="dark-mode-toggle" title="Toggle dark mode">Dark</button>
             </div>
             <nav class="main-nav">
@@ -26,7 +26,7 @@
                 <a href="#projects">Projects</a>
                 <a href="#experience">Experience</a>
                 <a href="#involvement">Involvement</a>
-                <a href="#contributions">Contributions</a>
+                <a href="#testimonials">Testimonials</a>
                 <a href="#contact">Contact</a>
                 <a href="Shelton Bumhe.pdf" class="resume-btn" download>Download Résumé</a>
             </nav>
@@ -133,17 +133,16 @@
                     <div class="project-header">
                         <h3>ECommerce API</h3>
                         <div class="project-metrics">
-                            <span class="metric">27 Endpoints</span>
-                            <span class="metric">p95 ≤200ms</span>
-                            <span class="metric">99.9% Uptime</span>
+                            <span class="metric">Cloud Run</span>
+                            <span class="metric">OpenAPI</span>
+                            <span class="metric">PostgreSQL</span>
                         </div>
                     </div>
                     <p class="project-description">
-                        Production-grade C#/ASP.NET Core REST API deployed on GCP Cloud Run with Cloud SQL backend. Features 27 endpoints with pagination, soft delete, and immutable price history. Achieved p95 latency ≤200ms with 99.9% uptime SLO. Implemented comprehensive monitoring with OpenTelemetry, error budgets, and autoscaling. Cut weekly errors from 7 to 2 through robust validation and global exception handling. Published Swagger/OpenAPI documentation with CI/CD pipeline including CodeQL security scanning and 85%+ test coverage.
+                        Production-grade C#/ASP.NET Core REST API deployed on GCP Cloud Run with Cloud SQL backend. Features 27 endpoints with pagination, soft delete, immutable price history, OpenAPI docs, and automated CodeQL checks. Added centralized validation and tracing with OpenTelemetry to keep regressions visible.
                     </p>
                     <div class="project-ctas">
-                        <a href="#" class="cta-btn primary">Live Demo</a>
-                        <a href="#" class="cta-btn secondary">Code</a>
+                        <a href="https://github.com/SheltonBumhe/ecommerce-api" target="_blank" class="cta-btn primary">Code</a>
                     </div>
                     <div class="project-tech">
                         <span class="tech-tag">C#</span>
@@ -164,10 +163,9 @@
                         </div>
                     </div>
                     <p class="project-description">
-                        Processed 6 seasons (1,536 games) and engineered 42 features including team rates, opponent context, pressure, and red-zone efficiency. Trained logistic regression & XGBoost models reaching 88% accuracy and 0.91 ROC–AUC with holdout and k-fold cross-validation. Used SHAP to surface top drivers (red-zone efficiency, pressure, opponent pass defense). Deployed a Streamlit app for matchup what-ifs with median inference latency of 0.4s.
+                        Processed 6 seasons (1,536 games) and engineered 42 features including team rates, opponent context, pressure, and red-zone efficiency. Trained logistic regression & XGBoost models reaching 88% accuracy and 0.91 ROC–AUC with holdout and k-fold cross-validation. Used SHAP to surface top drivers (red-zone efficiency, pressure, opponent pass defense) and built a Streamlit interface for matchup what-ifs. <a href="nfl-case-study.html" class="project-link">Read the full case study</a>.
                     </p>
                     <div class="project-ctas">
-                        <a href="#" class="cta-btn primary">Live Demo</a>
                         <a href="https://github.com/SheltonBumhe/machine-learning-nfl-touchdowns" target="_blank" class="cta-btn secondary">Code</a>
                     </div>
                     <div class="project-tech">
@@ -188,11 +186,10 @@
                         </div>
                     </div>
                     <p class="project-description">
-                        Migrated reports from CSV → MySQL using a normalized 4-entity (Invoices, Companies, Items, People) schema with enforced FK/UNIQUE/NOT NULL/CHECK constraints. Added BTREE indexes on invoice id, item uuid, company id and switched to prepared statements, reducing full report runtime from 1.2s → 180ms (85% improvement). Automated summary & detailed invoice reports for totals/tax verification, cutting month-end close from 4h → 45m (81% reduction) and eliminating manual spreadsheet reconciliation errors.
+                        Migrated reports from CSV → MySQL using a normalized 4-entity (Invoices, Companies, Items, People) schema with enforced FK/UNIQUE/NOT NULL/CHECK constraints. Added BTREE indexes on invoice id, item uuid, company id and switched to prepared statements, reducing full report runtime from 1.2s → 180ms (85% improvement). Automated summary & detailed invoice reports for totals/tax verification, cutting month-end close from 4h → 45m (81% reduction). <a href="invoice-case-study.html" class="project-link">Deep dive here</a>.
                     </p>
                     <div class="project-ctas">
                         <a href="https://github.com/SheltonBumhe/Invoice-Management-System" target="_blank" class="cta-btn primary">Code</a>
-                        <a href="#" class="cta-btn secondary">Schema</a>
                     </div>
                     <div class="project-tech">
                         <span class="tech-tag">Java</span>
@@ -257,32 +254,25 @@
             </div>
         </section>
 
-        <section id="contributions" class="content-section">
-            <h2>Open Source Contributions</h2>
-            <div class="contributions-grid">
-                <div class="contribution-item">
-                    <div class="contribution-header">
-                        <h3>XGBoost</h3>
-                        <span class="contribution-type">Bug Fix</span>
-                    </div>
-                    <p class="contribution-description">
-                        Fixed memory leak in early stopping callback for large datasets. Contributed to core optimization logic improving training performance by 15% for datasets with >1M samples.
+        <section id="testimonials" class="content-section">
+            <h2>Testimonials</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        Shelton translates ambiguous requirements into clear execution plans. He routinely surfaced risks early, kept sites on schedule, and raised the bar for communication with homeowners and PMs alike.
                     </p>
-                    <div class="contribution-links">
-                        <a href="#" class="contribution-link">PR #1234</a>
+                    <div class="testimonial-author">
+                        <strong>Chris Miller</strong>
+                        <div class="author-title">Field Supervisor, Thrasher Concrete</div>
                     </div>
                 </div>
-
-                <div class="contribution-item">
-                    <div class="contribution-header">
-                        <h3>FastAPI</h3>
-                        <span class="contribution-type">Feature</span>
-                    </div>
-                    <p class="contribution-description">
-                        Enhanced OpenAPI schema generation for nested Pydantic models with custom validators. Improved documentation accuracy and developer experience for complex API schemas.
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        He built personalized diagnostics for each tutoring student and iterated weekly based on data. Parents trusted him because they could see measurable score jumps every session.
                     </p>
-                    <div class="contribution-links">
-                        <a href="#" class="contribution-link">PR #5678</a>
+                    <div class="testimonial-author">
+                        <strong>Mary Jefferson</strong>
+                        <div class="author-title">Academic Coordinator, Dominion College</div>
                     </div>
                 </div>
             </div>
@@ -294,23 +284,54 @@
                 <p class="contact-intro">
                     Ready to discuss opportunities, collaborate on projects, or learn more about my work? I'm actively seeking internships and full-time positions in software development and data science.
                 </p>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <span class="contact-icon">📍</span>
-                        <span>Lincoln, NE</span>
+                <div class="project-ctas">
+                    <a href="mailto:sbumhe2@huskers.unl.edu" class="cta-btn primary">Hire Me</a>
+                    <a href="https://calendar.app.google/kSeUi8msS5xQ3szc8" target="_blank" class="cta-btn secondary">Book a Chat</a>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-form-section">
+                        <h3>Send a Message</h3>
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Send Email</button>
+                        </form>
                     </div>
-                    <div class="contact-item">
-                        <span class="contact-icon">📧</span>
-                        <a href="mailto:sbumhe2@huskers.unl.edu">sbumhe2@huskers.unl.edu</a>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-icon">📱</span>
-                        <span>(308) 663-3469</span>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-icon">🔗</span>
-                        <a href="https://linkedin.com/in/shelton-bumhe" target="_blank">LinkedIn</a> |
-                        <a href="https://github.com/SheltonBumhe" target="_blank">GitHub</a>
+                    <div class="contact-info-section">
+                        <h3>Reach Out</h3>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <span class="contact-icon">📍</span>
+                                <span>Lincoln, NE</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">📧</span>
+                                <a href="mailto:sbumhe2@huskers.unl.edu">sbumhe2@huskers.unl.edu</a>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">📱</span>
+                                <span>(308) 663-3469</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">🔗</span>
+                                <a href="https://linkedin.com/in/shelton-bumhe" target="_blank">LinkedIn</a> |
+                                <a href="https://github.com/SheltonBumhe" target="_blank">GitHub</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
