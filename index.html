@@ -1,195 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shelton Bumhe — Portfolio</title>
+    <title>Shelton Bumhe | Backend & ML Engineer</title>
     <link rel="stylesheet" href="Style.css" />
-</head>
-
-<body>
+  </head>
+  <body>
     <div class="hero" id="hero">
-        <div class="hero-sheen"></div>
-        <div class="hero-inner">
-            <div class="hero-badge">SB</div>
-            <p class="hero-eyebrow">Backend • Machine Learning • Data Modeling</p>
-            <h1 class="hero-heading">Hello, I'm <span>Shelton.</span></h1>
-            <p class="hero-subtitle">
-                Computer Science @ University of Nebraska–Lincoln (2027). I architect reliable APIs, build ML systems, and obsess over data integrity. Currently seeking a Summer 2026 Backend/ML internship.
-            </p>
-            <a href="#projects" class="hero-cta">
-                <span>View my work</span>
-                <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M11.293 5.707l5.293 5.293H5c-.552 0-1 .448-1 1s.448 1 1 1h11.586l-5.293 5.293a1 1 0 101.414 1.414l7-7a1 1 0 000-1.414l-7-7a1 1 0 10-1.414 1.414z" fill="currentColor" />
-                </svg>
-            </a>
-        </div>
-        <div class="hero-sidebar">
-            <div class="hero-meta">
-                <p>Based in Lincoln, NE</p>
-                <p>Focused on backend systems, ML pipelines, and data platforms.</p>
-                <p>Available for Summer 2026 internship.</p>
-            </div>
-            <div class="hero-links">
-                <a href="Shelton Bumhe.pdf" download>Download Résumé</a>
-                <a href="https://linkedin.com/in/shelton-bumhe" target="_blank" rel="noreferrer">LinkedIn</a>
-                <a href="https://github.com/SheltonBumhe" target="_blank" rel="noreferrer">GitHub</a>
-            </div>
-        </div>
+      <div class="canvas">
+        <canvas class="connecting-dots"></canvas>
+      </div>
+      <div class="heading">
+        <div class="heading__line-1">Hello, I'm <span>Shelton</span>.</div>
+        <div class="heading__line-2">I build reliable data-driven systems.</div>
+        <a href="#about" class="heading__link">
+          <div class="heading-cta">
+            View my work
+            <svg
+              class="heading__arrow"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <title>arrow-right</title>
+              <path
+                d="M11.293 5.707l5.293 5.293h-11.586c-0.552 0-1 0.448-1 1s0.448 1 1 1h11.586l-5.293 5.293c-0.391 0.391-0.391 1.024 0 1.414s1.024 0.391 1.414 0l7-7c0.092-0.092 0.166-0.202 0.217-0.324 0.101-0.245 0.101-0.521 0-0.766-0.049-0.118-0.121-0.228-0.217-0.324l-7-7c-0.391-0.391-1.024-0.391-1.414 0s-0.391 1.024 0 1.414z"
+              ></path>
+            </svg>
+          </div>
+        </a>
+      </div>
     </div>
-
     <nav class="navigation-bar">
-        <ul class="navigation">
-            <li class="navigation__item"><a href="#hero">Home</a></li>
-            <li class="navigation__item"><a href="#about">About</a></li>
-            <li class="navigation__item"><a href="#projects">Projects</a></li>
-            <li class="navigation__item"><a href="#experience">Experience</a></li>
-            <li class="navigation__item"><a href="#contact">Contact</a></li>
-        </ul>
+      <ul class="navigation">
+        <li class="navigation__item navigation__item--active" id="nav-hero"><a href="#hero">Home</a></li>
+        <li class="navigation__item" id="nav-about"><a href="#about">About</a></li>
+        <li class="navigation__item" id="nav-projects"><a href="#projects">Projects</a></li>
+        <li class="navigation__item" id="nav-contact"><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
-
-    <main class="page">
-        <section id="about" class="section about">
-            <div class="section-heading">
-                <span>01</span>
-                <h2>About</h2>
+    <div class="main-bg">
+      <div class="canvas">
+        <canvas class="canvas-2"></canvas>
+      </div>
+    </div>
+    <section class="about" id="about">
+      <h2 class="about__heading section-heading">About</h2>
+      <div class="about__content">
+        <div class="profile">
+          <div class="profile__picture">
+            <img src="profile.png" alt="Shelton Bumhe" />
+          </div>
+          <p class="profile__blurb">
+            I'm Shelton Bumhe — a Computer Science student at the University of Nebraska–Lincoln (Class of 2027) who loves turning ambiguous requirements into deterministic, measurable systems. From ASP.NET Core APIs to Python ML services, I design normalized schemas, enforce testing, and ship performance-conscious code with strong telemetry. I'm seeking a Summer 2026 Backend/ML internship focused on API engineering, ML infra, or data platforms.
+          </p>
+        </div>
+        <div class="skills">
+          <div class="skills__row">
+            <div class="skills__item skills__item--html">
+              <img src="logos/python.svg" alt="Python" />
+              <div class="skills__item-name">Python</div>
             </div>
-            <div class="about-grid">
-                <div class="about-profile">
-                    <img src="profile.png" alt="Shelton Bumhe" />
-                    <p>
-                        I'm driven by the intersection of software reliability and data storytelling. Whether shipping an ASP.NET Core API or training an XGBoost model, I optimize for measured outcomes, clean schemas, and maintainable deployments. I love translating vague business requirements into deterministic systems.
-                    </p>
-                    <div class="about-stats">
-                        <div><span>3</span> End-to-end platforms</div>
-                        <div><span>150+</span> LeetCode problems</div>
-                        <div><span>5</span> Years building with Python & C#</div>
-                    </div>
-                </div>
-                <div class="about-skills">
-                    <h3>Tech Focus</h3>
-                    <div class="skill-grid">
-                        <span>Python</span>
-                        <span>C# / ASP.NET Core</span>
-                        <span>Java</span>
-                        <span>SQL | MySQL | PostgreSQL</span>
-                        <span>XGBoost</span>
-                        <span>Streamlit</span>
-                        <span>EF Core</span>
-                        <span>API Design</span>
-                        <span>Testing (xUnit/JUnit)</span>
-                        <span>Data Modeling (3NF/ACID)</span>
-                    </div>
-                </div>
+            <div class="skills__item skills__item--webpack">
+              <img src="logos/cpp.svg" alt="C#" />
+              <div class="skills__item-name">C# / ASP.NET</div>
             </div>
-        </section>
-
-        <section id="projects" class="section projects">
-            <div class="section-heading">
-                <span>02</span>
-                <h2>Projects</h2>
+            <div class="skills__item skills__item--js">
+              <img src="logos/java.svg" alt="Java" />
+              <div class="skills__item-name">Java</div>
             </div>
-            <div class="project-list">
-                <article class="project-item">
-                    <div>
-                        <h3>ECommerce API</h3>
-                        <p>27 endpoint C#/ASP.NET Core service on Cloud Run + Cloud SQL. Includes immutable price history, OpenAPI docs, and CodeQL-secured CI/CD.</p>
-                        <p class="project-links">
-                            <a href="https://github.com/SheltonBumhe/ecommerce-api" target="_blank" rel="noreferrer">Code</a>
-                        </p>
-                    </div>
-                    <ul>
-                        <li>GCP Cloud Run</li>
-                        <li>OpenTelemetry</li>
-                        <li>PostgreSQL</li>
-                    </ul>
-                </article>
-                <article class="project-item">
-                    <div>
-                        <h3>NFL QB Touchdown Predictor</h3>
-                        <p>Processed 1,536 games, engineered 42 features, and shipped XGBoost + logistic regression ensemble with 0.91 ROC–AUC. Streamlit app for matchup what-ifs. <a href="nfl-case-study.html">Read case study →</a></p>
-                        <p class="project-links">
-                            <a href="https://github.com/SheltonBumhe/machine-learning-nfl-touchdowns" target="_blank" rel="noreferrer">Code</a>
-                        </p>
-                    </div>
-                    <ul>
-                        <li>Python</li>
-                        <li>XGBoost</li>
-                        <li>SHAP Explainability</li>
-                    </ul>
-                </article>
-                <article class="project-item">
-                    <div>
-                        <h3>Invoice Management System</h3>
-                        <p>Normalized MySQL schema (Invoices, Companies, Items, People) + JDBC ingestion. Reduced month-end close from 4h→45m via automated summary/detailed reports. <a href="invoice-case-study.html">Deep dive →</a></p>
-                        <p class="project-links">
-                            <a href="https://github.com/SheltonBumhe/Invoice-Management-System" target="_blank" rel="noreferrer">Code</a>
-                        </p>
-                    </div>
-                    <ul>
-                        <li>Java + JDBC</li>
-                        <li>MySQL</li>
-                        <li>JUnit</li>
-                    </ul>
-                </article>
+          </div>
+          <div class="skills__row">
+            <div class="skills__item skills__item--git">
+              <img src="logos/sql.svg" alt="SQL" />
+              <div class="skills__item-name">SQL &amp; Data Modeling</div>
             </div>
-        </section>
-
-        <section id="experience" class="section experience">
-            <div class="section-heading">
-                <span>03</span>
-                <h2>Experience & Impact</h2>
+            <div class="skills__item skills__item--sass">
+              <img src="logos/javascript.svg" alt="JavaScript" />
+              <div class="skills__item-name">JavaScript</div>
             </div>
-            <div class="timeline">
-                <article>
-                    <header>
-                        <h3>Lead Installer</h3>
-                        <span>Thrasher Concrete & Foundation Repair • May–Aug 2024</span>
-                    </header>
-                    <p>Led a 4-person crew across 18 residential jobs with a 94% callback-free rate and zero safety incidents. Communicated risk with PMs/homeowners daily to keep concurrent projects on schedule.</p>
-                </article>
-                <article>
-                    <header>
-                        <h3>Math Tutor</h3>
-                        <span>Dominion College • Feb 2022–Aug 2023</span>
-                    </header>
-                    <p>Guided 14 algebra/calculus students to a 99% pass rate by designing diagnostics, targeted practice sets, and weekly retros.</p>
-                </article>
-                <article>
-                    <header>
-                        <h3>Community</h3>
-                        <span>ColorStack & NSBE</span>
-                    </header>
-                    <p>Active contributor and mentor focused on increasing representation in CS. Host peer sessions on interview prep and system design basics.</p>
-                </article>
+            <div class="skills__item skills__item--npm">
+              <img src="logos/python.svg" alt="ML" />
+              <div class="skills__item-name">ML Pipelines</div>
             </div>
-        </section>
-
-        <section id="contact" class="section contact">
-            <div class="section-heading">
-                <span>04</span>
-                <h2>Contact</h2>
+          </div>
+          <div class="skills__row">
+            <div class="skills__item skills__item--python">
+              <img src="logos/sql.svg" alt="APIs" />
+              <div class="skills__item-name">API Design</div>
             </div>
-            <div class="contact-card">
-                <p>Ready to collaborate on backend systems, ML workflows, or data-heavy products? Reach out and let's build something durable.</p>
-                <div class="contact-actions">
-                    <a href="mailto:sbumhe2@huskers.unl.edu" class="primary">Email me</a>
-                    <a href="https://calendar.app.google/kSeUi8msS5xQ3szc8" target="_blank" rel="noreferrer" class="secondary">Book a chat</a>
-                </div>
-                <div class="contact-meta">
-                    <span>📍 Lincoln, NE</span>
-                    <span>📱 (308) 663-3469</span>
-                </div>
+            <div class="skills__item skills__item--react">
+              <img src="logos/java.svg" alt="Testing" />
+              <div class="skills__item-name">Testing (xUnit/JUnit)</div>
             </div>
-        </section>
-    </main>
-
-    <footer class="page-footer">
-        <p>© 2025 Shelton Bumhe — Built with intention.</p>
+            <div class="skills__item skills__item--r skills__item--css">
+              <img src="logos/c.svg" alt="Systems" />
+              <div class="skills__item-name">Systems Programming</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="projects" id="projects">
+      <h2 class="projects__heading section-heading">Projects</h2>
+      <div class="project project-left">
+        <a href="https://github.com/SheltonBumhe/ecommerce-api" target="_blank" rel="noreferrer">
+          <div class="project__image-container weather">
+            <div class="project__image-image">
+              <img src="profile.png" alt="ECommerce API" />
+            </div>
+          </div>
+        </a>
+        <div class="project__info">
+          <h3 class="project__title">ECommerce API<br />Cloud Native Retail Platform</h3>
+          <p class="project__description">27-endpoint ASP.NET Core service deployed on GCP Cloud Run + Cloud SQL. Includes immutable price history, OpenTelemetry tracing, and CodeQL-verified CI/CD.</p>
+          <a href="https://github.com/SheltonBumhe/ecommerce-api" target="_blank" rel="noreferrer"
+            ><div class="project__live-2">Code</div></a
+          >
+          <a href="Shelton Bumhe.pdf" target="_blank"
+            ><div class="project__live-2">Résumé</div></a
+          >
+        </div>
+      </div>
+      <div class="project project-right">
+        <div class="project__info">
+          <h3 class="project__title">NFL QB Touchdown Predictor<br />Machine Learning System</h3>
+          <p class="project__description">Processed 1,536 games, engineered 42 features, and shipped a Streamlit experience that delivers 0.91 ROC–AUC predictions plus SHAP explainability.</p>
+          <a href="https://github.com/SheltonBumhe/machine-learning-nfl-touchdowns" target="_blank" rel="noreferrer"
+            ><div class="project__live-2">Code</div></a
+          >
+          <a href="nfl-case-study.html" target="_blank"
+            ><div class="project__live-2">Case Study</div></a
+          >
+        </div>
+        <a href="nfl-case-study.html" target="_blank">
+          <div class="project__image-container todo">
+            <div class="project__image-image">
+              <img src="profile.png" alt="NFL Project" />
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="project project-left">
+        <a href="https://github.com/SheltonBumhe/Invoice-Management-System" target="_blank" rel="noreferrer">
+          <div class="project__image-container retro">
+            <div class="project__image-image">
+              <img src="profile.png" alt="Invoice Management" />
+            </div>
+          </div>
+        </a>
+        <div class="project__info">
+          <h3 class="project__title">Invoice Management System<br />Financial Ops Automation</h3>
+          <p class="project__description">Normalized MySQL schema + JDBC ingestion that cut month-end close from 4h→45m and enforced FK/UNIQUE/NOT NULL/CHECK constraints for zero reconciliation errors.</p>
+          <a href="https://github.com/SheltonBumhe/Invoice-Management-System" target="_blank" rel="noreferrer"
+            ><div class="project__live-2">Code</div></a
+          >
+          <a href="invoice-case-study.html" target="_blank"
+            ><div class="project__live-2">Case Study</div></a
+          >
+        </div>
+      </div>
+    </section>
+    <section class="contact" id="contact">
+      <h2 class="contact__heading section-heading">Contact</h2>
+      <p class="contact__text">Have a project or opening that needs strong backend + ML fundamentals? Drop a note and I'll respond quickly.</p>
+      <form class="contact__form">
+        <input class="contact__form-name" type="text" name="name" placeholder="Name" />
+        <input class="contact__form-email" type="email" name="email" placeholder="Email" />
+        <textarea class="contact__form-message" name="message" placeholder="Message"></textarea>
+        <div class="contact__form-error-submit">
+          <div class="form-error">
+            <div class="form-error__name">Please enter your name.</div>
+            <div class="form-error__email">Please enter a valid email.</div>
+            <div class="form-error__msg">Please enter a message.</div>
+          </div>
+          <button type="button" class="contact__form-submit-2 project__live-2" id="form-submit">Send</button>
+        </div>
+      </form>
+    </section>
+    <footer class="footer">
+      <a href="#hero">
+        <div class="return-home">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24">
+            <path fill="#fafafa" d="M17.707 10.293l-5-5c-0.391-0.391-1.024-0.391-1.414 0l-5 5c-0.391 0.391-0.391 1.024 0 1.414s1.024 0.391 1.414 0l4.293-4.293 4.293 4.293c0.391 0.391 1.024 0.391 1.414 0s0.391-1.024 0-1.414zM17.707 17.293l-5-5c-0.391-0.391-1.024-0.391-1.414 0l-5 5c-0.391 0.391-0.391 1.024 0 1.414s1.024 0.391 1.414 0l4.293-4.293 4.293 4.293c0.391 0.391 1.024 0.391 1.414 0s0.391-1.024 0-1.414z"></path>
+          </svg>
+        </div>
+      </a>
+      <div class="socials">
+        <a href="https://github.com/SheltonBumhe" target="_blank" rel="noreferrer">
+          <div class="socials__icon">GH</div>
+        </a>
+        <a href="https://linkedin.com/in/shelton-bumhe" target="_blank" rel="noreferrer">
+          <div class="socials__icon">IN</div>
+        </a>
+        <a href="mailto:sbumhe2@huskers.unl.edu">
+          <div class="socials__icon">✉️</div>
+        </a>
+      </div>
+      <p class="copyright">Shelton Bumhe ©2025</p>
     </footer>
-
     <script src="Edit.js"></script>
-</body>
-
+  </body>
 </html>
