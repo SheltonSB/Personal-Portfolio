@@ -32,6 +32,10 @@
             </svg>
           </div>
         </a>
+        <div class="hero__actions">
+          <a href="Shelton Bumhe.pdf" class="hero__btn hero__btn--primary" download>Download Résumé</a>
+          <a href="#contact" class="hero__btn hero__btn--secondary">Contact Me</a>
+        </div>
       </div>
     </div>
     <nav class="navigation-bar">
@@ -39,6 +43,7 @@
         <li class="navigation__item navigation__item--active" id="nav-hero"><a href="#hero">Home</a></li>
         <li class="navigation__item" id="nav-about"><a href="#about">About</a></li>
         <li class="navigation__item" id="nav-projects"><a href="#projects">Projects</a></li>
+        <li class="navigation__item" id="nav-experience"><a href="#experience">Experience</a></li>
         <li class="navigation__item" id="nav-contact"><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -51,13 +56,18 @@
       <h2 class="about__heading section-heading">About</h2>
       <div class="about__content">
         <div class="profile">
-          <div class="profile__picture">
-            <img src="profile.png" alt="Shelton Bumhe" />
-          </div>
-          <p class="profile__blurb">
-            I'm Shelton Bumhe — a Computer Science student at the University of Nebraska–Lincoln (Class of 2027) who loves turning ambiguous requirements into deterministic, measurable systems. From ASP.NET Core APIs to Python ML services, I design normalized schemas, enforce testing, and ship performance-conscious code with strong telemetry. I'm seeking a Summer 2026 Backend/ML internship focused on API engineering, ML infra, or data platforms.
-          </p>
+        <div class="profile__picture">
+          <img src="profile.png" alt="Shelton Bumhe" />
         </div>
+        <p class="profile__blurb">
+            I'm Shelton Bumhe — a Computer Science student at the University of Nebraska–Lincoln (Class of 2027). I translate ambiguous requirements into backend services and ML workflows that are observable, documented, and easy to maintain.
+        </p>
+        <ul class="profile__focus">
+          <li>Specialties: ASP.NET Core APIs, Python data/ML pipelines, relational modeling.</li>
+          <li>Working style: schema-first design, enforceable testing, instrumentation via OpenTelemetry.</li>
+          <li>Goal: secure a Summer 2026 Backend/ML internship building resilient data platforms.</li>
+        </ul>
+      </div>
         <div class="skills">
           <div class="skills__row">
             <div class="skills__item skills__item--html">
@@ -116,27 +126,31 @@
         </a>
         <div class="project__info">
           <h3 class="project__title">ECommerce API<br />Cloud Native Retail Platform</h3>
-          <p class="project__description">27-endpoint ASP.NET Core service deployed on GCP Cloud Run + Cloud SQL. Includes immutable price history, OpenTelemetry tracing, and CodeQL-verified CI/CD.</p>
+          <p class="project__description">C#/ASP.NET Core service deployed on GCP Cloud Run with Cloud SQL. Provides authenticated CRUD, immutable price history, and error-budget monitoring.</p>
+          <ul class="project__details">
+            <li>27 endpoints with pagination, soft delete, and role-aware validation.</li>
+            <li>Integrated OpenTelemetry tracing + structured logging for visibility.</li>
+            <li>CI/CD pipeline runs CodeQL security scans and integration tests.</li>
+          </ul>
           <a href="https://github.com/SheltonBumhe/ecommerce-api" target="_blank" rel="noreferrer"
-            ><div class="project__live-2">Code</div></a
-          >
-          <a href="Shelton Bumhe.pdf" target="_blank"
-            ><div class="project__live-2">Résumé</div></a
+            ><div class="project__live-2">View Code</div></a
           >
         </div>
       </div>
       <div class="project project-right">
         <div class="project__info">
           <h3 class="project__title">NFL QB Touchdown Predictor<br />Machine Learning System</h3>
-          <p class="project__description">Processed 1,536 games, engineered 42 features, and shipped a Streamlit experience that delivers 0.91 ROC–AUC predictions plus SHAP explainability.</p>
+          <p class="project__description">Python/SQL project that predicts whether a QB throws a TD in a game with 0.91 ROC–AUC.</p>
+          <ul class="project__details">
+            <li>Processed 1,536 games and engineered 42 features (context, pressure, red-zone).</li>
+            <li>Compared logistic regression vs. XGBoost; selected ensemble for calibrated probability.</li>
+            <li>Streamlit interface allows matchup simulations with SHAP explanations.</li>
+          </ul>
           <a href="https://github.com/SheltonBumhe/machine-learning-nfl-touchdowns" target="_blank" rel="noreferrer"
-            ><div class="project__live-2">Code</div></a
-          >
-          <a href="nfl-case-study.html" target="_blank"
-            ><div class="project__live-2">Case Study</div></a
+            ><div class="project__live-2">View Code</div></a
           >
         </div>
-        <a href="nfl-case-study.html" target="_blank">
+        <a href="https://github.com/SheltonBumhe/machine-learning-nfl-touchdowns" target="_blank" rel="noreferrer">
           <div class="project__image-container todo">
             <div class="project__image-image">
               <img src="profile.png" alt="NFL Project" />
@@ -154,14 +168,52 @@
         </a>
         <div class="project__info">
           <h3 class="project__title">Invoice Management System<br />Financial Ops Automation</h3>
-          <p class="project__description">Normalized MySQL schema + JDBC ingestion that cut month-end close from 4h→45m and enforced FK/UNIQUE/NOT NULL/CHECK constraints for zero reconciliation errors.</p>
+          <p class="project__description">Java + JDBC platform that migrated CSV workflows into a normalized MySQL database.</p>
+          <ul class="project__details">
+            <li>Designed 4-entity schema with FK/UNIQUE/NOT NULL/CHECK enforcement.</li>
+            <li>Added BTREE indexes + prepared statements to cut report runtime from 1.2s to 180ms.</li>
+            <li>Automated summary + detail reports, reducing month-end close from 4h to 45m.</li>
+          </ul>
           <a href="https://github.com/SheltonBumhe/Invoice-Management-System" target="_blank" rel="noreferrer"
-            ><div class="project__live-2">Code</div></a
-          >
-          <a href="invoice-case-study.html" target="_blank"
-            ><div class="project__live-2">Case Study</div></a
+            ><div class="project__live-2">View Code</div></a
           >
         </div>
+      </div>
+    </section>
+    <section class="experience" id="experience">
+      <h2 class="projects__heading section-heading">Experience</h2>
+      <div class="experience__timeline">
+        <article class="experience__item">
+          <header>
+            <h3>Lead Installer</h3>
+            <p>Thrasher Concrete &amp; Foundation Repair • May–Aug 2024</p>
+          </header>
+          <ul>
+            <li>Led a 4-person crew across 18 homes with a 94% callback-free rate and zero safety incidents.</li>
+            <li>Coordinated schedules/materials to keep two concurrent projects on track.</li>
+            <li>Communicated risks daily with PMs/homeowners and resolved 12 on-site issues.</li>
+          </ul>
+        </article>
+        <article class="experience__item">
+          <header>
+            <h3>Math Tutor</h3>
+            <p>Dominion College • Feb 2022–Aug 2023</p>
+          </header>
+          <ul>
+            <li>Coached 14 algebra &amp; calculus students to a 99% pass rate via diagnostics and custom study plans.</li>
+            <li>Tracked weekly improvements (avg +12 points) and gave parents transparent updates.</li>
+          </ul>
+        </article>
+        <article class="experience__item">
+          <header>
+            <h3>Community</h3>
+            <p>ColorStack &amp; NSBE Member</p>
+          </header>
+          <ul>
+            <li>Host peer study sessions on interview prep, data modeling, and systems thinking.</li>
+            <li>Mentor first-year students on navigating CS coursework and internship searches.</li>
+          </ul>
+        </article>
       </div>
     </section>
     <section class="contact" id="contact">
