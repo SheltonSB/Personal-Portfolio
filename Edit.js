@@ -1,11 +1,13 @@
-// Highlight section in nav and handle contact form
-document.addEventListener("DOMContentLoaded", () => {
-    const navLinks = document.querySelectorAll(".main-nav a[href^='#']");
+// Navigation highlighting and smooth scrolling
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('.navigation__item a');
+    const sections = ['hero', 'about', 'projects', 'experience', 'contact']
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
 
-    const setActiveLink = (id) => {
+    const setActive = (hash) => {
         navLinks.forEach(link => {
-            const targetId = link.getAttribute('href');
-            if (targetId === id) {
+            if (link.getAttribute('href') === hash) {
                 link.classList.add('active');
             } else {
                 link.classList.remove('active');
@@ -13,85 +15,28 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    const observedSections = [];
-    navLinks.forEach(link => {
-        const section = document.querySelector(link.getAttribute('href'));
-        if (section) {
-            observedSections.push(section);
-        }
-    });
-
-    if (observedSections.length) {
-        const observer = new IntersectionObserver((entries) => {
+    if (sections.length) {
+        const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    setActiveLink(`#${entry.target.id}`);
+                    setActive(`#${entry.target.id}`);
                 }
             });
-        }, { threshold: 0.3 });
+        }, { threshold: 0.4 });
 
-        observedSections.forEach(section => observer.observe(section));
+        sections.forEach(section => observer.observe(section));
+        setActive('#hero');
     }
 
-    // Contact form handling
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const subject = formData.get('subject');
-            const message = formData.get('message');
-            
-            // Create mailto link
-            const mailtoLink = `mailto:sbumhe2@huskers.unl.edu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Show success message
-            const submitBtn = this.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Email client opened!';
-            submitBtn.style.background = '#48bb78';
-            
-            setTimeout(() => {
-                submitBtn.textContent = originalText;
-                submitBtn.style.background = '';
-            }, 3000);
-        });
-    }
-
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const hash = this.getAttribute('href');
+    navLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const hash = link.getAttribute('href');
             const target = document.querySelector(hash);
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 history.replaceState(null, '', hash);
             }
         });
-    });
-
-    // Sticky navigation
-    const header = document.querySelector('.main-header');
-    const headerHeight = header.offsetHeight;
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > headerHeight) {
-            header.classList.add('sticky');
-            document.body.style.paddingTop = '80px';
-        } else {
-            header.classList.remove('sticky');
-            document.body.style.paddingTop = '0';
-        }
     });
 });
