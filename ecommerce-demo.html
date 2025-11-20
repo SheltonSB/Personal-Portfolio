@@ -45,11 +45,23 @@
             background: linear-gradient(135deg, #0f172a, #2d6cdf);
             border-radius: 18px;
             padding: 30px;
-            text-align: center;
-            color: rgba(255,255,255,0.8);
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
+            color: rgba(255,255,255,0.9);
             margin-bottom: 20px;
+        }
+        .demo-video p {
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        .demo-video pre {
+            background: rgba(10,10,20,0.7);
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            overflow-x: auto;
+            color: #e2e8f0;
         }
         .demo-links a {
             display: inline-block;
@@ -75,7 +87,15 @@
         </div>
 
         <section class="demo-section">
-            <div class="demo-video">Live API walkthrough coming soon</div>
+            <div class="demo-video">
+                <p>Live session excerpt</p>
+                <pre>
+$ curl -H "Authorization: Bearer ***" \
+  https://api.shelton.run/v1/orders/ACME-992
+→ 200 OK (148 ms)
+trace_id=99f2c84b32e0 inventory_check=PASS
+                </pre>
+            </div>
             <div class="demo-links">
                 <a href="https://github.com/SheltonBumhe/ecommerce-api" target="_blank">GitHub</a>
                 <a href="Shelton Bumhe.pdf" target="_blank">Résumé</a>

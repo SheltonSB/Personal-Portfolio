@@ -304,13 +304,13 @@ const observerNavProjects = new IntersectionObserver(navFadeIn, optionsProjects)
 const projectsSection = document.querySelector('#projects');
 if (projectsSection) observerNavProjects.observe(projectsSection);
 
-// Contact form validation + mailto trigger
+// Contact form validation + async submit
 const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const submitBtn = document.getElementById('form-submit');
+const contactForm = document.querySelector('.contact__form');
 
-if (submitBtn) {
+if (submitBtn && contactForm) {
   submitBtn.addEventListener('click', () => {
-    const form = document.querySelector('.contact__form');
     const nameInput = document.querySelector('.contact__form-name');
     const emailInput = document.querySelector('.contact__form-email');
     const msgInput = document.querySelector('.contact__form-message');
@@ -352,10 +352,36 @@ if (submitBtn) {
     }
 
     if (valid) {
-      const subject = encodeURIComponent('Portfolio Inquiry');
-      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${msg}`);
-      window.location.href = `mailto:sbumhe2@huskers.unl.edu?subject=${subject}&body=${body}`;
-      setTimeout(() => form.reset(), 1000);
+      submitBtn.disabled = true;
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Sending...';
+
+      const endpoint = contactForm.getAttribute('action');
+      const formData = new FormData(contactForm);
+
+      fetch(endpoint, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: formData,
+      })
+        .then((response) => {
+          if (response.ok) {
+            submitBtn.textContent = 'Message sent!';
+            contactForm.reset();
+          } else {
+            throw new Error('Network error');
+          }
+        })
+        .catch(() => {
+          submitBtn.textContent = 'Try again via email';
+          window.location.href = 'mailto:sbumhe2@huskers.unl.edu';
+        })
+        .finally(() => {
+          setTimeout(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+          }, 2500);
+        });
     }
   });
 }
