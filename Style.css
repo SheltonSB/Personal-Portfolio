@@ -85,3 +85,14 @@ body{overflow-x:hidden}
 .contact__form-submit-2{background:#ff4d5a;color:#0f0f0f;border:none;border-radius:30px;padding:.8rem 2rem;font-size:1rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:transform .2s,box-shadow .2s}
 .contact__form-submit-2:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(0,0,0,0.35)}
 .contact__form-submit-2:disabled{opacity:.6;cursor:not-allowed}
+
+/* Link + contact button styles */
+.project-links-row{margin-top:1rem}
+.project-inline-link{color:#7dd3fc;font-size:1.1rem;text-decoration:none;letter-spacing:.05em}
+.project-inline-link:hover{text-decoration:underline}
+.project__live-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.45rem 1.2rem;border-radius:999px;background:#ff4d5a;color:#0f0f0f;font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border:none;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.project__live-btn::after{content:"->";font-size:.8rem;opacity:.7}
+.project__live-btn:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(0,0,0,0.3)}
+.contact__form-submit-2{background:#ff4d5a;color:#0f0f0f;border:none;border-radius:30px;padding:.8rem 2rem;font-size:1rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.contact__form-submit-2:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(0,0,0,0.35)}
+.contact__form-submit-2:disabled{opacity:.6;cursor:not-allowed}
