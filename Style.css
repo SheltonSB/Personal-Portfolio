@@ -58,7 +58,10 @@ body{overflow-x:hidden}
 .project__image-link{flex:1;display:flex;justify-content:center;text-decoration:none}
 .project__info{flex:1;min-width:280px}
 .experience{background:rgba(10,10,20,0.8);padding:4rem;border-radius:24px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 30px 60px rgba(0,0,0,0.45)}
-.experience__item{background:rgba(255,255,255,0.03)}
+.experience__item{background:rgba(26,26,38,0.9);border:1px solid rgba(255,255,255,0.08);color:#e9ecff}
+.experience__item ul{color:#e9ecff}
+.experience__item header h3{color:#fff}
+.experience__item header p{color:#cbd5ff}
 @media (max-width:900px){
     .hero{min-height:auto;padding:80px 16px 50px}
     .canvas{opacity:0.4}
@@ -75,3 +78,16 @@ body{overflow-x:hidden}
     .experience{padding:3rem 1.5rem}
     .project__details{margin-left:0}
 }
+/* CTA tweaks */
+.project-links-row{display:flex;align-items:center;gap:1rem;margin-top:1rem}
+.project-inline-link{color:#7dd3fc;font-size:1.1rem;text-decoration:none;letter-spacing:.05em}
+.project-inline-link:hover{text-decoration:underline}
+.project__live-2{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;padding:.4rem 1.2rem;border-radius:24px;text-transform:uppercase;letter-spacing:.15em;font-size:.75rem;font-weight:600;border:1px solid rgba(255,255,255,0.4);transition:transform .2s,box-shadow .2s,background .2s;color:#fff;background:#ff4d5a;border-color:#ff4d5a;color:#0f0f0f}
+.project__live-2::after{content:'➜';font-size:.85rem;opacity:.7;transition:transform .3s}
+.project__live-2:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,0,0,0.3)}
+.project__live-2:hover::after{transform:translateX(3px)}
+.project__live-2--ghost{background:transparent;color:#fff;border:1px dashed rgba(255,255,255,0.4)}
+.project__live-2--ghost::after{display:none}
+.contact__form-submit-2{background:#ff4d5a;color:#0f0f0f;border:none;border-radius:30px;padding:.8rem 2rem;font-size:1rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.contact__form-submit-2:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(0,0,0,0.35)}
+.contact__form-submit-2:disabled{opacity:.6;cursor:not-allowed}
