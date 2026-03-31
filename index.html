@@ -195,8 +195,8 @@
           <span class="section-kicker">Selected Work</span>
           <h2 class="section-heading">Projects</h2>
           <p class="section-intro">
-            I keep the project section recruiter-friendly on purpose. Each project has a clear business or technical
-            problem, a concrete architecture, and a detailed breakdown you can open without leaving the site.
+            I keep the project section recruiter-friendly on purpose. Each project is written to show the problem,
+            system design decisions, measurable signals, and why the work matters in a real engineering conversation.
           </p>
         </div>
 
@@ -219,12 +219,14 @@
               </div>
               <h3 class="project-card__title">Full-Stack E-Commerce</h3>
               <p class="project-card__summary">
-                A performance-focused storefront and backend stack built with .NET, React, PostgreSQL, Redis, and Azure.
+                A production-minded commerce system built with .NET, React, PostgreSQL, Redis, and Azure to show how I
+                think about backend architecture, performance-sensitive reads, secure checkout, media workflows, and
+                release quality in one coherent product.
               </p>
               <ul class="project-card__highlights">
-                <li>Redis-backed caching to keep data-heavy pages responsive.</li>
-                <li>JWT auth, Stripe checkout, and Cloudinary media handling.</li>
-                <li>Automated Azure deployment through GitHub Actions.</li>
+                <li>Designed the system around a relational PostgreSQL core with Redis in front of high-frequency catalog reads so repeated product and listing requests stay fast instead of constantly hitting the database.</li>
+                <li>Implemented JWT authentication, Stripe checkout, and Cloudinary asset handling as separate concerns in the backend so identity, payments, and media each have a clean system boundary.</li>
+                <li>Used GitHub Actions to validate and deploy the application to Azure, which turns the project from a local demo into a more credible end-to-end engineering workflow.</li>
               </ul>
               <div class="project-card__actions">
                 <button type="button" class="project-card__button project-card__button--primary" data-project-open="ecommerce">
@@ -255,12 +257,13 @@
               </div>
               <h3 class="project-card__title">NFL QB Touchdown Predictor</h3>
               <p class="project-card__summary">
-                A predictive analytics project that combines practical ML, explainability, and a non-expert-friendly interface.
+                A machine learning product that combines data preparation, XGBoost modeling, SHAP-based explainability,
+                and a Streamlit delivery layer so the work is not just accurate, but also understandable and usable.
               </p>
               <ul class="project-card__highlights">
-                <li>XGBoost model trained on 10,000+ plays with reported 88% accuracy.</li>
-                <li>SHAP explanations to surface why the model leans a certain way.</li>
-                <li>Interactive Streamlit app for fast matchup simulation.</li>
+                <li>Trained the model on more than 10,000 historical plays, which gave the project enough scale to talk credibly about feature engineering, evaluation, and what the reported 88% accuracy actually represents.</li>
+                <li>Used SHAP explanations so predictions are tied back to the features influencing the result, which makes the model easier to defend in front of recruiters, teammates, or non-technical users.</li>
+                <li>Wrapped the pipeline in a Streamlit interface with a sub-two-second response target so the project feels like a lightweight product instead of a static notebook.</li>
               </ul>
               <div class="project-card__actions">
                 <button type="button" class="project-card__button project-card__button--primary" data-project-open="nfl">
