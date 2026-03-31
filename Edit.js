@@ -452,6 +452,9 @@ function initializePortfolioAgent() {
   const agentForm = document.getElementById('agent-form');
   const agentInput = document.getElementById('agent-input');
   const suggestionContainer = document.getElementById('agent-suggestions');
+  const agentLauncher = document.getElementById('agent-launcher');
+  const agentPanel = document.getElementById('agent-widget-panel');
+  const agentClose = document.getElementById('agent-widget-close');
   let pendingFollowUpTopic = '';
 
   if (!chatLog || !agentForm || !agentInput || !suggestionContainer) return;
@@ -479,6 +482,15 @@ function initializePortfolioAgent() {
     messageNode.append(roleNode, textNode);
     chatLog.appendChild(messageNode);
     chatLog.scrollTop = chatLog.scrollHeight;
+  }
+
+  function setAgentPanelOpen(isOpen) {
+    if (!agentPanel || !agentLauncher) return;
+    agentPanel.hidden = !isOpen;
+    agentLauncher.setAttribute('aria-expanded', String(isOpen));
+    if (isOpen) {
+      window.setTimeout(() => agentInput.focus(), 60);
+    }
   }
 
   function askAgent(question) {
@@ -511,6 +523,21 @@ function initializePortfolioAgent() {
   if (portfolioAgentData.promptPlaceholder) {
     agentInput.placeholder = portfolioAgentData.promptPlaceholder;
   }
+
+  if (agentLauncher && agentPanel) {
+    agentLauncher.addEventListener('click', () => {
+      const isOpen = agentLauncher.getAttribute('aria-expanded') === 'true';
+      setAgentPanelOpen(!isOpen);
+    });
+  }
+
+  if (agentClose) {
+    agentClose.addEventListener('click', () => setAgentPanelOpen(false));
+  }
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setAgentPanelOpen(false);
+  });
 
   const suggestionButtons = suggestionContainer.querySelectorAll('.agent-suggestion');
   suggestionButtons.forEach((button, index) => {

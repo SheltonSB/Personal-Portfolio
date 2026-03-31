@@ -263,33 +263,6 @@
       <h2 class="contact__heading section-heading">Contact</h2>
       <p class="contact__text">If you are hiring for backend, data, or ML internships, I’d be glad to talk. I’m especially interested in teams that value shipping, learning fast, and explaining technical work clearly.</p>
       <div class="contact__content-grid">
-        <div class="contact__panel agent-panel">
-          <div class="agent-panel__eyebrow">Portfolio AI</div>
-          <h3 class="agent-panel__title">Ask Shelton AI</h3>
-          <p class="agent-panel__intro">
-            Visitors can ask about my resume, projects, technical strengths, MLT, ColorStack, NSBE, current books, and contact details.
-          </p>
-          <div class="agent-suggestions" id="agent-suggestions">
-            <button type="button" class="agent-suggestion">Who is Shelton?</button>
-            <button type="button" class="agent-suggestion">What backend work has he done?</button>
-            <button type="button" class="agent-suggestion">Tell me about the NFL ML project</button>
-            <button type="button" class="agent-suggestion">Tell me about MLT, ColorStack, and NSBE</button>
-          </div>
-          <div class="agent-chat" id="agent-chat-log" aria-live="polite"></div>
-          <form class="agent-form" id="agent-form">
-            <label class="sr-only" for="agent-input">Ask Shelton AI a question</label>
-            <input
-              class="agent-form__input"
-              id="agent-input"
-              type="text"
-              name="agent-question"
-              placeholder="Ask about Shelton, his projects, or internship fit"
-              autocomplete="off"
-            />
-            <button type="submit" class="agent-form__submit">Ask</button>
-          </form>
-          <p class="agent-panel__note">This assistant runs from a local knowledge base, so it is fast to tune and easy to keep aligned with the portfolio.</p>
-        </div>
         <div class="contact__panel">
           <div class="contact__links">
             <a href="mailto:sbumhe2@huskers.unl.edu" class="contact-chip">
@@ -353,6 +326,57 @@
         </div>
       </div>
     </section>
+    <div class="agent-widget">
+      <button
+        type="button"
+        class="agent-launcher"
+        id="agent-launcher"
+        aria-controls="agent-widget-panel"
+        aria-expanded="false"
+        aria-label="Open Ask Shelton AI"
+      >
+        <span class="agent-launcher__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <path d="M12 3C6.48 3 2 6.98 2 11.9c0 2.7 1.36 5.12 3.52 6.75L4.6 22l3.6-1.88c1.18.33 2.45.5 3.8.5 5.52 0 10-3.98 10-8.9S17.52 3 12 3m-3.35 7.9a1.1 1.1 0 1 1 0-2.2 1.1 1.1 0 0 1 0 2.2m3.35 0a1.1 1.1 0 1 1 0-2.2 1.1 1.1 0 0 1 0 2.2m3.35 0a1.1 1.1 0 1 1 0-2.2 1.1 1.1 0 0 1 0 2.2"></path>
+          </svg>
+        </span>
+        <span class="agent-launcher__text">Ask Shelton AI</span>
+      </button>
+      <div class="agent-widget__panel contact__panel agent-panel" id="agent-widget-panel" hidden>
+        <div class="agent-widget__header">
+          <div>
+            <div class="agent-panel__eyebrow">Portfolio AI</div>
+            <h3 class="agent-panel__title">Ask Shelton AI</h3>
+          </div>
+          <button type="button" class="agent-widget__close" id="agent-widget-close" aria-label="Close Ask Shelton AI">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <p class="agent-panel__intro">
+          Ask about my resume, projects, technical strengths, MLT, ColorStack, NSBE, books, and contact details.
+        </p>
+        <div class="agent-suggestions" id="agent-suggestions">
+          <button type="button" class="agent-suggestion">Who is Shelton?</button>
+          <button type="button" class="agent-suggestion">What backend work has he done?</button>
+          <button type="button" class="agent-suggestion">Tell me about the NFL ML project</button>
+          <button type="button" class="agent-suggestion">Tell me about MLT, ColorStack, and NSBE</button>
+        </div>
+        <div class="agent-chat" id="agent-chat-log" aria-live="polite"></div>
+        <form class="agent-form" id="agent-form">
+          <label class="sr-only" for="agent-input">Ask Shelton AI a question</label>
+          <input
+            class="agent-form__input"
+            id="agent-input"
+            type="text"
+            name="agent-question"
+            placeholder="Ask about Shelton, his projects, or internship fit"
+            autocomplete="off"
+          />
+          <button type="submit" class="agent-form__submit">Ask</button>
+        </form>
+        <p class="agent-panel__note">This assistant runs from a local knowledge base, so it stays fast and easy to keep aligned with the portfolio.</p>
+      </div>
+    </div>
     <footer class="footer">
       <a href="#hero">
         <div class="return-home">

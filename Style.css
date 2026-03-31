@@ -1033,3 +1033,158 @@ body::after{
     background:#ffffff;
     border-top:1px solid rgba(17,17,17,0.12);
 }
+
+/* Floating assistant widget */
+.contact__content-grid{
+    grid-template-columns:minmax(0,1fr);
+}
+
+.agent-widget{
+    position:fixed;
+    right:2.4rem;
+    bottom:2.4rem;
+    z-index:1000;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:1.2rem;
+}
+
+.agent-launcher{
+    display:inline-flex;
+    align-items:center;
+    gap:1rem;
+    padding:1.2rem 1.6rem;
+    border-radius:999px;
+    border:1px solid rgba(17,17,17,0.14);
+    background:#111111;
+    color:#ffffff;
+    box-shadow:0 16px 34px rgba(0,0,0,0.18);
+    cursor:pointer;
+    transition:transform .2s, box-shadow .2s;
+}
+
+.agent-launcher:hover{
+    transform:translateY(-2px);
+    box-shadow:0 20px 40px rgba(0,0,0,0.22);
+}
+
+.agent-launcher__icon{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:3.8rem;
+    height:3.8rem;
+    border-radius:50%;
+    background:#ffffff;
+    color:#111111;
+}
+
+.agent-launcher__icon svg{
+    width:1.8rem;
+    height:1.8rem;
+    fill:currentColor;
+}
+
+.agent-launcher__text{
+    font-size:1.25rem;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+}
+
+.agent-widget__panel{
+    width:min(42rem,calc(100vw - 3.2rem));
+    max-height:min(70vh,58rem);
+    padding:2rem;
+    overflow:hidden;
+}
+
+.agent-widget__header{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:1.2rem;
+}
+
+.agent-widget__close{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:3.6rem;
+    height:3.6rem;
+    border-radius:50%;
+    border:1px solid rgba(17,17,17,0.12);
+    background:#ffffff;
+    color:#111111;
+    cursor:pointer;
+    font-size:2.2rem;
+    line-height:1;
+    transition:background .2s, color .2s;
+}
+
+.agent-widget__close:hover{
+    background:#111111;
+    color:#ffffff;
+}
+
+.agent-widget .agent-panel__title{
+    margin-top:.8rem;
+    font-size:2.6rem;
+}
+
+.agent-widget .agent-panel__intro{
+    margin-top:1.2rem;
+    font-size:1.4rem;
+    line-height:1.6;
+}
+
+.agent-widget .agent-suggestions{
+    margin:1.4rem 0;
+}
+
+.agent-widget .agent-chat{
+    min-height:18rem;
+    max-height:24rem;
+}
+
+.agent-widget .agent-form{
+    margin-top:1.2rem;
+}
+
+.agent-widget .agent-panel__note{
+    margin-top:1rem;
+}
+
+.contact-chip__icon--linkedin svg,
+.icon-link--linkedin svg{
+    width:1.55rem;
+    height:1.55rem;
+}
+
+@media (max-width:600px){
+    .agent-widget{
+        right:1.2rem;
+        bottom:1.2rem;
+        left:1.2rem;
+        align-items:stretch;
+    }
+
+    .agent-launcher{
+        align-self:flex-end;
+    }
+
+    .agent-launcher__text{
+        font-size:1.1rem;
+    }
+
+    .agent-widget__panel{
+        width:100%;
+        max-height:min(68vh,54rem);
+        padding:1.6rem;
+    }
+
+    .agent-widget .agent-form{
+        grid-template-columns:1fr;
+    }
+}
