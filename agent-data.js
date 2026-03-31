@@ -36,6 +36,7 @@ window.portfolioAgentData = {
       answer:
         "Shelton is currently reading System Design Interview by Alex Xu and Designing Data-Intensive Applications by Martin Kleppmann. Book links: https://www.amazon.com/System-Design-Interview-Insiders-Guide/dp/1736049119 and https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/",
       followUp: 'Do you want to know how those books connect to his backend and data-systems goals?',
+      followUpTopic: 'books-backend',
     },
     {
       matchAny: ['community', 'communities', 'involvement', 'organizations'],
@@ -226,6 +227,33 @@ window.portfolioAgentData = {
         'His additional involvement includes ColorStack and the National Society of Black Engineers.',
       ],
       followUp: 'Do you want the engineering experience, leadership program, or mentorship angle?',
+    },
+    {
+      id: 'books-backend',
+      keywords: [
+        'books',
+        'book',
+        'backend',
+        'data systems',
+        'data-systems',
+        'system design',
+        'ddia',
+        'designing data intensive applications',
+        'alex xu',
+        'kleppmann',
+        'connect',
+        'goals',
+        'scaling',
+        'architecture',
+      ],
+      summary:
+        'Those books connect directly to Shelton’s backend and data-systems goals because they sharpen the exact thinking he is trying to build: system design tradeoffs, scalable APIs, reliability, storage patterns, and distributed architecture decisions.',
+      highlights: [
+        'System Design Interview helps him think more clearly about backend interview topics like service boundaries, scaling bottlenecks, caching, load balancing, and practical architecture tradeoffs.',
+        'Designing Data-Intensive Applications goes deeper into storage engines, replication, consistency, event-driven systems, and reliability, which fits his interest in stronger backend and data-infrastructure thinking.',
+        'Together, the books support the same direction visible in his portfolio: backend systems, performance, and more production-ready technical decision-making.',
+      ],
+      followUp: 'Do you want me to connect those books to the e-commerce project, the ML project, or both?',
     },
     {
       id: 'community',

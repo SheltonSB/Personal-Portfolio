@@ -317,6 +317,13 @@ function tokenizeAgentText(value) {
     .filter((token) => token.length > 1);
 }
 
+function isAgentAffirmative(questionTokens) {
+  if (!questionTokens.length) return false;
+
+  const affirmativeWords = new Set(['yes', 'yeah', 'yep', 'sure', 'ok', 'okay', 'please']);
+  return questionTokens.every((token) => affirmativeWords.has(token));
+}
+
 function questionHasAgentKeyword(normalizedQuestion, questionTokens, keyword) {
   const normalizedKeyword = normalizeAgentText(keyword);
   if (!normalizedKeyword) return false;
@@ -369,11 +376,24 @@ function selectAgentHighlights(questionTokens, highlights) {
   return (matchedHighlights.length ? matchedHighlights : highlights).slice(0, 2);
 }
 
-function buildAgentReply(question) {
+function buildReplyFromTopic(topic, questionTokens) {
+  const selectedHighlights = selectAgentHighlights(questionTokens, topic.highlights);
+  const answerParts = [topic.summary];
+  if (selectedHighlights.length) answerParts.push(selectedHighlights.join(' '));
+
+  return {
+    answer: answerParts.join('\n\n'),
+    followUp: topic.followUp || portfolioAgentData.fallback.followUp,
+    nextFollowUpTopic: topic.followUpTopic || '',
+  };
+}
+
+function buildAgentReply(question, context = {}) {
   if (!portfolioAgentData) {
     return {
       answer: 'The portfolio assistant data is not loaded.',
       followUp: '',
+      nextFollowUpTopic: '',
     };
   }
 
@@ -384,7 +404,13 @@ function buildAgentReply(question) {
     return {
       answer: portfolioAgentData.emptyState,
       followUp: portfolioAgentData.fallback.followUp,
+      nextFollowUpTopic: '',
     };
+  }
+
+  if (context.pendingFollowUpTopic && isAgentAffirmative(questionTokens)) {
+    const followUpTopic = (portfolioAgentData.topics || []).find((topic) => topic.id === context.pendingFollowUpTopic);
+    if (followUpTopic) return buildReplyFromTopic(followUpTopic, questionTokens);
   }
 
   const directAnswer = (portfolioAgentData.directAnswers || []).find((rule) =>
@@ -394,6 +420,7 @@ function buildAgentReply(question) {
     return {
       answer: directAnswer.answer,
       followUp: directAnswer.followUp || portfolioAgentData.fallback.followUp,
+      nextFollowUpTopic: directAnswer.followUpTopic || '',
     };
   }
 
@@ -409,17 +436,13 @@ function buildAgentReply(question) {
   });
 
   if (!bestTopic || bestScore < 3) {
-    return portfolioAgentData.fallback;
+    return {
+      ...portfolioAgentData.fallback,
+      nextFollowUpTopic: '',
+    };
   }
 
-  const selectedHighlights = selectAgentHighlights(questionTokens, bestTopic.highlights);
-  const answerParts = [bestTopic.summary];
-  if (selectedHighlights.length) answerParts.push(selectedHighlights.join(' '));
-
-  return {
-    answer: answerParts.join('\n\n'),
-    followUp: bestTopic.followUp || portfolioAgentData.fallback.followUp,
-  };
+  return buildReplyFromTopic(bestTopic, questionTokens);
 }
 
 function initializePortfolioAgent() {
@@ -429,6 +452,7 @@ function initializePortfolioAgent() {
   const agentForm = document.getElementById('agent-form');
   const agentInput = document.getElementById('agent-input');
   const suggestionContainer = document.getElementById('agent-suggestions');
+  let pendingFollowUpTopic = '';
 
   if (!chatLog || !agentForm || !agentInput || !suggestionContainer) return;
 
@@ -474,8 +498,9 @@ function initializePortfolioAgent() {
     if (submitButton) submitButton.disabled = true;
 
     window.setTimeout(() => {
-      const reply = buildAgentReply(trimmedQuestion);
+      const reply = buildAgentReply(trimmedQuestion, { pendingFollowUpTopic });
       const assistantMessage = reply.followUp ? `${reply.answer}\n\n${reply.followUp}` : reply.answer;
+      pendingFollowUpTopic = reply.nextFollowUpTopic || '';
       renderMessage('assistant', assistantMessage);
       agentInput.disabled = false;
       if (submitButton) submitButton.disabled = false;
