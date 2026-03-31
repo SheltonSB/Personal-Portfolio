@@ -503,3 +503,135 @@ body::after{
         font-size:2.5rem;
     }
 }
+
+/* Resume-aligned gallery */
+.gallery{
+    width:min(1300px,calc(100% - 4rem));
+    margin:0 auto 12rem auto;
+}
+
+.gallery__heading{
+    text-align:center;
+    margin-bottom:2.4rem;
+}
+
+.gallery__intro{
+    max-width:78rem;
+    margin:0 auto 3.2rem auto;
+    text-align:center;
+    color:var(--text-soft);
+    font-size:1.7rem;
+    line-height:1.8;
+}
+
+.gallery__grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:2rem;
+}
+
+.gallery-card{
+    min-height:28rem;
+    padding:2.4rem;
+    border-radius:2.4rem;
+    border:1px solid rgba(214,187,138,0.14);
+    background:
+        radial-gradient(circle at top right, rgba(214,187,138,0.08), transparent 34%),
+        linear-gradient(180deg, rgba(18,20,28,0.94), rgba(12,14,20,0.92));
+    box-shadow:0 24px 50px rgba(0,0,0,0.24);
+}
+
+.gallery-card__label{
+    display:inline-flex;
+    margin-bottom:1.4rem;
+    padding:.7rem 1rem;
+    border-radius:999px;
+    background:rgba(255,255,255,0.05);
+    color:var(--gold-bright);
+    font-size:1.1rem;
+    font-weight:700;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+}
+
+.gallery-card h3{
+    font-family:"Bodoni Moda",serif;
+    font-size:3rem;
+    line-height:1.05;
+    color:var(--gold-bright);
+}
+
+.gallery-card p{
+    margin-top:1.2rem;
+    color:var(--text-soft);
+    font-size:1.55rem;
+    line-height:1.8;
+}
+
+.gallery-card ul{
+    margin-top:1.4rem;
+    padding-left:1.8rem;
+    color:#ddd6cc;
+    font-size:1.45rem;
+    line-height:1.8;
+}
+
+.gallery-card__link{
+    display:inline-flex;
+    align-items:center;
+    margin-top:1.8rem;
+    padding:.9rem 1.4rem;
+    border-radius:999px;
+    border:1px solid rgba(214,187,138,0.42);
+    color:var(--gold-bright);
+    font-size:1.2rem;
+    font-weight:700;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    transition:transform .2s, background .2s;
+}
+
+.gallery-card__link:hover{
+    transform:translateY(-2px);
+    background:rgba(255,255,255,0.06);
+}
+
+.gallery-card--resume{
+    background:
+        radial-gradient(circle at top left, rgba(103,160,177,0.12), transparent 35%),
+        linear-gradient(180deg, rgba(18,20,28,0.95), rgba(12,14,20,0.92));
+}
+
+.gallery-card--books{
+    background:
+        radial-gradient(circle at bottom right, rgba(214,187,138,0.12), transparent 36%),
+        linear-gradient(180deg, rgba(18,20,28,0.95), rgba(12,14,20,0.92));
+}
+
+.gallery-card--focus{
+    background:
+        radial-gradient(circle at center top, rgba(132,110,255,0.08), transparent 30%),
+        linear-gradient(180deg, rgba(18,20,28,0.95), rgba(12,14,20,0.92));
+}
+
+.agent-message__text a{
+    color:var(--gold-bright);
+    text-decoration:underline;
+    text-underline-offset:.2rem;
+}
+
+@media (max-width:900px){
+    .gallery__grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media (max-width:600px){
+    .gallery{
+        width:min(100%,calc(100% - 2rem));
+    }
+
+    .gallery-card{
+        padding:2rem 1.8rem;
+    }
+}

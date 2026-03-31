@@ -295,7 +295,7 @@ function navFadeIn(entries) {
 }
 
 const observerNav = new IntersectionObserver(navFadeIn, options);
-['hero', 'about', 'experience', 'contact'].forEach((id) => {
+['hero', 'about', 'experience', 'gallery', 'contact'].forEach((id) => {
   const el = document.querySelector(`#${id}`);
   if (el) observerNav.observe(el);
 });
@@ -432,6 +432,10 @@ function initializePortfolioAgent() {
 
   if (!chatLog || !agentForm || !agentInput || !suggestionContainer) return;
 
+  function linkifyAssistantText(message) {
+    return message.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" rel="noreferrer">$1</a>');
+  }
+
   function renderMessage(role, message) {
     const messageNode = document.createElement('div');
     messageNode.className = `agent-message agent-message--${role}`;
@@ -442,7 +446,11 @@ function initializePortfolioAgent() {
 
     const textNode = document.createElement('div');
     textNode.className = 'agent-message__text';
-    textNode.textContent = message;
+    if (role === 'assistant') {
+      textNode.innerHTML = linkifyAssistantText(message);
+    } else {
+      textNode.textContent = message;
+    }
 
     messageNode.append(roleNode, textNode);
     chatLog.appendChild(messageNode);

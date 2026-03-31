@@ -44,6 +44,7 @@
         <li class="navigation__item" id="nav-about"><a href="#about">About</a></li>
         <li class="navigation__item" id="nav-projects"><a href="#projects">Projects</a></li>
         <li class="navigation__item" id="nav-experience"><a href="#experience">Experience</a></li>
+        <li class="navigation__item" id="nav-gallery"><a href="#gallery">Gallery</a></li>
         <li class="navigation__item" id="nav-contact"><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -60,12 +61,12 @@
           <div class="profile__initials">SB</div>
         </div>
         <p class="profile__blurb">
-            I'm Shelton Bumhe — a Computer Science student at the University of Nebraska–Lincoln (Class of 2027). I translate ambiguous requirements into backend services and ML workflows that are observable, documented, and easy to maintain.
+            I'm Shelton Bumhe, a Computer Science student at the University of Nebraska-Lincoln graduating in December 2027. I like building backend systems and machine learning projects that are measurable, fast, and easy to explain.
         </p>
         <ul class="profile__focus">
-          <li>Specialties: ASP.NET Core APIs, Python data/ML pipelines, relational modeling.</li>
-          <li>Working style: schema-first design, enforceable testing, instrumentation via OpenTelemetry.</li>
-          <li>Goal: secure a Summer 2026 Backend/ML internship building resilient data platforms.</li>
+          <li>Education: Bachelor of Science in Computer Science, GPA 3.5.</li>
+          <li>Coursework: Data Structures &amp; Algorithms, Discrete Math, Linear Algebra, Statistics, Software Engineering I, Physics I, Calculus III.</li>
+          <li>Goal: land a backend, data, or ML internship where I can ship production-minded software and keep learning fast.</li>
         </ul>
       </div>
         <div class="skills">
@@ -76,7 +77,7 @@
             </div>
             <div class="skills__item skills__item--webpack">
               <img src="logos/cpp.svg" alt="C#" />
-              <div class="skills__item-name">C# / ASP.NET</div>
+              <div class="skills__item-name">C# / .NET</div>
             </div>
             <div class="skills__item skills__item--js">
               <img src="logos/java.svg" alt="Java" />
@@ -86,7 +87,7 @@
           <div class="skills__row">
             <div class="skills__item skills__item--git">
               <img src="logos/sql.svg" alt="SQL" />
-              <div class="skills__item-name">SQL &amp; Data Modeling</div>
+              <div class="skills__item-name">SQL</div>
             </div>
             <div class="skills__item skills__item--sass">
               <img src="logos/javascript.svg" alt="JavaScript" />
@@ -94,21 +95,21 @@
             </div>
             <div class="skills__item skills__item--npm">
               <img src="logos/python.svg" alt="ML" />
-              <div class="skills__item-name">ML Pipelines</div>
+              <div class="skills__item-name">TensorFlow / XGBoost</div>
             </div>
           </div>
           <div class="skills__row">
             <div class="skills__item skills__item--python">
               <img src="logos/sql.svg" alt="APIs" />
-              <div class="skills__item-name">API Design</div>
+              <div class="skills__item-name">Spring / Django</div>
             </div>
             <div class="skills__item skills__item--react">
               <img src="logos/java.svg" alt="Testing" />
-              <div class="skills__item-name">Testing (xUnit/JUnit)</div>
+              <div class="skills__item-name">xUnit / JUnit</div>
             </div>
             <div class="skills__item skills__item--r skills__item--css">
               <img src="logos/c.svg" alt="Systems" />
-              <div class="skills__item-name">Systems Programming</div>
+              <div class="skills__item-name">EF Core / ASP.NET</div>
             </div>
           </div>
         </div>
@@ -118,191 +119,159 @@
       <h2 class="projects__heading section-heading">Projects</h2>
       <div class="project project-left">
         <div class="project__info">
-          <h3 class="project__title">ECommerce API<br />Cloud Native Retail Platform</h3>
-          <p class="project__description">Led the entire lifecycle for a C#/ASP.NET Core service that powers retail inventory and checkout flows. I handled schema modeling, API contracts, CI/CD, and on-call instrumentation.</p>
+          <h3 class="project__title">Full-Stack E-Commerce<br />.NET, React, PostgreSQL, Redis, Azure</h3>
+          <p class="project__description">Built a performance-focused storefront and backend stack with secure payments, cached product pages, and an automated release pipeline.</p>
           <ul class="project__details">
-            <li>Shipped 27 authenticated endpoints covering catalogs, carts, and immutable price history with role-aware policies and request validation middleware.</li>
-            <li>Designed Cloud SQL tables with foreign keys + history tables, plus background jobs that reconcile stock deltas and emit metrics to Cloud Monitoring.</li>
-            <li>Implemented OpenTelemetry tracing/structured logs so p95 latency and error budget burn show up on dashboards, reducing weekly incidents from 7 → 2.</li>
-            <li>Built GitHub Actions pipeline with CodeQL security scans, integration tests, and automated deployments to Cloud Run.</li>
+            <li>Designed a high-performance store using .NET 9 and React, with Redis caching so data-heavy pages load quickly under heavy traffic.</li>
+            <li>Secured customer payments and media using Stripe and Cloudinary, with JWT-based authentication and strict access controls.</li>
+            <li>Created a fully automated release pipeline to Azure using GitHub Actions so each change is tested and bug-free before launch.</li>
           </ul>
           <div class="project__proof">
             <div class="project__proof-block">
-              <span>Sample request</span>
-              <pre>curl -H "Authorization: Bearer &lt;token&gt;" \
-  https://api.shelton.run/v1/products?page=1</pre>
+              <span>System stack</span>
+              <pre>.NET 9
+React
+PostgreSQL
+Redis
+Azure</pre>
             </div>
             <div class="project__proof-block">
-              <span>Actual response</span>
-              <pre>{
-  "items": [
-    {"sku":"SHOE-441","price":72.00,"version":9},
-    {"sku":"COAT-318","price":120.00,"version":5}
-  ],
-  "latency_ms": 148,
-  "trace_id": "99f2c84b32e0"
-}</pre>
+              <span>Portfolio proof</span>
+              <pre>JWT auth
+Stripe payments
+Cloudinary media
+GitHub Actions CI/CD
+Azure deployment</pre>
             </div>
           </div>
           <div class="project-links-row">
-            <a href="ecommerce-demo.html" target="_blank" class="project__live-btn">Live demo</a>
+            <a href="ecommerce-demo.html" target="_blank" class="project__live-btn">Case study</a>
             <a href="https://github.com/SheltonBumhe/ecommerce-api" target="_blank" rel="noreferrer" class="project-inline-link">View code ↗</a>
           </div>
         </div>
       </div>
       <div class="project project-right">
         <div class="project__info">
-          <h3 class="project__title">NFL QB Touchdown Predictor<br />Machine Learning System</h3>
-          <p class="project__description">Engineered a database-first ML workflow that ingests historical NFL data, constructs features, trains models, and exposes a Streamlit UI for “what-if” matchups.</p>
+          <h3 class="project__title">NFL QB Touchdown Predictor<br />Python, scikit-learn, XGBoost, Streamlit</h3>
+          <p class="project__description">Trained and shipped a machine learning model over NFL matchup data, then wrapped it in a Streamlit interface that non-experts can use.</p>
           <ul class="project__details">
-            <li>Designed SQLite schema and loaders for 1,536 games, ensuring referential integrity while supporting incremental updates.</li>
-            <li>Engineered 42 features spanning QB form, defensive pressure, red-zone efficiency, and weather context; automated scaling/imputation pipelines.</li>
-            <li>Benchmarked logistic regression vs. XGBoost with stratified CV; ensemble hit 88% accuracy and 0.91 ROC–AUC with calibrated probabilities.</li>
-            <li>Wrapped the model in a Streamlit UI that surfaces SHAP values so coaches can see why predictions shift per matchup.</li>
+            <li>Trained a machine learning model on over 10,000 plays using Python and XGBoost, currently predicting touchdowns with 88% accuracy.</li>
+            <li>Used SHAP analysis to show exactly why the model makes decisions, making pressure rate and matchup context easier for non-experts to understand.</li>
+            <li>Launched the model with a live Streamlit web app so users can simulate matchups and get prediction results in under 2 seconds.</li>
           </ul>
           <div class="project__proof">
             <div class="project__proof-block">
-              <span>Prediction input</span>
-              <pre>{
-  "qb": "Patrick Mahomes",
-  "opponent": "BUF",
-  "pressure_rate": 21.5,
-  "red_zone_trips": 4
-}</pre>
+              <span>Model stack</span>
+              <pre>Python
+scikit-learn
+XGBoost
+SHAP
+Streamlit</pre>
             </div>
             <div class="project__proof-block">
-              <span>Model output</span>
-              <pre>{
-  "will_throw_td": true,
-  "probability": 0.87,
-  "top_features": [
-    "red_zone_trips",
-    "opponent_pass_defense",
-    "pressure_rate"
-  ]
-}</pre>
+              <span>Outcome snapshot</span>
+              <pre>88% prediction accuracy
+Explainable output
+Fast simulated matchups
+Sub-2 second responses</pre>
             </div>
           </div>
           <div class="project-links-row">
-            <a href="nfl-case-study.html" target="_blank" class="project__live-btn">Live demo</a>
+            <a href="nfl-case-study.html" target="_blank" class="project__live-btn">Case study</a>
             <a href="https://github.com/SheltonBumhe/machine-learning-nfl-touchdowns" target="_blank" rel="noreferrer" class="project-inline-link">View code ↗</a>
-          </div>
-        </div>
-      </div>
-      <div class="project project-left">
-        <div class="project__info">
-          <h3 class="project__title">Invoice Management System<br />Financial Ops Automation</h3>
-          <p class="project__description">Converted a manual CSV-and-spreadsheet reconciliation process into a Java + MySQL system with automated audit trails and reporting.</p>
-          <ul class="project__details">
-            <li>Modeled invoices, companies, line items, and people in 3NF; enforced FK/UNIQUE/NOT NULL/CHECK constraints to eliminate duplicate or orphaned rows.</li>
-            <li>Wrote JDBC importers with prepared statements + batching, then indexed critical columns to bring full-report runtime down 85% (1.2s → 180ms).</li>
-            <li>Built CLI tools that output detailed and summary PDFs, giving finance teams instant tax/total verification and cutting month-end close from 4h to 45m.</li>
-          </ul>
-          <div class="project__proof">
-            <div class="project__proof-block">
-              <span>CLI command</span>
-              <pre>$ ./ims reports generate --invoice ACME-992
-✔ Validated 142 line items
-✔ Exported summary + detail PDFs</pre>
-            </div>
-            <div class="project__proof-block">
-              <span>DB snapshot</span>
-              <pre>SELECT COUNT(*) FROM invoices WHERE close_status='READY';
--- 312 rows
-SELECT AVG(runtime_ms) FROM reports_daily;
--- 182.4</pre>
-            </div>
-          </div>
-          <div class="project-links-row">
-            <a href="invoice-case-study.html" target="_blank" class="project__live-btn">Live demo</a>
-            <a href="https://github.com/SheltonBumhe/Invoice-Management-System" target="_blank" rel="noreferrer" class="project-inline-link">View code ↗</a>
           </div>
         </div>
       </div>
     </section>
     <section class="experience" id="experience">
       <h2 class="projects__heading section-heading">Experience</h2>
-      <p class="experience__intro">Operator-turned-builder. These roles sharpened my scheduling discipline, communication cadence, and bias for measurable outcomes—all skills I now bring to software projects.</p>
+      <p class="experience__intro">My resume combines academic progress, software execution, and leadership development. These are the roles and programs that best represent how I work right now.</p>
       <div class="experience__timeline">
         <article class="experience__item">
           <header>
-            <h3>Software Builder</h3>
-            <p>Independent Projects • 2023–Present</p>
+            <h3>Software Developer &amp; Math Tutor</h3>
+            <p>Dominion College, Harare, Zimbabwe • Feb 2022–Aug 2023</p>
           </header>
           <div class="experience__tags">
-            <span>Full Stack</span>
-            <span>Cloud</span>
-            <span>ML Ops</span>
+            <span>Python</span>
+            <span>SQL</span>
+            <span>Teaching</span>
           </div>
           <ul>
-            <li>Own architecture, deployments, and monitoring for the projects above—shipping production APIs on Cloud Run and ML workloads with reproducible pipelines.</li>
-            <li>Write docs/readmes, maintain issues, and review PRs to keep repos collaboration-ready; each project includes tests, migration scripts, and demo collateral.</li>
-            <li>Conduct user-style validation (sample payloads, CLI recordings, and dashboards) so every claim on the portfolio is backed with measurable evidence.</li>
+            <li>Built a Python and SQL tracking tool for 30+ students, reducing manual data entry time by 40% and generating weekly progress reports.</li>
+            <li>Mentored students in algebra and calculus using adaptive instruction strategies, supporting a 99% pass rate.</li>
+            <li>Used performance diagnostics to create targeted practice plans, contributing to a 15% increase in test scores over 3 months.</li>
           </ul>
         </article>
         <article class="experience__item">
           <header>
-            <h3>Lead Installer</h3>
-            <p>Thrasher Concrete &amp; Foundation Repair • May–Aug 2024</p>
+            <h3>Career Prep Fellow</h3>
+            <p>Management Leadership For Tomorrow (MLT) • Nov 2025–Present</p>
           </header>
           <div class="experience__tags">
-            <span>Operations</span>
-            <span>Team Leadership</span>
-            <span>Risk Management</span>
+            <span>Leadership</span>
+            <span>Professional Growth</span>
+            <span>Industry Exposure</span>
           </div>
           <ul>
-            <li>Coordinated 18 EverBrace installations end-to-end (materials, crew, sequencing) with zero safety incidents and a 94% callback-free rate.</li>
-            <li>Introduced daily QA checklists and short standups that revealed 12 issues before they could impact homeowners.</li>
-            <li>Delivered twice-daily progress notes to PMs/homeowners with risk/mitigation callouts—preventing schedule slips on concurrent jobs.</li>
+            <li>Accepted into a selective 18-month professional development program focused on structured coaching, mentorship, and targeted skill-building.</li>
+            <li>Developed business and technical acumen through technical assessments, case studies, simulations, and project work to strengthen analytical and leadership capabilities.</li>
+            <li>Engaged with partner organizations including LinkedIn, Bloomberg, and Deloitte to build industry exposure and insight into technology career paths.</li>
           </ul>
         </article>
-        <article class="experience__item">
-          <header>
-            <h3>Math Tutor</h3>
-            <p>Dominion College • Feb 2022–Aug 2023</p>
-          </header>
-          <div class="experience__tags">
-            <span>Curriculum Design</span>
-            <span>Data Tracking</span>
-            <span>Stakeholder Updates</span>
-          </div>
+      </div>
+    </section>
+    <section class="gallery" id="gallery">
+      <h2 class="section-heading gallery__heading">Gallery</h2>
+      <p class="gallery__intro">A quick visual snapshot of what my resume says, what I am learning now, and how I am growing outside of project deliverables.</p>
+      <div class="gallery__grid">
+        <article class="gallery-card gallery-card--resume">
+          <span class="gallery-card__label">Resume Snapshot</span>
+          <h3>University of Nebraska-Lincoln</h3>
+          <p>BS in Computer Science, expected December 2027, GPA 3.5.</p>
           <ul>
-            <li>Developed diagnostics + study plans for 14 students, ran weekly retros, and drove average score gains of 12 points.</li>
-            <li>Sent biweekly progress dashboards to parents and iterated lessons based on their feedback, sustaining a 99% pass rate.</li>
+            <li>Core coursework in algorithms, discrete math, linear algebra, statistics, and software engineering.</li>
+            <li>Current focus on backend systems, ML modeling, and production-ready project work.</li>
           </ul>
         </article>
-        <article class="experience__item">
-          <header>
-            <h3>Community</h3>
-            <p>ColorStack &amp; NSBE Member</p>
-          </header>
-          <div class="experience__tags">
-            <span>Mentorship</span>
-            <span>Diversity &amp; Inclusion</span>
-            <span>Peer Education</span>
-          </div>
+        <article class="gallery-card gallery-card--books">
+          <span class="gallery-card__label">Currently Reading</span>
+          <h3>System Design Interview</h3>
+          <p>Alex Xu's book is helping me level up on tradeoffs, scalability, API boundaries, and interview-ready system thinking.</p>
+          <a href="https://www.amazon.com/System-Design-Interview-Insiders-Guide/dp/1736049119" target="_blank" rel="noreferrer" class="gallery-card__link">Book link ↗</a>
+        </article>
+        <article class="gallery-card gallery-card--books">
+          <span class="gallery-card__label">Currently Reading</span>
+          <h3>Designing Data-Intensive Applications</h3>
+          <p>Martin Kleppmann's book is shaping how I think about storage systems, reliability, distributed data, and event-driven architecture.</p>
+          <a href="https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/" target="_blank" rel="noreferrer" class="gallery-card__link">Book link ↗</a>
+        </article>
+        <article class="gallery-card gallery-card--focus">
+          <span class="gallery-card__label">Learning Focus</span>
+          <h3>What I’m sharpening</h3>
           <ul>
-            <li>Lead peer sessions on interview prep, SQL/ER modeling, and system design; share templates/checklists used on my own projects.</li>
-            <li>Mentor first-year students through resume reviews, internship searches, and accountability standups.</li>
+            <li>System design fundamentals for backend interviews.</li>
+            <li>Data-intensive architecture patterns and scaling tradeoffs.</li>
+            <li>Turning ML and backend projects into cleaner, more measurable production stories.</li>
           </ul>
         </article>
       </div>
     </section>
     <section class="contact" id="contact">
       <h2 class="contact__heading section-heading">Contact</h2>
-      <p class="contact__text">Have a project or opening that needs strong backend + ML fundamentals? Drop a note and I'll respond quickly.</p>
+      <p class="contact__text">If you are hiring for backend, data, or ML internships, I’d be glad to talk. I’m especially interested in teams that value shipping, learning fast, and explaining technical work clearly.</p>
       <div class="contact__content-grid">
         <div class="contact__panel agent-panel">
           <div class="agent-panel__eyebrow">Portfolio AI</div>
           <h3 class="agent-panel__title">Ask Shelton AI</h3>
           <p class="agent-panel__intro">
-            Visitors can ask about Shelton's background, projects, backend strengths, machine learning work, internship fit, and contact details.
+            Visitors can ask about my resume, projects, technical strengths, leadership programs, current books, and contact details.
           </p>
           <div class="agent-suggestions" id="agent-suggestions">
             <button type="button" class="agent-suggestion">Who is Shelton?</button>
             <button type="button" class="agent-suggestion">What backend work has he done?</button>
             <button type="button" class="agent-suggestion">Tell me about the NFL ML project</button>
-            <button type="button" class="agent-suggestion">Why is Shelton a strong intern candidate?</button>
+            <button type="button" class="agent-suggestion">What books is he reading right now?</button>
           </div>
           <div class="agent-chat" id="agent-chat-log" aria-live="polite"></div>
           <form class="agent-form" id="agent-form">
