@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="Style.css" />
   </head>
   <body>
+    <div class="motion-background" aria-hidden="true">
+      <div class="motion-background__veil"></div>
+      <div class="motion-background__orb motion-background__orb--one"></div>
+      <div class="motion-background__orb motion-background__orb--two"></div>
+      <div class="motion-background__orb motion-background__orb--three"></div>
+      <div class="motion-background__wave motion-background__wave--one"></div>
+      <div class="motion-background__wave motion-background__wave--two"></div>
+    </div>
     <div class="hero" id="hero">
       <div class="canvas">
         <canvas class="connecting-dots"></canvas>
@@ -59,7 +67,7 @@
       <div class="about__content">
         <div class="profile">
         <div class="profile__picture">
-          <div class="profile__initials">SB</div>
+          <img src="assets/assistant-profile.jpg" alt="Portrait of Shelton Bumhe" />
         </div>
         <p class="profile__blurb">
             I'm Shelton Bumhe, a Computer Science student at the University of Nebraska-Lincoln graduating in December 2027. I like building backend systems and machine learning projects that are measurable, fast, and easy to explain.
@@ -336,17 +344,20 @@
         aria-label="Open Ask Shelton AI"
       >
         <span class="agent-launcher__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" focusable="false">
-            <path d="M12 3C6.48 3 2 6.98 2 11.9c0 2.7 1.36 5.12 3.52 6.75L4.6 22l3.6-1.88c1.18.33 2.45.5 3.8.5 5.52 0 10-3.98 10-8.9S17.52 3 12 3m-3.35 7.9a1.1 1.1 0 1 1 0-2.2 1.1 1.1 0 0 1 0 2.2m3.35 0a1.1 1.1 0 1 1 0-2.2 1.1 1.1 0 0 1 0 2.2m3.35 0a1.1 1.1 0 1 1 0-2.2 1.1 1.1 0 0 1 0 2.2"></path>
-          </svg>
+          <img src="assets/assistant-profile.jpg" alt="" />
         </span>
         <span class="agent-launcher__text">Ask Shelton AI</span>
       </button>
       <div class="agent-widget__panel contact__panel agent-panel" id="agent-widget-panel" hidden>
         <div class="agent-widget__header">
-          <div>
+          <div class="agent-widget__identity">
+            <div class="agent-widget__avatar" aria-hidden="true">
+              <img src="assets/assistant-profile.jpg" alt="" />
+            </div>
+            <div>
             <div class="agent-panel__eyebrow">Portfolio AI</div>
             <h3 class="agent-panel__title">Ask Shelton AI</h3>
+            </div>
           </div>
           <button type="button" class="agent-widget__close" id="agent-widget-close" aria-label="Close Ask Shelton AI">
             <span aria-hidden="true">×</span>

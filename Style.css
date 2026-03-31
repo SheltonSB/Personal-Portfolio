@@ -1188,3 +1188,323 @@ body::after{
         grid-template-columns:1fr;
     }
 }
+
+/* Humanized polish pass */
+body{
+    background:#f7f5f1;
+}
+
+.canvas,
+.main-bg{
+    display:none;
+}
+
+.motion-background{
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    overflow:hidden;
+    pointer-events:none;
+    background:
+        radial-gradient(circle at top, rgba(255,255,255,0.92), rgba(247,245,241,0.96) 58%, #f1eee8 100%);
+}
+
+.motion-background__veil{
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(120deg, rgba(255,255,255,0.72), rgba(255,255,255,0.2) 42%, rgba(0,0,0,0.03) 100%);
+}
+
+.motion-background__orb,
+.motion-background__wave{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(18px);
+    opacity:.7;
+    transform:translate3d(0,0,0);
+    will-change:transform;
+}
+
+.motion-background__orb--one{
+    top:-8rem;
+    left:-10rem;
+    width:min(42vw,52rem);
+    height:min(42vw,52rem);
+    background:radial-gradient(circle, rgba(28,91,160,0.16), rgba(28,91,160,0.04) 55%, transparent 72%);
+    animation:driftOrbOne 18s ease-in-out infinite alternate;
+}
+
+.motion-background__orb--two{
+    top:18vh;
+    right:-12rem;
+    width:min(38vw,46rem);
+    height:min(38vw,46rem);
+    background:radial-gradient(circle, rgba(17,17,17,0.08), rgba(17,17,17,0.02) 58%, transparent 74%);
+    animation:driftOrbTwo 22s ease-in-out infinite alternate;
+}
+
+.motion-background__orb--three{
+    bottom:-12rem;
+    left:20vw;
+    width:min(44vw,56rem);
+    height:min(44vw,56rem);
+    background:radial-gradient(circle, rgba(198,154,79,0.14), rgba(198,154,79,0.03) 58%, transparent 75%);
+    animation:driftOrbThree 24s ease-in-out infinite alternate;
+}
+
+.motion-background__wave{
+    width:78rem;
+    height:78rem;
+    border:1px solid rgba(17,17,17,0.05);
+    background:transparent;
+    filter:none;
+    opacity:.5;
+}
+
+.motion-background__wave--one{
+    top:8vh;
+    right:-28rem;
+    animation:rotateWave 32s linear infinite;
+}
+
+.motion-background__wave--two{
+    bottom:-34rem;
+    left:-18rem;
+    animation:rotateWaveReverse 38s linear infinite;
+}
+
+@keyframes driftOrbOne{
+    0%{transform:translate3d(0,0,0) scale(1)}
+    100%{transform:translate3d(6rem,3rem,0) scale(1.08)}
+}
+
+@keyframes driftOrbTwo{
+    0%{transform:translate3d(0,0,0) scale(1)}
+    100%{transform:translate3d(-5rem,5rem,0) scale(1.12)}
+}
+
+@keyframes driftOrbThree{
+    0%{transform:translate3d(0,0,0) scale(1)}
+    100%{transform:translate3d(4rem,-4rem,0) scale(1.06)}
+}
+
+@keyframes rotateWave{
+    0%{transform:rotate(0deg)}
+    100%{transform:rotate(360deg)}
+}
+
+@keyframes rotateWaveReverse{
+    0%{transform:rotate(360deg)}
+    100%{transform:rotate(0deg)}
+}
+
+.hero::before{
+    background:rgba(255,255,255,0.72);
+    backdrop-filter:blur(20px);
+}
+
+.heading{
+    background:linear-gradient(180deg, rgba(255,255,255,0.82), rgba(255,255,255,0.62));
+    border:1px solid rgba(17,17,17,0.08);
+    box-shadow:0 28px 70px rgba(0,0,0,0.08);
+}
+
+.profile__picture{
+    height:auto;
+    justify-content:center;
+}
+
+.profile__picture img{
+    width:min(26rem,72vw);
+    aspect-ratio:1 / 1;
+    object-fit:cover;
+    object-position:center 18%;
+    border-radius:2.8rem;
+    border:1px solid rgba(17,17,17,0.1);
+    box-shadow:0 24px 60px rgba(0,0,0,0.12);
+}
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:1.8rem 3rem;
+    align-items:start;
+}
+
+.skills__row{
+    display:flex;
+    flex-direction:column;
+    gap:1.6rem;
+}
+
+.skills__row:not(:last-child){
+    margin-right:0;
+}
+
+.skills__item{
+    width:auto;
+    height:auto;
+    opacity:1;
+    padding:0;
+    border:none;
+    background:transparent;
+    box-shadow:none;
+    border-radius:0;
+    overflow:visible;
+    flex-direction:row;
+    justify-content:flex-start;
+    align-items:center;
+    gap:1.2rem;
+}
+
+.skills__item img{
+    width:3.8rem;
+    height:3.8rem;
+    object-fit:contain;
+    flex-shrink:0;
+}
+
+.skills__item-name{
+    font-size:1.45rem;
+    font-weight:700;
+    letter-spacing:.02em;
+    line-height:1.4;
+}
+
+.community-card,
+.gallery-card,
+.contact__panel,
+.agent-panel{
+    background:linear-gradient(180deg, rgba(255,255,255,0.84), rgba(255,255,255,0.68));
+    backdrop-filter:blur(18px);
+}
+
+.agent-launcher{
+    padding:.8rem;
+    border-radius:999px;
+    background:rgba(255,255,255,0.88);
+    color:#111111;
+    border:1px solid rgba(17,17,17,0.08);
+    box-shadow:0 18px 40px rgba(0,0,0,0.14);
+}
+
+.agent-launcher__text{
+    display:none;
+}
+
+.agent-launcher__icon{
+    width:5.2rem;
+    height:5.2rem;
+    border-radius:50%;
+    background:transparent;
+    overflow:hidden;
+    box-shadow:0 10px 22px rgba(0,0,0,0.16);
+}
+
+.agent-launcher__icon img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 18%;
+    display:block;
+}
+
+.agent-widget__panel{
+    width:min(40rem,calc(100vw - 3.2rem));
+    border-radius:2.6rem;
+}
+
+.agent-widget__identity{
+    display:flex;
+    align-items:center;
+    gap:1.4rem;
+}
+
+.agent-widget__avatar{
+    width:5.2rem;
+    height:5.2rem;
+    border-radius:1.8rem;
+    overflow:hidden;
+    border:1px solid rgba(17,17,17,0.08);
+    box-shadow:0 12px 28px rgba(0,0,0,0.12);
+    flex-shrink:0;
+}
+
+.agent-widget__avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 18%;
+    display:block;
+}
+
+.agent-widget .agent-suggestions{
+    gap:.7rem;
+}
+
+.agent-suggestion{
+    border-radius:1.2rem;
+    font-size:1.15rem;
+    letter-spacing:.02em;
+    text-transform:none;
+}
+
+.contact-chip__icon,
+.socials__icon{
+    width:4.1rem;
+    height:4.1rem;
+}
+
+.contact-chip__icon--linkedin svg,
+.icon-link--linkedin svg{
+    width:1.35rem;
+    height:1.35rem;
+}
+
+@media (max-width:980px){
+    .skills{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:1.6rem 2rem;
+    }
+
+    .motion-background__wave{
+        width:56rem;
+        height:56rem;
+    }
+}
+
+@media (max-width:700px){
+    .profile__picture img{
+        width:min(24rem,74vw);
+        border-radius:2.2rem;
+    }
+
+    .skills{
+        grid-template-columns:1fr;
+    }
+
+    .agent-launcher__icon{
+        width:4.8rem;
+        height:4.8rem;
+    }
+
+    .agent-widget__panel{
+        width:min(100%,calc(100vw - 2.4rem));
+    }
+
+    .motion-background__orb--one{
+        width:30rem;
+        height:30rem;
+    }
+
+    .motion-background__orb--two{
+        width:26rem;
+        height:26rem;
+    }
+
+    .motion-background__orb--three{
+        width:32rem;
+        height:32rem;
+    }
+}
