@@ -44,6 +44,7 @@
         <li class="navigation__item" id="nav-about"><a href="#about">About</a></li>
         <li class="navigation__item" id="nav-projects"><a href="#projects">Projects</a></li>
         <li class="navigation__item" id="nav-experience"><a href="#experience">Experience</a></li>
+        <li class="navigation__item" id="nav-community"><a href="#community">Community</a></li>
         <li class="navigation__item" id="nav-gallery"><a href="#gallery">Gallery</a></li>
         <li class="navigation__item" id="nav-contact"><a href="#contact">Contact</a></li>
       </ul>
@@ -126,26 +127,8 @@
             <li>Secured customer payments and media using Stripe and Cloudinary, with JWT-based authentication and strict access controls.</li>
             <li>Created a fully automated release pipeline to Azure using GitHub Actions so each change is tested and bug-free before launch.</li>
           </ul>
-          <div class="project__proof">
-            <div class="project__proof-block">
-              <span>System stack</span>
-              <pre>.NET 9
-React
-PostgreSQL
-Redis
-Azure</pre>
-            </div>
-            <div class="project__proof-block">
-              <span>Portfolio proof</span>
-              <pre>JWT auth
-Stripe payments
-Cloudinary media
-GitHub Actions CI/CD
-Azure deployment</pre>
-            </div>
-          </div>
           <div class="project-links-row">
-            <a href="ecommerce-demo.html" target="_blank" class="project__live-btn">Case study</a>
+            <a href="ecommerce-demo.html" target="_blank" class="project-inline-link">Case study ↗</a>
             <a href="https://github.com/SheltonBumhe/ecommerce-api" target="_blank" rel="noreferrer" class="project-inline-link">View code ↗</a>
           </div>
         </div>
@@ -159,25 +142,8 @@ Azure deployment</pre>
             <li>Used SHAP analysis to show exactly why the model makes decisions, making pressure rate and matchup context easier for non-experts to understand.</li>
             <li>Launched the model with a live Streamlit web app so users can simulate matchups and get prediction results in under 2 seconds.</li>
           </ul>
-          <div class="project__proof">
-            <div class="project__proof-block">
-              <span>Model stack</span>
-              <pre>Python
-scikit-learn
-XGBoost
-SHAP
-Streamlit</pre>
-            </div>
-            <div class="project__proof-block">
-              <span>Outcome snapshot</span>
-              <pre>88% prediction accuracy
-Explainable output
-Fast simulated matchups
-Sub-2 second responses</pre>
-            </div>
-          </div>
           <div class="project-links-row">
-            <a href="nfl-case-study.html" target="_blank" class="project__live-btn">Case study</a>
+            <a href="nfl-case-study.html" target="_blank" class="project-inline-link">Case study ↗</a>
             <a href="https://github.com/SheltonBumhe/machine-learning-nfl-touchdowns" target="_blank" rel="noreferrer" class="project-inline-link">View code ↗</a>
           </div>
         </div>
@@ -218,6 +184,42 @@ Sub-2 second responses</pre>
             <li>Developed business and technical acumen through technical assessments, case studies, simulations, and project work to strengthen analytical and leadership capabilities.</li>
             <li>Engaged with partner organizations including LinkedIn, Bloomberg, and Deloitte to build industry exposure and insight into technology career paths.</li>
           </ul>
+        </article>
+      </div>
+    </section>
+    <section class="community" id="community">
+      <h2 class="section-heading community__heading">Community</h2>
+      <p class="community__intro">The communities I spend time with matter because they sharpen how I learn, who I learn from, and how I think about long-term impact in tech.</p>
+      <div class="community__grid">
+        <article class="community-card">
+          <span class="community-card__label">Leadership Program</span>
+          <h3>Management Leadership For Tomorrow</h3>
+          <p>MLT is a structured leadership and career-development organization that helps high-achieving students and professionals grow through coaching, workshops, and employer connections.</p>
+          <ul>
+            <li>For me, MLT adds accountability, interview preparation, and exposure to employers and peers who take career growth seriously.</li>
+            <li>It also pushes me to connect technical execution with communication, leadership, and long-term career strategy.</li>
+          </ul>
+          <a href="https://mlt.org/program-overview" target="_blank" rel="noreferrer" class="community-card__link">MLT link ↗</a>
+        </article>
+        <article class="community-card">
+          <span class="community-card__label">Tech Community</span>
+          <h3>ColorStack</h3>
+          <p>ColorStack is a tech nonprofit focused on community building, academic support, and career development for Black and Latinx computer science students.</p>
+          <ul>
+            <li>I value ColorStack because it connects technical ambition with people who understand the student-to-industry path in a practical way.</li>
+            <li>It is the kind of community that makes opportunities, mentorship, and peer learning easier to access at scale.</li>
+          </ul>
+          <a href="https://www.colorstack.org/about-us" target="_blank" rel="noreferrer" class="community-card__link">ColorStack link ↗</a>
+        </article>
+        <article class="community-card">
+          <span class="community-card__label">Engineering Community</span>
+          <h3>NSBE</h3>
+          <p>The National Society of Black Engineers is a major engineering community focused on academic excellence, professional success, leadership, and positive community impact.</p>
+          <ul>
+            <li>For me, NSBE represents technical ambition with real structure: networking, career access, chapter community, and a strong engineering identity.</li>
+            <li>It also matters because it frames engineering as both professional growth and service to the broader community.</li>
+          </ul>
+          <a href="https://nsbe.org/about/" target="_blank" rel="noreferrer" class="community-card__link">NSBE link ↗</a>
         </article>
       </div>
     </section>
@@ -265,13 +267,13 @@ Sub-2 second responses</pre>
           <div class="agent-panel__eyebrow">Portfolio AI</div>
           <h3 class="agent-panel__title">Ask Shelton AI</h3>
           <p class="agent-panel__intro">
-            Visitors can ask about my resume, projects, technical strengths, leadership programs, current books, and contact details.
+            Visitors can ask about my resume, projects, technical strengths, MLT, ColorStack, NSBE, current books, and contact details.
           </p>
           <div class="agent-suggestions" id="agent-suggestions">
             <button type="button" class="agent-suggestion">Who is Shelton?</button>
             <button type="button" class="agent-suggestion">What backend work has he done?</button>
             <button type="button" class="agent-suggestion">Tell me about the NFL ML project</button>
-            <button type="button" class="agent-suggestion">What books is he reading right now?</button>
+            <button type="button" class="agent-suggestion">Tell me about MLT, ColorStack, and NSBE</button>
           </div>
           <div class="agent-chat" id="agent-chat-log" aria-live="polite"></div>
           <form class="agent-form" id="agent-form">

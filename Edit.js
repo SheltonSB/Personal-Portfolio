@@ -295,7 +295,7 @@ function navFadeIn(entries) {
 }
 
 const observerNav = new IntersectionObserver(navFadeIn, options);
-['hero', 'about', 'experience', 'gallery', 'contact'].forEach((id) => {
+['hero', 'about', 'experience', 'community', 'gallery', 'contact'].forEach((id) => {
   const el = document.querySelector(`#${id}`);
   if (el) observerNav.observe(el);
 });

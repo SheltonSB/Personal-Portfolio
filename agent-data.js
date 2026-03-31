@@ -2,28 +2,27 @@
 window.portfolioAgentData = {
   assistantName: 'Ask Shelton AI',
   greeting:
-    "Ask me about Shelton's resume, backend work, ML projects, technical skills, leadership programs, current reading list, or contact details. I answer from the portfolio content and keep the conversation focused on his real profile.",
-  promptPlaceholder: 'Ask about Shelton, his resume, projects, or current books',
+    "Ask me about Shelton's resume, backend work, ML projects, technical skills, community involvement, current reading list, or contact details. I answer from the portfolio content and keep the conversation focused on his real profile.",
+  promptPlaceholder: 'Ask about Shelton, his projects, books, or community',
   emptyState:
-    'Try asking about Shelton, his resume, his backend projects, his ML work, his leadership program, or what he is reading right now.',
+    'Try asking about Shelton, his resume, his backend projects, his ML work, MLT, ColorStack, NSBE, or what he is reading right now.',
   suggestions: [
     'Who is Shelton?',
     'What backend work has he done?',
     'Tell me about the NFL ML project',
-    'What books is he reading right now?',
-    'How can I contact him?',
+    'Tell me about MLT, ColorStack, and NSBE',
   ],
   fallback: {
     answer:
-      "I do not have that in Shelton's current profile knowledge yet. I can help with his resume, projects, experience, technical strengths, current books, and contact details.",
-    followUp: 'Do you want a quick summary of his resume, backend strengths, current reading, or recent project work?',
+      "I do not have that in Shelton's current profile knowledge yet. I can help with his resume, projects, experience, technical strengths, communities, current books, and contact details.",
+    followUp: 'Do you want a quick summary of his resume, backend strengths, community involvement, current reading, or recent project work?',
   },
   directAnswers: [
     {
       matchAny: ['hello', 'hi', 'hey'],
       maxTokens: 3,
       answer:
-        "Hi. I can answer questions about Shelton's resume, projects, experience, backend skills, ML work, current books, and contact info.",
+        "Hi. I can answer questions about Shelton's resume, projects, experience, backend skills, ML work, communities, current books, and contact info.",
       followUp: 'What do you want to know first?',
     },
     {
@@ -37,6 +36,30 @@ window.portfolioAgentData = {
       answer:
         "Shelton is currently reading System Design Interview by Alex Xu and Designing Data-Intensive Applications by Martin Kleppmann. Book links: https://www.amazon.com/System-Design-Interview-Insiders-Guide/dp/1736049119 and https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/",
       followUp: 'Do you want to know how those books connect to his backend and data-systems goals?',
+    },
+    {
+      matchAny: ['community', 'communities', 'involvement', 'organizations'],
+      answer:
+        'Shelton is involved with Management Leadership For Tomorrow (MLT), ColorStack, and the National Society of Black Engineers (NSBE). MLT link: https://mlt.org/program-overview ColorStack link: https://www.colorstack.org/about-us NSBE link: https://nsbe.org/about/',
+      followUp: 'Do you want the short explanation of MLT, ColorStack, or NSBE?',
+    },
+    {
+      matchAny: ['mlt', 'management leadership for tomorrow'],
+      answer:
+        'Shelton is part of Management Leadership For Tomorrow, a structured leadership and career-development organization that helps high-achieving students and professionals grow through coaching, workshops, and employer access. For him, MLT adds accountability, interview preparation, and long-term career strategy. Link: https://mlt.org/program-overview',
+      followUp: 'Do you want the career-growth angle or the resume version of his MLT involvement?',
+    },
+    {
+      matchAny: ['colorstack'],
+      answer:
+        'ColorStack is a tech community focused on community, academic support, and career development for Black and Latinx computer science students. Shelton values it because it connects technical ambition with mentorship, peer learning, and a clearer path from school to industry. Link: https://www.colorstack.org/about-us',
+      followUp: 'Do you want the short portfolio summary or why ColorStack matters to his growth?',
+    },
+    {
+      matchAny: ['nsbe', 'national society of black engineers'],
+      answer:
+        'NSBE is a major engineering community centered on academic excellence, professional success, leadership, and positive community impact. For Shelton, it represents technical ambition with structure, networking, career access, and service beyond the classroom. Link: https://nsbe.org/about/',
+      followUp: 'Do you want the short portfolio version of NSBE or how it complements his technical work?',
     },
   ],
   topics: [
@@ -203,6 +226,80 @@ window.portfolioAgentData = {
         'His additional involvement includes ColorStack and the National Society of Black Engineers.',
       ],
       followUp: 'Do you want the engineering experience, leadership program, or mentorship angle?',
+    },
+    {
+      id: 'community',
+      keywords: [
+        'community',
+        'communities',
+        'involvement',
+        'organizations',
+        'club',
+        'clubs',
+        'colorstack',
+        'nsbe',
+        'mlt',
+      ],
+      summary:
+        'Shelton is involved in three communities that reinforce different parts of his growth: Management Leadership For Tomorrow (MLT), ColorStack, and the National Society of Black Engineers (NSBE).',
+      highlights: [
+        'MLT is a structured leadership and career-development program that helps him build accountability, interview preparation, and long-term professional direction. Link: https://mlt.org/program-overview',
+        'ColorStack gives him a practical peer and mentorship network around academic support, career development, and the path from computer science student to industry. Link: https://www.colorstack.org/about-us',
+        'NSBE adds engineering identity, leadership, networking, and a service-oriented view of professional growth. Link: https://nsbe.org/about/',
+      ],
+      followUp: 'Do you want the breakdown for MLT, ColorStack, or NSBE first?',
+    },
+    {
+      id: 'mlt',
+      keywords: [
+        'mlt',
+        'management leadership for tomorrow',
+        'career prep fellow',
+        'leadership program',
+        'leadership fellowship',
+      ],
+      summary:
+        'Shelton is part of Management Leadership For Tomorrow, an 18-month leadership and career-development program that sharpens professional readiness through structured coaching, assessments, simulations, and employer exposure.',
+      highlights: [
+        'It strengthens interview preparation, accountability, and strategic career planning.',
+        'His resume notes exposure to partner organizations including LinkedIn, Bloomberg, and Deloitte.',
+        'Official MLT link: https://mlt.org/program-overview',
+      ],
+      followUp: 'Do you want the short recruiter summary or the fuller portfolio explanation of MLT?',
+    },
+    {
+      id: 'colorstack',
+      keywords: [
+        'colorstack',
+        'tech community',
+        'black and latinx',
+        'student community',
+      ],
+      summary:
+        'ColorStack is one of the communities Shelton is part of because it supports computer science students through community, academic support, mentorship, and career development.',
+      highlights: [
+        'He values it because it makes peer learning, mentorship, and access to industry pathways more practical.',
+        'It aligns with his focus on growing technically while staying connected to a strong student-to-industry network.',
+        'Official ColorStack link: https://www.colorstack.org/about-us',
+      ],
+      followUp: 'Do you want a shorter answer about what ColorStack is or why it matters to Shelton specifically?',
+    },
+    {
+      id: 'nsbe',
+      keywords: [
+        'nsbe',
+        'national society of black engineers',
+        'engineering community',
+        'engineering organization',
+      ],
+      summary:
+        'Shelton is also involved with the National Society of Black Engineers, a major engineering organization centered on academic excellence, leadership, professional success, and impact in the community.',
+      highlights: [
+        'For him, NSBE reinforces engineering identity, networking, leadership, and service.',
+        'It complements his technical work by adding a broader community and professional-growth framework.',
+        'Official NSBE link: https://nsbe.org/about/',
+      ],
+      followUp: 'Do you want the quick NSBE explanation or how it complements his resume and project work?',
     },
     {
       id: 'books',
