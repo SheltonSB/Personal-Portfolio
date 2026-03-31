@@ -1,373 +1,262 @@
-// Update these facts, keywords, and prompts to tune the portfolio assistant.
+// Central content layer for the portfolio assistant, project modal, and animated background.
 window.portfolioAgentData = {
   assistantName: 'Ask Shelton AI',
   greeting:
-    "Ask me about Shelton's resume, backend work, ML projects, technical skills, community involvement, current reading list, or contact details. I answer from the portfolio content and keep the conversation focused on his real profile.",
-  promptPlaceholder: 'Ask about Shelton, his projects, books, or community',
+    "Ask me about Shelton's backend strengths, project architecture, resume highlights, books, leadership programs, or internship fit. I answer from the portfolio's structured knowledge base.",
+  promptPlaceholder: 'Ask about a project, backend strengths, or recruiter fit',
   emptyState:
-    'Try asking about Shelton, his resume, his backend projects, his ML work, MLT, ColorStack, NSBE, or what he is reading right now.',
+    'Try asking about Shelton, the e-commerce architecture, the NFL predictor, his books, his leadership programs, or why he is a strong internship candidate.',
   suggestions: [
-    'Who is Shelton?',
-    'What backend work has he done?',
-    'Tell me about the NFL ML project',
-    'Tell me about MLT, ColorStack, and NSBE',
+    'Summarize Shelton for a recruiter',
+    'Explain the e-commerce architecture',
+    'What makes the NFL project impressive?',
+    'How do his books connect to backend goals?',
   ],
   fallback: {
     answer:
-      "I do not have that in Shelton's current profile knowledge yet. I can help with his resume, projects, experience, technical strengths, communities, current books, and contact details.",
-    followUp: 'Do you want a quick summary of his resume, backend strengths, community involvement, current reading, or recent project work?',
+      "I do not have that exact phrasing in Shelton's current portfolio knowledge yet, but I can help with his resume, projects, backend stack, experience, communities, books, and contact details.",
+    followUp: 'Do you want a recruiter summary, a project deep dive, his current reading, or a contact overview?',
+  },
+  annotationPhrases: [
+    '// evaluating cache invalidation tradeoffs',
+    'redis edge cache -> product queries',
+    'auth flow: jwt + guarded routes',
+    'throughput target: keep UI responsive',
+    'feature note: explainability matters',
+    'xgboost + shap + streamlit',
+    'system design thought: split reads from writes',
+    'recruiter note: measurable outcomes > vague claims',
+    'weekly reports generated with python + sql',
+    'latency budget: under 2 seconds',
+    'designing for production-minded delivery',
+    'learning loop: build -> measure -> explain',
+    '// retry strategy for external integrations',
+    'cloudinary media pipeline',
+    'azure deployment via github actions',
+    'domain model > quick patchwork',
+    'backend focus: reliability + clarity',
+    'current reading: DDIA + System Design Interview',
+    'annotation: think in systems, not just features',
+    'mentorship + engineering identity + impact',
+  ],
+  projectShowcase: {
+    ecommerce: {
+      id: 'ecommerce',
+      kicker: 'Backend Platform',
+      title: 'Full-Stack E-Commerce',
+      shortTitle: 'e-commerce',
+      tagline:
+        'A production-minded commerce platform built to show backend performance, secure checkout, media handling, and CI/CD discipline.',
+      keywords: [
+        'ecommerce',
+        'e-commerce',
+        'store',
+        'retail',
+        'checkout',
+        'redis',
+        'stripe',
+        'cloudinary',
+        'azure',
+        'dotnet',
+        '.net',
+      ],
+      overview:
+        'This project is Shelton’s backend-heavy commerce build. It combines a .NET API, React frontend, PostgreSQL, Redis, and Azure deployment into one recruiter-friendly system that demonstrates more than just CRUD.',
+      problem:
+        'The project is designed to solve a common weakness in student portfolios: many projects look functional on the surface but do not show how performance, auth, payments, media, and release workflows are handled together. This one intentionally does.',
+      technologies: ['.NET 9', 'ASP.NET Core', 'React', 'PostgreSQL', 'Redis', 'Stripe', 'Cloudinary', 'JWT', 'GitHub Actions', 'Azure'],
+      architecture: [
+        'The frontend talks to a .NET backend that exposes product, cart, authentication, and checkout flows.',
+        'PostgreSQL stores the core relational data while Redis is used to reduce repeated expensive reads and keep high-traffic pages responsive.',
+        'Stripe handles payment processing and Cloudinary handles media upload and storage so those concerns stay separated from the core app logic.',
+        'A GitHub Actions pipeline validates and deploys changes to Azure to reinforce release discipline and deployment confidence.',
+      ],
+      keyFeatures: [
+        'JWT-based authentication and role-aware access control.',
+        'Redis-backed performance optimization for frequently accessed data.',
+        'Secure checkout integration through Stripe.',
+        'Cloudinary media pipeline for product assets.',
+        'Automated Azure release workflow through GitHub Actions.',
+      ],
+      challenges: [
+        'Balancing feature completeness with clean architecture instead of turning the app into a collection of disconnected integrations.',
+        'Handling multiple external services while keeping auth, payments, and media concerns clearly separated.',
+        'Making the project demonstrate backend maturity, not just frontend polish.',
+      ],
+      impact: [
+        'The project gives recruiters a concrete example of how Shelton thinks about backend systems as a full product surface rather than isolated API endpoints.',
+        'It shows performance thinking, security awareness, and operational discipline in one portfolio piece.',
+      ],
+      screens: [
+        { label: 'Catalog View', note: 'Space for homepage or product-listing screenshot.' },
+        { label: 'Checkout Flow', note: 'Space for cart, payment, or order confirmation screenshot.' },
+        { label: 'Architecture View', note: 'Space for API / deployment diagram or backend walkthrough image.' },
+      ],
+      links: {
+        github: 'https://github.com/SheltonBumhe/ecommerce-api',
+        caseStudy: 'ecommerce-demo.html',
+      },
+      assistant: {
+        summary:
+          'Shelton’s e-commerce platform is one of the strongest examples of his backend thinking because it combines performance, auth, payments, media management, and deployment in one coherent system.',
+        highlights: [
+          'He used Redis caching to improve responsiveness for data-heavy storefront flows.',
+          'He wired Stripe and Cloudinary into a backend architecture instead of treating them as surface-level add-ons.',
+          'He used GitHub Actions and Azure to show that deployment and release quality matter as much as feature delivery.',
+        ],
+        followUp: 'Do you want the architecture breakdown, the technology stack, or why this project stands out to recruiters?',
+      },
+    },
+    nfl: {
+      id: 'nfl',
+      kicker: 'Machine Learning Product',
+      title: 'NFL QB Touchdown Predictor',
+      shortTitle: 'NFL predictor',
+      tagline:
+        'A machine learning project that combines predictive modeling, SHAP-based explainability, and a lightweight product interface for fast scenario exploration.',
+      keywords: [
+        'nfl',
+        'touchdown',
+        'predictor',
+        'streamlit',
+        'xgboost',
+        'shap',
+        'football',
+        'machine learning',
+      ],
+      overview:
+        'This project is Shelton’s best machine learning showcase because it does more than train a model. It also explains decisions and ships the result through a usable interface.',
+      problem:
+        'A lot of ML projects stop at accuracy metrics. This one is built to answer a harder question: can the model be explained, explored, and presented in a way that non-experts can still understand?',
+      technologies: ['Python', 'scikit-learn', 'XGBoost', 'Pandas', 'NumPy', 'SHAP', 'Streamlit'],
+      architecture: [
+        'Historical NFL play and matchup data is cleaned and shaped into model-ready features.',
+        'An XGBoost model is trained to predict touchdown outcomes and evaluated for performance.',
+        'SHAP is used to surface the factors driving predictions so the system is not a pure black box.',
+        'A Streamlit app wraps the workflow and returns simulated matchup output quickly for user-facing exploration.',
+      ],
+      keyFeatures: [
+        'Reported 88% prediction accuracy on the modeled touchdown outcome task.',
+        'Explainability layer with SHAP for interpretable model behavior.',
+        'Streamlit front end for accessible interaction and fast experimentation.',
+        'Under-two-second response goal for live simulation feel.',
+      ],
+      challenges: [
+        'Designing a project that feels like a product instead of an isolated notebook experiment.',
+        'Balancing predictive performance with interpretability so the model remains defensible.',
+        'Turning sports data into something usable and understandable for non-technical viewers.',
+      ],
+      impact: [
+        'The project shows Shelton can connect modeling, explanation, and user-facing delivery in one story.',
+        'It gives recruiters evidence that he thinks beyond pure ML code and into usability and communication.',
+      ],
+      screens: [
+        { label: 'Input Interface', note: 'Space for matchup selection or user controls screenshot.' },
+        { label: 'Prediction Output', note: 'Space for live model output and probability summary.' },
+        { label: 'Explainability View', note: 'Space for SHAP chart or feature-importance screenshot.' },
+      ],
+      links: {
+        github: 'https://github.com/SheltonBumhe/machine-learning-nfl-touchdowns',
+        caseStudy: 'nfl-case-study.html',
+      },
+      assistant: {
+        summary:
+          'The NFL touchdown predictor stands out because it combines modeling, explainability, and product thinking instead of optimizing only for accuracy.',
+        highlights: [
+          'The model uses XGBoost and was trained on more than 10,000 plays with reported 88% accuracy.',
+          'SHAP makes the predictions interpretable, which is important when presenting the work to non-experts or recruiters.',
+          'The Streamlit layer turns it into a usable experience rather than a static data science artifact.',
+        ],
+        followUp: 'Do you want the model architecture, the explainability angle, or why this project helps in recruiting conversations?',
+      },
+    },
   },
   directAnswers: [
     {
       matchAny: ['hello', 'hi', 'hey'],
       maxTokens: 3,
       answer:
-        "Hi. I can answer questions about Shelton's resume, projects, experience, backend skills, ML work, communities, current books, and contact info.",
+        "Hi. I can answer questions about Shelton's projects, backend strengths, ML work, books, experience, communities, and recruiter fit.",
       followUp: 'What do you want to know first?',
     },
     {
       matchAny: ['resume', 'cv'],
       answer:
-        "Use the Download Resume button at the top of the page to grab Shelton's latest resume. The portfolio also summarizes the same education, projects, experience, and leadership focus.",
-      followUp: 'Do you want the short version of his most relevant backend and ML experience?',
+        "Use the Download Resume button in the hero section to grab Shelton's latest PDF. The portfolio also mirrors the same education, project, experience, and leadership points in a recruiter-friendly format.",
+      followUp: 'Do you want a quick recruiter summary or a project deep dive?',
     },
     {
       matchAny: ['books', 'reading', 'book'],
       answer:
-        "Shelton is currently reading System Design Interview by Alex Xu and Designing Data-Intensive Applications by Martin Kleppmann. Book links: https://www.amazon.com/System-Design-Interview-Insiders-Guide/dp/1736049119 and https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/",
-      followUp: 'Do you want to know how those books connect to his backend and data-systems goals?',
+        'Shelton is currently reading System Design Interview by Alex Xu and Designing Data-Intensive Applications by Martin Kleppmann. Those books align with his focus on backend architecture, scalability tradeoffs, and data-system design.',
+      followUp: 'Do you want the book links or how they connect to his backend goals?',
       followUpTopic: 'books-backend',
     },
     {
-      matchAny: ['community', 'communities', 'involvement', 'organizations'],
+      matchAny: ['contact', 'email', 'phone', 'linkedin', 'github'],
       answer:
-        'Shelton is involved with Management Leadership For Tomorrow (MLT), ColorStack, and the National Society of Black Engineers (NSBE). MLT link: https://mlt.org/program-overview ColorStack link: https://www.colorstack.org/about-us NSBE link: https://nsbe.org/about/',
-      followUp: 'Do you want the short explanation of MLT, ColorStack, or NSBE?',
-    },
-    {
-      matchAny: ['mlt', 'management leadership for tomorrow'],
-      answer:
-        'Shelton is part of Management Leadership For Tomorrow, a structured leadership and career-development organization that helps high-achieving students and professionals grow through coaching, workshops, and employer access. For him, MLT adds accountability, interview preparation, and long-term career strategy. Link: https://mlt.org/program-overview',
-      followUp: 'Do you want the career-growth angle or the resume version of his MLT involvement?',
-    },
-    {
-      matchAny: ['colorstack'],
-      answer:
-        'ColorStack is a tech community focused on community, academic support, and career development for Black and Latinx computer science students. Shelton values it because it connects technical ambition with mentorship, peer learning, and a clearer path from school to industry. Link: https://www.colorstack.org/about-us',
-      followUp: 'Do you want the short portfolio summary or why ColorStack matters to his growth?',
-    },
-    {
-      matchAny: ['nsbe', 'national society of black engineers'],
-      answer:
-        'NSBE is a major engineering community centered on academic excellence, professional success, leadership, and positive community impact. For Shelton, it represents technical ambition with structure, networking, career access, and service beyond the classroom. Link: https://nsbe.org/about/',
-      followUp: 'Do you want the short portfolio version of NSBE or how it complements his technical work?',
+        'You can reach Shelton at sbumhe2@huskers.unl.edu, on LinkedIn at linkedin.com/in/shelton-bumhe-027476312, on GitHub at github.com/SheltonSB, or by phone at (308) 663-3469.',
+      followUp: 'Do you want the best project to review first before reaching out?',
     },
   ],
   topics: [
     {
-      id: 'about',
-      keywords: [
-        'who is shelton',
-        'about',
-        'background',
-        'student',
-        'school',
-        'university',
-        'nebraska',
-        'unl',
-        'computer science',
-        'december 2027',
-        'gpa',
-      ],
+      id: 'recruiter-summary',
+      keywords: ['recruiter', 'summary', 'introduce', 'overview', 'who is shelton', 'candidate', 'fit'],
       summary:
-        'Shelton Bumhe is a Computer Science student at the University of Nebraska-Lincoln pursuing a BS in Computer Science. He is expected to graduate in December 2027 and currently lists a 3.5 GPA on his resume.',
+        'Shelton Bumhe is a Computer Science student at the University of Nebraska-Lincoln focused on backend systems, machine learning, and production-minded project work.',
       highlights: [
-        'His coursework includes Data Structures and Algorithms, Discrete Math, Linear Algebra, Statistics, Software Engineering I, Physics I, and Calculus III.',
-        'He is building toward backend, data, and machine learning roles with a portfolio that ties resume claims to concrete projects.',
+        'He combines academic preparation with two portfolio projects that show architecture, measurable outcomes, and product thinking.',
+        'His Dominion College experience and MLT involvement show communication, mentorship, and professional growth alongside technical execution.',
+        'He is strongest when discussing backend systems, explainable ML, and projects that are easy to defend in a recruiter conversation.',
       ],
-      followUp: 'Want a quick summary of his strongest technical skills or the projects that best match his resume?',
+      followUp: 'Do you want the backend angle, the ML angle, or the project-by-project version of that summary?',
     },
     {
       id: 'strengths',
-      keywords: [
-        'backend',
-        'skills',
-        'stack',
-        'strengths',
-        'technical',
-        'what does he know',
-        'api',
-        'python',
-        'sql',
-        'testing',
-        'ml',
-      ],
+      keywords: ['backend', 'skills', 'stack', 'technical', 'strengths', 'what does he know', 'api'],
       summary:
-        'Shelton is strongest in Python, Java, JavaScript, SQL, C#, and C, with hands-on work across .NET, React, PostgreSQL, Redis, XGBoost, Streamlit, ASP.NET Core, EF Core, JUnit, and xUnit.',
+        'Shelton’s strongest technical lane is backend and data-oriented engineering, with hands-on work in Python, Java, JavaScript, SQL, C#, .NET, PostgreSQL, Redis, XGBoost, Streamlit, and testing tools like xUnit and JUnit.',
       highlights: [
-        'His resume also lists frameworks and libraries including Spring Boot, Django, TensorFlow, Pandas, Numpy, XGBoost, ASP.NET Core, EF Core, JUnit, and xUnit.',
-        'The strongest recurring theme in his work is combining backend implementation with measurable outcomes such as speed, security, and explainability.',
+        'The recurring pattern in his portfolio is not just writing code, but combining architecture, measurable performance, and clear explanation.',
+        'He is also building stronger systems intuition through current reading in system design and data-intensive application design.',
       ],
-      followUp: 'Do you want examples from his e-commerce platform, NFL predictor, or student-tracking work?',
-    },
-    {
-      id: 'internship',
-      keywords: [
-        'intern',
-        'internship',
-        'hire',
-        'candidate',
-        'fit',
-        'why',
-        'strength',
-        'goal',
-      ],
-      summary:
-        'Shelton would be a strong intern candidate because his resume already combines software execution, measurable project outcomes, academic preparation, and leadership development.',
-      highlights: [
-        'His e-commerce project shows backend, security, and deployment discipline, while the NFL project shows modeling, explainability, and product thinking.',
-        'His Dominion College work and MLT fellowship also show communication, mentorship, structure, and the ability to improve real workflows for other people.',
-      ],
-      followUp: 'Want me to break that down through a backend lens, an ML lens, or a leadership lens?',
-    },
-    {
-      id: 'projects',
-      keywords: ['projects', 'portfolio', 'built', 'build', 'work', 'featured'],
-      summary:
-        'The resume-aligned portfolio highlights two core projects: a full-stack e-commerce platform built with .NET, React, PostgreSQL, Redis, and Azure, plus an NFL quarterback touchdown predictor built with Python, scikit-learn, XGBoost, and Streamlit.',
-      highlights: [
-        'The e-commerce project emphasizes performance, authentication, payments, media handling, and CI/CD to Azure.',
-        'The NFL project emphasizes model training, predictive accuracy, SHAP explanations, and a fast Streamlit interface.',
-      ],
-      followUp: 'Which project do you want to dig into: e-commerce or NFL ML?',
-    },
-    {
-      id: 'ecommerce',
-      keywords: [
-        'ecommerce',
-        'retail',
-        'store',
-        'api',
-        'asp.net',
-        'c#',
-        'azure',
-        'redis',
-        'react',
-        'postgresql',
-      ],
-      summary:
-        'Shelton built a full-stack e-commerce platform using .NET, React, PostgreSQL, Redis, and Azure. The project focuses on speed, secure checkout, and reliable release workflows.',
-      highlights: [
-        'He used Redis to cache data so pages load quickly under heavy traffic.',
-        'He secured customer payments and media using Stripe and Cloudinary with JWT-based authentication and strict access controls.',
-        'He created an automated release pipeline to Azure using GitHub Actions so every code change is tested before launch.',
-      ],
-      followUp: 'Do you want more detail on the caching, payments, or deployment side of that project?',
-    },
-    {
-      id: 'nfl-ml',
-      keywords: [
-        'nfl',
-        'touchdown',
-        'predictor',
-        'machine learning',
-        'ml',
-        'xgboost',
-        'streamlit',
-        'shap',
-        'qb',
-        'model',
-      ],
-      summary:
-        'Shelton built an NFL quarterback touchdown predictor using Python, scikit-learn, XGBoost, and Streamlit. The project is aimed at combining practical ML with explainable output and a usable front end.',
-      highlights: [
-        'He trained the model on over 10,000 plays and reports 88 percent accuracy.',
-        'He used SHAP analysis to explain why the model makes certain decisions, including factors like pressure rate.',
-        'He launched the model through a live Streamlit app that returns simulated matchup predictions in under 2 seconds.',
-      ],
-      followUp: 'Do you want the data science view, the explainability view, or the product UI view of that project?',
-    },
-    {
-      id: 'dominion',
-      keywords: [
-        'dominion',
-        'tutor',
-        'harare',
-        'student tracking',
-        'math tutor',
-        'software developer',
-        'students',
-      ],
-      summary:
-        'At Dominion College in Harare, Shelton worked as a software developer and math tutor. That role blended coding, reporting, and direct student support.',
-      highlights: [
-        'He built a Python and SQL tracking tool for 30 or more students, cutting manual data entry time by 40 percent and generating weekly reports.',
-        'He mentored students in algebra and calculus using adaptive instruction strategies that supported a 99 percent pass rate.',
-        'He used diagnostics and targeted practice plans that contributed to a 15 percent increase in test scores over 3 months.',
-      ],
-      followUp: 'Do you want more detail on the software workflow, the tutoring impact, or the reporting tool?',
+      followUp: 'Do you want examples from the e-commerce project, the NFL predictor, or his student-tracking work?',
     },
     {
       id: 'experience',
-      keywords: [
-        'experience',
-        'leadership',
-        'work history',
-        'mlt',
-        'dominion',
-        'mentor',
-        'college',
-        'fellow',
-      ],
+      keywords: ['experience', 'dominion', 'mlt', 'work history', 'leadership', 'mentor', 'teaching'],
       summary:
-        "Shelton's experience combines software development, tutoring, and leadership development. It shows up in how he builds systems, explains ideas, and improves workflows for other people.",
+        "Shelton's experience combines software development, tutoring, and structured leadership development, which shows up in how he builds systems and explains them.",
       highlights: [
-        'His Dominion College role combined Python, SQL, analytics, and direct academic support for students.',
-        'He is also part of Management Leadership For Tomorrow, an 18-month career development program focused on structured coaching, technical and business growth, and industry exposure.',
-        'His additional involvement includes ColorStack and the National Society of Black Engineers.',
+        'At Dominion College he built a Python and SQL tracking workflow, generated weekly reports, and supported a 99% pass rate as a math tutor.',
+        'Through MLT he is sharpening professional communication, interview readiness, and long-term career strategy in a structured environment.',
       ],
-      followUp: 'Do you want the engineering experience, leadership program, or mentorship angle?',
+      followUp: 'Do you want the engineering experience version, the leadership version, or the mentoring angle?',
     },
     {
       id: 'books-backend',
-      keywords: [
-        'books',
-        'book',
-        'backend',
-        'data systems',
-        'data-systems',
-        'system design',
-        'ddia',
-        'designing data intensive applications',
-        'alex xu',
-        'kleppmann',
-        'connect',
-        'goals',
-        'scaling',
-        'architecture',
-      ],
+      keywords: ['books', 'backend', 'system design', 'ddia', 'data intensive', 'connect', 'goals', 'architecture'],
       summary:
-        'Those books connect directly to Shelton’s backend and data-systems goals because they sharpen the exact thinking he is trying to build: system design tradeoffs, scalable APIs, reliability, storage patterns, and distributed architecture decisions.',
+        'Those books connect directly to Shelton’s backend goals because they sharpen the kind of engineering judgment he wants to build: architecture tradeoffs, reliability, scalability, storage patterns, and system boundaries.',
       highlights: [
-        'System Design Interview helps him think more clearly about backend interview topics like service boundaries, scaling bottlenecks, caching, load balancing, and practical architecture tradeoffs.',
-        'Designing Data-Intensive Applications goes deeper into storage engines, replication, consistency, event-driven systems, and reliability, which fits his interest in stronger backend and data-infrastructure thinking.',
-        'Together, the books support the same direction visible in his portfolio: backend systems, performance, and more production-ready technical decision-making.',
+        'System Design Interview reinforces the recruiter-facing and interview-facing side of backend thinking, including APIs, caching, scaling, and service design.',
+        'Designing Data-Intensive Applications goes deeper into replication, consistency, event-driven patterns, and reliability, which supports stronger data-system intuition.',
+        'Together they map closely to the direction already visible in his e-commerce and ML projects.',
       ],
-      followUp: 'Do you want me to connect those books to the e-commerce project, the ML project, or both?',
+      followUp: 'Do you want me to connect those books to the e-commerce architecture, the NFL project, or both?',
     },
     {
       id: 'community',
-      keywords: [
-        'community',
-        'communities',
-        'involvement',
-        'organizations',
-        'club',
-        'clubs',
-        'colorstack',
-        'nsbe',
-        'mlt',
-      ],
+      keywords: ['community', 'mlt', 'colorstack', 'nsbe', 'organizations', 'involvement'],
       summary:
-        'Shelton is involved in three communities that reinforce different parts of his growth: Management Leadership For Tomorrow (MLT), ColorStack, and the National Society of Black Engineers (NSBE).',
+        'Shelton is involved with Management Leadership For Tomorrow, ColorStack, and the National Society of Black Engineers.',
       highlights: [
-        'MLT is a structured leadership and career-development program that helps him build accountability, interview preparation, and long-term professional direction. Link: https://mlt.org/program-overview',
-        'ColorStack gives him a practical peer and mentorship network around academic support, career development, and the path from computer science student to industry. Link: https://www.colorstack.org/about-us',
-        'NSBE adds engineering identity, leadership, networking, and a service-oriented view of professional growth. Link: https://nsbe.org/about/',
+        'MLT adds leadership structure, coaching, and career accountability.',
+        'ColorStack strengthens mentorship, peer network, and student-to-industry access.',
+        'NSBE reinforces engineering identity, leadership, and service-oriented growth.',
       ],
-      followUp: 'Do you want the breakdown for MLT, ColorStack, or NSBE first?',
-    },
-    {
-      id: 'mlt',
-      keywords: [
-        'mlt',
-        'management leadership for tomorrow',
-        'career prep fellow',
-        'leadership program',
-        'leadership fellowship',
-      ],
-      summary:
-        'Shelton is part of Management Leadership For Tomorrow, an 18-month leadership and career-development program that sharpens professional readiness through structured coaching, assessments, simulations, and employer exposure.',
-      highlights: [
-        'It strengthens interview preparation, accountability, and strategic career planning.',
-        'His resume notes exposure to partner organizations including LinkedIn, Bloomberg, and Deloitte.',
-        'Official MLT link: https://mlt.org/program-overview',
-      ],
-      followUp: 'Do you want the short recruiter summary or the fuller portfolio explanation of MLT?',
-    },
-    {
-      id: 'colorstack',
-      keywords: [
-        'colorstack',
-        'tech community',
-        'black and latinx',
-        'student community',
-      ],
-      summary:
-        'ColorStack is one of the communities Shelton is part of because it supports computer science students through community, academic support, mentorship, and career development.',
-      highlights: [
-        'He values it because it makes peer learning, mentorship, and access to industry pathways more practical.',
-        'It aligns with his focus on growing technically while staying connected to a strong student-to-industry network.',
-        'Official ColorStack link: https://www.colorstack.org/about-us',
-      ],
-      followUp: 'Do you want a shorter answer about what ColorStack is or why it matters to Shelton specifically?',
-    },
-    {
-      id: 'nsbe',
-      keywords: [
-        'nsbe',
-        'national society of black engineers',
-        'engineering community',
-        'engineering organization',
-      ],
-      summary:
-        'Shelton is also involved with the National Society of Black Engineers, a major engineering organization centered on academic excellence, leadership, professional success, and impact in the community.',
-      highlights: [
-        'For him, NSBE reinforces engineering identity, networking, leadership, and service.',
-        'It complements his technical work by adding a broader community and professional-growth framework.',
-        'Official NSBE link: https://nsbe.org/about/',
-      ],
-      followUp: 'Do you want the quick NSBE explanation or how it complements his resume and project work?',
-    },
-    {
-      id: 'books',
-      keywords: [
-        'books',
-        'reading',
-        'alex xu',
-        'system design',
-        'ddia',
-        'designing data intensive applications',
-        'kleppmann',
-      ],
-      summary:
-        'Shelton is currently reading System Design Interview by Alex Xu and Designing Data-Intensive Applications by Martin Kleppmann.',
-      highlights: [
-        'System Design Interview link: https://www.amazon.com/System-Design-Interview-Insiders-Guide/dp/1736049119',
-        'Designing Data-Intensive Applications link: https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/',
-        'Those books align closely with his current focus on backend design, scaling tradeoffs, and data systems thinking.',
-      ],
-      followUp: 'Do you want the book links, or do you want to know how those books connect to his portfolio projects?',
-    },
-    {
-      id: 'contact',
-      keywords: [
-        'contact',
-        'email',
-        'phone',
-        'linkedin',
-        'github',
-        'reach',
-        'message',
-        'connect',
-      ],
-      summary:
-        'You can reach Shelton at sbumhe2@huskers.unl.edu, on LinkedIn at linkedin.com/in/shelton-bumhe-027476312, on GitHub at github.com/SheltonSB, or by phone at (308) 663-3469.',
-      highlights: [
-        'There is also a contact form on this page if you want to send a message directly from the portfolio.',
-        'If you want to review code first, each featured project links to its repository and case study.',
-      ],
-      followUp: 'Do you want contact details, repo links, or the best project to review first?',
+      followUp: 'Do you want the short explanation of MLT, ColorStack, or NSBE?',
     },
   ],
 };

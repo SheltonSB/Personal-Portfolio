@@ -1,356 +1,50 @@
-// Canvas animations (adapted from Ben Scott's open-source portfolio)
-const canvasDots = function () {
-  const canvas = document.querySelector('.connecting-dots');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  const colorDot = [
-    'rgb(81, 162, 233)',
-    'rgb(81, 162, 233)',
-    'rgb(81, 162, 233)',
-    'rgb(81, 162, 233)',
-    'rgb(255, 77, 90)',
-  ];
-  const color = 'rgb(81, 162, 233)';
+const portfolioAgentData = window.portfolioAgentData || {};
 
-  canvas.width = document.body.scrollWidth;
-  canvas.height = window.innerHeight;
-  canvas.style.display = 'block';
-  ctx.lineWidth = 0.3;
-  ctx.strokeStyle = color;
-
-  let mousePosition = {
-    x: (30 * canvas.width) / 100,
-    y: (30 * canvas.height) / 100,
-  };
-
-  const windowSize = window.innerWidth;
-  let dots;
-
-  if (windowSize > 1600) {
-    dots = { nb: 600, distance: 70, d_radius: 300, array: [] };
-  } else if (windowSize > 1300) {
-    dots = { nb: 575, distance: 60, d_radius: 280, array: [] };
-  } else if (windowSize > 1100) {
-    dots = { nb: 500, distance: 55, d_radius: 250, array: [] };
-  } else if (windowSize > 800) {
-    dots = { nb: 300, distance: 0, d_radius: 0, array: [] };
-  } else if (windowSize > 600) {
-    dots = { nb: 200, distance: 0, d_radius: 0, array: [] };
-  } else {
-    dots = { nb: 100, distance: 0, d_radius: 0, array: [] };
-  }
-
-  function Dot() {
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * canvas.height;
-    this.vx = -0.5 + Math.random();
-    this.vy = -0.5 + Math.random();
-    this.radius = Math.random() * 1.5;
-    this.colour = colorDot[Math.floor(Math.random() * colorDot.length)];
-  }
-
-  Dot.prototype = {
-    create: function () {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-      const dotDistance = ((this.x - mousePosition.x) ** 2 + (this.y - mousePosition.y) ** 2) ** 0.5;
-      const distanceRatio = dotDistance / (windowSize / 1.7);
-      ctx.fillStyle = this.colour.slice(0, -1) + `,${1 - distanceRatio})`;
-      ctx.fill();
-    },
-    animate: function () {
-      for (let i = 1; i < dots.nb; i++) {
-        const dot = dots.array[i];
-        if (dot.y < 0 || dot.y > canvas.height) {
-          dot.vx = dot.vx;
-          dot.vy = -dot.vy;
-        } else if (dot.x < 0 || dot.x > canvas.width) {
-          dot.vx = -dot.vx;
-          dot.vy = dot.vy;
-        }
-        dot.x += dot.vx;
-        dot.y += dot.vy;
-      }
-    },
-    line: function () {
-      for (let i = 0; i < dots.nb; i++) {
-        for (let j = 0; j < dots.nb; j++) {
-          const i_dot = dots.array[i];
-          const j_dot = dots.array[j];
-          if (
-            i_dot.x - j_dot.x < dots.distance &&
-            i_dot.y - j_dot.y < dots.distance &&
-            i_dot.x - j_dot.x > -dots.distance &&
-            i_dot.y - j_dot.y > -dots.distance
-          ) {
-            if (
-              i_dot.x - mousePosition.x < dots.d_radius &&
-              i_dot.y - mousePosition.y < dots.d_radius &&
-              i_dot.x - mousePosition.x > -dots.d_radius &&
-              i_dot.y - mousePosition.y > -dots.d_radius
-            ) {
-              ctx.beginPath();
-              ctx.moveTo(i_dot.x, i_dot.y);
-              ctx.lineTo(j_dot.x, j_dot.y);
-              const dotDistance =
-                ((i_dot.x - mousePosition.x) ** 2 + (i_dot.y - mousePosition.y) ** 2) ** 0.5;
-              let distanceRatio = dotDistance / dots.d_radius;
-              distanceRatio -= 0.3;
-              if (distanceRatio < 0) distanceRatio = 0;
-              ctx.strokeStyle = `rgb(81, 162, 233, ${1 - distanceRatio})`;
-              ctx.stroke();
-              ctx.closePath();
-            }
-          }
-        }
-      }
-    },
-  };
-
-  function createDots() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (let i = 0; i < dots.nb; i++) {
-      dots.array.push(new Dot());
-      const dot = dots.array[i];
-      dot.create();
-    }
-    dots.array[0].radius = 1.5;
-    dots.array[0].colour = '#51a2e9';
-    dot.line();
-    dot.animate();
-  }
-
-  window.onmousemove = function (parameter) {
-    mousePosition.x = parameter.pageX;
-    mousePosition.y = parameter.pageY;
-    try {
-      dots.array[0].x = parameter.pageX;
-      dots.array[0].y = parameter.pageY;
-    } catch {
-      // ignore
-    }
-  };
-
-  mousePosition.x = window.innerWidth / 2;
-  mousePosition.y = window.innerHeight / 2;
-
-  const draw = setInterval(createDots, 1000 / 30);
-
-  window.onresize = function () {
-    clearInterval(draw);
-    canvasDots();
-  };
-};
-
-const canvasDotsBg = function () {
-  const canvas = document.querySelector('.canvas-2');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  const colorDot = [
-    'rgb(81, 162, 233)',
-    'rgb(81, 162, 233)',
-    'rgb(81, 162, 233)',
-    'rgb(255, 77, 90)',
-  ];
-  const color = 'rgb(81, 162, 233)';
-
-  canvas.width = document.body.scrollWidth;
-  canvas.height = window.innerHeight;
-  canvas.style.display = 'block';
-  ctx.lineWidth = 0.3;
-  ctx.strokeStyle = color;
-
-  let mousePosition = {
-    x: (30 * canvas.width) / 100,
-    y: (30 * canvas.height) / 100,
-  };
-
-  const windowSize = window.innerWidth;
-  let dots;
-
-  if (windowSize > 1600) {
-    dots = { nb: 100, distance: 0, d_radius: 0, array: [] };
-  } else if (windowSize > 1300) {
-    dots = { nb: 75, distance: 0, d_radius: 0, array: [] };
-  } else if (windowSize > 1100) {
-    dots = { nb: 50, distance: 0, d_radius: 0, array: [] };
-  } else {
-    dots = { nb: 1, distance: 0, d_radius: 0, array: [] };
-    ctx.globalAlpha = 0;
-  }
-
-  function Dot() {
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * canvas.height;
-    this.vx = -0.5 + Math.random();
-    this.vy = -0.5 + Math.random();
-    this.radius = Math.random() * 1.5;
-    this.colour = colorDot[Math.floor(Math.random() * colorDot.length)];
-  }
-
-  Dot.prototype = {
-    create: function () {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-      const doc = document.documentElement;
-      const top =
-        (window.pageYOffset || doc.scrollTop || 0) - (doc.clientTop || 0);
-      const dotDistance = ((this.x - mousePosition.x) ** 2 + (this.y - mousePosition.y + top) ** 2) ** 0.5;
-      const distanceRatio = dotDistance / (windowSize / 2);
-      ctx.fillStyle = this.colour.slice(0, -1) + `,${1 - distanceRatio})`;
-      ctx.fill();
-    },
-    animate: function () {
-      for (let i = 1; i < dots.nb; i++) {
-        const dot = dots.array[i];
-        if (dot.y < 0 || dot.y > canvas.height) {
-          dot.vx = dot.vx;
-          dot.vy = -dot.vy;
-        } else if (dot.x < 0 || dot.x > canvas.width) {
-          dot.vx = -dot.vx;
-          dot.vy = dot.vy;
-        }
-        dot.x += dot.vx;
-        dot.y += dot.vy;
-      }
-    },
-  };
-
-  function createDots() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (let i = 0; i < dots.nb; i++) {
-      dots.array.push(new Dot());
-      const dot = dots.array[i];
-      dot.create();
-    }
-    dots.array[0].radius = 1.5;
-    dots.array[0].colour = '#51a2e9';
-    dot.animate();
-  }
-
-  window.onscroll = function () {
-    mousePosition.x = window.innerWidth / 2;
-    mousePosition.y = window.innerHeight / 2;
-    const doc = document.documentElement;
-    const top =
-      (window.pageYOffset || doc.scrollTop || 0) - (doc.clientTop || 0);
-    mousePosition.y += top;
-  };
-
-  const draw = setInterval(createDots, 1000 / 30);
-
-  window.onresize = function () {
-    clearInterval(draw);
-    canvasDotsBg();
-  };
-};
-
-window.onload = function () {
-  canvasDotsBg();
-  canvasDots();
-};
-
-function aboutFadeIn(entries) {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting && document.body.scrollWidth > 1300) {
-      document.querySelector('.profile').classList.add('profile__fade-in');
-      const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-      sleep(1000).then(() => document.querySelector('.skills__item--html').classList.add('skills__item-fade-in'));
-      sleep(1100).then(() => document.querySelector('.skills__item--webpack').classList.add('skills__item-fade-in'));
-      sleep(1200).then(() => document.querySelector('.skills__item--js').classList.add('skills__item-fade-in'));
-      sleep(1300).then(() => document.querySelector('.skills__item--git').classList.add('skills__item-fade-in'));
-      sleep(1400).then(() => document.querySelector('.skills__item--sass').classList.add('skills__item-fade-in'));
-      sleep(1500).then(() => document.querySelector('.skills__item--npm').classList.add('skills__item-fade-in'));
-      sleep(1600).then(() => document.querySelector('.skills__item--python').classList.add('skills__item-fade-in'));
-      sleep(1700).then(() => document.querySelector('.skills__item--react').classList.add('skills__item-fade-in'));
-      sleep(1800).then(() => document.querySelector('.skills__item--r').classList.add('skills__item-fade-in'));
-      sleep(1900).then(() => document.querySelector('.skills__item--css').classList.add('skills__item-fade-in'));
-    }
-  });
+function normalizeText(value) {
+  return (value || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
-const options = { root: null, rootMargin: '0px', threshold: 0.5 };
-const optionsProjects = { root: null, rootMargin: '0px', threshold: 0.2 };
-
-const aboutSection = document.querySelector('.about__content');
-if (aboutSection) {
-  const observer = new IntersectionObserver(aboutFadeIn, options);
-  observer.observe(aboutSection);
-}
-
-// Navigation highlighting
-const navLinks = document.querySelectorAll('.navigation__item');
-function setActiveNav(id) {
-  navLinks.forEach((link) => link.classList.remove('navigation__item--active'));
-  const active = document.querySelector(`#nav-${id}`);
-  if (active) active.classList.add('navigation__item--active');
-}
-
-function navFadeIn(entries) {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      setActiveNav(entry.target.id);
-    }
-  });
-}
-
-const observerNav = new IntersectionObserver(navFadeIn, options);
-['hero', 'about', 'experience', 'community', 'gallery', 'contact'].forEach((id) => {
-  const el = document.querySelector(`#${id}`);
-  if (el) observerNav.observe(el);
-});
-
-const observerNavProjects = new IntersectionObserver(navFadeIn, optionsProjects);
-const projectsSection = document.querySelector('#projects');
-if (projectsSection) observerNavProjects.observe(projectsSection);
-
-// Portfolio agent
-const portfolioAgentData = window.portfolioAgentData;
-
-function normalizeAgentText(value) {
-  return value.toLowerCase().replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
-}
-
-function tokenizeAgentText(value) {
-  return normalizeAgentText(value)
+function tokenizeText(value) {
+  return normalizeText(value)
     .split(' ')
     .filter((token) => token.length > 1);
 }
 
-function isAgentAffirmative(questionTokens) {
-  if (!questionTokens.length) return false;
-
-  const affirmativeWords = new Set(['yes', 'yeah', 'yep', 'sure', 'ok', 'okay', 'please']);
-  return questionTokens.every((token) => affirmativeWords.has(token));
-}
-
-function questionHasAgentKeyword(normalizedQuestion, questionTokens, keyword) {
-  const normalizedKeyword = normalizeAgentText(keyword);
+function textHasKeyword(normalizedQuestion, questionTokens, keyword) {
+  const normalizedKeyword = normalizeText(keyword);
   if (!normalizedKeyword) return false;
   if (normalizedKeyword.includes(' ')) return normalizedQuestion.includes(normalizedKeyword);
   return questionTokens.includes(normalizedKeyword);
 }
 
-function matchesAgentRule(normalizedQuestion, questionTokens, rule) {
+function matchesRule(normalizedQuestion, questionTokens, rule) {
   if (rule.maxTokens && questionTokens.length > rule.maxTokens) return false;
-
   const anyMatched =
-    !rule.matchAny || rule.matchAny.some((item) => questionHasAgentKeyword(normalizedQuestion, questionTokens, item));
+    !rule.matchAny || rule.matchAny.some((item) => textHasKeyword(normalizedQuestion, questionTokens, item));
   const allMatched =
-    !rule.matchAll || rule.matchAll.every((item) => questionHasAgentKeyword(normalizedQuestion, questionTokens, item));
+    !rule.matchAll || rule.matchAll.every((item) => textHasKeyword(normalizedQuestion, questionTokens, item));
   return anyMatched && allMatched;
 }
 
-function scoreAgentTopic(normalizedQuestion, questionTokens, topic) {
-  let score = 0;
+function isAffirmative(questionTokens) {
+  if (!questionTokens.length) return false;
+  const allowed = new Set(['yes', 'yeah', 'yep', 'sure', 'okay', 'ok', 'please']);
+  return questionTokens.every((token) => allowed.has(token));
+}
 
-  topic.keywords.forEach((keyword) => {
-    if (questionHasAgentKeyword(normalizedQuestion, questionTokens, keyword)) {
-      score += normalizeAgentText(keyword).includes(' ') ? 6 : 4;
+function scoreTopic(normalizedQuestion, questionTokens, topic) {
+  let score = 0;
+  (topic.keywords || []).forEach((keyword) => {
+    if (textHasKeyword(normalizedQuestion, questionTokens, keyword)) {
+      score += normalizeText(keyword).includes(' ') ? 6 : 4;
     }
   });
 
-  const searchableText = normalizeAgentText([topic.summary].concat(topic.highlights || []).join(' '));
+  const searchableText = normalizeText([topic.summary].concat(topic.highlights || []).join(' '));
   questionTokens.forEach((token) => {
     if (searchableText.includes(token)) score += 1;
   });
@@ -358,47 +52,99 @@ function scoreAgentTopic(normalizedQuestion, questionTokens, topic) {
   return score;
 }
 
-function selectAgentHighlights(questionTokens, highlights) {
-  if (!highlights || highlights.length === 0) return [];
+function scoreProject(normalizedQuestion, questionTokens, project) {
+  let score = 0;
+  (project.keywords || []).forEach((keyword) => {
+    if (textHasKeyword(normalizedQuestion, questionTokens, keyword)) {
+      score += normalizeText(keyword).includes(' ') ? 7 : 5;
+    }
+  });
 
-  const rankedHighlights = highlights
-    .map((highlight) => {
-      const searchableText = normalizeAgentText(highlight);
-      let score = 0;
-      questionTokens.forEach((token) => {
-        if (searchableText.includes(token)) score += 2;
-      });
-      return { highlight, score };
-    })
-    .sort((left, right) => right.score - left.score);
+  const searchableText = normalizeText(
+    [
+      project.title,
+      project.tagline,
+      project.overview,
+      project.problem,
+      ...(project.technologies || []),
+      ...(project.architecture || []),
+      ...(project.keyFeatures || []),
+      ...(project.challenges || []),
+      ...(project.impact || []),
+    ].join(' ')
+  );
 
-  const matchedHighlights = rankedHighlights.filter((item) => item.score > 0).map((item) => item.highlight);
-  return (matchedHighlights.length ? matchedHighlights : highlights).slice(0, 2);
+  questionTokens.forEach((token) => {
+    if (searchableText.includes(token)) score += 1;
+  });
+
+  return score;
 }
 
-function buildReplyFromTopic(topic, questionTokens) {
-  const selectedHighlights = selectAgentHighlights(questionTokens, topic.highlights);
+function formatListAsSentences(list, prefix) {
+  if (!list || !list.length) return '';
+  return `${prefix} ${list.join(' ')}`;
+}
+
+function buildProjectReply(project, questionTokens) {
+  const wantsArchitecture = questionTokens.some((token) =>
+    ['architecture', 'stack', 'how', 'works', 'flow', 'system', 'backend', 'design'].includes(token)
+  );
+  const wantsChallenges = questionTokens.some((token) =>
+    ['challenge', 'challenges', 'hard', 'hardest', 'difficult', 'problem'].includes(token)
+  );
+  const wantsImpact = questionTokens.some((token) =>
+    ['impact', 'matters', 'matter', 'why', 'recruiter', 'value', 'important'].includes(token)
+  );
+  const wantsTech = questionTokens.some((token) =>
+    ['tech', 'technologies', 'stack', 'tools', 'used'].includes(token)
+  );
+
+  const answerParts = [project.assistant.summary];
+
+  if (wantsArchitecture) {
+    answerParts.push(formatListAsSentences(project.architecture, 'Architecture-wise:'));
+  } else if (wantsChallenges) {
+    answerParts.push(formatListAsSentences(project.challenges, 'The harder parts were:'));
+  } else if (wantsImpact) {
+    answerParts.push(formatListAsSentences(project.impact, 'Why it matters:'));
+  } else if (wantsTech) {
+    answerParts.push(`Technologies used: ${(project.technologies || []).join(', ')}.`);
+  } else {
+    answerParts.push(formatListAsSentences(project.assistant.highlights, 'Key points:'));
+  }
+
+  return {
+    answer: answerParts.filter(Boolean).join('\n\n'),
+    followUp: project.assistant.followUp,
+    nextFollowUpTopic: project.id,
+  };
+}
+
+function buildTopicReply(topic) {
   const answerParts = [topic.summary];
-  if (selectedHighlights.length) answerParts.push(selectedHighlights.join(' '));
+  if (topic.highlights && topic.highlights.length) {
+    answerParts.push(topic.highlights.slice(0, 3).join(' '));
+  }
 
   return {
     answer: answerParts.join('\n\n'),
     followUp: topic.followUp || portfolioAgentData.fallback.followUp,
-    nextFollowUpTopic: topic.followUpTopic || '',
+    nextFollowUpTopic: topic.id,
   };
 }
 
 function buildAgentReply(question, context = {}) {
-  if (!portfolioAgentData) {
+  if (!portfolioAgentData || !portfolioAgentData.fallback) {
     return {
-      answer: 'The portfolio assistant data is not loaded.',
+      answer: 'Portfolio AI data is not available.',
       followUp: '',
       nextFollowUpTopic: '',
     };
   }
 
-  const normalizedQuestion = normalizeAgentText(question);
-  const questionTokens = tokenizeAgentText(question);
+  const normalizedQuestion = normalizeText(question);
+  const questionTokens = tokenizeText(question);
 
   if (!normalizedQuestion) {
     return {
@@ -408,13 +154,18 @@ function buildAgentReply(question, context = {}) {
     };
   }
 
-  if (context.pendingFollowUpTopic && isAgentAffirmative(questionTokens)) {
+  if (context.pendingFollowUpTopic && isAffirmative(questionTokens)) {
     const followUpTopic = (portfolioAgentData.topics || []).find((topic) => topic.id === context.pendingFollowUpTopic);
-    if (followUpTopic) return buildReplyFromTopic(followUpTopic, questionTokens);
+    if (followUpTopic) return buildTopicReply(followUpTopic);
+
+    const followUpProject = Object.values(portfolioAgentData.projectShowcase || {}).find(
+      (project) => project.id === context.pendingFollowUpTopic
+    );
+    if (followUpProject) return buildProjectReply(followUpProject, questionTokens);
   }
 
   const directAnswer = (portfolioAgentData.directAnswers || []).find((rule) =>
-    matchesAgentRule(normalizedQuestion, questionTokens, rule)
+    matchesRule(normalizedQuestion, questionTokens, rule)
   );
   if (directAnswer) {
     return {
@@ -424,30 +175,197 @@ function buildAgentReply(question, context = {}) {
     };
   }
 
-  let bestTopic = null;
-  let bestScore = 0;
+  let bestProject = null;
+  let bestProjectScore = 0;
 
-  (portfolioAgentData.topics || []).forEach((topic) => {
-    const topicScore = scoreAgentTopic(normalizedQuestion, questionTokens, topic);
-    if (topicScore > bestScore) {
-      bestTopic = topic;
-      bestScore = topicScore;
+  Object.values(portfolioAgentData.projectShowcase || {}).forEach((project) => {
+    const score = scoreProject(normalizedQuestion, questionTokens, project);
+    if (score > bestProjectScore) {
+      bestProject = project;
+      bestProjectScore = score;
     }
   });
 
-  if (!bestTopic || bestScore < 3) {
-    return {
-      ...portfolioAgentData.fallback,
-      nextFollowUpTopic: '',
-    };
+  if (bestProject && bestProjectScore >= 5) {
+    return buildProjectReply(bestProject, questionTokens);
   }
 
-  return buildReplyFromTopic(bestTopic, questionTokens);
+  let bestTopic = null;
+  let bestTopicScore = 0;
+
+  (portfolioAgentData.topics || []).forEach((topic) => {
+    const score = scoreTopic(normalizedQuestion, questionTokens, topic);
+    if (score > bestTopicScore) {
+      bestTopic = topic;
+      bestTopicScore = score;
+    }
+  });
+
+  if (bestTopic && bestTopicScore >= 3) {
+    return buildTopicReply(bestTopic);
+  }
+
+  return {
+    ...portfolioAgentData.fallback,
+    nextFollowUpTopic: '',
+  };
+}
+
+function initializeAnnotationStream() {
+  const annotationStream = document.getElementById('annotation-stream');
+  if (!annotationStream) return;
+
+  const phrases = portfolioAgentData.annotationPhrases || [];
+  if (!phrases.length) return;
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const noteCount = prefersReducedMotion ? Math.min(8, phrases.length) : Math.min(18, phrases.length);
+  const modifiers = ['comment', 'keyword', 'metric'];
+
+  annotationStream.innerHTML = '';
+
+  for (let index = 0; index < noteCount; index += 1) {
+    const note = document.createElement('div');
+    const modifier = modifiers[index % modifiers.length];
+    note.className = `annotation-note annotation-note--${modifier}`;
+    note.textContent = phrases[index % phrases.length];
+    note.style.setProperty('--x', `${6 + Math.random() * 78}%`);
+    note.style.setProperty('--y', `${10 + Math.random() * 76}%`);
+    note.style.setProperty('--duration', `${18 + Math.random() * 14}s`);
+    note.style.setProperty('--delay', `${-Math.random() * 14}s`);
+    annotationStream.appendChild(note);
+  }
+}
+
+function initializeNavigationObserver() {
+  const navLinks = document.querySelectorAll('.navigation__item');
+  if (!navLinks.length) return;
+
+  function setActiveNav(id) {
+    navLinks.forEach((link) => link.classList.remove('navigation__item--active'));
+    const active = document.querySelector(`#nav-${id}`);
+    if (active) active.classList.add('navigation__item--active');
+  }
+
+  const sections = ['hero', 'about', 'projects', 'experience', 'community', 'gallery', 'contact'];
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) setActiveNav(entry.target.id);
+      });
+    },
+    {
+      root: null,
+      threshold: 0.45,
+      rootMargin: '-10% 0px -45% 0px',
+    }
+  );
+
+  sections.forEach((id) => {
+    const section = document.getElementById(id);
+    if (section) observer.observe(section);
+  });
+}
+
+function renderProjectModalList(container, items) {
+  container.innerHTML = '';
+  items.forEach((item) => {
+    const listItem = document.createElement('li');
+    listItem.textContent = item;
+    container.appendChild(listItem);
+  });
+}
+
+function initializeProjectModal() {
+  const modal = document.getElementById('project-modal');
+  const modalClose = document.getElementById('project-modal-close');
+  const openButtons = document.querySelectorAll('[data-project-open]');
+
+  if (!modal || !modalClose || !openButtons.length) return;
+
+  const modalKicker = document.getElementById('project-modal-kicker');
+  const modalTitle = document.getElementById('project-modal-title');
+  const modalTagline = document.getElementById('project-modal-tagline');
+  const modalLinks = document.getElementById('project-modal-links');
+  const modalOverview = document.getElementById('project-modal-overview');
+  const modalProblem = document.getElementById('project-modal-problem');
+  const modalTechnologies = document.getElementById('project-modal-technologies');
+  const modalArchitecture = document.getElementById('project-modal-architecture');
+  const modalFeatures = document.getElementById('project-modal-features');
+  const modalChallenges = document.getElementById('project-modal-challenges');
+  const modalImpact = document.getElementById('project-modal-impact');
+  const modalScreens = document.getElementById('project-modal-screens');
+
+  function setBodyLock(locked) {
+    document.body.style.overflow = locked ? 'hidden' : '';
+  }
+
+  function closeModal() {
+    modal.hidden = true;
+    setBodyLock(false);
+  }
+
+  function openModal(projectId) {
+    const project = (portfolioAgentData.projectShowcase || {})[projectId];
+    if (!project) return;
+
+    modalKicker.textContent = project.kicker;
+    modalTitle.textContent = project.title;
+    modalTagline.textContent = project.tagline;
+    modalOverview.textContent = project.overview;
+    modalProblem.textContent = project.problem;
+
+    modalLinks.innerHTML = '';
+    [
+      { href: project.links.github, label: 'GitHub' },
+      { href: project.links.caseStudy, label: 'Case Study' },
+    ].forEach((link) => {
+      const anchor = document.createElement('a');
+      anchor.href = link.href;
+      anchor.target = link.href.startsWith('http') ? '_blank' : '_self';
+      if (anchor.target === '_blank') anchor.rel = 'noreferrer';
+      anchor.textContent = link.label;
+      modalLinks.appendChild(anchor);
+    });
+
+    modalTechnologies.innerHTML = '';
+    (project.technologies || []).forEach((technology) => {
+      const chip = document.createElement('span');
+      chip.className = 'project-modal__chip';
+      chip.textContent = technology;
+      modalTechnologies.appendChild(chip);
+    });
+
+    renderProjectModalList(modalArchitecture, project.architecture || []);
+    renderProjectModalList(modalFeatures, project.keyFeatures || []);
+    renderProjectModalList(modalChallenges, project.challenges || []);
+    renderProjectModalList(modalImpact, project.impact || []);
+
+    modalScreens.innerHTML = '';
+    (project.screens || []).forEach((screen) => {
+      const screenCard = document.createElement('div');
+      screenCard.className = 'project-modal__screen';
+      screenCard.innerHTML = `<span>${screen.label}</span><strong>${screen.note}</strong>`;
+      modalScreens.appendChild(screenCard);
+    });
+
+    modal.hidden = false;
+    setBodyLock(true);
+  }
+
+  openButtons.forEach((button) => {
+    button.addEventListener('click', () => openModal(button.getAttribute('data-project-open')));
+  });
+
+  modalClose.addEventListener('click', closeModal);
+  modal.querySelectorAll('[data-project-close]').forEach((node) => node.addEventListener('click', closeModal));
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !modal.hidden) closeModal();
+  });
 }
 
 function initializePortfolioAgent() {
-  if (!portfolioAgentData) return;
-
   const chatLog = document.getElementById('agent-chat-log');
   const agentForm = document.getElementById('agent-form');
   const agentInput = document.getElementById('agent-input');
@@ -457,7 +375,17 @@ function initializePortfolioAgent() {
   const agentClose = document.getElementById('agent-widget-close');
   let pendingFollowUpTopic = '';
 
-  if (!chatLog || !agentForm || !agentInput || !suggestionContainer) return;
+  if (!chatLog || !agentForm || !agentInput || !suggestionContainer || !agentLauncher || !agentPanel || !agentClose) {
+    return;
+  }
+
+  function setAgentPanelOpen(isOpen) {
+    agentPanel.hidden = !isOpen;
+    agentLauncher.setAttribute('aria-expanded', String(isOpen));
+    if (isOpen) {
+      window.setTimeout(() => agentInput.focus(), 40);
+    }
+  }
 
   function linkifyAssistantText(message) {
     return message.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" rel="noreferrer">$1</a>');
@@ -484,18 +412,7 @@ function initializePortfolioAgent() {
     chatLog.scrollTop = chatLog.scrollHeight;
   }
 
-  function setAgentPanelOpen(isOpen) {
-    if (!agentPanel || !agentLauncher) return;
-    agentPanel.hidden = !isOpen;
-    agentLauncher.setAttribute('aria-expanded', String(isOpen));
-    if (isOpen) {
-      window.setTimeout(() => agentInput.focus(), 60);
-    }
-  }
-
   function askAgent(question) {
-    if (agentInput.disabled) return;
-
     const trimmedQuestion = question.trim();
     if (!trimmedQuestion) {
       renderMessage('assistant', `${portfolioAgentData.emptyState}\n\n${portfolioAgentData.fallback.followUp}`);
@@ -511,40 +428,39 @@ function initializePortfolioAgent() {
 
     window.setTimeout(() => {
       const reply = buildAgentReply(trimmedQuestion, { pendingFollowUpTopic });
-      const assistantMessage = reply.followUp ? `${reply.answer}\n\n${reply.followUp}` : reply.answer;
+      const fullMessage = reply.followUp ? `${reply.answer}\n\n${reply.followUp}` : reply.answer;
       pendingFollowUpTopic = reply.nextFollowUpTopic || '';
-      renderMessage('assistant', assistantMessage);
+      renderMessage('assistant', fullMessage);
       agentInput.disabled = false;
       if (submitButton) submitButton.disabled = false;
       agentInput.focus();
-    }, 320);
+    }, 240);
   }
 
   if (portfolioAgentData.promptPlaceholder) {
     agentInput.placeholder = portfolioAgentData.promptPlaceholder;
   }
 
-  if (agentLauncher && agentPanel) {
-    agentLauncher.addEventListener('click', () => {
-      const isOpen = agentLauncher.getAttribute('aria-expanded') === 'true';
-      setAgentPanelOpen(!isOpen);
-    });
-  }
-
-  if (agentClose) {
-    agentClose.addEventListener('click', () => setAgentPanelOpen(false));
-  }
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') setAgentPanelOpen(false);
-  });
-
   const suggestionButtons = suggestionContainer.querySelectorAll('.agent-suggestion');
   suggestionButtons.forEach((button, index) => {
     if (portfolioAgentData.suggestions && portfolioAgentData.suggestions[index]) {
       button.textContent = portfolioAgentData.suggestions[index];
     }
-    button.addEventListener('click', () => askAgent(button.textContent));
+    button.addEventListener('click', () => {
+      setAgentPanelOpen(true);
+      askAgent(button.textContent);
+    });
+  });
+
+  agentLauncher.addEventListener('click', () => {
+    const isOpen = agentLauncher.getAttribute('aria-expanded') === 'true';
+    setAgentPanelOpen(!isOpen);
+  });
+
+  agentClose.addEventListener('click', () => setAgentPanelOpen(false));
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !agentPanel.hidden) setAgentPanelOpen(false);
   });
 
   renderMessage('assistant', `${portfolioAgentData.greeting}\n\n${portfolioAgentData.fallback.followUp}`);
@@ -555,25 +471,24 @@ function initializePortfolioAgent() {
   });
 }
 
-initializePortfolioAgent();
+function initializeContactForm() {
+  const emailRegex =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const submitButton = document.getElementById('form-submit');
+  const contactForm = document.querySelector('.contact__form');
+  if (!submitButton || !contactForm) return;
 
-// Contact form validation + async submit
-const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-const submitBtn = document.getElementById('form-submit');
-const contactForm = document.querySelector('.contact__form');
-
-if (submitBtn && contactForm) {
-  submitBtn.addEventListener('click', () => {
+  submitButton.addEventListener('click', () => {
     const nameInput = document.querySelector('.contact__form-name');
     const emailInput = document.querySelector('.contact__form-email');
-    const msgInput = document.querySelector('.contact__form-message');
+    const messageInput = document.querySelector('.contact__form-message');
     const nameError = document.querySelector('.form-error__name');
     const emailError = document.querySelector('.form-error__email');
-    const msgError = document.querySelector('.form-error__msg');
+    const messageError = document.querySelector('.form-error__msg');
 
     const name = nameInput.value.trim();
     const email = emailInput.value.trim();
-    const msg = msgInput.value.trim();
+    const message = messageInput.value.trim();
 
     let valid = true;
 
@@ -595,46 +510,52 @@ if (submitBtn && contactForm) {
       emailError.style.display = 'none';
     }
 
-    if (!msg) {
+    if (!message) {
       valid = false;
-      msgInput.classList.add('input-error');
-      msgError.style.display = 'block';
+      messageInput.classList.add('input-error');
+      messageError.style.display = 'block';
     } else {
-      msgInput.classList.remove('input-error');
-      msgError.style.display = 'none';
+      messageInput.classList.remove('input-error');
+      messageError.style.display = 'none';
     }
 
-    if (valid) {
-      submitBtn.disabled = true;
-      const originalText = submitBtn.textContent;
-      submitBtn.textContent = 'Sending...';
+    if (!valid) return;
 
-      const endpoint = contactForm.getAttribute('action');
-      const formData = new FormData(contactForm);
+    submitButton.disabled = true;
+    const originalText = submitButton.textContent;
+    submitButton.textContent = 'Sending...';
 
-      fetch(endpoint, {
-        method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: formData,
+    fetch(contactForm.getAttribute('action'), {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body: new FormData(contactForm),
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error('Unable to send form');
+        contactForm.reset();
+        submitButton.textContent = 'Sent';
+        window.setTimeout(() => {
+          submitButton.disabled = false;
+          submitButton.textContent = originalText;
+        }, 1800);
       })
-        .then((response) => {
-          if (response.ok) {
-            submitBtn.textContent = 'Message sent!';
-            contactForm.reset();
-          } else {
-            throw new Error('Network error');
-          }
-        })
-        .catch(() => {
-          submitBtn.textContent = 'Try again via email';
-          window.location.href = 'mailto:sbumhe2@huskers.unl.edu';
-        })
-        .finally(() => {
-          setTimeout(() => {
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalText;
-          }, 2500);
-        });
-    }
+      .catch(() => {
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
+      });
   });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  initializeAnnotationStream();
+  initializeNavigationObserver();
+  initializeProjectModal();
+  initializePortfolioAgent();
+  initializeContactForm();
+
+  let resizeTimer = null;
+  window.addEventListener('resize', () => {
+    window.clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(initializeAnnotationStream, 120);
+  });
+});

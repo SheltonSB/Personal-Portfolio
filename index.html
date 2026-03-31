@@ -4,336 +4,500 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shelton Bumhe | Backend & ML Engineer</title>
+    <meta
+      name="description"
+      content="Shelton Bumhe is a Computer Science student focused on backend systems, data-intensive applications, and machine learning products."
+    />
     <link rel="stylesheet" href="Style.css" />
   </head>
   <body>
     <div class="motion-background" aria-hidden="true">
-      <div class="motion-background__veil"></div>
-      <div class="motion-background__orb motion-background__orb--one"></div>
-      <div class="motion-background__orb motion-background__orb--two"></div>
-      <div class="motion-background__orb motion-background__orb--three"></div>
-      <div class="motion-background__wave motion-background__wave--one"></div>
-      <div class="motion-background__wave motion-background__wave--two"></div>
+      <div class="motion-background__gradient motion-background__gradient--one"></div>
+      <div class="motion-background__gradient motion-background__gradient--two"></div>
+      <div class="motion-background__gradient motion-background__gradient--three"></div>
+      <div class="motion-background__grid"></div>
+      <div class="annotation-stream" id="annotation-stream"></div>
     </div>
-    <div class="hero" id="hero">
-      <div class="canvas">
-        <canvas class="connecting-dots"></canvas>
-      </div>
-      <div class="heading">
-        <div class="heading__line-1">Hello, I'm <span>Shelton</span>.</div>
-        <div class="heading__line-2">I build reliable data-driven systems.</div>
-        <a href="#about" class="heading__link">
-          <div class="heading-cta">
-            View my work
-            <svg
-              class="heading__arrow"
-              version="1.1"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-            >
-              <title>arrow-right</title>
-              <path
-                d="M11.293 5.707l5.293 5.293h-11.586c-0.552 0-1 0.448-1 1s0.448 1 1 1h11.586l-5.293 5.293c-0.391 0.391-0.391 1.024 0 1.414s1.024 0.391 1.414 0l7-7c0.092-0.092 0.166-0.202 0.217-0.324 0.101-0.245 0.101-0.521 0-0.766-0.049-0.118-0.121-0.228-0.217-0.324l-7-7c-0.391-0.391-1.024-0.391-1.414 0s-0.391 1.024 0 1.414z"
-              ></path>
-            </svg>
-          </div>
-        </a>
-        <div class="hero__actions">
-          <a href="Shelton Bumhe.pdf" class="hero__btn hero__btn--primary" download>Download Résumé</a>
-          <a href="#contact" class="hero__btn hero__btn--secondary">Contact Me</a>
-        </div>
-      </div>
-    </div>
-    <nav class="navigation-bar">
-      <ul class="navigation">
-        <li class="navigation__item navigation__item--active" id="nav-hero"><a href="#hero">Home</a></li>
-        <li class="navigation__item" id="nav-about"><a href="#about">About</a></li>
-        <li class="navigation__item" id="nav-projects"><a href="#projects">Projects</a></li>
-        <li class="navigation__item" id="nav-experience"><a href="#experience">Experience</a></li>
-        <li class="navigation__item" id="nav-community"><a href="#community">Community</a></li>
-        <li class="navigation__item" id="nav-gallery"><a href="#gallery">Gallery</a></li>
-        <li class="navigation__item" id="nav-contact"><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <div class="main-bg">
-      <div class="canvas">
-        <canvas class="canvas-2"></canvas>
-      </div>
-    </div>
-    <section class="about" id="about">
-      <h2 class="about__heading section-heading">About</h2>
-      <div class="about__content">
-        <div class="profile">
-        <div class="profile__picture">
-          <img src="assets/assistant-profile.jpg" alt="Portrait of Shelton Bumhe" />
-        </div>
-        <p class="profile__blurb">
-            I'm Shelton Bumhe, a Computer Science student at the University of Nebraska-Lincoln graduating in December 2027. I like building backend systems and machine learning projects that are measurable, fast, and easy to explain.
-        </p>
-        <ul class="profile__focus">
-          <li>Education: Bachelor of Science in Computer Science, GPA 3.5.</li>
-          <li>Coursework: Data Structures &amp; Algorithms, Discrete Math, Linear Algebra, Statistics, Software Engineering I, Physics I, Calculus III.</li>
-          <li>Goal: land a backend, data, or ML internship where I can ship production-minded software and keep learning fast.</li>
+
+    <header class="hero" id="hero">
+      <nav class="navigation-bar">
+        <a href="#hero" class="brand-mark">SB</a>
+        <ul class="navigation">
+          <li class="navigation__item navigation__item--active" id="nav-hero"><a href="#hero">Home</a></li>
+          <li class="navigation__item" id="nav-about"><a href="#about">About</a></li>
+          <li class="navigation__item" id="nav-projects"><a href="#projects">Projects</a></li>
+          <li class="navigation__item" id="nav-experience"><a href="#experience">Experience</a></li>
+          <li class="navigation__item" id="nav-community"><a href="#community">Community</a></li>
+          <li class="navigation__item" id="nav-gallery"><a href="#gallery">Gallery</a></li>
+          <li class="navigation__item" id="nav-contact"><a href="#contact">Contact</a></li>
         </ul>
-      </div>
-        <div class="skills">
-          <div class="skills__row">
-            <div class="skills__item skills__item--html">
-              <img src="logos/python.svg" alt="Python" />
-              <div class="skills__item-name">Python</div>
-            </div>
-            <div class="skills__item skills__item--webpack">
-              <img src="logos/cpp.svg" alt="C#" />
-              <div class="skills__item-name">C# / .NET</div>
-            </div>
-            <div class="skills__item skills__item--js">
-              <img src="logos/java.svg" alt="Java" />
-              <div class="skills__item-name">Java</div>
-            </div>
+      </nav>
+
+      <div class="hero__shell">
+        <div class="hero__copy">
+          <span class="hero__eyebrow">Backend, Data, and ML</span>
+          <h1 class="hero__title">I build reliable systems that stay fast, explainable, and production-minded.</h1>
+          <p class="hero__subtitle">
+            I am Shelton Bumhe, a Computer Science student at the University of Nebraska-Lincoln focused on backend
+            engineering, machine learning, and recruiter-ready projects with clear measurable impact.
+          </p>
+          <div class="hero__actions">
+            <a href="Shelton Bumhe.pdf" class="hero__btn hero__btn--primary" download>Download Resume</a>
+            <a href="#projects" class="hero__btn hero__btn--secondary">Explore Projects</a>
           </div>
-          <div class="skills__row">
-            <div class="skills__item skills__item--git">
-              <img src="logos/sql.svg" alt="SQL" />
-              <div class="skills__item-name">SQL</div>
+          <div class="hero__signals">
+            <div class="hero__signal">
+              <span class="hero__signal-label">Expected Graduation</span>
+              <strong>December 2027</strong>
             </div>
-            <div class="skills__item skills__item--sass">
-              <img src="logos/javascript.svg" alt="JavaScript" />
-              <div class="skills__item-name">JavaScript</div>
+            <div class="hero__signal">
+              <span class="hero__signal-label">Current Focus</span>
+              <strong>Backend systems + ML products</strong>
             </div>
-            <div class="skills__item skills__item--npm">
-              <img src="logos/python.svg" alt="ML" />
-              <div class="skills__item-name">TensorFlow / XGBoost</div>
-            </div>
-          </div>
-          <div class="skills__row">
-            <div class="skills__item skills__item--python">
-              <img src="logos/sql.svg" alt="APIs" />
-              <div class="skills__item-name">Spring / Django</div>
-            </div>
-            <div class="skills__item skills__item--react">
-              <img src="logos/java.svg" alt="Testing" />
-              <div class="skills__item-name">xUnit / JUnit</div>
-            </div>
-            <div class="skills__item skills__item--r skills__item--css">
-              <img src="logos/c.svg" alt="Systems" />
-              <div class="skills__item-name">EF Core / ASP.NET</div>
+            <div class="hero__signal">
+              <span class="hero__signal-label">Recruiting For</span>
+              <strong>Backend, Data, and ML internships</strong>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="projects" id="projects">
-      <h2 class="projects__heading section-heading">Projects</h2>
-      <div class="project project-left">
-        <div class="project__info">
-          <h3 class="project__title">Full-Stack E-Commerce<br />.NET, React, PostgreSQL, Redis, Azure</h3>
-          <p class="project__description">Built a performance-focused storefront and backend stack with secure payments, cached product pages, and an automated release pipeline.</p>
-          <ul class="project__details">
-            <li>Designed a high-performance store using .NET 9 and React, with Redis caching so data-heavy pages load quickly under heavy traffic.</li>
-            <li>Secured customer payments and media using Stripe and Cloudinary, with JWT-based authentication and strict access controls.</li>
-            <li>Created a fully automated release pipeline to Azure using GitHub Actions so each change is tested and bug-free before launch.</li>
-          </ul>
-          <div class="project-links-row">
-            <a href="ecommerce-demo.html" target="_blank" class="project-inline-link">Case study ↗</a>
-            <a href="https://github.com/SheltonBumhe/ecommerce-api" target="_blank" rel="noreferrer" class="project-inline-link">View code ↗</a>
+
+        <div class="hero__spotlight">
+          <div class="hero__spotlight-card hero__spotlight-card--profile">
+            <img src="assets/assistant-profile.jpg" alt="Portrait of Shelton Bumhe" class="hero__portrait" />
+          </div>
+          <div class="hero__spotlight-card hero__spotlight-card--note">
+            <span class="hero__spotlight-label">What Recruiters Should Notice</span>
+            <p>
+              I like projects that combine architecture, measurable outcomes, and a clear product story rather than
+              just implementation for implementation’s sake.
+            </p>
+            <ul class="hero__spotlight-list">
+              <li>Built a .NET e-commerce platform with Redis, Stripe, Cloudinary, and Azure CI/CD.</li>
+              <li>Built an NFL touchdown predictor with XGBoost, SHAP, and a fast Streamlit interface.</li>
+              <li>Active in MLT, ColorStack, and NSBE while sharpening system design and data-intensive thinking.</li>
+            </ul>
           </div>
         </div>
       </div>
-      <div class="project project-right">
-        <div class="project__info">
-          <h3 class="project__title">NFL QB Touchdown Predictor<br />Python, scikit-learn, XGBoost, Streamlit</h3>
-          <p class="project__description">Trained and shipped a machine learning model over NFL matchup data, then wrapped it in a Streamlit interface that non-experts can use.</p>
-          <ul class="project__details">
-            <li>Trained a machine learning model on over 10,000 plays using Python and XGBoost, currently predicting touchdowns with 88% accuracy.</li>
-            <li>Used SHAP analysis to show exactly why the model makes decisions, making pressure rate and matchup context easier for non-experts to understand.</li>
-            <li>Launched the model with a live Streamlit web app so users can simulate matchups and get prediction results in under 2 seconds.</li>
-          </ul>
-          <div class="project-links-row">
-            <a href="nfl-case-study.html" target="_blank" class="project-inline-link">Case study ↗</a>
-            <a href="https://github.com/SheltonBumhe/machine-learning-nfl-touchdowns" target="_blank" rel="noreferrer" class="project-inline-link">View code ↗</a>
-          </div>
+    </header>
+
+    <main>
+      <section class="about section-shell" id="about">
+        <div class="section-heading-wrap">
+          <span class="section-kicker">Profile</span>
+          <h2 class="section-heading">About</h2>
         </div>
-      </div>
-    </section>
-    <section class="experience" id="experience">
-      <h2 class="projects__heading section-heading">Experience</h2>
-      <p class="experience__intro">My resume combines academic progress, software execution, and leadership development. These are the roles and programs that best represent how I work right now.</p>
-      <div class="experience__timeline">
-        <article class="experience__item">
-          <header>
-            <h3>Software Developer &amp; Math Tutor</h3>
-            <p>Dominion College, Harare, Zimbabwe • Feb 2022–Aug 2023</p>
-          </header>
-          <div class="experience__tags">
-            <span>Python</span>
-            <span>SQL</span>
-            <span>Teaching</span>
-          </div>
-          <ul>
-            <li>Built a Python and SQL tracking tool for 30+ students, reducing manual data entry time by 40% and generating weekly progress reports.</li>
-            <li>Mentored students in algebra and calculus using adaptive instruction strategies, supporting a 99% pass rate.</li>
-            <li>Used performance diagnostics to create targeted practice plans, contributing to a 15% increase in test scores over 3 months.</li>
-          </ul>
-        </article>
-        <article class="experience__item">
-          <header>
-            <h3>Career Prep Fellow</h3>
-            <p>Management Leadership For Tomorrow (MLT) • Nov 2025–Present</p>
-          </header>
-          <div class="experience__tags">
-            <span>Leadership</span>
-            <span>Professional Growth</span>
-            <span>Industry Exposure</span>
-          </div>
-          <ul>
-            <li>Accepted into a selective 18-month professional development program focused on structured coaching, mentorship, and targeted skill-building.</li>
-            <li>Developed business and technical acumen through technical assessments, case studies, simulations, and project work to strengthen analytical and leadership capabilities.</li>
-            <li>Engaged with partner organizations including LinkedIn, Bloomberg, and Deloitte to build industry exposure and insight into technology career paths.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-    <section class="community" id="community">
-      <h2 class="section-heading community__heading">Community</h2>
-      <p class="community__intro">The communities I spend time with matter because they sharpen how I learn, who I learn from, and how I think about long-term impact in tech.</p>
-      <div class="community__grid">
-        <article class="community-card">
-          <span class="community-card__label">Leadership Program</span>
-          <h3>Management Leadership For Tomorrow</h3>
-          <p>MLT is a structured leadership and career-development organization that helps high-achieving students and professionals grow through coaching, workshops, and employer connections.</p>
-          <ul>
-            <li>For me, MLT adds accountability, interview preparation, and exposure to employers and peers who take career growth seriously.</li>
-            <li>It also pushes me to connect technical execution with communication, leadership, and long-term career strategy.</li>
-          </ul>
-          <a href="https://mlt.org/program-overview" target="_blank" rel="noreferrer" class="community-card__link">MLT link ↗</a>
-        </article>
-        <article class="community-card">
-          <span class="community-card__label">Tech Community</span>
-          <h3>ColorStack</h3>
-          <p>ColorStack is a tech nonprofit focused on community building, academic support, and career development for Black and Latinx computer science students.</p>
-          <ul>
-            <li>I value ColorStack because it connects technical ambition with people who understand the student-to-industry path in a practical way.</li>
-            <li>It is the kind of community that makes opportunities, mentorship, and peer learning easier to access at scale.</li>
-          </ul>
-          <a href="https://www.colorstack.org/about-us" target="_blank" rel="noreferrer" class="community-card__link">ColorStack link ↗</a>
-        </article>
-        <article class="community-card">
-          <span class="community-card__label">Engineering Community</span>
-          <h3>NSBE</h3>
-          <p>The National Society of Black Engineers is a major engineering community focused on academic excellence, professional success, leadership, and positive community impact.</p>
-          <ul>
-            <li>For me, NSBE represents technical ambition with real structure: networking, career access, chapter community, and a strong engineering identity.</li>
-            <li>It also matters because it frames engineering as both professional growth and service to the broader community.</li>
-          </ul>
-          <a href="https://nsbe.org/about/" target="_blank" rel="noreferrer" class="community-card__link">NSBE link ↗</a>
-        </article>
-      </div>
-    </section>
-    <section class="gallery" id="gallery">
-      <h2 class="section-heading gallery__heading">Gallery</h2>
-      <p class="gallery__intro">A quick visual snapshot of what my resume says, what I am learning now, and how I am growing outside of project deliverables.</p>
-      <div class="gallery__grid">
-        <article class="gallery-card gallery-card--resume">
-          <span class="gallery-card__label">Resume Snapshot</span>
-          <h3>University of Nebraska-Lincoln</h3>
-          <p>BS in Computer Science, expected December 2027, GPA 3.5.</p>
-          <ul>
-            <li>Core coursework in algorithms, discrete math, linear algebra, statistics, and software engineering.</li>
-            <li>Current focus on backend systems, ML modeling, and production-ready project work.</li>
-          </ul>
-        </article>
-        <article class="gallery-card gallery-card--books">
-          <span class="gallery-card__label">Currently Reading</span>
-          <h3>System Design Interview</h3>
-          <p>Alex Xu's book is helping me level up on tradeoffs, scalability, API boundaries, and interview-ready system thinking.</p>
-          <a href="https://www.amazon.com/System-Design-Interview-Insiders-Guide/dp/1736049119" target="_blank" rel="noreferrer" class="gallery-card__link">Book link ↗</a>
-        </article>
-        <article class="gallery-card gallery-card--books">
-          <span class="gallery-card__label">Currently Reading</span>
-          <h3>Designing Data-Intensive Applications</h3>
-          <p>Martin Kleppmann's book is shaping how I think about storage systems, reliability, distributed data, and event-driven architecture.</p>
-          <a href="https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/" target="_blank" rel="noreferrer" class="gallery-card__link">Book link ↗</a>
-        </article>
-        <article class="gallery-card gallery-card--focus">
-          <span class="gallery-card__label">Learning Focus</span>
-          <h3>What I’m sharpening</h3>
-          <ul>
-            <li>System design fundamentals for backend interviews.</li>
-            <li>Data-intensive architecture patterns and scaling tradeoffs.</li>
-            <li>Turning ML and backend projects into cleaner, more measurable production stories.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-    <section class="contact" id="contact">
-      <h2 class="contact__heading section-heading">Contact</h2>
-      <p class="contact__text">If you are hiring for backend, data, or ML internships, I’d be glad to talk. I’m especially interested in teams that value shipping, learning fast, and explaining technical work clearly.</p>
-      <div class="contact__content-grid">
-        <div class="contact__panel">
-          <div class="contact__links">
-            <a href="mailto:sbumhe2@huskers.unl.edu" class="contact-chip">
-              <div class="contact-chip__top">
-                <span class="contact-chip__icon contact-chip__icon--email" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" focusable="false">
-                    <path d="M3 6.75A1.75 1.75 0 0 1 4.75 5h14.5A1.75 1.75 0 0 1 21 6.75v10.5A1.75 1.75 0 0 1 19.25 19H4.75A1.75 1.75 0 0 1 3 17.25zm1.8-.25L12 11.86 19.2 6.5zm14.7 1.22-6.95 5.18a.9.9 0 0 1-1.1 0L4.5 7.72v9.53c0 .14.11.25.25.25h14.5c.14 0 .25-.11.25-.25z"></path>
-                  </svg>
-                </span>
-                <span>Email</span>
-              </div>
-              <strong>sbumhe2@huskers.unl.edu</strong>
-            </a>
-            <a href="https://www.linkedin.com/in/shelton-bumhe-027476312/" target="_blank" rel="noreferrer" class="contact-chip">
-              <div class="contact-chip__top">
-                <span class="contact-chip__icon contact-chip__icon--linkedin" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" focusable="false">
-                    <path d="M6.85 8.7A1.85 1.85 0 1 1 6.84 5a1.85 1.85 0 0 1 .01 3.7M5.5 10h2.7v8.5H5.5zm4.4 0h2.58v1.16h.04c.36-.65 1.24-1.34 2.56-1.34 2.74 0 3.25 1.8 3.25 4.13v4.55h-2.69v-4.04c0-.97-.02-2.2-1.34-2.2-1.34 0-1.55 1.05-1.55 2.13v4.11H9.9z"></path>
-                  </svg>
-                </span>
-                <span>LinkedIn</span>
-              </div>
-              <strong>Connect on LinkedIn</strong>
-            </a>
-            <a href="https://github.com/SheltonSB" target="_blank" rel="noreferrer" class="contact-chip">
-              <div class="contact-chip__top">
-                <span class="contact-chip__icon contact-chip__icon--github" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" focusable="false">
-                    <path d="M12 2C6.48 2 2 6.6 2 12.26c0 4.53 2.87 8.37 6.85 9.73.5.1.68-.22.68-.49 0-.24-.01-1.03-.01-1.88-2.79.62-3.38-1.22-3.38-1.22-.46-1.2-1.11-1.52-1.11-1.52-.9-.64.07-.63.07-.63 1 .08 1.52 1.05 1.52 1.05.88 1.56 2.31 1.11 2.88.85.09-.66.35-1.11.63-1.37-2.23-.26-4.58-1.15-4.58-5.13 0-1.13.39-2.05 1.03-2.78-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.06A9.3 9.3 0 0 1 12 7.78a9.3 9.3 0 0 1 2.5.35c1.91-1.34 2.75-1.06 2.75-1.06.55 1.41.2 2.46.1 2.72.64.73 1.03 1.65 1.03 2.78 0 3.99-2.35 4.87-4.59 5.13.36.32.68.95.68 1.92 0 1.39-.01 2.5-.01 2.84 0 .27.18.59.69.49A10.27 10.27 0 0 0 22 12.26C22 6.6 17.52 2 12 2"></path>
-                  </svg>
-                </span>
-                <span>GitHub</span>
-              </div>
-              <strong>View GitHub Profile</strong>
-            </a>
-            <a href="tel:+13086633469" class="contact-chip">
-              <div class="contact-chip__top">
-                <span class="contact-chip__icon contact-chip__icon--phone" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" focusable="false">
-                    <path d="M6.62 10.79a15.5 15.5 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.03-.24c1.13.38 2.34.58 3.56.58a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.4 21 3 13.6 3 4a1 1 0 0 1 1-1h3.48a1 1 0 0 1 1 1c0 1.22.2 2.43.58 3.56a1 1 0 0 1-.24 1.03z"></path>
-                  </svg>
-                </span>
-                <span>Call</span>
-              </div>
-              <strong>(308) 663-3469</strong>
-            </a>
-          </div>
-          <form class="contact__form" action="https://formspree.io/f/mzzbogwp" method="POST">
-            <input class="contact__form-name" type="text" name="name" placeholder="Name" required />
-            <input class="contact__form-email" type="email" name="email" placeholder="Email" required />
-            <textarea class="contact__form-message" name="message" placeholder="Message" required></textarea>
-            <div class="contact__form-error-submit">
-              <div class="form-error">
-                <div class="form-error__name">Please enter your name.</div>
-                <div class="form-error__email">Please enter a valid email.</div>
-                <div class="form-error__msg">Please enter a message.</div>
-              </div>
-              <button type="button" class="contact__form-submit-2" id="form-submit">Send</button>
+        <div class="about__content">
+          <div class="profile-card">
+            <div class="profile-card__media">
+              <img src="assets/assistant-profile.jpg" alt="Shelton Bumhe portrait" />
             </div>
-          </form>
+            <div class="profile-card__body">
+              <p class="profile__blurb">
+                I am a Computer Science student at the University of Nebraska-Lincoln who enjoys building backend
+                systems and ML projects that feel thoughtful, structured, and easy to defend in a recruiter or
+                engineer conversation.
+              </p>
+              <ul class="profile__focus">
+                <li>BS in Computer Science, GPA 3.5, expected December 2027.</li>
+                <li>Coursework in data structures, algorithms, discrete math, linear algebra, statistics, and software engineering.</li>
+                <li>Looking for internships where I can ship production-minded software and keep raising my technical bar.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="skills-panel">
+            <div class="skills-panel__intro">
+              <span class="skills-panel__eyebrow">Technical Stack</span>
+              <h3>Tools I actually build with</h3>
+              <p>
+                The portfolio is intentionally grounded in the technologies that show up across my coursework, shipped
+                projects, and the kinds of engineering problems I want to keep solving.
+              </p>
+            </div>
+            <div class="skills">
+              <div class="skills__row">
+                <div class="skills__item skills__item--html">
+                  <img src="logos/python.svg" alt="Python" />
+                  <div class="skills__item-copy">
+                    <strong class="skills__item-name">Python</strong>
+                    <span class="skills__item-meta">ML workflows, analytics, APIs</span>
+                  </div>
+                </div>
+                <div class="skills__item skills__item--webpack">
+                  <img src="logos/cpp.svg" alt="C# and .NET" />
+                  <div class="skills__item-copy">
+                    <strong class="skills__item-name">C# / .NET</strong>
+                    <span class="skills__item-meta">ASP.NET Core, EF Core, backend services</span>
+                  </div>
+                </div>
+                <div class="skills__item skills__item--js">
+                  <img src="logos/java.svg" alt="Java" />
+                  <div class="skills__item-copy">
+                    <strong class="skills__item-name">Java</strong>
+                    <span class="skills__item-meta">Object-oriented systems and coursework</span>
+                  </div>
+                </div>
+              </div>
+              <div class="skills__row">
+                <div class="skills__item skills__item--git">
+                  <img src="logos/sql.svg" alt="SQL" />
+                  <div class="skills__item-copy">
+                    <strong class="skills__item-name">SQL</strong>
+                    <span class="skills__item-meta">PostgreSQL, reporting, data flows</span>
+                  </div>
+                </div>
+                <div class="skills__item skills__item--sass">
+                  <img src="logos/javascript.svg" alt="JavaScript" />
+                  <div class="skills__item-copy">
+                    <strong class="skills__item-name">JavaScript</strong>
+                    <span class="skills__item-meta">Frontend interaction and tooling</span>
+                  </div>
+                </div>
+                <div class="skills__item skills__item--npm">
+                  <img src="logos/python.svg" alt="Machine learning" />
+                  <div class="skills__item-copy">
+                    <strong class="skills__item-name">TensorFlow / XGBoost</strong>
+                    <span class="skills__item-meta">Modeling, training, explainability</span>
+                  </div>
+                </div>
+              </div>
+              <div class="skills__row">
+                <div class="skills__item skills__item--python">
+                  <img src="logos/sql.svg" alt="Frameworks" />
+                  <div class="skills__item-copy">
+                    <strong class="skills__item-name">Spring / Django</strong>
+                    <span class="skills__item-meta">Backend patterns and APIs</span>
+                  </div>
+                </div>
+                <div class="skills__item skills__item--react">
+                  <img src="logos/java.svg" alt="Testing" />
+                  <div class="skills__item-copy">
+                    <strong class="skills__item-name">xUnit / JUnit</strong>
+                    <span class="skills__item-meta">Testing discipline and confidence</span>
+                  </div>
+                </div>
+                <div class="skills__item skills__item--r skills__item--css">
+                  <img src="logos/c.svg" alt="Systems tools" />
+                  <div class="skills__item-copy">
+                    <strong class="skills__item-name">EF Core / ASP.NET</strong>
+                    <span class="skills__item-meta">Data access, services, auth flows</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section class="projects section-shell" id="projects">
+        <div class="section-heading-wrap">
+          <span class="section-kicker">Selected Work</span>
+          <h2 class="section-heading">Projects</h2>
+          <p class="section-intro">
+            I keep the project section recruiter-friendly on purpose. Each project has a clear business or technical
+            problem, a concrete architecture, and a detailed breakdown you can open without leaving the site.
+          </p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-card__visual project-card__visual--commerce">
+              <span class="project-card__visual-label">Architecture Snapshot</span>
+              <div class="project-card__mock">
+                <span>.NET 9 API</span>
+                <span>Redis cache</span>
+                <span>PostgreSQL</span>
+                <span>Stripe + Cloudinary</span>
+                <span>Azure deploy</span>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__meta">
+                <span>Backend Platform</span>
+                <span>Production Workflow</span>
+              </div>
+              <h3 class="project-card__title">Full-Stack E-Commerce</h3>
+              <p class="project-card__summary">
+                A performance-focused storefront and backend stack built with .NET, React, PostgreSQL, Redis, and Azure.
+              </p>
+              <ul class="project-card__highlights">
+                <li>Redis-backed caching to keep data-heavy pages responsive.</li>
+                <li>JWT auth, Stripe checkout, and Cloudinary media handling.</li>
+                <li>Automated Azure deployment through GitHub Actions.</li>
+              </ul>
+              <div class="project-card__actions">
+                <button type="button" class="project-card__button project-card__button--primary" data-project-open="ecommerce">
+                  View Details
+                </button>
+                <a href="https://github.com/SheltonBumhe/ecommerce-api" target="_blank" rel="noreferrer" class="project-card__button project-card__button--ghost">
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card__visual project-card__visual--nfl">
+              <span class="project-card__visual-label">Modeling Snapshot</span>
+              <div class="project-card__mock">
+                <span>10K+ plays</span>
+                <span>XGBoost model</span>
+                <span>SHAP explanations</span>
+                <span>Streamlit UI</span>
+                <span>&lt; 2s prediction</span>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__meta">
+                <span>Machine Learning</span>
+                <span>Explainability</span>
+              </div>
+              <h3 class="project-card__title">NFL QB Touchdown Predictor</h3>
+              <p class="project-card__summary">
+                A predictive analytics project that combines practical ML, explainability, and a non-expert-friendly interface.
+              </p>
+              <ul class="project-card__highlights">
+                <li>XGBoost model trained on 10,000+ plays with reported 88% accuracy.</li>
+                <li>SHAP explanations to surface why the model leans a certain way.</li>
+                <li>Interactive Streamlit app for fast matchup simulation.</li>
+              </ul>
+              <div class="project-card__actions">
+                <button type="button" class="project-card__button project-card__button--primary" data-project-open="nfl">
+                  View Details
+                </button>
+                <a href="https://github.com/SheltonBumhe/machine-learning-nfl-touchdowns" target="_blank" rel="noreferrer" class="project-card__button project-card__button--ghost">
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="experience section-shell" id="experience">
+        <div class="section-heading-wrap">
+          <span class="section-kicker">Experience</span>
+          <h2 class="section-heading">Experience</h2>
+          <p class="section-intro">
+            My experience is a mix of software execution, academic support, and leadership development. That combination
+            shapes how I communicate technical work and how I think about impact.
+          </p>
+        </div>
+
+        <div class="experience__timeline">
+          <article class="experience__item">
+            <header>
+              <h3>Software Developer &amp; Math Tutor</h3>
+              <p>Dominion College, Harare, Zimbabwe • February 2022 to August 2023</p>
+            </header>
+            <div class="experience__tags">
+              <span>Python</span>
+              <span>SQL</span>
+              <span>Reporting</span>
+            </div>
+            <ul>
+              <li>Built a Python and SQL tracking tool for 30+ students and reduced manual data entry time by 40%.</li>
+              <li>Created weekly reporting workflows that made academic progress easier to monitor and act on.</li>
+              <li>Supported a 99% pass rate through adaptive instruction in algebra and calculus.</li>
+            </ul>
+          </article>
+
+          <article class="experience__item">
+            <header>
+              <h3>Career Prep Fellow</h3>
+              <p>Management Leadership For Tomorrow • November 2025 to Present</p>
+            </header>
+            <div class="experience__tags">
+              <span>Leadership</span>
+              <span>Case Practice</span>
+              <span>Career Growth</span>
+            </div>
+            <ul>
+              <li>Selected into an 18-month professional development program focused on coaching, technical readiness, and strategic growth.</li>
+              <li>Strengthening communication and structured thinking through case work, assessments, and mock recruiting-style preparation.</li>
+              <li>Gaining exposure to industry pathways through partner organizations including LinkedIn, Bloomberg, and Deloitte.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="community section-shell" id="community">
+        <div class="section-heading-wrap">
+          <span class="section-kicker">Community</span>
+          <h2 class="section-heading">Community</h2>
+          <p class="section-intro">
+            The communities I choose matter because they sharpen my network, how I learn, and the kind of engineer I am trying to become.
+          </p>
+        </div>
+
+        <div class="community__grid">
+          <article class="community-card">
+            <span class="community-card__label">Leadership Program</span>
+            <h3>Management Leadership For Tomorrow</h3>
+            <p>MLT adds structure, coaching, and long-term career accountability to how I approach growth in tech.</p>
+            <ul>
+              <li>Sharpens interview preparation and executive communication.</li>
+              <li>Connects technical development with strategic career planning.</li>
+            </ul>
+            <a href="https://mlt.org/program-overview" target="_blank" rel="noreferrer" class="community-card__link">Official Site</a>
+          </article>
+
+          <article class="community-card">
+            <span class="community-card__label">Tech Community</span>
+            <h3>ColorStack</h3>
+            <p>ColorStack gives me a peer and mentorship network that understands the path from CS student to industry contributor.</p>
+            <ul>
+              <li>Supports mentorship, access, and practical career development.</li>
+              <li>Reinforces technical ambition with community and belonging.</li>
+            </ul>
+            <a href="https://www.colorstack.org/about-us" target="_blank" rel="noreferrer" class="community-card__link">Official Site</a>
+          </article>
+
+          <article class="community-card">
+            <span class="community-card__label">Engineering Community</span>
+            <h3>NSBE</h3>
+            <p>NSBE reinforces academic excellence, professional success, leadership, and a broader sense of service through engineering.</p>
+            <ul>
+              <li>Connects engineering identity with networking and leadership opportunities.</li>
+              <li>Frames technical growth as something bigger than individual success.</li>
+            </ul>
+            <a href="https://nsbe.org/about/" target="_blank" rel="noreferrer" class="community-card__link">Official Site</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="gallery section-shell" id="gallery">
+        <div class="section-heading-wrap">
+          <span class="section-kicker">Gallery</span>
+          <h2 class="section-heading">Beyond the Resume</h2>
+          <p class="section-intro">
+            This section is structured as a clean media wall so you can easily swap in personal photos later without
+            changing the layout. It keeps the portfolio human without making it feel casual or unstructured.
+          </p>
+        </div>
+
+        <div class="gallery__grid">
+          <figure class="gallery-media gallery-media--feature">
+            <img src="assets/assistant-profile.jpg" alt="Shelton Bumhe portrait" />
+            <figcaption>
+              <span>Featured Portrait</span>
+              <strong>Professional profile image for applications and recruiting</strong>
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-media gallery-media--portrait">
+            <img src="assets/assistant-profile.jpg" alt="Shelton Bumhe alternate crop" />
+            <figcaption>
+              <span>Personal Branding</span>
+              <strong>A clean visual identity that keeps the portfolio recognizably mine</strong>
+            </figcaption>
+          </figure>
+
+          <article class="gallery-note">
+            <span class="gallery-note__label">Current Reading</span>
+            <h3>What I am learning right now</h3>
+            <ul>
+              <li>System Design Interview by Alex Xu</li>
+              <li>Designing Data-Intensive Applications by Martin Kleppmann</li>
+              <li>Applying both books back into backend architecture and systems thinking</li>
+            </ul>
+          </article>
+
+          <article class="gallery-placeholder">
+            <span class="gallery-placeholder__label">Replaceable Slot</span>
+            <h3>Add a campus, team, or project photo</h3>
+            <p>Use this card for a hackathon image, team picture, speaking photo, or builder moment later.</p>
+          </article>
+
+          <article class="gallery-placeholder">
+            <span class="gallery-placeholder__label">Replaceable Slot</span>
+            <h3>Add a second story image</h3>
+            <p>Good options here would be an event photo, workspace shot, or another polished personal image.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact section-shell" id="contact">
+        <div class="section-heading-wrap">
+          <span class="section-kicker">Contact</span>
+          <h2 class="section-heading">Contact</h2>
+          <p class="section-intro">
+            If you are hiring for backend, data, or ML internships, I would be glad to talk. I am especially interested
+            in teams that value shipping, learning fast, and explaining technical work clearly.
+          </p>
+        </div>
+
+        <div class="contact__content-grid">
+          <div class="contact__panel">
+            <div class="contact__links">
+              <a href="mailto:sbumhe2@huskers.unl.edu" class="contact-chip">
+                <div class="contact-chip__top">
+                  <span class="contact-chip__icon contact-chip__icon--email" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <path d="M3 6.75A1.75 1.75 0 0 1 4.75 5h14.5A1.75 1.75 0 0 1 21 6.75v10.5A1.75 1.75 0 0 1 19.25 19H4.75A1.75 1.75 0 0 1 3 17.25zm1.8-.25L12 11.86 19.2 6.5zm14.7 1.22-6.95 5.18a.9.9 0 0 1-1.1 0L4.5 7.72v9.53c0 .14.11.25.25.25h14.5c.14 0 .25-.11.25-.25z"></path>
+                    </svg>
+                  </span>
+                  <span>Email</span>
+                </div>
+                <strong>sbumhe2@huskers.unl.edu</strong>
+              </a>
+
+              <a href="https://www.linkedin.com/in/shelton-bumhe-027476312/" target="_blank" rel="noreferrer" class="contact-chip">
+                <div class="contact-chip__top">
+                  <span class="contact-chip__icon contact-chip__icon--linkedin" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <path d="M6.85 8.7A1.85 1.85 0 1 1 6.84 5a1.85 1.85 0 0 1 .01 3.7M5.5 10h2.7v8.5H5.5zm4.4 0h2.58v1.16h.04c.36-.65 1.24-1.34 2.56-1.34 2.74 0 3.25 1.8 3.25 4.13v4.55h-2.69v-4.04c0-.97-.02-2.2-1.34-2.2-1.34 0-1.55 1.05-1.55 2.13v4.11H9.9z"></path>
+                    </svg>
+                  </span>
+                  <span>LinkedIn</span>
+                </div>
+                <strong>Connect on LinkedIn</strong>
+              </a>
+
+              <a href="https://github.com/SheltonSB" target="_blank" rel="noreferrer" class="contact-chip">
+                <div class="contact-chip__top">
+                  <span class="contact-chip__icon contact-chip__icon--github" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <path d="M12 2C6.48 2 2 6.6 2 12.26c0 4.53 2.87 8.37 6.85 9.73.5.1.68-.22.68-.49 0-.24-.01-1.03-.01-1.88-2.79.62-3.38-1.22-3.38-1.22-.46-1.2-1.11-1.52-1.11-1.52-.9-.64.07-.63.07-.63 1 .08 1.52 1.05 1.52 1.05.88 1.56 2.31 1.11 2.88.85.09-.66.35-1.11.63-1.37-2.23-.26-4.58-1.15-4.58-5.13 0-1.13.39-2.05 1.03-2.78-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.06A9.3 9.3 0 0 1 12 7.78a9.3 9.3 0 0 1 2.5.35c1.91-1.34 2.75-1.06 2.75-1.06.55 1.41.2 2.46.1 2.72.64.73 1.03 1.65 1.03 2.78 0 3.99-2.35 4.87-4.59 5.13.36.32.68.95.68 1.92 0 1.39-.01 2.5-.01 2.84 0 .27.18.59.69.49A10.27 10.27 0 0 0 22 12.26C22 6.6 17.52 2 12 2"></path>
+                    </svg>
+                  </span>
+                  <span>GitHub</span>
+                </div>
+                <strong>View GitHub Profile</strong>
+              </a>
+
+              <a href="tel:+13086633469" class="contact-chip">
+                <div class="contact-chip__top">
+                  <span class="contact-chip__icon contact-chip__icon--phone" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <path d="M6.62 10.79a15.5 15.5 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.03-.24c1.13.38 2.34.58 3.56.58a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.4 21 3 13.6 3 4a1 1 0 0 1 1-1h3.48a1 1 0 0 1 1 1c0 1.22.2 2.43.58 3.56a1 1 0 0 1-.24 1.03z"></path>
+                    </svg>
+                  </span>
+                  <span>Call</span>
+                </div>
+                <strong>(308) 663-3469</strong>
+              </a>
+            </div>
+
+            <form class="contact__form" action="https://formspree.io/f/mzzbogwp" method="POST">
+              <input class="contact__form-name" type="text" name="name" placeholder="Name" required />
+              <input class="contact__form-email" type="email" name="email" placeholder="Email" required />
+              <textarea class="contact__form-message" name="message" placeholder="Message" required></textarea>
+              <div class="contact__form-error-submit">
+                <div class="form-error">
+                  <div class="form-error__name">Please enter your name.</div>
+                  <div class="form-error__email">Please enter a valid email.</div>
+                  <div class="form-error__msg">Please enter a message.</div>
+                </div>
+                <button type="button" class="contact__form-submit-2" id="form-submit">Send</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
     <div class="agent-widget">
       <button
         type="button"
@@ -346,17 +510,17 @@
         <span class="agent-launcher__icon" aria-hidden="true">
           <img src="assets/assistant-profile.jpg" alt="" />
         </span>
-        <span class="agent-launcher__text">Ask Shelton AI</span>
       </button>
-      <div class="agent-widget__panel contact__panel agent-panel" id="agent-widget-panel" hidden>
+
+      <div class="agent-widget__panel" id="agent-widget-panel" hidden>
         <div class="agent-widget__header">
           <div class="agent-widget__identity">
             <div class="agent-widget__avatar" aria-hidden="true">
               <img src="assets/assistant-profile.jpg" alt="" />
             </div>
             <div>
-            <div class="agent-panel__eyebrow">Portfolio AI</div>
-            <h3 class="agent-panel__title">Ask Shelton AI</h3>
+              <div class="agent-panel__eyebrow">Portfolio AI</div>
+              <h3 class="agent-panel__title">Ask Shelton AI</h3>
             </div>
           </div>
           <button type="button" class="agent-widget__close" id="agent-widget-close" aria-label="Close Ask Shelton AI">
@@ -364,13 +528,13 @@
           </button>
         </div>
         <p class="agent-panel__intro">
-          Ask about my resume, projects, technical strengths, MLT, ColorStack, NSBE, books, and contact details.
+          Ask about my projects, backend strengths, books, experience, or internship fit. The knowledge is hardcoded for now and structured for an easy future AI backend swap.
         </p>
         <div class="agent-suggestions" id="agent-suggestions">
-          <button type="button" class="agent-suggestion">Who is Shelton?</button>
-          <button type="button" class="agent-suggestion">What backend work has he done?</button>
-          <button type="button" class="agent-suggestion">Tell me about the NFL ML project</button>
-          <button type="button" class="agent-suggestion">Tell me about MLT, ColorStack, and NSBE</button>
+          <button type="button" class="agent-suggestion">Summarize Shelton for a recruiter</button>
+          <button type="button" class="agent-suggestion">Explain the e-commerce architecture</button>
+          <button type="button" class="agent-suggestion">What makes the NFL project impressive?</button>
+          <button type="button" class="agent-suggestion">How do his books connect to backend goals?</button>
         </div>
         <div class="agent-chat" id="agent-chat-log" aria-live="polite"></div>
         <form class="agent-form" id="agent-form">
@@ -380,22 +544,73 @@
             id="agent-input"
             type="text"
             name="agent-question"
-            placeholder="Ask about Shelton, his projects, or internship fit"
+            placeholder="Ask about Shelton, his projects, or recruiter fit"
             autocomplete="off"
           />
           <button type="submit" class="agent-form__submit">Ask</button>
         </form>
-        <p class="agent-panel__note">This assistant runs from a local knowledge base, so it stays fast and easy to keep aligned with the portfolio.</p>
       </div>
     </div>
-    <footer class="footer">
-      <a href="#hero">
-        <div class="return-home">
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 24 24">
-            <path fill="#fafafa" d="M17.707 10.293l-5-5c-0.391-0.391-1.024-0.391-1.414 0l-5 5c-0.391 0.391-0.391 1.024 0 1.414s1.024 0.391 1.414 0l4.293-4.293 4.293 4.293c0.391 0.391 1.024 0.391 1.414 0s0.391-1.024 0-1.414zM17.707 17.293l-5-5c-0.391-0.391-1.024-0.391-1.414 0l-5 5c-0.391 0.391-0.391 1.024 0 1.414s1.024 0.391 1.414 0l4.293-4.293 4.293 4.293c0.391 0.391 1.024 0.391 1.414 0s0.391-1.024 0-1.414z"></path>
-          </svg>
+
+    <div class="project-modal" id="project-modal" hidden>
+      <div class="project-modal__backdrop" data-project-close></div>
+      <div class="project-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
+        <button type="button" class="project-modal__close" id="project-modal-close" aria-label="Close project details">
+          ×
+        </button>
+        <div class="project-modal__hero">
+          <div>
+            <span class="project-modal__eyebrow" id="project-modal-kicker"></span>
+            <h3 class="project-modal__title" id="project-modal-title"></h3>
+            <p class="project-modal__tagline" id="project-modal-tagline"></p>
+          </div>
+          <div class="project-modal__links" id="project-modal-links"></div>
         </div>
+
+        <div class="project-modal__body">
+          <section class="project-modal__section">
+            <h4>Project Overview</h4>
+            <p id="project-modal-overview"></p>
+          </section>
+          <section class="project-modal__section">
+            <h4>Problem It Solves</h4>
+            <p id="project-modal-problem"></p>
+          </section>
+          <section class="project-modal__section">
+            <h4>Technologies Used</h4>
+            <div class="project-modal__chips" id="project-modal-technologies"></div>
+          </section>
+          <section class="project-modal__section">
+            <h4>Architecture / How It Works</h4>
+            <ul id="project-modal-architecture"></ul>
+          </section>
+          <section class="project-modal__section">
+            <h4>Key Features</h4>
+            <ul id="project-modal-features"></ul>
+          </section>
+          <section class="project-modal__section">
+            <h4>Challenges</h4>
+            <ul id="project-modal-challenges"></ul>
+          </section>
+          <section class="project-modal__section">
+            <h4>Impact / Why It Matters</h4>
+            <ul id="project-modal-impact"></ul>
+          </section>
+          <section class="project-modal__section">
+            <h4>Screenshots / Visual Space</h4>
+            <div class="project-modal__screens" id="project-modal-screens"></div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <a href="#hero" class="return-home" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <path d="M17.707 10.293l-5-5c-0.391-0.391-1.024-0.391-1.414 0l-5 5c-0.391 0.391-0.391 1.024 0 1.414s1.024 0.391 1.414 0l4.293-4.293 4.293 4.293c0.391 0.391 1.024 0.391 1.414 0s0.391-1.024 0-1.414zM17.707 17.293l-5-5c-0.391-0.391-1.024-0.391-1.414 0l-5 5c-0.391 0.391-0.391 1.024 0 1.414s1.024 0.391 1.414 0l4.293-4.293 4.293 4.293c0.391 0.391 1.024 0.391 1.414 0s0.391-1.024 0-1.414z"></path>
+        </svg>
       </a>
+
       <div class="socials">
         <a href="https://github.com/SheltonSB" target="_blank" rel="noreferrer" class="icon-link icon-link--github" aria-label="GitHub">
           <div class="socials__icon">
@@ -426,8 +641,10 @@
           </div>
         </a>
       </div>
+
       <p class="copyright">Shelton Bumhe ©2025</p>
     </footer>
+
     <script src="agent-data.js"></script>
     <script src="Edit.js"></script>
   </body>
