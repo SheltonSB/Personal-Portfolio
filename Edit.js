@@ -304,6 +304,199 @@ const observerNavProjects = new IntersectionObserver(navFadeIn, optionsProjects)
 const projectsSection = document.querySelector('#projects');
 if (projectsSection) observerNavProjects.observe(projectsSection);
 
+// Portfolio agent
+const portfolioAgentData = window.portfolioAgentData;
+
+function normalizeAgentText(value) {
+  return value.toLowerCase().replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function tokenizeAgentText(value) {
+  return normalizeAgentText(value)
+    .split(' ')
+    .filter((token) => token.length > 1);
+}
+
+function questionHasAgentKeyword(normalizedQuestion, questionTokens, keyword) {
+  const normalizedKeyword = normalizeAgentText(keyword);
+  if (!normalizedKeyword) return false;
+  if (normalizedKeyword.includes(' ')) return normalizedQuestion.includes(normalizedKeyword);
+  return questionTokens.includes(normalizedKeyword);
+}
+
+function matchesAgentRule(normalizedQuestion, questionTokens, rule) {
+  if (rule.maxTokens && questionTokens.length > rule.maxTokens) return false;
+
+  const anyMatched =
+    !rule.matchAny || rule.matchAny.some((item) => questionHasAgentKeyword(normalizedQuestion, questionTokens, item));
+  const allMatched =
+    !rule.matchAll || rule.matchAll.every((item) => questionHasAgentKeyword(normalizedQuestion, questionTokens, item));
+  return anyMatched && allMatched;
+}
+
+function scoreAgentTopic(normalizedQuestion, questionTokens, topic) {
+  let score = 0;
+
+  topic.keywords.forEach((keyword) => {
+    if (questionHasAgentKeyword(normalizedQuestion, questionTokens, keyword)) {
+      score += normalizeAgentText(keyword).includes(' ') ? 6 : 4;
+    }
+  });
+
+  const searchableText = normalizeAgentText([topic.summary].concat(topic.highlights || []).join(' '));
+  questionTokens.forEach((token) => {
+    if (searchableText.includes(token)) score += 1;
+  });
+
+  return score;
+}
+
+function selectAgentHighlights(questionTokens, highlights) {
+  if (!highlights || highlights.length === 0) return [];
+
+  const rankedHighlights = highlights
+    .map((highlight) => {
+      const searchableText = normalizeAgentText(highlight);
+      let score = 0;
+      questionTokens.forEach((token) => {
+        if (searchableText.includes(token)) score += 2;
+      });
+      return { highlight, score };
+    })
+    .sort((left, right) => right.score - left.score);
+
+  const matchedHighlights = rankedHighlights.filter((item) => item.score > 0).map((item) => item.highlight);
+  return (matchedHighlights.length ? matchedHighlights : highlights).slice(0, 2);
+}
+
+function buildAgentReply(question) {
+  if (!portfolioAgentData) {
+    return {
+      answer: 'The portfolio assistant data is not loaded.',
+      followUp: '',
+    };
+  }
+
+  const normalizedQuestion = normalizeAgentText(question);
+  const questionTokens = tokenizeAgentText(question);
+
+  if (!normalizedQuestion) {
+    return {
+      answer: portfolioAgentData.emptyState,
+      followUp: portfolioAgentData.fallback.followUp,
+    };
+  }
+
+  const directAnswer = (portfolioAgentData.directAnswers || []).find((rule) =>
+    matchesAgentRule(normalizedQuestion, questionTokens, rule)
+  );
+  if (directAnswer) {
+    return {
+      answer: directAnswer.answer,
+      followUp: directAnswer.followUp || portfolioAgentData.fallback.followUp,
+    };
+  }
+
+  let bestTopic = null;
+  let bestScore = 0;
+
+  (portfolioAgentData.topics || []).forEach((topic) => {
+    const topicScore = scoreAgentTopic(normalizedQuestion, questionTokens, topic);
+    if (topicScore > bestScore) {
+      bestTopic = topic;
+      bestScore = topicScore;
+    }
+  });
+
+  if (!bestTopic || bestScore < 3) {
+    return portfolioAgentData.fallback;
+  }
+
+  const selectedHighlights = selectAgentHighlights(questionTokens, bestTopic.highlights);
+  const answerParts = [bestTopic.summary];
+  if (selectedHighlights.length) answerParts.push(selectedHighlights.join(' '));
+
+  return {
+    answer: answerParts.join('\n\n'),
+    followUp: bestTopic.followUp || portfolioAgentData.fallback.followUp,
+  };
+}
+
+function initializePortfolioAgent() {
+  if (!portfolioAgentData) return;
+
+  const chatLog = document.getElementById('agent-chat-log');
+  const agentForm = document.getElementById('agent-form');
+  const agentInput = document.getElementById('agent-input');
+  const suggestionContainer = document.getElementById('agent-suggestions');
+
+  if (!chatLog || !agentForm || !agentInput || !suggestionContainer) return;
+
+  function renderMessage(role, message) {
+    const messageNode = document.createElement('div');
+    messageNode.className = `agent-message agent-message--${role}`;
+
+    const roleNode = document.createElement('div');
+    roleNode.className = 'agent-message__role';
+    roleNode.textContent = role === 'assistant' ? portfolioAgentData.assistantName : 'You';
+
+    const textNode = document.createElement('div');
+    textNode.className = 'agent-message__text';
+    textNode.textContent = message;
+
+    messageNode.append(roleNode, textNode);
+    chatLog.appendChild(messageNode);
+    chatLog.scrollTop = chatLog.scrollHeight;
+  }
+
+  function askAgent(question) {
+    if (agentInput.disabled) return;
+
+    const trimmedQuestion = question.trim();
+    if (!trimmedQuestion) {
+      renderMessage('assistant', `${portfolioAgentData.emptyState}\n\n${portfolioAgentData.fallback.followUp}`);
+      return;
+    }
+
+    renderMessage('user', trimmedQuestion);
+    agentInput.value = '';
+    agentInput.disabled = true;
+
+    const submitButton = agentForm.querySelector('.agent-form__submit');
+    if (submitButton) submitButton.disabled = true;
+
+    window.setTimeout(() => {
+      const reply = buildAgentReply(trimmedQuestion);
+      const assistantMessage = reply.followUp ? `${reply.answer}\n\n${reply.followUp}` : reply.answer;
+      renderMessage('assistant', assistantMessage);
+      agentInput.disabled = false;
+      if (submitButton) submitButton.disabled = false;
+      agentInput.focus();
+    }, 320);
+  }
+
+  if (portfolioAgentData.promptPlaceholder) {
+    agentInput.placeholder = portfolioAgentData.promptPlaceholder;
+  }
+
+  const suggestionButtons = suggestionContainer.querySelectorAll('.agent-suggestion');
+  suggestionButtons.forEach((button, index) => {
+    if (portfolioAgentData.suggestions && portfolioAgentData.suggestions[index]) {
+      button.textContent = portfolioAgentData.suggestions[index];
+    }
+    button.addEventListener('click', () => askAgent(button.textContent));
+  });
+
+  renderMessage('assistant', `${portfolioAgentData.greeting}\n\n${portfolioAgentData.fallback.followUp}`);
+
+  agentForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    askAgent(agentInput.value);
+  });
+}
+
+initializePortfolioAgent();
+
 // Contact form validation + async submit
 const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const submitBtn = document.getElementById('form-submit');

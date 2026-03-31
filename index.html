@@ -291,37 +291,68 @@ SELECT AVG(runtime_ms) FROM reports_daily;
     <section class="contact" id="contact">
       <h2 class="contact__heading section-heading">Contact</h2>
       <p class="contact__text">Have a project or opening that needs strong backend + ML fundamentals? Drop a note and I'll respond quickly.</p>
-      <div class="contact__links">
-        <a href="mailto:sbumhe2@huskers.unl.edu" class="contact-chip">
-          <span>Email</span>
-          <strong>sbumhe2@huskers.unl.edu</strong>
-        </a>
-        <a href="https://www.linkedin.com/in/shelton-bumhe-027476312/" target="_blank" rel="noreferrer" class="contact-chip">
-          <span>LinkedIn</span>
-          <strong>linkedin.com/in/shelton-bumhe-027476312</strong>
-        </a>
-        <a href="https://github.com/SheltonSB" target="_blank" rel="noreferrer" class="contact-chip">
-          <span>GitHub</span>
-          <strong>github.com/SheltonSB</strong>
-        </a>
-        <div class="contact-chip">
-          <span>Phone</span>
-          <strong>(308) 663-3469</strong>
+      <div class="contact__content-grid">
+        <div class="contact__panel agent-panel">
+          <div class="agent-panel__eyebrow">Portfolio AI</div>
+          <h3 class="agent-panel__title">Ask Shelton AI</h3>
+          <p class="agent-panel__intro">
+            Visitors can ask about Shelton's background, projects, backend strengths, machine learning work, internship fit, and contact details.
+          </p>
+          <div class="agent-suggestions" id="agent-suggestions">
+            <button type="button" class="agent-suggestion">Who is Shelton?</button>
+            <button type="button" class="agent-suggestion">What backend work has he done?</button>
+            <button type="button" class="agent-suggestion">Tell me about the NFL ML project</button>
+            <button type="button" class="agent-suggestion">Why is Shelton a strong intern candidate?</button>
+          </div>
+          <div class="agent-chat" id="agent-chat-log" aria-live="polite"></div>
+          <form class="agent-form" id="agent-form">
+            <label class="sr-only" for="agent-input">Ask Shelton AI a question</label>
+            <input
+              class="agent-form__input"
+              id="agent-input"
+              type="text"
+              name="agent-question"
+              placeholder="Ask about Shelton, his projects, or internship fit"
+              autocomplete="off"
+            />
+            <button type="submit" class="agent-form__submit">Ask</button>
+          </form>
+          <p class="agent-panel__note">This assistant runs from a local knowledge base, so it is fast to tune and easy to keep aligned with the portfolio.</p>
+        </div>
+        <div class="contact__panel">
+          <div class="contact__links">
+            <a href="mailto:sbumhe2@huskers.unl.edu" class="contact-chip">
+              <span>Email</span>
+              <strong>sbumhe2@huskers.unl.edu</strong>
+            </a>
+            <a href="https://www.linkedin.com/in/shelton-bumhe-027476312/" target="_blank" rel="noreferrer" class="contact-chip">
+              <span>LinkedIn</span>
+              <strong>linkedin.com/in/shelton-bumhe-027476312</strong>
+            </a>
+            <a href="https://github.com/SheltonSB" target="_blank" rel="noreferrer" class="contact-chip">
+              <span>GitHub</span>
+              <strong>github.com/SheltonSB</strong>
+            </a>
+            <div class="contact-chip">
+              <span>Phone</span>
+              <strong>(308) 663-3469</strong>
+            </div>
+          </div>
+          <form class="contact__form" action="https://formspree.io/f/mzzbogwp" method="POST">
+            <input class="contact__form-name" type="text" name="name" placeholder="Name" required />
+            <input class="contact__form-email" type="email" name="email" placeholder="Email" required />
+            <textarea class="contact__form-message" name="message" placeholder="Message" required></textarea>
+            <div class="contact__form-error-submit">
+              <div class="form-error">
+                <div class="form-error__name">Please enter your name.</div>
+                <div class="form-error__email">Please enter a valid email.</div>
+                <div class="form-error__msg">Please enter a message.</div>
+              </div>
+              <button type="button" class="contact__form-submit-2" id="form-submit">Send</button>
+            </div>
+          </form>
         </div>
       </div>
-      <form class="contact__form" action="https://formspree.io/f/mzzbogwp" method="POST">
-        <input class="contact__form-name" type="text" name="name" placeholder="Name" required />
-        <input class="contact__form-email" type="email" name="email" placeholder="Email" required />
-        <textarea class="contact__form-message" name="message" placeholder="Message" required></textarea>
-        <div class="contact__form-error-submit">
-          <div class="form-error">
-            <div class="form-error__name">Please enter your name.</div>
-            <div class="form-error__email">Please enter a valid email.</div>
-            <div class="form-error__msg">Please enter a message.</div>
-          </div>
-          <button type="button" class="contact__form-submit-2" id="form-submit">Send</button>
-        </div>
-      </form>
     </section>
     <footer class="footer">
       <a href="#hero">
@@ -344,6 +375,7 @@ SELECT AVG(runtime_ms) FROM reports_daily;
       </div>
       <p class="copyright">Shelton Bumhe ©2025</p>
     </footer>
+    <script src="agent-data.js"></script>
     <script src="Edit.js"></script>
   </body>
 </html>
