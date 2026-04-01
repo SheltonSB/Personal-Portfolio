@@ -318,21 +318,15 @@ ul {
 }
 
 .hero__title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   font-size: clamp(4.8rem, 7vw, 8.4rem);
   max-width: none;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 0;
   letter-spacing: -0.04em;
-  line-height: 0.92;
-  white-space: normal;
-}
-
-.hero__title span {
-  display: block;
+  line-height: 1;
+  white-space: nowrap;
+  text-align: center;
 }
 
 .hero__subtitle,
@@ -1824,7 +1818,8 @@ ul {
   }
 
   .hero__title {
-    line-height: 0.96;
+    white-space: normal;
+    line-height: 1.04;
   }
 
   .code-line {
