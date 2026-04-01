@@ -180,18 +180,47 @@
           </p>
         </div>
 
-        <div class="project-grid">
-          <article class="project-card">
+        <div class="project-grid project-grid--bento">
+          <article class="project-card project-card--feature project-card--commerce-bento">
             <div class="project-card__visual project-card__visual--commerce">
-              <span class="project-card__visual-label">Architecture Snapshot</span>
-              <div class="project-card__mock">
-              <span>.NET 9 API</span>
-                <span>PostgreSQL</span>
-                <span>Redis + hashing</span>
-                <span>Load balancer</span>
-                <span>Rate limiter</span>
-                <span>Stripe + Cloudinary</span>
-                <span>Azure deploy</span>
+              <span class="project-card__visual-label">Interactive Prototype</span>
+              <div class="project-prototype" id="commerce-prototype">
+                <div class="project-prototype__toolbar">
+                  <button type="button" class="prototype-chip prototype-chip--active" data-commerce-view="browse">Browse</button>
+                  <button type="button" class="prototype-chip" data-commerce-view="checkout">Checkout</button>
+                  <button type="button" class="prototype-chip" data-commerce-view="peak">Peak Load</button>
+                </div>
+                <div class="prototype-metrics">
+                  <div class="prototype-metric">
+                    <span>Cache Hit Rate</span>
+                    <strong id="commerce-cache-hit">91%</strong>
+                  </div>
+                  <div class="prototype-metric">
+                    <span>P95 Latency</span>
+                    <strong id="commerce-latency">146ms</strong>
+                  </div>
+                  <div class="prototype-metric">
+                    <span>Protected Requests</span>
+                    <strong id="commerce-rate-limit">60/min</strong>
+                  </div>
+                </div>
+                <div class="prototype-bars">
+                  <div class="prototype-bar">
+                    <span>API Throughput</span>
+                    <div><i id="commerce-throughput-bar" style="width: 72%"></i></div>
+                  </div>
+                  <div class="prototype-bar">
+                    <span>Redis Utilization</span>
+                    <div><i id="commerce-cache-bar" style="width: 68%"></i></div>
+                  </div>
+                  <div class="prototype-bar">
+                    <span>Rate Limit Pressure</span>
+                    <div><i id="commerce-pressure-bar" style="width: 34%"></i></div>
+                  </div>
+                </div>
+                <p class="project-prototype__caption" id="commerce-caption">
+                  Browse mode prioritizes fast catalog reads by leaning on Redis and consistent-hash-aware cache distribution before checkout pressure ramps up.
+                </p>
               </div>
             </div>
             <div class="project-card__body">
@@ -221,15 +250,74 @@
             </div>
           </article>
 
-          <article class="project-card">
+          <article class="project-card project-card--compact project-card--signals">
+            <div class="project-card__compact-head">
+              <span class="project-card__visual-label">Impact Signals</span>
+              <h3>Performance &amp; Scale</h3>
+            </div>
+            <div class="kpi-grid">
+              <div class="kpi-tile">
+                <span>Cache Hit</span>
+                <strong>91%</strong>
+                <small>catalog-heavy traffic</small>
+              </div>
+              <div class="kpi-tile">
+                <span>P95</span>
+                <strong>146ms</strong>
+                <small>browse path target</small>
+              </div>
+              <div class="kpi-tile">
+                <span>Accuracy</span>
+                <strong>88%</strong>
+                <small>NFL prediction task</small>
+              </div>
+              <div class="kpi-tile">
+                <span>Dataset</span>
+                <strong>10K+</strong>
+                <small>historical plays</small>
+              </div>
+            </div>
+            <div class="sparkline-wrap">
+              <span>Delivery Momentum</span>
+              <svg viewBox="0 0 220 60" class="sparkline" aria-hidden="true">
+                <polyline points="0,44 22,40 44,36 66,33 88,28 110,30 132,22 154,19 176,15 198,13 220,8"></polyline>
+              </svg>
+            </div>
+            <div class="sparkline-wrap">
+              <span>System Readiness</span>
+              <svg viewBox="0 0 220 60" class="sparkline sparkline--alt" aria-hidden="true">
+                <polyline points="0,48 22,45 44,42 66,36 88,32 110,28 132,24 154,18 176,16 198,12 220,10"></polyline>
+              </svg>
+            </div>
+          </article>
+
+          <article class="project-card project-card--feature project-card--nfl-bento">
             <div class="project-card__visual project-card__visual--nfl">
-              <span class="project-card__visual-label">Modeling Snapshot</span>
-              <div class="project-card__mock">
-                <span>10K+ plays</span>
-                <span>XGBoost model</span>
-                <span>SHAP explanations</span>
-                <span>Streamlit UI</span>
-                <span>&lt; 2s prediction</span>
+              <span class="project-card__visual-label">Scenario Explorer</span>
+              <div class="project-prototype project-prototype--nfl" id="nfl-prototype">
+                <div class="project-prototype__toolbar">
+                  <button type="button" class="prototype-chip prototype-chip--active" data-nfl-view="balanced">Balanced</button>
+                  <button type="button" class="prototype-chip" data-nfl-view="redzone">Red Zone</button>
+                  <button type="button" class="prototype-chip" data-nfl-view="upset">Upset Pick</button>
+                </div>
+                <div class="prediction-panel">
+                  <div>
+                    <span>Touchdown Probability</span>
+                    <strong id="nfl-probability">67%</strong>
+                  </div>
+                  <div>
+                    <span>Confidence</span>
+                    <strong id="nfl-confidence">High</strong>
+                  </div>
+                </div>
+                <div class="feature-stack" id="nfl-feature-stack">
+                  <div class="feature-pill"><span>Pass Rate</span><i style="width: 78%"></i></div>
+                  <div class="feature-pill"><span>Red Zone Usage</span><i style="width: 62%"></i></div>
+                  <div class="feature-pill"><span>Opponent Pressure</span><i style="width: 38%"></i></div>
+                </div>
+                <p class="project-prototype__caption" id="nfl-caption">
+                  The balanced scenario shows how the model blends play tendency, red-zone involvement, and defensive pressure into an interpretable prediction.
+                </p>
               </div>
             </div>
             <div class="project-card__body">
@@ -255,6 +343,68 @@
                   GitHub
                 </a>
               </div>
+            </div>
+          </article>
+
+          <article class="project-card project-card--compact project-card--process">
+            <div class="project-card__compact-head">
+              <span class="project-card__visual-label">Process Visuals</span>
+              <h3>Sketch, Test, Iterate</h3>
+            </div>
+            <div class="process-board">
+              <div class="process-step">
+                <span>01</span>
+                <strong>Map the flow</strong>
+                <p>I start by sketching request paths, user intent, and failure cases before polishing the UI.</p>
+              </div>
+              <div class="process-step">
+                <span>02</span>
+                <strong>Stress the weak points</strong>
+                <p>I use process notes, quick diagrams, and architecture tradeoffs to figure out where scale or clarity breaks first.</p>
+              </div>
+              <div class="process-step">
+                <span>03</span>
+                <strong>Refine the story</strong>
+                <p>The final portfolio view shows the finished system, but I want the reasoning and iteration behind it to stay visible too.</p>
+              </div>
+            </div>
+            <div class="moodboard-chips">
+              <span>wireframes</span>
+              <span>system maps</span>
+              <span>API notes</span>
+              <span>metric review</span>
+            </div>
+          </article>
+
+          <article class="project-card project-card--compact project-card--tool">
+            <div class="project-card__compact-head">
+              <span class="project-card__visual-label">Action-First</span>
+              <h3>Architecture Checklist</h3>
+            </div>
+            <p class="project-card__summary project-card__summary--compact">
+              Toggle the production concerns I try to make visible in a backend project. The score updates live instead of sitting as static text.
+            </p>
+            <div class="checklist-widget" id="architecture-checklist">
+              <button type="button" class="checklist-item checklist-item--active" aria-pressed="true">
+                <span>Load balancing path</span>
+                <strong>Included</strong>
+              </button>
+              <button type="button" class="checklist-item checklist-item--active" aria-pressed="true">
+                <span>Rate limiting</span>
+                <strong>Included</strong>
+              </button>
+              <button type="button" class="checklist-item checklist-item--active" aria-pressed="true">
+                <span>Cache strategy</span>
+                <strong>Included</strong>
+              </button>
+              <button type="button" class="checklist-item" aria-pressed="false">
+                <span>Queue / async jobs</span>
+                <strong>Future</strong>
+              </button>
+            </div>
+            <div class="checklist-score">
+              <span>Production Readiness Score</span>
+              <strong id="architecture-score">75%</strong>
             </div>
           </article>
         </div>

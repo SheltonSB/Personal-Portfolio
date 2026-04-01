@@ -412,6 +412,145 @@ function initializeProjectModal() {
   });
 }
 
+function initializeProjectExperiences() {
+  const commerceStates = {
+    browse: {
+      cacheHit: '91%',
+      latency: '146ms',
+      rateLimit: '60/min',
+      throughput: '72%',
+      cache: '68%',
+      pressure: '34%',
+      caption:
+        'Browse mode prioritizes fast catalog reads by leaning on Redis and consistent-hash-aware cache distribution before checkout pressure ramps up.',
+    },
+    checkout: {
+      cacheHit: '84%',
+      latency: '182ms',
+      rateLimit: '40/min',
+      throughput: '66%',
+      cache: '58%',
+      pressure: '61%',
+      caption:
+        'Checkout mode shifts more traffic through protected endpoints, where JWT auth, Stripe coordination, and rate limiting matter more than raw cache efficiency.',
+    },
+    peak: {
+      cacheHit: '88%',
+      latency: '209ms',
+      rateLimit: '25/min',
+      throughput: '93%',
+      cache: '81%',
+      pressure: '78%',
+      caption:
+        'Peak-load mode shows the scale path I want to talk through: load-balanced API instances, cache partitioning, and tighter traffic shaping under heavier bursts.',
+    },
+  };
+
+  const nflStates = {
+    balanced: {
+      probability: '67%',
+      confidence: 'High',
+      caption:
+        'The balanced scenario shows how the model blends play tendency, red-zone involvement, and defensive pressure into an interpretable prediction.',
+      widths: ['78%', '62%', '38%'],
+      labels: ['Pass Rate', 'Red Zone Usage', 'Opponent Pressure'],
+    },
+    redzone: {
+      probability: '81%',
+      confidence: 'Very High',
+      caption:
+        'The red-zone view pushes touchdown probability higher because red-zone usage and short-field tendencies become much stronger drivers in the explanation layer.',
+      widths: ['61%', '89%', '28%'],
+      labels: ['Pass Rate', 'Red Zone Usage', 'Opponent Pressure'],
+    },
+    upset: {
+      probability: '54%',
+      confidence: 'Moderate',
+      caption:
+        'The upset-pick scenario compresses confidence and exposes where pressure and volatility start to matter more than the baseline offensive pattern.',
+      widths: ['58%', '49%', '71%'],
+      labels: ['Pass Rate', 'Red Zone Usage', 'Opponent Pressure'],
+    },
+  };
+
+  const commerceButtons = document.querySelectorAll('[data-commerce-view]');
+  const nflButtons = document.querySelectorAll('[data-nfl-view]');
+  const checklist = document.getElementById('architecture-checklist');
+  const scoreNode = document.getElementById('architecture-score');
+
+  function setCommerceState(view) {
+    const state = commerceStates[view];
+    if (!state) return;
+
+    commerceButtons.forEach((button) => {
+      const active = button.getAttribute('data-commerce-view') === view;
+      button.classList.toggle('prototype-chip--active', active);
+    });
+
+    document.getElementById('commerce-cache-hit').textContent = state.cacheHit;
+    document.getElementById('commerce-latency').textContent = state.latency;
+    document.getElementById('commerce-rate-limit').textContent = state.rateLimit;
+    document.getElementById('commerce-throughput-bar').style.width = state.throughput;
+    document.getElementById('commerce-cache-bar').style.width = state.cache;
+    document.getElementById('commerce-pressure-bar').style.width = state.pressure;
+    document.getElementById('commerce-caption').textContent = state.caption;
+  }
+
+  function setNflState(view) {
+    const state = nflStates[view];
+    if (!state) return;
+
+    nflButtons.forEach((button) => {
+      const active = button.getAttribute('data-nfl-view') === view;
+      button.classList.toggle('prototype-chip--active', active);
+    });
+
+    document.getElementById('nfl-probability').textContent = state.probability;
+    document.getElementById('nfl-confidence').textContent = state.confidence;
+    document.getElementById('nfl-caption').textContent = state.caption;
+
+    const pills = document.querySelectorAll('#nfl-feature-stack .feature-pill');
+    pills.forEach((pill, index) => {
+      const label = pill.querySelector('span');
+      const bar = pill.querySelector('i');
+      if (label) label.textContent = state.labels[index];
+      if (bar) bar.style.width = state.widths[index];
+    });
+  }
+
+  function updateChecklistScore() {
+    if (!checklist || !scoreNode) return;
+    const items = checklist.querySelectorAll('.checklist-item');
+    const activeCount = checklist.querySelectorAll('.checklist-item--active').length;
+    const score = Math.round((activeCount / items.length) * 100);
+    scoreNode.textContent = `${score}%`;
+  }
+
+  commerceButtons.forEach((button) => {
+    button.addEventListener('click', () => setCommerceState(button.getAttribute('data-commerce-view')));
+  });
+
+  nflButtons.forEach((button) => {
+    button.addEventListener('click', () => setNflState(button.getAttribute('data-nfl-view')));
+  });
+
+  if (checklist) {
+    checklist.querySelectorAll('.checklist-item').forEach((button) => {
+      button.addEventListener('click', () => {
+        const nextPressed = button.getAttribute('aria-pressed') !== 'true';
+        button.setAttribute('aria-pressed', String(nextPressed));
+        button.classList.toggle('checklist-item--active', nextPressed);
+        button.querySelector('strong').textContent = nextPressed ? 'Included' : 'Future';
+        updateChecklistScore();
+      });
+    });
+    updateChecklistScore();
+  }
+
+  if (commerceButtons.length) setCommerceState('browse');
+  if (nflButtons.length) setNflState('balanced');
+}
+
 function initializePortfolioAgent() {
   const chatLog = document.getElementById('agent-chat-log');
   const agentForm = document.getElementById('agent-form');
@@ -642,6 +781,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeSectionReveal();
   initializeNavigationObserver();
   initializeProjectModal();
+  initializeProjectExperiences();
   initializePortfolioAgent();
   initializeContactForm();
 
