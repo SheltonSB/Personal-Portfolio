@@ -191,6 +191,11 @@ ul {
   flex-direction: column;
 }
 
+.page-hero {
+  position: relative;
+  padding: 2.4rem clamp(2rem, 4vw, 4rem) 4rem;
+}
+
 .navigation-bar {
   position: sticky;
   top: 1.6rem;
@@ -254,6 +259,14 @@ ul {
   justify-items: center;
 }
 
+.page-hero__shell {
+  width: min(var(--max-width), 100%);
+  min-height: 34rem;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+}
+
 .hero__spotlight-card,
 .profile-card,
 .skills-panel,
@@ -279,6 +292,12 @@ ul {
   background: transparent;
   backdrop-filter: none;
   box-shadow: none;
+  text-align: center;
+}
+
+.page-hero__copy {
+  max-width: 82rem;
+  margin: 0 auto;
   text-align: center;
 }
 
@@ -308,6 +327,7 @@ ul {
 .project-card__title,
 .community-card h3,
 .gallery-note h3,
+.page-hero__title,
 .agent-panel__title,
 .project-modal__title {
   margin: 1.8rem 0 0;
@@ -326,6 +346,14 @@ ul {
   letter-spacing: -0.04em;
   line-height: 1;
   white-space: nowrap;
+  text-align: center;
+}
+
+.page-hero__title {
+  font-size: clamp(3.8rem, 5.4vw, 6rem);
+  max-width: 18ch;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
 }
 
@@ -351,6 +379,14 @@ ul {
   margin-right: auto;
   font-size: clamp(1.9rem, 2.3vw, 2.3rem);
   line-height: 1.75;
+}
+
+.page-hero__subtitle {
+  max-width: 66rem;
+  margin: 1.8rem auto 0;
+  color: var(--text-soft);
+  font-size: 1.8rem;
+  line-height: 1.8;
 }
 
 .hero__actions {
@@ -515,6 +551,10 @@ ul {
   width: min(var(--max-width), calc(100% - 2.4rem));
   margin: 0 auto;
   padding: 10rem 0 0;
+}
+
+.page-shell {
+  padding-bottom: 4rem;
 }
 
 .section-heading-wrap {

@@ -294,7 +294,7 @@ function initializeNavigationObserver() {
     if (active) active.classList.add('navigation__item--active');
   }
 
-  const sections = ['hero', 'about', 'projects', 'experience', 'community', 'gallery', 'contact'];
+  const sections = ['hero', 'about', 'projects', 'experience', 'contact'];
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {

@@ -2,15 +2,15 @@
 window.portfolioAgentData = {
   assistantName: 'Ask Shelton AI',
   greeting:
-    "Ask me about Shelton's backend strengths, project architecture, resume highlights, books, leadership programs, or current technical focus. I answer from the portfolio's structured knowledge base.",
-  promptPlaceholder: 'Ask about a project, backend strengths, or systems thinking',
+    "Ask me about Shelton's projects, system design choices, resume highlights, books, experience, or current technical focus. I answer from the portfolio's structured knowledge base.",
+  promptPlaceholder: 'Ask about a project, systems thinking, or technical strengths',
   emptyState:
-    'Try asking about Shelton, the e-commerce architecture, the NFL predictor, his books, his leadership programs, or his backend focus.',
+    'Try asking about Shelton, the e-commerce architecture, the NFL predictor, his books, his leadership programs, or his technical focus.',
   suggestions: [
     'Summarize Shelton',
     'Explain the e-commerce architecture',
     'What makes the NFL project impressive?',
-    'How do his books connect to backend goals?',
+    'How do his books connect to system design?',
   ],
   fallback: {
     answer:
