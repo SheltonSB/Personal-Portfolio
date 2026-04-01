@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
 
 :root {
-  --bg: #07100b;
-  --bg-soft: #0b1510;
-  --panel: rgba(8, 18, 13, 0.8);
-  --panel-strong: rgba(9, 20, 15, 0.94);
+  --bg: #050505;
+  --bg-soft: #0a0a0a;
+  --panel: rgba(9, 9, 9, 0.82);
+  --panel-strong: rgba(12, 12, 12, 0.95);
   --panel-line: rgba(111, 255, 168, 0.12);
-  --text: #eefbf4;
-  --text-soft: #b9d9c2;
-  --text-muted: #6f9380;
+  --text: #f7f7f7;
+  --text-soft: #d6d6d6;
+  --text-muted: #8b8b8b;
   --accent: #69f0a3;
   --accent-strong: #45d88a;
   --accent-warm: #caa56c;
@@ -42,8 +42,8 @@ body {
   line-height: 1.6;
   color: var(--text);
   background:
-    radial-gradient(circle at top, rgba(45, 139, 87, 0.18), transparent 52%),
-    linear-gradient(180deg, #050c08 0%, #07100b 42%, #050d09 100%);
+    radial-gradient(circle at top, rgba(45, 139, 87, 0.14), transparent 52%),
+    linear-gradient(180deg, #030303 0%, #050505 42%, #020202 100%);
   overflow-x: hidden;
 }
 
@@ -197,7 +197,7 @@ ul {
   padding: 1.4rem 1.8rem;
   border: 1px solid var(--panel-line);
   border-radius: 999px;
-  background: rgba(8, 16, 28, 0.74);
+  background: rgba(8, 8, 8, 0.8);
   backdrop-filter: blur(20px);
   box-shadow: var(--shadow-md);
   display: flex;
@@ -214,7 +214,7 @@ ul {
   height: 4.6rem;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  background: linear-gradient(135deg, rgba(92, 185, 255, 0.22), rgba(202, 165, 108, 0.18));
+  background: linear-gradient(135deg, rgba(105, 240, 163, 0.18), rgba(255, 255, 255, 0.06));
   font-weight: 800;
   letter-spacing: 0.12em;
 }
@@ -241,11 +241,11 @@ ul {
 }
 
 .hero__shell {
-  width: min(var(--max-width), 100%);
+  width: min(82rem, 100%);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 3rem;
+  grid-template-columns: 1fr;
+  gap: 0;
   align-items: center;
 }
 
@@ -400,8 +400,8 @@ ul {
 .hero__signal {
   padding: 1.6rem;
   border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(111, 255, 168, 0.08);
 }
 
 .hero__signal-label {
@@ -530,7 +530,7 @@ ul {
 }
 
 .profile-card__body {
-  margin-top: 2.2rem;
+  margin-top: 0;
 }
 
 .profile__blurb {
@@ -1150,31 +1150,23 @@ ul {
 
 .agent-launcher {
   position: relative;
-  width: 6.8rem;
-  height: 6.8rem;
-  padding: 0.5rem;
+  width: 5.6rem;
+  height: 5.6rem;
+  padding: 0;
   border-radius: 50%;
-  border: 1px solid rgba(134, 214, 255, 0.26);
-  background:
-    radial-gradient(circle at top left, rgba(134, 214, 255, 0.18), transparent 55%),
-    rgba(9, 18, 31, 0.92);
-  backdrop-filter: blur(14px);
-  box-shadow:
-    0 18px 34px rgba(0, 0, 0, 0.28),
-    0 0 0 0.45rem rgba(134, 214, 255, 0.08);
+  border: none;
+  background: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
   cursor: pointer;
   transition:
     transform 0.2s ease,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease;
+    box-shadow 0.2s ease;
 }
 
 .agent-launcher:hover {
   transform: translateY(-2px);
-  border-color: rgba(134, 214, 255, 0.4);
-  box-shadow:
-    0 24px 42px rgba(0, 0, 0, 0.34),
-    0 0 0 0.6rem rgba(134, 214, 255, 0.1);
+  box-shadow: none;
 }
 
 .agent-launcher__status {
@@ -1194,6 +1186,15 @@ ul {
 .agent-widget__avatar {
   overflow: hidden;
   border-radius: 50%;
+}
+
+.agent-launcher__icon {
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(247, 247, 247, 0.9);
+  box-shadow:
+    0 18px 34px rgba(0, 0, 0, 0.3),
+    0 0 0 0.45rem rgba(105, 240, 163, 0.1);
 }
 
 .agent-launcher__icon img,
@@ -1699,8 +1700,8 @@ ul {
   }
 
   .agent-launcher {
-    width: 6.2rem;
-    height: 6.2rem;
+    width: 5rem;
+    height: 5rem;
   }
 
   .agent-widget__panel {
