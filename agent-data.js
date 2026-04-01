@@ -2,12 +2,12 @@
 window.portfolioAgentData = {
   assistantName: 'Ask Shelton AI',
   greeting:
-    "Ask me about Shelton's backend strengths, project architecture, resume highlights, books, leadership programs, or internship fit. I answer from the portfolio's structured knowledge base.",
-  promptPlaceholder: 'Ask about a project, backend strengths, or recruiter fit',
+    "Ask me about Shelton's backend strengths, project architecture, resume highlights, books, leadership programs, or current technical focus. I answer from the portfolio's structured knowledge base.",
+  promptPlaceholder: 'Ask about a project, backend strengths, or systems thinking',
   emptyState:
-    'Try asking about Shelton, the e-commerce architecture, the NFL predictor, his books, his leadership programs, or why he is a strong internship candidate.',
+    'Try asking about Shelton, the e-commerce architecture, the NFL predictor, his books, his leadership programs, or his backend focus.',
   suggestions: [
-    'Summarize Shelton for a recruiter',
+    'Summarize Shelton',
     'Explain the e-commerce architecture',
     'What makes the NFL project impressive?',
     'How do his books connect to backend goals?',
@@ -15,7 +15,7 @@ window.portfolioAgentData = {
   fallback: {
     answer:
       "I do not have that exact phrasing in Shelton's current portfolio knowledge yet, but I can help with his resume, projects, backend stack, experience, communities, books, and contact details.",
-    followUp: 'Do you want a recruiter summary, a project deep dive, his current reading, or a contact overview?',
+    followUp: 'Do you want a summary, a project deep dive, his current reading, or a contact overview?',
   },
   annotationPhrases: [
     '// evaluating cache invalidation tradeoffs',
@@ -25,7 +25,7 @@ window.portfolioAgentData = {
     'feature note: explainability matters',
     'xgboost + shap + streamlit',
     'system design thought: split reads from writes',
-    'recruiter note: measurable outcomes > vague claims',
+    'engineering note: measurable outcomes > vague claims',
     'weekly reports generated with python + sql',
     'latency budget: under 2 seconds',
     'designing for production-minded delivery',
@@ -61,32 +61,39 @@ window.portfolioAgentData = {
         '.net',
       ],
       overview:
-        'This project is Shelton’s backend-heavy commerce build. It combines a .NET API, React frontend, PostgreSQL, Redis, and Azure deployment into one recruiter-friendly system that demonstrates more than just CRUD by showing how data access, caching, auth, payments, media, and delivery work together.',
+        'This project is Shelton’s backend-heavy commerce build. It combines a .NET API, React frontend, PostgreSQL, Redis, and Azure deployment into one system that demonstrates more than just CRUD by showing how data access, caching, auth, payments, media, and delivery work together.',
       problem:
-        'The project is designed to solve a common weakness in student portfolios: many apps look functional on the surface but do not explain how performance-sensitive reads, authentication, payments, media handling, and release workflows are structured together. This one intentionally does.',
-      technologies: ['.NET 9', 'ASP.NET Core', 'React', 'PostgreSQL', 'Redis', 'Stripe', 'Cloudinary', 'JWT', 'GitHub Actions', 'Azure'],
+        'The project is designed to solve a common weakness in student portfolios: many apps look functional on the surface but do not explain how performance-sensitive reads, authentication, payments, media handling, release workflows, and scale-out decisions are structured together. This one intentionally does.',
+      technologies: ['.NET 9', 'ASP.NET Core', 'React', 'PostgreSQL', 'Redis', 'Stripe', 'Cloudinary', 'JWT', 'Rate Limiting', 'GitHub Actions', 'Azure'],
       architecture: [
         'The frontend talks to a .NET backend that exposes product, cart, authentication, and checkout flows through a single application surface instead of scattering business logic across the client.',
         'PostgreSQL stores the core relational data while Redis sits in front of repeated catalog and listing reads, which reflects a basic read-optimization pattern common in production commerce systems.',
+        'The scale-out story extends the API behind a load balancer so multiple instances can serve traffic horizontally instead of relying on a single application node.',
+        'Consistent hashing is part of the caching discussion so requests can be routed predictably across cache partitions as the system grows, reducing cache churn when nodes are added or removed.',
+        'Rate limiting protects login, cart, and checkout-sensitive paths from abuse and noisy-client behavior, which matters once a public-facing commerce API starts receiving real traffic.',
         'Stripe handles payment processing and Cloudinary handles media upload and storage so payment and asset concerns are integrated cleanly without bloating the core domain logic.',
         'A GitHub Actions pipeline validates and deploys changes to Azure, which adds a release workflow and demonstrates that deployment quality is part of the system design, not an afterthought.',
       ],
       keyFeatures: [
         'JWT-based authentication and role-aware access control for protected user flows.',
         'Redis-backed performance optimization for frequently accessed catalog and product data.',
+        'Load-balancer-ready API design for horizontal scaling.',
+        'Consistent-hashing-aware cache strategy for predictable scaling behavior.',
+        'Rate limiting at the API edge for traffic shaping and abuse protection.',
         'Secure checkout integration through Stripe with external payment responsibility kept outside the main app logic.',
         'Cloudinary media pipeline for product assets and image management.',
         'Automated Azure release workflow through GitHub Actions for a more credible end-to-end delivery story.',
       ],
       challenges: [
         'Balancing feature completeness with clean architecture instead of turning the app into a collection of disconnected integrations.',
-        'Handling multiple external services while keeping auth, payments, media, and data access responsibilities clearly separated.',
+        'Handling multiple external services while keeping auth, payments, media, data access, and scale concerns clearly separated.',
+        'Thinking through how the system behaves under higher traffic instead of describing it only as a single-instance demo.',
         'Making the project demonstrate backend maturity, not just frontend polish or CRUD coverage.',
       ],
       impact: [
-        'The project gives recruiters a concrete example of how Shelton thinks about backend systems as a full product surface rather than isolated API endpoints.',
-        'It shows system design judgment around storage, caching, external integrations, and delivery workflow in one portfolio piece.',
-        'It is strong in interviews because it creates room to talk about tradeoffs instead of only listing frameworks.',
+        'The project gives a concrete example of how Shelton thinks about backend systems as a full product surface rather than isolated API endpoints.',
+        'It shows system design judgment around storage, caching, load balancing, rate limiting, external integrations, and delivery workflow in one portfolio piece.',
+        'It creates room to talk about tradeoffs instead of only listing frameworks.',
       ],
       screens: [
         { label: 'Catalog View', note: 'Space for homepage or product-listing screenshot.' },
@@ -102,10 +109,10 @@ window.portfolioAgentData = {
           'Shelton’s e-commerce platform is one of the strongest examples of his backend thinking because it combines performance, auth, payments, media management, and deployment in one coherent system.',
         highlights: [
           'He used PostgreSQL for the core transactional model and Redis for repeated catalog reads, which gives him a clear way to explain read-heavy system design tradeoffs.',
-          'He wired Stripe and Cloudinary into a backend architecture instead of treating them as surface-level add-ons, so payments and media have explicit boundaries.',
-          'He used GitHub Actions and Azure to show that deployment and release quality matter as much as feature delivery in a production-minded project.',
+          'He can now talk through load balancing, consistent hashing, and rate limiting as part of the scaling path instead of stopping at a single-instance architecture.',
+          'He wired Stripe and Cloudinary into a backend architecture instead of treating them as surface-level add-ons, and used GitHub Actions plus Azure to show that deployment quality matters too.',
         ],
-        followUp: 'Do you want the architecture breakdown, the technology stack, or why this project stands out to recruiters?',
+        followUp: 'Do you want the architecture breakdown, the scaling decisions, or the technology stack?',
       },
     },
     nfl: {
@@ -145,11 +152,11 @@ window.portfolioAgentData = {
       challenges: [
         'Designing a project that feels like a product instead of an isolated notebook experiment.',
         'Balancing predictive performance with interpretability so the model remains defensible instead of opaque.',
-        'Turning sports data into something usable and understandable for non-technical viewers and recruiter audiences.',
+        'Turning sports data into something usable and understandable for non-technical viewers and broader engineering audiences.',
       ],
       impact: [
         'The project shows Shelton can connect modeling, explanation, and user-facing delivery in one story.',
-        'It gives recruiters evidence that he thinks beyond pure ML code and into usability, communication, and product framing.',
+        'It shows that he thinks beyond pure ML code and into usability, communication, and product framing.',
         'It is especially useful in interviews because the numbers, architecture, and explainability choices are all easy to discuss concretely.',
       ],
       screens: [
@@ -169,7 +176,7 @@ window.portfolioAgentData = {
           'The reported 88% accuracy matters because he can explain what the number represents instead of dropping it as an empty metric.',
           'SHAP and Streamlit turn the project into something interpretable and user-facing rather than a static data science artifact.',
         ],
-        followUp: 'Do you want the model architecture, the explainability angle, or why this project helps in recruiting conversations?',
+        followUp: 'Do you want the model architecture, the explainability angle, or the product-delivery side?',
       },
     },
   },
@@ -178,14 +185,14 @@ window.portfolioAgentData = {
       matchAny: ['hello', 'hi', 'hey'],
       maxTokens: 3,
       answer:
-        "Hi. I can answer questions about Shelton's projects, backend strengths, ML work, books, experience, communities, and recruiter fit.",
+        "Hi. I can answer questions about Shelton's projects, backend strengths, ML work, books, experience, communities, and technical direction.",
       followUp: 'What do you want to know first?',
     },
     {
       matchAny: ['resume', 'cv'],
       answer:
-        "Use the Download Resume button in the hero section to grab Shelton's latest PDF. The portfolio also mirrors the same education, project, experience, and leadership points in a recruiter-friendly format.",
-      followUp: 'Do you want a quick recruiter summary or a project deep dive?',
+        "Use the Download Resume button in the hero section to grab Shelton's latest PDF. The portfolio also mirrors the same education, project, experience, and leadership points in a cleaner web format.",
+      followUp: 'Do you want a quick summary or a project deep dive?',
     },
     {
       matchAny: ['books', 'reading', 'book'],
@@ -198,7 +205,7 @@ window.portfolioAgentData = {
       matchAny: ['contact', 'email', 'phone', 'linkedin', 'github'],
       answer:
         'You can reach Shelton at sbumhe2@huskers.unl.edu, on LinkedIn at linkedin.com/in/shelton-bumhe-027476312, on GitHub at github.com/SheltonSB, or by phone at (308) 663-3469.',
-      followUp: 'Do you want the best project to review first before reaching out?',
+      followUp: 'Do you want the strongest project to review first before reaching out?',
     },
   ],
   topics: [
@@ -210,7 +217,7 @@ window.portfolioAgentData = {
       highlights: [
         'He combines academic preparation with two portfolio projects that show architecture, measurable outcomes, and product thinking.',
         'His Dominion College experience and MLT involvement show communication, mentorship, and professional growth alongside technical execution.',
-        'He is strongest when discussing backend systems, explainable ML, and projects that are easy to defend in a recruiter conversation.',
+        'He is strongest when discussing backend systems, explainable ML, and projects that are easy to defend in a technical conversation.',
       ],
       followUp: 'Do you want the backend angle, the ML angle, or the project-by-project version of that summary?',
     },
@@ -231,8 +238,9 @@ window.portfolioAgentData = {
       summary:
         "Shelton's experience combines software development, tutoring, and structured leadership development, which shows up in how he builds systems and explains them.",
       highlights: [
-        'At Dominion College he built a Python and SQL tracking workflow, generated weekly reports, and supported a 99% pass rate as a math tutor.',
-        'Through MLT he is sharpening professional communication, interview readiness, and long-term career strategy in a structured environment.',
+        'At Dominion College he built a Python and SQL tracking workflow, generated weekly reports, reduced manual entry work, and supported a 99% pass rate as a math tutor.',
+        'That role blended operational thinking with communication, because he had to make data useful to instructors and students instead of only writing code in isolation.',
+        'Through MLT he is sharpening professional communication, structured thinking, and long-term career strategy in a high-accountability environment.',
       ],
       followUp: 'Do you want the engineering experience version, the leadership version, or the mentoring angle?',
     },
@@ -242,7 +250,7 @@ window.portfolioAgentData = {
       summary:
         'Those books connect directly to Shelton’s backend goals because they sharpen the kind of engineering judgment he wants to build: architecture tradeoffs, reliability, scalability, storage patterns, and system boundaries.',
       highlights: [
-        'System Design Interview reinforces the recruiter-facing and interview-facing side of backend thinking, including APIs, caching, scaling, and service design.',
+        'System Design Interview reinforces the architecture and interview side of backend thinking, including APIs, caching, scaling, and service design.',
         'Designing Data-Intensive Applications goes deeper into replication, consistency, event-driven patterns, and reliability, which supports stronger data-system intuition.',
         'Together they map closely to the direction already visible in his e-commerce and ML projects.',
       ],

@@ -374,16 +374,54 @@ function initializePortfolioAgent() {
   const agentPanel = document.getElementById('agent-widget-panel');
   const agentClose = document.getElementById('agent-widget-close');
   let pendingFollowUpTopic = '';
+  let resetTimer = null;
+  let inactivityTimer = null;
 
   if (!chatLog || !agentForm || !agentInput || !suggestionContainer || !agentLauncher || !agentPanel || !agentClose) {
     return;
   }
 
+  function clearTimer(timerId) {
+    if (timerId) window.clearTimeout(timerId);
+    return null;
+  }
+
+  function renderInitialAssistantState() {
+    chatLog.innerHTML = '';
+    pendingFollowUpTopic = '';
+    renderMessage('assistant', `${portfolioAgentData.greeting}\n\n${portfolioAgentData.fallback.followUp}`);
+  }
+
+  function resetAgentConversation() {
+    resetTimer = clearTimer(resetTimer);
+    inactivityTimer = clearTimer(inactivityTimer);
+    agentInput.value = '';
+    renderInitialAssistantState();
+  }
+
+  function scheduleInactivityReset() {
+    inactivityTimer = clearTimer(inactivityTimer);
+    inactivityTimer = window.setTimeout(() => {
+      if (agentPanel.hidden) resetAgentConversation();
+    }, 90000);
+  }
+
+  function scheduleCloseReset() {
+    resetTimer = clearTimer(resetTimer);
+    resetTimer = window.setTimeout(() => {
+      if (agentPanel.hidden) resetAgentConversation();
+    }, 18000);
+  }
+
   function setAgentPanelOpen(isOpen) {
+    resetTimer = clearTimer(resetTimer);
     agentPanel.hidden = !isOpen;
     agentLauncher.setAttribute('aria-expanded', String(isOpen));
     if (isOpen) {
+      inactivityTimer = clearTimer(inactivityTimer);
       window.setTimeout(() => agentInput.focus(), 40);
+    } else {
+      scheduleCloseReset();
     }
   }
 
@@ -416,6 +454,7 @@ function initializePortfolioAgent() {
     const trimmedQuestion = question.trim();
     if (!trimmedQuestion) {
       renderMessage('assistant', `${portfolioAgentData.emptyState}\n\n${portfolioAgentData.fallback.followUp}`);
+      scheduleInactivityReset();
       return;
     }
 
@@ -434,6 +473,7 @@ function initializePortfolioAgent() {
       agentInput.disabled = false;
       if (submitButton) submitButton.disabled = false;
       agentInput.focus();
+      scheduleInactivityReset();
     }, 240);
   }
 
@@ -463,11 +503,15 @@ function initializePortfolioAgent() {
     if (event.key === 'Escape' && !agentPanel.hidden) setAgentPanelOpen(false);
   });
 
-  renderMessage('assistant', `${portfolioAgentData.greeting}\n\n${portfolioAgentData.fallback.followUp}`);
+  renderInitialAssistantState();
 
   agentForm.addEventListener('submit', (event) => {
     event.preventDefault();
     askAgent(agentInput.value);
+  });
+
+  chatLog.addEventListener('click', () => {
+    inactivityTimer = clearTimer(inactivityTimer);
   });
 }
 

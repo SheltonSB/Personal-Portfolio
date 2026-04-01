@@ -39,7 +39,7 @@
           <h1 class="hero__title">I build reliable systems that stay fast, explainable, and production-minded.</h1>
           <p class="hero__subtitle">
             I am Shelton Bumhe, a Computer Science student at the University of Nebraska-Lincoln focused on backend
-            engineering, machine learning, and recruiter-ready projects with clear measurable impact.
+            engineering, machine learning, and projects with clear measurable impact.
           </p>
           <div class="hero__actions">
             <a href="Shelton Bumhe.pdf" class="hero__btn hero__btn--primary" download>Download Resume</a>
@@ -66,7 +66,7 @@
             <img src="assets/assistant-profile.jpg" alt="Portrait of Shelton Bumhe" class="hero__portrait" />
           </div>
           <div class="hero__spotlight-card hero__spotlight-card--note">
-            <span class="hero__spotlight-label">What Recruiters Should Notice</span>
+            <span class="hero__spotlight-label">What Drives My Work</span>
             <p>
               I like projects that combine architecture, measurable outcomes, and a clear product story rather than
               just implementation for implementation’s sake.
@@ -95,8 +95,8 @@
             <div class="profile-card__body">
               <p class="profile__blurb">
                 I am a Computer Science student at the University of Nebraska-Lincoln who enjoys building backend
-                systems and ML projects that feel thoughtful, structured, and easy to defend in a recruiter or
-                engineer conversation.
+                systems and ML projects that feel thoughtful, structured, and easy to defend in an engineering
+                conversation.
               </p>
               <ul class="profile__focus">
                 <li>BS in Computer Science, GPA 3.5, expected December 2027.</li>
@@ -195,7 +195,7 @@
           <span class="section-kicker">Selected Work</span>
           <h2 class="section-heading">Projects</h2>
           <p class="section-intro">
-            I keep the project section recruiter-friendly on purpose. Each project is written to show the problem,
+            I keep the project section clear on purpose. Each project is written to show the problem,
             system design decisions, measurable signals, and why the work matters in a real engineering conversation.
           </p>
         </div>
@@ -205,9 +205,11 @@
             <div class="project-card__visual project-card__visual--commerce">
               <span class="project-card__visual-label">Architecture Snapshot</span>
               <div class="project-card__mock">
-                <span>.NET 9 API</span>
-                <span>Redis cache</span>
+              <span>.NET 9 API</span>
                 <span>PostgreSQL</span>
+                <span>Redis + hashing</span>
+                <span>Load balancer</span>
+                <span>Rate limiter</span>
                 <span>Stripe + Cloudinary</span>
                 <span>Azure deploy</span>
               </div>
@@ -220,13 +222,13 @@
               <h3 class="project-card__title">Full-Stack E-Commerce</h3>
               <p class="project-card__summary">
                 A production-minded commerce system built with .NET, React, PostgreSQL, Redis, and Azure to show how I
-                think about backend architecture, performance-sensitive reads, secure checkout, media workflows, and
-                release quality in one coherent product.
+                think about backend architecture, horizontal scale, performance-sensitive reads, secure checkout, media
+                workflows, and release quality in one coherent product.
               </p>
               <ul class="project-card__highlights">
-                <li>Designed the system around a relational PostgreSQL core with Redis in front of high-frequency catalog reads so repeated product and listing requests stay fast instead of constantly hitting the database.</li>
-                <li>Implemented JWT authentication, Stripe checkout, and Cloudinary asset handling as separate concerns in the backend so identity, payments, and media each have a clean system boundary.</li>
-                <li>Used GitHub Actions to validate and deploy the application to Azure, which turns the project from a local demo into a more credible end-to-end engineering workflow.</li>
+                <li>Designed the service around a relational PostgreSQL core with Redis in front of high-frequency catalog reads, then extended the system design with horizontal API scaling behind a load balancer so repeated traffic can be distributed instead of bottlenecking on a single instance.</li>
+                <li>Added scalability language that includes consistent hashing for cache-aware request distribution, edge rate limiting to protect login and checkout paths, and clean separation of JWT auth, Stripe payments, and Cloudinary media handling so each concern keeps a clear boundary.</li>
+                <li>Used GitHub Actions to validate and deploy the application to Azure, turning the project from a local demo into a more credible end-to-end delivery workflow with room to discuss rollout quality, reliability, and production-minded operations.</li>
               </ul>
               <div class="project-card__actions">
                 <button type="button" class="project-card__button project-card__button--primary" data-project-open="ecommerce">
@@ -262,7 +264,7 @@
               </p>
               <ul class="project-card__highlights">
                 <li>Trained the model on more than 10,000 historical plays, which gave the project enough scale to talk credibly about feature engineering, evaluation, and what the reported 88% accuracy actually represents.</li>
-                <li>Used SHAP explanations so predictions are tied back to the features influencing the result, which makes the model easier to defend in front of recruiters, teammates, or non-technical users.</li>
+                <li>Used SHAP explanations so predictions are tied back to the features influencing the result, which makes the model easier to defend in front of teammates, stakeholders, or non-technical users.</li>
                 <li>Wrapped the pipeline in a Streamlit interface with a sub-two-second response target so the project feels like a lightweight product instead of a static notebook.</li>
               </ul>
               <div class="project-card__actions">
@@ -298,11 +300,15 @@
               <span>Python</span>
               <span>SQL</span>
               <span>Reporting</span>
+              <span>Student Operations</span>
+              <span>Instruction</span>
             </div>
             <ul>
-              <li>Built a Python and SQL tracking tool for 30+ students and reduced manual data entry time by 40%.</li>
-              <li>Created weekly reporting workflows that made academic progress easier to monitor and act on.</li>
-              <li>Supported a 99% pass rate through adaptive instruction in algebra and calculus.</li>
+              <li>Built a Python and SQL tracking workflow for 30+ students, which reduced manual data entry time by roughly 40% and made performance data easier to review week to week.</li>
+              <li>Created weekly reporting flows for academic performance, attendance patterns, and intervention follow-up so instructors could move from raw data to action faster.</li>
+              <li>Worked close to the academic side of the operation, which meant turning day-to-day school processes into something more structured, measurable, and easier to maintain.</li>
+              <li>Supported a 99% pass rate through adaptive instruction in algebra and calculus, adjusting explanations to different learning styles instead of teaching one way to every student.</li>
+              <li>Balanced technical problem solving with direct communication, which strengthened how I explain systems, metrics, and tradeoffs to people who are not deeply technical.</li>
             </ul>
           </article>
 
@@ -315,11 +321,15 @@
               <span>Leadership</span>
               <span>Case Practice</span>
               <span>Career Growth</span>
+              <span>Communication</span>
+              <span>Professional Strategy</span>
             </div>
             <ul>
-              <li>Selected into an 18-month professional development program focused on coaching, technical readiness, and strategic growth.</li>
-              <li>Strengthening communication and structured thinking through case work, assessments, and mock recruiting-style preparation.</li>
-              <li>Gaining exposure to industry pathways through partner organizations including LinkedIn, Bloomberg, and Deloitte.</li>
+              <li>Selected into an 18-month professional development program focused on coaching, technical readiness, leadership habits, and long-term career strategy.</li>
+              <li>Strengthening communication and structured thinking through case work, assessments, and high-accountability preparation that sharpens how I present technical ideas.</li>
+              <li>Using the program to build stronger judgment around professional presence, collaboration, and how to communicate impact clearly in high-stakes settings.</li>
+              <li>Gaining exposure to industry pathways and expectations through partner organizations including LinkedIn, Bloomberg, and Deloitte.</li>
+              <li>Applying that growth back into the portfolio itself by making project stories clearer, more defensible, and more grounded in architecture instead of surface-level feature lists.</li>
             </ul>
           </article>
         </div>
@@ -375,7 +385,7 @@
           <span class="section-kicker">Gallery</span>
           <h2 class="section-heading">Beyond the Resume</h2>
           <p class="section-intro">
-            I want the portfolio to feel technical and recruiter-ready, but still human. This gallery adds that second
+            I want the portfolio to feel technical and polished, but still human. This gallery adds that second
             layer by showing moments that sit outside project bullets and resume lines.
           </p>
         </div>
@@ -402,36 +412,36 @@
           <figure class="gallery-media gallery-media--wide">
             <img src="assets/gallery/web/IMG_2889.jpg" alt="Shelton Bumhe personal gallery moment 3" loading="lazy" decoding="async" />
             <figcaption>
-              <span>Builder Life</span>
-              <strong>A snapshot from the part of life that happens between classes, deadlines, and long build sessions.</strong>
-              <p>It reflects the steady routine behind the visible output on the portfolio.</p>
+              <span>Late-Night Build</span>
+              <strong>One of those nights where I was locked in, coding for hours and enjoying the quiet focus that only shows up late.</strong>
+              <p>It captures the part of building that is not glamorous at all, just long stretches of problem-solving and staying with the work until it starts to click.</p>
             </figcaption>
           </figure>
 
           <figure class="gallery-media gallery-media--wide">
             <img src="assets/gallery/web/IMG_2899.jpg" alt="Shelton Bumhe personal gallery moment 4" loading="lazy" decoding="async" />
             <figcaption>
-              <span>Momentum</span>
-              <strong>The kind of scene that reflects consistency, showing up, staying grounded, and keeping momentum.</strong>
-              <p>That consistency matters as much as any single project when you are building a real career.</p>
+              <span>Hackathon Room</span>
+              <strong>This one ties back to a hackathon with my friends, the kind of room where everyone is tired, moving fast, and trying to turn ideas into something real before time runs out.</strong>
+              <p>It reminds me that some of the best engineering moments come from building in a shared space where everyone is solving problems together.</p>
             </figcaption>
           </figure>
 
           <figure class="gallery-media">
             <img src="assets/gallery/web/IMG_4054.jpg" alt="Shelton Bumhe personal gallery moment 5" loading="lazy" decoding="async" />
             <figcaption>
-              <span>Perspective</span>
-              <strong>A frame that keeps the portfolio from feeling overly polished or one-dimensional.</strong>
-              <p>There is value in showing a broader story, not only the final outcomes.</p>
+              <span>Hackathon Reset</span>
+              <strong>This is one of the most honest hackathon moments in the gallery, the point where I had pushed so hard that I ended up sleeping on the floor for a bit.</strong>
+              <p>It says a lot about the energy of those events: long nights, constant iteration, and being all-in on the build even when the schedule gets a little ridiculous.</p>
             </figcaption>
           </figure>
 
           <figure class="gallery-media">
             <img src="assets/gallery/web/IMG_4498.jpg" alt="Shelton Bumhe personal gallery moment 6" loading="lazy" decoding="async" />
             <figcaption>
-              <span>Real Moments</span>
-              <strong>One of those scenes that makes the site feel lived-in rather than assembled only for recruiting.</strong>
-              <p>That human layer helps the portfolio feel memorable without losing professionalism.</p>
+              <span>Team Energy</span>
+              <strong>The yellow shirts in this photo make it feel like a real hackathon memory, not just another event picture.</strong>
+              <p>It brings back the team atmosphere, the fast conversations, and the kind of pressure that makes collaboration feel sharper and more alive.</p>
             </figcaption>
           </figure>
 
@@ -555,6 +565,7 @@
     </main>
 
     <div class="agent-widget">
+      <div class="agent-widget__prompt" aria-hidden="true">Ask about my projects</div>
       <button
         type="button"
         class="agent-launcher"
@@ -566,6 +577,7 @@
         <span class="agent-launcher__icon" aria-hidden="true">
           <img src="assets/assistant-profile.jpg" alt="" />
         </span>
+        <span class="agent-launcher__status" aria-hidden="true"></span>
       </button>
 
       <div class="agent-widget__panel" id="agent-widget-panel" hidden>
@@ -584,10 +596,10 @@
           </button>
         </div>
         <p class="agent-panel__intro">
-          Ask about my projects, backend strengths, books, experience, or internship fit. The knowledge is hardcoded for now and structured for an easy future AI backend swap.
+          Ask about my projects, backend strengths, books, experience, or current technical focus. The knowledge is hardcoded for now and structured for an easy future AI backend swap.
         </p>
         <div class="agent-suggestions" id="agent-suggestions">
-          <button type="button" class="agent-suggestion">Summarize Shelton for a recruiter</button>
+          <button type="button" class="agent-suggestion">Summarize Shelton</button>
           <button type="button" class="agent-suggestion">Explain the e-commerce architecture</button>
           <button type="button" class="agent-suggestion">What makes the NFL project impressive?</button>
           <button type="button" class="agent-suggestion">How do his books connect to backend goals?</button>
@@ -600,7 +612,7 @@
             id="agent-input"
             type="text"
             name="agent-question"
-            placeholder="Ask about Shelton, his projects, or recruiter fit"
+            placeholder="Ask about Shelton, his projects, or backend focus"
             autocomplete="off"
           />
           <button type="submit" class="agent-form__submit">Ask</button>
