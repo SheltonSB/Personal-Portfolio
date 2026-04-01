@@ -154,6 +154,14 @@ function buildAgentReply(question, context = {}) {
     };
   }
 
+  if (context.pendingFollowUpTopic === 'visitor-interests') {
+    return {
+      answer: `Happy to know. Thanks for sharing.\n\nShelton spends most of his time outside class in the gym, around athletics, and playing soccer.`,
+      followUp: 'If you want, I can also tell you more about his projects, books, or contact details.',
+      nextFollowUpTopic: '',
+    };
+  }
+
   if (context.pendingFollowUpTopic && isAffirmative(questionTokens)) {
     const followUpTopic = (portfolioAgentData.topics || []).find((topic) => topic.id === context.pendingFollowUpTopic);
     if (followUpTopic) return buildTopicReply(followUpTopic);
@@ -527,6 +535,42 @@ function initializeProjectExperiences() {
   if (nflButtons.length) setNflState('balanced');
 }
 
+function initializeGalleryLightbox() {
+  const triggers = document.querySelectorAll('[data-gallery-src]');
+  const lightbox = document.getElementById('gallery-lightbox');
+  const lightboxImage = document.getElementById('gallery-lightbox-image');
+  const closeButton = document.getElementById('gallery-lightbox-close');
+
+  if (!triggers.length || !lightbox || !lightboxImage || !closeButton) return;
+
+  function setBodyLock(locked) {
+    document.body.style.overflow = locked ? 'hidden' : '';
+  }
+
+  function closeLightbox() {
+    lightbox.hidden = true;
+    lightboxImage.src = '';
+    lightboxImage.alt = '';
+    setBodyLock(false);
+  }
+
+  triggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      lightboxImage.src = trigger.getAttribute('data-gallery-src') || '';
+      lightboxImage.alt = trigger.getAttribute('data-gallery-alt') || '';
+      lightbox.hidden = false;
+      setBodyLock(true);
+    });
+  });
+
+  closeButton.addEventListener('click', closeLightbox);
+  lightbox.querySelectorAll('[data-gallery-close]').forEach((node) => node.addEventListener('click', closeLightbox));
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !lightbox.hidden) closeLightbox();
+  });
+}
+
 function initializePortfolioAgent() {
   const chatLog = document.getElementById('agent-chat-log');
   const agentForm = document.getElementById('agent-form');
@@ -758,6 +802,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeNavigationObserver();
   initializeProjectModal();
   initializeProjectExperiences();
+  initializeGalleryLightbox();
   initializePortfolioAgent();
   initializeContactForm();
 

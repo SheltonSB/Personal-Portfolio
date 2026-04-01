@@ -2,19 +2,19 @@
 window.portfolioAgentData = {
   assistantName: 'Ask Shelton AI',
   greeting:
-    "Ask me about Shelton's projects, system design choices, resume highlights, books, experience, or current technical focus. I answer from the portfolio's structured knowledge base.",
+    "Ask me about Shelton's projects, system design choices, books, experience, outside-school interests, or contact details. I answer from the portfolio's structured knowledge base.",
   promptPlaceholder: 'Ask about a project, systems thinking, or technical strengths',
   emptyState:
-    'Try asking about Shelton, the e-commerce architecture, the NFL predictor, his books, his leadership programs, or his technical focus.',
+    'Try asking about Shelton, the e-commerce architecture, the NFL predictor, his books, his outside-school interests, or his technical focus.',
   suggestions: [
     'Summarize Shelton',
     'Explain the e-commerce architecture',
     'What makes the NFL project impressive?',
-    'How do his books connect to system design?',
+    'What does he do outside school?',
   ],
   fallback: {
     answer:
-      "I do not have that exact phrasing in Shelton's current portfolio knowledge yet, but I can help with his resume, projects, backend stack, experience, communities, books, and contact details.",
+      "I do not have that exact phrasing in Shelton's current portfolio knowledge yet, but I can help with his resume, projects, system design choices, experience, communities, books, outside-school interests, and contact details.",
     followUp: 'Do you want a summary, a project deep dive, his current reading, or a contact overview?',
   },
   annotationPhrases: [
@@ -187,7 +187,7 @@ window.portfolioAgentData = {
       matchAny: ['hello', 'hi', 'hey'],
       maxTokens: 3,
       answer:
-        "Hi. I can answer questions about Shelton's projects, backend strengths, ML work, books, experience, communities, and technical direction.",
+        "Hi. I can answer questions about Shelton's projects, engineering strengths, books, experience, communities, outside-school interests, and technical direction.",
       followUp: 'What do you want to know first?',
     },
     {
@@ -199,15 +199,22 @@ window.portfolioAgentData = {
     {
       matchAny: ['books', 'reading', 'book'],
       answer:
-        'Shelton is currently reading System Design Interview by Alex Xu and Designing Data-Intensive Applications by Martin Kleppmann. Those books align with his focus on backend architecture, scalability tradeoffs, and data-system design.',
-      followUp: 'Do you want the book links or how they connect to his backend goals?',
+        'Shelton is currently reading System Design Interview by Alex Xu and Designing Data-Intensive Applications by Martin Kleppmann. Links: https://www.amazon.com/System-Design-Interview-Insiders-Guide/dp/1736049119 and https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/ Those books align with his focus on architecture, scalability tradeoffs, and data-system design.',
+      followUp: 'Do you want how those books connect to his system design goals?',
       followUpTopic: 'books-backend',
     },
     {
       matchAny: ['contact', 'email', 'phone', 'linkedin', 'github'],
       answer:
-        'You can reach Shelton at sbumhe2@huskers.unl.edu, on LinkedIn at linkedin.com/in/shelton-bumhe-027476312, on GitHub at github.com/SheltonSB, or by phone at (308) 663-3469.',
+        'You can reach Shelton by email at sbumhe2@huskers.unl.edu, on LinkedIn at https://www.linkedin.com/in/shelton-bumhe-027476312/, on GitHub at https://github.com/SheltonSB, or by phone at (308) 663-3469.',
       followUp: 'Do you want the strongest project to review first before reaching out?',
+    },
+    {
+      matchAny: ['outside school', 'interests', 'hobbies', 'gym', 'track', 'athletics', 'soccer'],
+      answer:
+        'Outside class, Shelton likes going to the gym, doing track and athletics work, and playing soccer. Those interests keep a competitive routine in his week and give him something active outside engineering work.',
+      followUp: 'What about you?',
+      followUpTopic: 'visitor-interests',
     },
   ],
   topics: [
@@ -260,15 +267,25 @@ window.portfolioAgentData = {
     },
     {
       id: 'community',
-      keywords: ['community', 'mlt', 'colorstack', 'nsbe', 'organizations', 'involvement'],
+      keywords: ['community', 'colorstack', 'nsbe', 'organizations', 'involvement'],
       summary:
-        'Shelton is involved with Management Leadership For Tomorrow, ColorStack, and the National Society of Black Engineers.',
+        'Shelton stays involved with ColorStack and the National Society of Black Engineers.',
       highlights: [
-        'MLT adds leadership structure, coaching, and career accountability.',
-        'ColorStack strengthens mentorship, peer network, and student-to-industry access.',
-        'NSBE reinforces engineering identity, leadership, and service-oriented growth.',
+        'ColorStack strengthens mentorship, peer network, and student-to-industry access. Link: https://www.colorstack.org/about-us',
+        'NSBE reinforces engineering identity, leadership, and service-oriented growth. Link: https://nsbe.org/about/',
       ],
-      followUp: 'Do you want the short explanation of MLT, ColorStack, or NSBE?',
+      followUp: 'Do you want the short explanation of ColorStack, NSBE, or both?',
+    },
+    {
+      id: 'outside-interests',
+      keywords: ['outside school', 'outside class', 'interests', 'hobbies', 'gym', 'track', 'athletics', 'soccer'],
+      summary:
+        'Outside school, Shelton spends time in the gym, does track and athletics work, and plays soccer.',
+      highlights: [
+        'That mix gives him a routine that is active, competitive, and team-oriented outside technical work.',
+        'It is also part of how he resets outside classes, projects, and recruiting preparation.',
+      ],
+      followUp: 'What about you?',
     },
   ],
 };
