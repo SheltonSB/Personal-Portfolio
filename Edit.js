@@ -475,9 +475,6 @@ function initializeProjectExperiences() {
 
   const commerceButtons = document.querySelectorAll('[data-commerce-view]');
   const nflButtons = document.querySelectorAll('[data-nfl-view]');
-  const checklist = document.getElementById('architecture-checklist');
-  const scoreNode = document.getElementById('architecture-score');
-
   function setCommerceState(view) {
     const state = commerceStates[view];
     if (!state) return;
@@ -518,14 +515,6 @@ function initializeProjectExperiences() {
     });
   }
 
-  function updateChecklistScore() {
-    if (!checklist || !scoreNode) return;
-    const items = checklist.querySelectorAll('.checklist-item');
-    const activeCount = checklist.querySelectorAll('.checklist-item--active').length;
-    const score = Math.round((activeCount / items.length) * 100);
-    scoreNode.textContent = `${score}%`;
-  }
-
   commerceButtons.forEach((button) => {
     button.addEventListener('click', () => setCommerceState(button.getAttribute('data-commerce-view')));
   });
@@ -533,19 +522,6 @@ function initializeProjectExperiences() {
   nflButtons.forEach((button) => {
     button.addEventListener('click', () => setNflState(button.getAttribute('data-nfl-view')));
   });
-
-  if (checklist) {
-    checklist.querySelectorAll('.checklist-item').forEach((button) => {
-      button.addEventListener('click', () => {
-        const nextPressed = button.getAttribute('aria-pressed') !== 'true';
-        button.setAttribute('aria-pressed', String(nextPressed));
-        button.classList.toggle('checklist-item--active', nextPressed);
-        button.querySelector('strong').textContent = nextPressed ? 'Included' : 'Future';
-        updateChecklistScore();
-      });
-    });
-    updateChecklistScore();
-  }
 
   if (commerceButtons.length) setCommerceState('browse');
   if (nflButtons.length) setNflState('balanced');
