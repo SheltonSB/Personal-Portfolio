@@ -3,9 +3,9 @@
 :root {
   --bg: #050505;
   --bg-soft: #0a0a0a;
-  --panel: rgba(9, 9, 9, 0.68);
-  --panel-strong: rgba(12, 12, 12, 0.88);
-  --panel-line: rgba(111, 255, 168, 0.06);
+  --panel: rgba(9, 9, 9, 0.56);
+  --panel-strong: rgba(12, 12, 12, 0.8);
+  --panel-line: transparent;
   --text: #f7f7f7;
   --text-soft: #d6d6d6;
   --text-muted: #8b8b8b;
@@ -14,8 +14,8 @@
   --accent-warm: #caa56c;
   --success: #44c97f;
   --danger: #ff6f7f;
-  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 14px 32px rgba(0, 0, 0, 0.16);
+  --shadow-lg: 0 22px 52px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 12px 28px rgba(0, 0, 0, 0.1);
   --radius-xl: 32px;
   --radius-lg: 24px;
   --radius-md: 18px;
@@ -260,9 +260,9 @@ ul {
 .contact__panel,
 .agent-widget__panel,
 .project-modal__dialog {
-  border: 1px solid var(--panel-line);
+  border: none;
   background: var(--panel);
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(12px);
   box-shadow: var(--shadow-lg);
 }
 
@@ -394,21 +394,25 @@ ul {
 }
 
 .hero__signals {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.2rem 2.6rem;
   margin-top: 3.2rem;
 }
 
 .hero__signal {
-  padding: 1.6rem;
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(111, 255, 168, 0.08);
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .hero__signal-label {
-  display: block;
+  display: inline-flex;
   color: var(--text-muted);
   font-size: 1.1rem;
   text-transform: uppercase;
@@ -416,9 +420,10 @@ ul {
 }
 
 .hero__signal strong {
-  display: block;
-  margin-top: 0.8rem;
-  font-size: 1.55rem;
+  display: inline-flex;
+  margin-top: 0;
+  font-size: 1.6rem;
+  color: var(--text);
 }
 
 .hero__spotlight {
@@ -620,7 +625,7 @@ ul {
 .project-card__visual {
   padding: 2.8rem;
   min-height: 21rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.035);
+  border-bottom: none;
 }
 
 .project-card__visual--commerce {
@@ -708,7 +713,7 @@ ul {
   gap: 1.3rem;
   margin-top: 2.2rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.035);
+  border-top: none;
 }
 
 .project-card__highlights li {
@@ -774,7 +779,7 @@ ul {
   padding: 1.4rem;
   border-radius: var(--radius-md);
   background: rgba(255, 255, 255, 0.022);
-  border: 1px solid rgba(255, 255, 255, 0.035);
+  border: none;
 }
 
 .prototype-metric span,
@@ -855,7 +860,7 @@ ul {
   padding: 1rem 1.2rem;
   border-radius: var(--radius-md);
   background: rgba(255, 255, 255, 0.022);
-  border: 1px solid rgba(255, 255, 255, 0.035);
+  border: none;
 }
 
 .feature-pill i {
