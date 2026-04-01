@@ -318,11 +318,13 @@ ul {
 }
 
 .hero__title {
-  font-size: clamp(5.2rem, 8vw, 9.2rem);
-  max-width: 12ch;
+  font-size: clamp(4.8rem, 7vw, 8.4rem);
+  max-width: none;
   margin-left: auto;
   margin-right: auto;
   letter-spacing: -0.04em;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .hero__subtitle,
@@ -341,7 +343,7 @@ ul {
 }
 
 .hero__subtitle {
-  max-width: 62rem;
+  max-width: 68rem;
   margin-top: 1.8rem;
   margin-left: auto;
   margin-right: auto;
@@ -1811,6 +1813,11 @@ ul {
 
   .code-column {
     width: min(26rem, 34vw);
+  }
+
+  .hero__title {
+    max-width: 12ch;
+    white-space: normal;
   }
 
   .code-line {
