@@ -185,7 +185,10 @@ ul {
 
 .hero {
   position: relative;
-  padding: 2.4rem clamp(2rem, 4vw, 4rem) 10rem;
+  min-height: 100svh;
+  padding: 2.4rem clamp(2rem, 4vw, 4rem) 7rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .navigation-bar {
@@ -242,11 +245,13 @@ ul {
 
 .hero__shell {
   width: min(var(--max-width), 100%);
-  margin: 0;
+  margin: 0 auto;
+  flex: 1;
   display: grid;
   grid-template-columns: 1fr;
   gap: 0;
   align-items: center;
+  justify-items: center;
 }
 
 .hero__spotlight-card,
@@ -267,12 +272,14 @@ ul {
 }
 
 .hero__copy {
-  max-width: 104rem;
+  max-width: 90rem;
+  margin: auto;
   padding: 0;
   border: none;
   background: transparent;
   backdrop-filter: none;
   box-shadow: none;
+  text-align: center;
 }
 
 .hero__eyebrow,
@@ -311,8 +318,11 @@ ul {
 }
 
 .hero__title {
-  font-size: clamp(4.6rem, 6vw, 7.8rem);
-  max-width: 18ch;
+  font-size: clamp(5.2rem, 8vw, 9.2rem);
+  max-width: 12ch;
+  margin-left: auto;
+  margin-right: auto;
+  letter-spacing: -0.04em;
 }
 
 .hero__subtitle,
@@ -331,15 +341,18 @@ ul {
 }
 
 .hero__subtitle {
-  max-width: 82rem;
+  max-width: 62rem;
   margin-top: 1.8rem;
-  font-size: 1.85rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: clamp(1.9rem, 2.3vw, 2.3rem);
   line-height: 1.75;
 }
 
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 1.2rem;
   margin-top: 3rem;
 }
@@ -398,6 +411,7 @@ ul {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 1.2rem 2.6rem;
   margin-top: 3.2rem;
 }
