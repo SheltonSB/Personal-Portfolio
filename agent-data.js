@@ -48,7 +48,7 @@ window.portfolioAgentData = {
       title: 'Full-Stack E-Commerce',
       shortTitle: 'e-commerce',
       tagline:
-        'A production-minded commerce platform built to show backend performance, secure checkout, media handling, and CI/CD discipline.',
+        'An e-commerce app built with .NET, React, PostgreSQL, Redis, and Azure.',
       keywords: [
         'ecommerce',
         'e-commerce',
@@ -63,9 +63,9 @@ window.portfolioAgentData = {
         '.net',
       ],
       overview:
-        'This project is Shelton’s backend-heavy commerce build. It combines a .NET API, React frontend, PostgreSQL, Redis, and Azure deployment into one system that demonstrates more than just CRUD by showing how data access, caching, auth, payments, media, and delivery work together.',
+        'This project combines a .NET API, React frontend, PostgreSQL, Redis, and Azure deployment in one system. It covers API design, checkout flow, caching, media handling, and deployment in a way that is easier to explain than a basic CRUD app.',
       problem:
-        'The project is designed to solve a common weakness in student portfolios: many apps look functional on the surface but do not explain how performance-sensitive reads, authentication, payments, media handling, release workflows, and scale-out decisions are structured together. This one intentionally does.',
+        'A lot of student projects stop at features. This one was built to answer the harder question of how the app should behave when reads are frequent, checkout matters, and traffic grows.',
       technologies: ['.NET 9', 'ASP.NET Core', 'React', 'PostgreSQL', 'Redis', 'Stripe', 'Cloudinary', 'JWT', 'Rate Limiting', 'GitHub Actions', 'Azure'],
       architecture: [
         'The frontend talks to a .NET backend that exposes product, cart, authentication, and checkout flows through a single application surface instead of scattering business logic across the client.',
@@ -108,11 +108,11 @@ window.portfolioAgentData = {
       },
       assistant: {
         summary:
-          'Shelton’s e-commerce platform is one of the strongest examples of his backend thinking because it combines performance, auth, payments, media management, and deployment in one coherent system.',
+          'Shelton’s e-commerce project is a good example of how he thinks about APIs, caching, checkout flow, and scaling in one system.',
         highlights: [
-          'He used PostgreSQL for the core transactional model and Redis for repeated catalog reads, which gives him a clear way to explain read-heavy system design tradeoffs.',
-          'He can now talk through load balancing, consistent hashing, and rate limiting as part of the scaling path instead of stopping at a single-instance architecture.',
-          'He wired Stripe and Cloudinary into a backend architecture instead of treating them as surface-level add-ons, and used GitHub Actions plus Azure to show that deployment quality matters too.',
+          'He used PostgreSQL for the core transactions and Redis for repeated catalog reads, which makes the read path easy to explain.',
+          'He can talk through load balancing, consistent hashing, and rate limiting instead of stopping at a single local instance.',
+          'Stripe, Cloudinary, GitHub Actions, and Azure make the project feel complete without turning it into a feature dump.',
         ],
         followUp: 'Do you want the architecture breakdown, the scaling decisions, or the technology stack?',
       },
@@ -123,7 +123,7 @@ window.portfolioAgentData = {
       title: 'NFL QB Touchdown Predictor',
       shortTitle: 'NFL predictor',
       tagline:
-        'A machine learning project that combines predictive modeling, SHAP-based explainability, and a lightweight product interface for fast scenario exploration.',
+        'An NFL touchdown predictor built with XGBoost, SHAP, and Streamlit.',
       keywords: [
         'nfl',
         'touchdown',
@@ -135,9 +135,9 @@ window.portfolioAgentData = {
         'machine learning',
       ],
       overview:
-        'This project is Shelton’s best machine learning showcase because it does more than train a model. It also explains decisions, quantifies the scale of the training set, and ships the result through a usable interface.',
+        'This project combines prediction, explainability, and a simple interface. The model is not just trained; it is also easier to inspect and interact with.',
       problem:
-        'A lot of ML projects stop at accuracy metrics. This one is built to answer a harder question: can the model be explained, explored, and presented in a way that non-experts can still understand and trust?',
+        'A lot of ML work stops at one accuracy number. This project was built to make the prediction easier to explain and easier to explore.',
       technologies: ['Python', 'scikit-learn', 'XGBoost', 'Pandas', 'NumPy', 'SHAP', 'Streamlit'],
       architecture: [
         'Historical NFL play and matchup data is cleaned and transformed into model-ready features so the project starts with a real data pipeline, not only model training code.',
@@ -172,11 +172,11 @@ window.portfolioAgentData = {
       },
       assistant: {
         summary:
-          'The NFL touchdown predictor stands out because it combines modeling, explainability, and product thinking instead of optimizing only for accuracy.',
+          'The NFL touchdown predictor combines modeling, explanation, and a simple interface instead of stopping at accuracy alone.',
         highlights: [
-          'The model uses XGBoost and was trained on more than 10,000 plays, which gives Shelton a concrete way to discuss dataset scale, feature engineering, and evaluation.',
-          'The reported 88% accuracy matters because he can explain what the number represents instead of dropping it as an empty metric.',
-          'SHAP and Streamlit turn the project into something interpretable and user-facing rather than a static data science artifact.',
+          'The model uses XGBoost and was trained on more than 10,000 plays, so there is enough scale to talk about feature engineering and evaluation.',
+          'The reported 88% accuracy is easier to defend because the result is paired with SHAP explanations.',
+          'Streamlit turns it into something interactive instead of leaving it as a notebook.',
         ],
         followUp: 'Do you want the model architecture, the explainability angle, or the product-delivery side?',
       },

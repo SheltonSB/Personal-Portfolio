@@ -831,6 +831,11 @@ ul {
   margin-top: 2.8rem;
 }
 
+.project-card__actions--footer {
+  margin-top: 0;
+  padding: 0 3rem 3rem;
+}
+
 .project-prototype {
   display: grid;
   gap: 1.6rem;
@@ -2008,6 +2013,10 @@ ul {
   .agent-widget__panel,
   .project-modal__dialog {
     padding: 2rem;
+  }
+
+  .project-card__actions--footer {
+    padding: 0 2rem 2rem;
   }
 
   .hero__title {

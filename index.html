@@ -188,12 +188,27 @@
           <span class="section-kicker">Selected Work</span>
           <h2 class="section-heading">Projects</h2>
           <p class="section-intro">
-            Each project is written to make the engineering legible: what problem it solves, how the system works, and which decisions matter in a technical interview.
+            A few projects I know well and can walk through clearly.
           </p>
         </div>
 
         <div class="project-grid project-grid--stack">
           <article class="project-card project-card--feature project-card--commerce-bento">
+            <div class="project-card__body">
+              <div class="project-card__meta">
+                <span>Backend Platform</span>
+                <span>Reliability</span>
+              </div>
+              <h3 class="project-card__title">Full-Stack E-Commerce</h3>
+              <p class="project-card__summary">
+                An e-commerce app built with .NET, React, PostgreSQL, Redis, and Azure. It gave me a good way to think through API design, checkout flow, caching, and how the system should scale.
+              </p>
+              <ul class="project-card__highlights">
+                <li>Used PostgreSQL for transactional data and Redis for common catalog reads so the app stays fast on repeated requests.</li>
+                <li>Worked through load balancing, rate limiting, and consistent hashing so I could talk about traffic spikes and scaling, not just a single local instance.</li>
+                <li>Added Stripe, Cloudinary, GitHub Actions, and Azure so payments, media, and deployment all worked inside one system.</li>
+              </ul>
+            </div>
             <div class="project-card__visual project-card__visual--commerce">
               <span class="project-card__visual-label">Interactive Prototype</span>
               <div class="project-prototype" id="commerce-prototype">
@@ -231,36 +246,36 @@
                   </div>
                 </div>
                 <p class="project-prototype__caption" id="commerce-caption">
-                  Browse mode prioritizes fast catalog reads by leaning on Redis and consistent-hash-aware cache distribution before checkout pressure ramps up.
+                  Browse mode leans on Redis for fast catalog reads before checkout traffic starts to climb.
                 </p>
               </div>
             </div>
-            <div class="project-card__body">
-              <div class="project-card__meta">
-                <span>Backend Platform</span>
-                <span>Production Workflow</span>
-              </div>
-              <h3 class="project-card__title">Full-Stack E-Commerce</h3>
-              <p class="project-card__summary">
-                A commerce platform built with .NET, React, PostgreSQL, Redis, and Azure to show API design, scaling decisions, checkout reliability, and deployment discipline in one system.
-              </p>
-              <ul class="project-card__highlights">
-                <li>Structured the platform around PostgreSQL for core transactions and Redis for repeated catalog reads, then framed horizontal scaling through a load balancer to handle higher request volume cleanly.</li>
-                <li>Added system design depth through rate limiting on sensitive paths, consistent hashing for cache-aware distribution, and clear service boundaries across auth, payments, and media.</li>
-                <li>Used GitHub Actions and Azure deployment to move the project beyond a local demo and make release quality part of the engineering story.</li>
-              </ul>
-              <div class="project-card__actions">
-                <button type="button" class="project-card__button project-card__button--primary" data-project-open="ecommerce">
-                  View Details
-                </button>
-                <a href="https://github.com/SheltonBumhe/ecommerce-api" target="_blank" rel="noreferrer" class="project-card__button project-card__button--ghost">
-                  GitHub
-                </a>
-              </div>
+            <div class="project-card__actions project-card__actions--footer">
+              <button type="button" class="project-card__button project-card__button--primary" data-project-open="ecommerce">
+                View Details
+              </button>
+              <a href="https://github.com/SheltonBumhe/ecommerce-api" target="_blank" rel="noreferrer" class="project-card__button project-card__button--ghost">
+                GitHub
+              </a>
             </div>
           </article>
 
           <article class="project-card project-card--feature project-card--nfl-bento">
+            <div class="project-card__body">
+              <div class="project-card__meta">
+                <span>Machine Learning</span>
+                <span>Explainability</span>
+              </div>
+              <h3 class="project-card__title">NFL QB Touchdown Predictor</h3>
+              <p class="project-card__summary">
+                An NFL touchdown predictor built with XGBoost, SHAP, and Streamlit. The goal was to make the predictions useful, explainable, and easy to explore.
+              </p>
+              <ul class="project-card__highlights">
+                <li>Trained on 10,000+ historical plays and reported 88% accuracy on the prediction task.</li>
+                <li>Used SHAP so each result could be tied back to the features that pushed it up or down.</li>
+                <li>Wrapped the model in Streamlit so it felt like a small product instead of a notebook.</li>
+              </ul>
+            </div>
             <div class="project-card__visual project-card__visual--nfl">
               <span class="project-card__visual-label">Scenario Explorer</span>
               <div class="project-prototype project-prototype--nfl" id="nfl-prototype">
@@ -285,32 +300,17 @@
                   <div class="feature-pill"><span>Opponent Pressure</span><i style="width: 38%"></i></div>
                 </div>
                 <p class="project-prototype__caption" id="nfl-caption">
-                  The balanced scenario shows how the model blends play tendency, red-zone involvement, and defensive pressure into an interpretable prediction.
+                  The balanced view shows how the model weighs play tendency, red-zone usage, and pressure in one prediction.
                 </p>
               </div>
             </div>
-            <div class="project-card__body">
-              <div class="project-card__meta">
-                <span>Machine Learning</span>
-                <span>Explainability</span>
-              </div>
-              <h3 class="project-card__title">NFL QB Touchdown Predictor</h3>
-              <p class="project-card__summary">
-                A predictive analytics project that combines data preparation, XGBoost, SHAP explainability, and a Streamlit interface so the model is usable, not just trained.
-              </p>
-              <ul class="project-card__highlights">
-                <li>Trained on more than 10,000 historical plays, which makes it easier to discuss feature engineering, evaluation, and what the reported 88% accuracy actually means.</li>
-                <li>Used SHAP so each prediction can be traced back to the strongest contributing features instead of acting like a black box.</li>
-                <li>Wrapped the pipeline in Streamlit with a fast response target so the work behaves like a lightweight product rather than a notebook artifact.</li>
-              </ul>
-              <div class="project-card__actions">
-                <button type="button" class="project-card__button project-card__button--primary" data-project-open="nfl">
-                  View Details
-                </button>
-                <a href="https://github.com/SheltonBumhe/machine-learning-nfl-touchdowns" target="_blank" rel="noreferrer" class="project-card__button project-card__button--ghost">
-                  GitHub
-                </a>
-              </div>
+            <div class="project-card__actions project-card__actions--footer">
+              <button type="button" class="project-card__button project-card__button--primary" data-project-open="nfl">
+                View Details
+              </button>
+              <a href="https://github.com/SheltonBumhe/machine-learning-nfl-touchdowns" target="_blank" rel="noreferrer" class="project-card__button project-card__button--ghost">
+                GitHub
+              </a>
             </div>
           </article>
 

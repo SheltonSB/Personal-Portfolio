@@ -430,7 +430,7 @@ function initializeProjectExperiences() {
       cache: '68%',
       pressure: '34%',
       caption:
-        'Browse mode prioritizes fast catalog reads by leaning on Redis and consistent-hash-aware cache distribution before checkout pressure ramps up.',
+        'Browse mode leans on Redis for fast catalog reads before checkout traffic starts to climb.',
     },
     checkout: {
       cacheHit: '84%',
@@ -440,7 +440,7 @@ function initializeProjectExperiences() {
       cache: '58%',
       pressure: '61%',
       caption:
-        'Checkout mode shifts more traffic through protected endpoints, where JWT auth, Stripe coordination, and rate limiting matter more than raw cache efficiency.',
+        'Checkout mode puts more weight on protected endpoints, where auth, Stripe, and rate limiting matter more than raw cache speed.',
     },
     peak: {
       cacheHit: '88%',
@@ -450,7 +450,7 @@ function initializeProjectExperiences() {
       cache: '81%',
       pressure: '78%',
       caption:
-        'Peak-load mode shows the scale path I want to talk through: load-balanced API instances, cache partitioning, and tighter traffic shaping under heavier bursts.',
+        'Peak-load mode shows the scale path: load-balanced API instances, cache partitioning, and tighter traffic shaping under heavier bursts.',
     },
   };
 
@@ -459,7 +459,7 @@ function initializeProjectExperiences() {
       probability: '67%',
       confidence: 'High',
       caption:
-        'The balanced scenario shows how the model blends play tendency, red-zone involvement, and defensive pressure into an interpretable prediction.',
+        'The balanced view shows how the model weighs play tendency, red-zone usage, and pressure in one prediction.',
       widths: ['78%', '62%', '38%'],
       labels: ['Pass Rate', 'Red Zone Usage', 'Opponent Pressure'],
     },
@@ -467,7 +467,7 @@ function initializeProjectExperiences() {
       probability: '81%',
       confidence: 'Very High',
       caption:
-        'The red-zone view pushes touchdown probability higher because red-zone usage and short-field tendencies become much stronger drivers in the explanation layer.',
+        'The red-zone view pushes the probability higher because short-field usage becomes a much stronger signal.',
       widths: ['61%', '89%', '28%'],
       labels: ['Pass Rate', 'Red Zone Usage', 'Opponent Pressure'],
     },
@@ -475,7 +475,7 @@ function initializeProjectExperiences() {
       probability: '54%',
       confidence: 'Moderate',
       caption:
-        'The upset-pick scenario compresses confidence and exposes where pressure and volatility start to matter more than the baseline offensive pattern.',
+        'The upset view lowers confidence and shows where pressure and volatility matter more than the baseline pattern.',
       widths: ['58%', '49%', '71%'],
       labels: ['Pass Rate', 'Red Zone Usage', 'Opponent Pressure'],
     },
