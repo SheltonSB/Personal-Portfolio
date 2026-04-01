@@ -219,22 +219,69 @@ function initializeAnnotationStream() {
   if (!phrases.length) return;
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const noteCount = prefersReducedMotion ? Math.min(8, phrases.length) : Math.min(18, phrases.length);
-  const modifiers = ['comment', 'keyword', 'metric'];
+  const columnCount = prefersReducedMotion ? 8 : Math.min(14, Math.max(10, Math.floor(window.innerWidth / 110)));
+  const minLines = prefersReducedMotion ? 10 : 14;
+  const maxLines = prefersReducedMotion ? 14 : 22;
 
   annotationStream.innerHTML = '';
 
-  for (let index = 0; index < noteCount; index += 1) {
-    const note = document.createElement('div');
-    const modifier = modifiers[index % modifiers.length];
-    note.className = `annotation-note annotation-note--${modifier}`;
-    note.textContent = phrases[index % phrases.length];
-    note.style.setProperty('--x', `${6 + Math.random() * 78}%`);
-    note.style.setProperty('--y', `${10 + Math.random() * 76}%`);
-    note.style.setProperty('--duration', `${18 + Math.random() * 14}s`);
-    note.style.setProperty('--delay', `${-Math.random() * 14}s`);
-    annotationStream.appendChild(note);
+  for (let index = 0; index < columnCount; index += 1) {
+    const column = document.createElement('div');
+    column.className = 'code-column';
+    column.style.setProperty('--x', `${2 + Math.random() * 92}%`);
+    column.style.setProperty('--duration', `${18 + Math.random() * 12}s`);
+    column.style.setProperty('--delay', `${-Math.random() * 10}s`);
+    column.style.setProperty('--opacity', `${0.18 + Math.random() * 0.26}`);
+
+    const lineCount = Math.floor(minLines + Math.random() * (maxLines - minLines));
+    const startOffset = Math.floor(Math.random() * phrases.length);
+
+    for (let lineIndex = 0; lineIndex < lineCount; lineIndex += 1) {
+      const line = document.createElement('span');
+      line.className = 'code-line';
+      line.textContent = phrases[(startOffset + lineIndex) % phrases.length];
+      column.appendChild(line);
+    }
+
+    annotationStream.appendChild(column);
   }
+}
+
+function initializeSectionReveal() {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealTargets = document.querySelectorAll('.hero__copy, .hero__spotlight-card, main .section-shell');
+
+  if (!revealTargets.length) return;
+
+  if (prefersReducedMotion) {
+    revealTargets.forEach((node) => node.classList.add('is-visible'));
+    return;
+  }
+
+  revealTargets.forEach((node, index) => {
+    node.classList.add('reveal-on-scroll');
+    node.style.setProperty('--reveal-delay', `${Math.min(index * 60, 240)}ms`);
+  });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('is-visible');
+      });
+    },
+    {
+      threshold: 0.18,
+      rootMargin: '0px 0px -12% 0px',
+    }
+  );
+
+  revealTargets.forEach((node, index) => {
+    if (index < 2) {
+      node.classList.add('is-visible');
+      return;
+    }
+    observer.observe(node);
+  });
 }
 
 function initializeNavigationObserver() {
@@ -592,6 +639,7 @@ function initializeContactForm() {
 
 document.addEventListener('DOMContentLoaded', () => {
   initializeAnnotationStream();
+  initializeSectionReveal();
   initializeNavigationObserver();
   initializeProjectModal();
   initializePortfolioAgent();

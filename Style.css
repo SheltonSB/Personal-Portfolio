@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
 
 :root {
-  --bg: #09111f;
-  --bg-soft: #0d1728;
-  --panel: rgba(11, 20, 35, 0.78);
-  --panel-strong: rgba(12, 22, 39, 0.94);
-  --panel-line: rgba(160, 190, 255, 0.12);
-  --text: #eef4ff;
-  --text-soft: #b7c3d8;
-  --text-muted: #7f8aa1;
-  --accent: #86d6ff;
-  --accent-strong: #5cb9ff;
+  --bg: #07100b;
+  --bg-soft: #0b1510;
+  --panel: rgba(8, 18, 13, 0.8);
+  --panel-strong: rgba(9, 20, 15, 0.94);
+  --panel-line: rgba(111, 255, 168, 0.12);
+  --text: #eefbf4;
+  --text-soft: #b9d9c2;
+  --text-muted: #6f9380;
+  --accent: #69f0a3;
+  --accent-strong: #45d88a;
   --accent-warm: #caa56c;
   --success: #44c97f;
   --danger: #ff6f7f;
@@ -42,8 +42,8 @@ body {
   line-height: 1.6;
   color: var(--text);
   background:
-    radial-gradient(circle at top, rgba(18, 33, 61, 0.52), transparent 52%),
-    linear-gradient(180deg, #09111f 0%, #07101d 40%, #09131f 100%);
+    radial-gradient(circle at top, rgba(45, 139, 87, 0.18), transparent 52%),
+    linear-gradient(180deg, #050c08 0%, #07100b 42%, #050d09 100%);
   overflow-x: hidden;
 }
 
@@ -107,7 +107,7 @@ ul {
   left: -12rem;
   width: 48rem;
   height: 48rem;
-  background: radial-gradient(circle, rgba(92, 185, 255, 0.34), transparent 68%);
+  background: radial-gradient(circle, rgba(75, 216, 138, 0.2), transparent 68%);
   animation: floatGradientOne 18s ease-in-out infinite alternate;
 }
 
@@ -116,7 +116,7 @@ ul {
   right: -14rem;
   width: 52rem;
   height: 52rem;
-  background: radial-gradient(circle, rgba(202, 165, 108, 0.16), transparent 70%);
+  background: radial-gradient(circle, rgba(58, 170, 109, 0.16), transparent 70%);
   animation: floatGradientTwo 20s ease-in-out infinite alternate;
 }
 
@@ -125,7 +125,7 @@ ul {
   left: 18vw;
   width: 58rem;
   height: 58rem;
-  background: radial-gradient(circle, rgba(130, 116, 255, 0.12), transparent 72%);
+  background: radial-gradient(circle, rgba(120, 255, 174, 0.1), transparent 72%);
   animation: floatGradientThree 24s ease-in-out infinite alternate;
 }
 
@@ -133,10 +133,11 @@ ul {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 12rem 12rem;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.72), transparent 92%);
+    linear-gradient(rgba(105, 240, 163, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(105, 240, 163, 0.018) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(11, 28, 18, 0.16) 0, rgba(11, 28, 18, 0) 10%);
+  background-size: 11rem 11rem, 11rem 11rem, 100% 0.7rem;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.84), transparent 95%);
 }
 
 .annotation-stream {
@@ -145,36 +146,41 @@ ul {
   overflow: hidden;
 }
 
-.annotation-note {
+.code-column {
   position: absolute;
   left: var(--x);
-  top: var(--y);
-  max-width: min(32rem, 48vw);
-  padding: 0.9rem 1.2rem;
-  border: 1px solid rgba(128, 168, 255, 0.09);
-  border-radius: 999px;
-  background: rgba(9, 18, 31, 0.34);
-  color: rgba(189, 204, 230, 0.32);
-  font-size: 1.18rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  backdrop-filter: blur(10px);
-  animation: annotationDrift var(--duration) linear infinite;
+  top: -34rem;
+  width: min(22rem, 22vw);
+  display: grid;
+  gap: 0.55rem;
+  opacity: var(--opacity);
+  animation: codeFall var(--duration) linear infinite;
   animation-delay: var(--delay);
 }
 
-.annotation-note--comment {
-  text-transform: none;
+.code-line {
+  display: block;
+  padding: 0.2rem 0;
+  color: rgba(126, 255, 179, 0.6);
   font-family: 'Courier New', monospace;
+  font-size: 1.08rem;
+  letter-spacing: 0.03em;
+  text-shadow: 0 0 10px rgba(63, 199, 117, 0.14);
+  white-space: nowrap;
 }
 
-.annotation-note--keyword {
-  color: rgba(114, 210, 255, 0.24);
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translate3d(0, 3rem, 0);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+  transition-delay: var(--reveal-delay, 0ms);
 }
 
-.annotation-note--metric {
-  color: rgba(202, 165, 108, 0.22);
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 
 .hero {
@@ -1512,18 +1518,12 @@ ul {
   }
 }
 
-@keyframes annotationDrift {
+@keyframes codeFall {
   0% {
-    transform: translate3d(0, 0, 0);
-    opacity: 0;
-  }
-  8%,
-  82% {
-    opacity: 1;
+    transform: translate3d(0, -8rem, 0);
   }
   100% {
-    transform: translate3d(0, -14rem, 0);
-    opacity: 0;
+    transform: translate3d(0, calc(100vh + 18rem), 0);
   }
 }
 
@@ -1545,7 +1545,7 @@ ul {
   }
 
   .motion-background__gradient,
-  .annotation-note,
+  .code-column,
   .hero__btn,
   .project-card__button,
   .agent-launcher,
@@ -1622,9 +1622,12 @@ ul {
     grid-template-columns: 1fr;
   }
 
-  .annotation-note {
-    max-width: 72vw;
-    font-size: 1.08rem;
+  .code-column {
+    width: min(26rem, 34vw);
+  }
+
+  .code-line {
+    font-size: 0.98rem;
   }
 
   .agent-widget__prompt {
