@@ -28,10 +28,11 @@
         </button>
         <div class="navigation-links" id="navigation-links">
           <a href="#hero">Home</a>
-          <a href="#about">About</a>
-          <a href="#systems">Systems</a>
           <a href="#experience">Experience</a>
+          <a href="#systems">Systems</a>
+          <a href="#organizations">Organizations</a>
           <a href="#skills">Skills</a>
+          <a href="#ask-shelton">Ask AI</a>
           <a href="#contact">Contact</a>
           <a class="nav-resume" href="Shelton Bumhe....pdf" target="_blank" rel="noreferrer">Resume <span aria-hidden="true">↗</span></a>
         </div>
@@ -130,7 +131,7 @@
             <span class="section-index">02 / EXPERIENCE</span>
             <h2>Engineering shaped by the operation.</h2>
           </div>
-          <p>Experience across enterprise backend work, operational data workflows, teaching, and leadership development.</p>
+          <p>Experience across enterprise backend work, operational data workflows, software development, and teaching.</p>
         </div>
 
         <article class="experience-feature">
@@ -149,7 +150,7 @@
               <span>Backend · Events · Data</span>
             </div>
             <p class="experience-lead">
-              Working on an enterprise file-tracking platform built to solve visibility gaps across large-scale file-processing workflows. I contribute to backend services, event modeling, business-rule validation, SQL data modeling, and searchable APIs that help teams understand file movement, status, failures, and relationships across internal systems.
+              Working on an enterprise file-tracking platform built to solve visibility gaps across large-scale file-processing workflows. Files move through multiple internal systems, and teams need one clear way to see where each file is, what stage it is in, whether it failed, and how it connects to related files, jobs, clients, and downstream processing steps. I contribute to backend services, event modeling, business-rule validation, SQL data modeling, and searchable APIs that expose file movement, status, failures, and relationships. I also contributed to an AI-assisted development workflow supporting code quality, documentation, and business-rule alignment.
             </p>
             <ul class="experience-bullets">
               <li>Contributed to backend services for a platform designed to process and monitor up to <strong>1M file events per day</strong>.</li>
@@ -165,20 +166,13 @@
           </div>
         </article>
 
-        <div class="experience-secondary">
+        <div class="experience-secondary experience-secondary--single">
           <article>
             <div class="experience-secondary__top"><span>2022—2023</span><small>02</small></div>
             <p>Dominion College</p>
             <h3>Software Developer & Math Tutor</h3>
             <p>Built a Python and SQL tracking workflow to organize student records, tutoring activity, and progress reporting when manual processes made it difficult to see who needed help and where students were improving.</p>
             <div class="tech-row"><span>Python</span><span>SQL</span><span>Reporting workflows</span></div>
-          </article>
-          <article>
-            <div class="experience-secondary__top"><span>PROFESSIONAL DEVELOPMENT</span><small>03</small></div>
-            <p>Management Leadership for Tomorrow</p>
-            <h3>MLT Career Prep Fellow</h3>
-            <p>Developing communication, leadership, technical interview preparation, networking, and product thinking in a high-accountability environment. That founder-minded perspective also informs Grand Pilot, my concept for connecting small businesses with mentors and experienced founders.</p>
-            <div class="tech-row"><span>Leadership</span><span>Product thinking</span><span>Technical interviews</span></div>
           </article>
         </div>
       </section>
@@ -187,143 +181,120 @@
         <div class="section-shell">
           <div class="section-heading-wrap">
             <div>
-              <span class="section-index">03 / SELECTED SYSTEMS</span>
-              <h2>Systems Built Around Real Problems</h2>
+              <span class="section-index">03 / SYSTEM MAP</span>
+              <div class="systems-heading-title"><h2>Systems, Annotated</h2><span class="code-glyph" aria-hidden="true">&lt;/&gt;</span></div>
             </div>
-            <p>I build with the user problem first, then choose the technology that fits.</p>
+            <p>Real problems broken into events, workflows, APIs, data models, and user-facing tools.</p>
           </div>
 
-          <div class="systems-grid">
-            <article class="system-card system-card--featured">
-              <div class="system-card__header">
-                <div><span class="system-card__number">SYS.01</span><small>Enterprise workflow visibility</small></div>
-                <div class="featured-chips"><span class="status-tag">ENTERPRISE SCALE</span><span class="status-tag">EVENT DRIVEN</span><span class="status-tag">AI WORKFLOW</span></div>
-              </div>
-              <div class="system-card__main">
-                <div>
-                  <h3>Fiserv Enterprise File Tracking Platform</h3>
-                  <p class="system-card__role">Software Engineering Intern · Backend services · Event modeling · Search APIs</p>
+          <div class="annotated-grid">
+            <div class="json-collection json-collection--open" aria-hidden="true"><span>"systems"</span>: [</div>
+            <article class="annotated-system annotated-system--featured">
+              <div class="code-window-bar"><div><i></i><i></i><i></i></div><span>fiserv_file_tracking.system</span><small>ENTERPRISE</small></div>
+              <div class="annotated-content">
+                <div class="annotated-title"><span class="syntax-brace">{</span><div><small>"system"</small><h3>Fiserv Enterprise File Tracking Platform</h3></div></div>
+                <div class="annotation-layout">
+                  <div class="annotation-column">
+                    <div class="annotation-block"><span class="annotation-comment">// problem</span><div class="annotation-line"><b>"problem"</b><i>:</i><p>Files move across internal systems without one clear tracking view for state, failures, related jobs, clients, and downstream processing.</p></div></div>
+                    <div class="annotation-block"><span class="annotation-comment">// contribution</span><div class="annotation-line"><b>"my_role"</b><i>:</i><div class="annotation-array"><span>backend services</span><span>event modeling</span><span>business rules</span><span>SQL data modeling</span><span>search APIs</span><span>AI workflow</span></div></div></div>
+                  </div>
+                  <div class="annotation-column annotation-column--flow">
+                    <div class="annotation-block"><span class="annotation-comment">// workflow</span><div class="annotation-line annotation-line--stack"><b>"flow"</b><i>:</i><div class="pipeline" aria-label="File Event to Operations View"><span>File Event</span><em>→</em><span>Business Rules</span><em>→</em><span>SQL History</span><em>→</em><span>Search API</span><em>→</em><span>Operations View</span></div></div></div>
+                    <div class="metric-pills"><div><strong>1M</strong><span>events / day</span></div><div><strong>$100K</strong><span>potential savings / month</span></div></div>
+                  </div>
                 </div>
-                <div class="mini-flow" aria-label="File tracking event flow">
-                  <span>File Event</span><i></i><span>Business Rules</span><i></i><span>SQL History</span><i></i><span>Search API</span><i></i><span>Dashboard</span>
+                <div class="stack-map" aria-label="Fiserv technology annotations">
+                  <div><strong>Java + Spring Boot</strong><span>service logic, REST APIs, business-rule validation, workflow handling</span></div>
+                  <div><strong>Kafka</strong><span>asynchronous file updates and scalable event-driven workflow design</span></div>
+                  <div><strong>SQL</strong><span>file history, status, relationships, reconciliation, reporting data</span></div>
+                  <div><strong>AI-assisted workflow</strong><span>code structure, documentation, and rule-validation support with developer control</span></div>
                 </div>
-              </div>
-              <div class="fiserv-metrics" aria-label="Fiserv platform scale and value">
-                <div><strong>1M</strong><span>file events / day</span></div>
-                <div><strong>$100K</strong><span>potential savings / month</span></div>
-                <div><strong>CID → status</strong><span>search across file, job, client, and stage</span></div>
-              </div>
-              <div class="featured-case-grid">
-                <div><span>Problem</span><p>Large-scale file workflows become difficult to monitor when files move across multiple internal systems without one tracking view. Teams need to see state, failures, relationships, and downstream processing.</p></div>
-                <div><span>What I worked on</span><p>I contributed to the design of backend services that capture file events, apply business rules, store processing history, and expose searchable tracking data for operational visibility.</p></div>
-                <div><span>How the system works</span><p>File updates become consistent records, persist in a relational database, and flow through APIs so teams can search by CID, file name, job number, client, status, and processing stage.</p></div>
-                <div><span>Technologies used</span><p>Java and Spring Boot support service logic, API endpoints, validation, and workflow handling. Kafka concepts support asynchronous event planning. SQL models history, reconciliation details, relationships, and reporting data. An internal AI workflow supports code structure and documentation.</p></div>
-                <div class="featured-case-grid__wide"><span>Scale / impact</span><p>Designed around up to 1M file events per day. The platform aims to reduce manual investigation and help teams detect missing, delayed, failed, or misrouted files faster—with potential operational savings of up to $100K per month.</p></div>
-              </div>
-              <div class="tech-row system-tags"><span>Java</span><span>Spring Boot</span><span>Kafka</span><span>SQL</span><span>APIs</span><span>Enterprise Systems</span><span>AI-Assisted Development</span></div>
-            </article>
-
-            <article class="system-card">
-              <div class="system-card__header">
-                <div><span class="system-card__number">SYS.02</span><small>Product concept</small></div>
-                <span class="status-tag status-tag--concept">CONCEPT</span>
-              </div>
-              <h3>Grand Pilot</h3>
-              <p class="system-card__subtitle">Founder & Small Business Connection Platform</p>
-              <dl>
-                <div><dt>Problem</dt><dd>Many small business owners need practical guidance but do not always have access to experienced founders, mentors, or trusted networks.</dd></div>
-                <div><dt>What I worked on</dt><dd>Defined the product concept, user problem, platform flow, and mentorship connection model.</dd></div>
-                <div><dt>How it works</dt><dd>Owners discover founders and mentors, request conversations, and receive guidance on growth, operations, and strategy.</dd></div>
-                <div><dt>Methods used</dt><dd>Product thinking and user research shape the discovery, matching, request, and conversation flows before implementation.</dd></div>
-                <div><dt>Expected value</dt><dd>Makes founder knowledge and practical mentorship more accessible to small businesses.</dd></div>
-              </dl>
-              <div class="tech-row system-tags"><span>Product Thinking</span><span>Entrepreneurship</span><span>Mentorship Platform</span><span>User Research</span></div>
-            </article>
-
-            <article class="system-card">
-              <div class="system-card__header">
-                <div><span class="system-card__number">SYS.03</span><small>Operational workflow</small></div>
-                <span class="status-tag status-tag--built">BUILT</span>
-              </div>
-              <h3>Dominion Student Tracking</h3>
-              <p class="system-card__subtitle">A clearer workflow for student progress and tutoring activity</p>
-              <dl>
-                <div><dt>Problem</dt><dd>Manual tracking made it harder to review progress, attendance, tutoring notes, and performance updates.</dd></div>
-                <div><dt>What I worked on</dt><dd>Built the Python and SQL-based tracking workflow for student records, tutoring activity, and weekly progress reports.</dd></div>
-                <div><dt>How it works</dt><dd>Python organizes updates into a consistent reporting flow while SQL stores structured student and tutoring records for review.</dd></div>
-                <div><dt>Technologies used</dt><dd>Python handled record processing and report workflows; SQL made progress and tutoring data consistent and queryable.</dd></div>
-                <div><dt>Impact</dt><dd>Reduced manual tracking effort and made student progress easier for staff to review.</dd></div>
-              </dl>
-              <div class="tech-row system-tags"><span>Python</span><span>SQL</span><span>Reporting</span><span>Education Technology</span></div>
-            </article>
-
-            <article class="system-card">
-              <div class="system-card__header">
-                <div><span class="system-card__number">SYS.04</span><small>Operations platform concept</small></div>
-                <span class="status-tag status-tag--research">RESEARCH</span>
-              </div>
-              <h3>AY Logistics Drone Inspection Platform</h3>
-              <p class="system-card__subtitle">A visual workflow for safer, more consistent vehicle inspections</p>
-              <dl>
-                <div><dt>Problem</dt><dd>Truck and trailer inspections can be slow, repetitive, and inconsistent when completed only through manual walk-arounds.</dd></div>
-                <div><dt>What I worked on</dt><dd>Designed a drone-based inspection workflow with React dashboard and Python/FastAPI backend planning.</dd></div>
-                <div><dt>How it works</dt><dd>Operators manage inspections, review drone-captured images, tag issues, track vehicle history, and follow up on maintenance.</dd></div>
-                <div><dt>Technologies planned</dt><dd>React structures the operations dashboard; Python and FastAPI define the planned inspection and image-data services; computer vision remains an exploration area.</dd></div>
-                <div><dt>Expected value</dt><dd>Could reduce inspection time, improve documentation, and give logistics teams better maintenance visibility.</dd></div>
-              </dl>
-              <div class="tech-row system-tags"><span>React Dashboard</span><span>Python</span><span>FastAPI</span><span>Computer Vision</span><span>Operations</span></div>
-            </article>
-
-            <article class="system-card system-card--product">
-              <div class="system-card__header">
-                <div><span class="system-card__number">SYS.05</span><small>Backend product</small></div>
-                <span class="status-tag status-tag--built">BUILT</span>
-              </div>
-              <h3>Retail Intelligence / E-commerce Platform</h3>
-              <p class="system-card__subtitle">A commerce system designed beyond basic CRUD</p>
-              <dl>
-                <div><dt>Problem</dt><dd>Commerce systems need reliable transactions, fast catalog reads, protected checkout paths, and a clear path to deployment.</dd></div>
-                <div><dt>What I worked on</dt><dd>Built the user workflows, API and business-logic layers, relational data model, caching strategy, integrations, and deployment workflow.</dd></div>
-                <div><dt>How it works</dt><dd>React handles catalog, cart, authentication, and checkout interactions. ASP.NET Core owns business logic and APIs, while PostgreSQL persists products, users, and orders.</dd></div>
-                <div><dt>Technologies used</dt><dd>Redis reduces repeated catalog reads; Stripe isolates payment processing; Cloudinary manages product media; GitHub Actions and Azure support delivery.</dd></div>
-                <div><dt>Impact</dt><dd>Demonstrates production-minded decisions around caching, protected routes, horizontal scaling, and release automation.</dd></div>
-              </dl>
-              <div class="tech-row"><span>C#</span><span>ASP.NET Core</span><span>React</span><span>PostgreSQL</span><span>Redis</span><span>Azure</span></div>
-              <div class="card-actions">
-                <button type="button" data-project-open="ecommerce">Architecture details</button>
-                <a href="https://github.com/SheltonBumhe/ecommerce-api" target="_blank" rel="noreferrer">GitHub ↗</a>
+                <div class="annotation-value"><span class="annotation-comment">// scale + business value</span><p>Designed around up to 1M file events per day, with potential operational savings of up to $100K per month by reducing manual investigation and helping teams find missing, failed, delayed, or misrouted files faster.</p></div>
+                <div class="syntax-close"><span>Java</span><span>Spring Boot</span><span>Kafka</span><span>SQL</span><span>REST APIs</span><span>Enterprise Systems</span><b>}</b></div>
               </div>
             </article>
 
-            <article class="system-card system-card--ml">
-              <div class="system-card__header">
-                <div><span class="system-card__number">SYS.06</span><small>Machine learning product</small></div>
-                <span class="status-tag status-tag--built">BUILT</span>
-              </div>
-              <h3>NFL QB Touchdown Predictor</h3>
-              <p class="system-card__subtitle">Prediction paired with explanation and a usable interface</p>
-              <dl>
-                <div><dt>Problem</dt><dd>A prediction is less useful when users cannot understand the data behind it or the features influencing the result.</dd></div>
-                <div><dt>What I worked on</dt><dd>Handled data preparation, feature engineering, model training, evaluation, explainability, and the Streamlit product interface.</dd></div>
-                <div><dt>How it works</dt><dd>Historical game data becomes model features, XGBoost predicts touchdown outcomes, and SHAP shows which inputs pushed each result.</dd></div>
-                <div><dt>Technologies used</dt><dd>Pandas supports cleaning and feature preparation; XGBoost performs classification; SHAP adds model explanation; Streamlit exposes the workflow to users.</dd></div>
-                <div><dt>Demonstrates</dt><dd>How to connect an ML pipeline to an interpretable, user-facing product instead of stopping at a notebook.</dd></div>
-              </dl>
-              <div class="model-signal"><span>Reported model accuracy</span><strong>88%</strong><small>trained on 10,000+ plays</small></div>
-              <div class="tech-row"><span>Python</span><span>Pandas</span><span>XGBoost</span><span>SHAP</span><span>Streamlit</span></div>
-              <div class="card-actions">
-                <button type="button" data-project-open="nfl">Model details</button>
-                <a href="https://github.com/SheltonBumhe/machine-learning-nfl-touchdowns" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <article class="annotated-system">
+              <div class="code-window-bar"><div><i></i><i></i><i></i></div><span>grand_pilot.product</span><small>CONCEPT</small></div>
+              <div class="annotated-content">
+                <div class="annotated-title"><span class="syntax-brace">{</span><div><small>"system"</small><h3>Grand Pilot</h3></div></div>
+                <div class="annotation-block"><span class="annotation-comment">// founder access</span><div class="annotation-line"><b>"problem"</b><i>:</i><p>Small business owners need founder guidance but often lack access to trusted networks.</p></div></div>
+                <div class="annotation-line"><b>"my_role"</b><i>:</i><div class="annotation-array"><span>product concept</span><span>user-flow planning</span><span>platform strategy</span></div></div>
+                <div class="annotation-block"><span class="annotation-comment">// flow</span><div class="pipeline pipeline--compact"><span>business owner</span><em>→</em><span>founder discovery</span><em>→</em><span>request</span><em>→</em><span>guidance</span></div></div>
+                <div class="annotation-value"><b>"value"</b><p>Makes mentorship and founder knowledge more accessible.</p></div>
+                <div class="syntax-close"><span>Product Strategy</span><span>User Research</span><span>Mentorship</span><b>}</b></div>
               </div>
             </article>
+
+            <article class="annotated-system">
+              <div class="code-window-bar"><div><i></i><i></i><i></i></div><span>ay_inspection.workflow</span><small>RESEARCH</small></div>
+              <div class="annotated-content">
+                <div class="annotated-title"><span class="syntax-brace">{</span><div><small>"system"</small><h3>AY Logistics Drone Inspection</h3></div></div>
+                <div class="annotation-block"><span class="annotation-comment">// operations gap</span><div class="annotation-line"><b>"problem"</b><i>:</i><p>Manual truck inspections are slow, repetitive, and inconsistent.</p></div></div>
+                <div class="annotation-line"><b>"my_role"</b><i>:</i><div class="annotation-array"><span>product research</span><span>React planning</span><span>workflow design</span></div></div>
+                <div class="annotation-block"><span class="annotation-comment">// flow</span><div class="pipeline pipeline--compact"><span>mobile trigger</span><em>→</em><span>drone capture</span><em>→</em><span>issue tagging</span><em>→</em><span>review</span></div></div>
+                <div class="stack-map stack-map--compact"><div><strong>React</strong><span>inspection dashboard and review screens</span></div><div><strong>Python + FastAPI</strong><span>planned image-ingestion and workflow APIs</span></div><div><strong>Computer Vision</strong><span>planned issue-detection support</span></div></div>
+                <div class="syntax-close"><span>React Dashboard</span><span>FastAPI</span><span>Operations</span><b>}</b></div>
+              </div>
+            </article>
+
+            <article class="annotated-system">
+              <div class="code-window-bar"><div><i></i><i></i><i></i></div><span>dominion_tracking.workflow</span><small>BUILT</small></div>
+              <div class="annotated-content">
+                <div class="annotated-title"><span class="syntax-brace">{</span><div><small>"system"</small><h3>Dominion Student Tracking</h3></div></div>
+                <div class="annotation-block"><span class="annotation-comment">// visibility gap</span><div class="annotation-line"><b>"problem"</b><i>:</i><p>Manual tutoring records made student progress harder to review.</p></div></div>
+                <div class="annotation-line"><b>"my_role"</b><i>:</i><div class="annotation-array"><span>Python workflow</span><span>SQL tracking</span><span>progress reporting</span></div></div>
+                <div class="annotation-block"><span class="annotation-comment">// flow</span><div class="pipeline pipeline--compact"><span>student record</span><em>→</em><span>tutoring update</span><em>→</em><span>progress report</span><em>→</em><span>staff review</span></div></div>
+                <div class="annotation-value"><b>"value"</b><p>Reduced manual tracking effort and improved academic visibility.</p></div>
+                <div class="syntax-close"><span>Python</span><span>SQL</span><span>Reporting</span><b>}</b></div>
+              </div>
+            </article>
+
+            <article class="annotated-system">
+              <div class="code-window-bar"><div><i></i><i></i><i></i></div><span>retail_intelligence.platform</span><small>BUILT</small></div>
+              <div class="annotated-content">
+                <div class="annotated-title"><span class="syntax-brace">{</span><div><small>"system"</small><h3>Retail Intelligence Platform</h3></div></div>
+                <div class="annotation-block"><span class="annotation-comment">// product requirement</span><div class="annotation-line"><b>"problem"</b><i>:</i><p>Commerce systems need reliable transactions, fast catalog reads, and clear customer and admin workflows.</p></div></div>
+                <div class="annotation-block"><span class="annotation-comment">// request path</span><div class="pipeline pipeline--compact"><span>React UI</span><em>→</em><span>ASP.NET API</span><em>→</em><span>PostgreSQL</span><em>→</em><span>Redis</span><em>→</em><span>integrations</span></div></div>
+                <div class="stack-map stack-map--compact"><div><strong>React</strong><span>customer and admin workflows</span></div><div><strong>ASP.NET Core</strong><span>business logic and API layer</span></div><div><strong>PostgreSQL</strong><span>transactional application data</span></div><div><strong>Redis</strong><span>fast repeated catalog reads</span></div></div>
+                <div class="annotated-actions"><button type="button" data-project-open="ecommerce">Architecture details</button><a href="https://github.com/SheltonBumhe/ecommerce-api" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+                <div class="syntax-close"><span>React</span><span>.NET</span><span>PostgreSQL</span><span>Redis</span><b>}</b></div>
+              </div>
+            </article>
+
+            <article class="annotated-system">
+              <div class="code-window-bar"><div><i></i><i></i><i></i></div><span>nfl_touchdown.model</span><small>ML PRODUCT</small></div>
+              <div class="annotated-content">
+                <div class="annotated-title"><span class="syntax-brace">{</span><div><small>"system"</small><h3>NFL QB Touchdown Predictor</h3></div></div>
+                <div class="annotation-block"><span class="annotation-comment">// explainability gap</span><div class="annotation-line"><b>"problem"</b><i>:</i><p>Predictions are less useful when users cannot understand what influenced the result.</p></div></div>
+                <div class="annotation-block"><span class="annotation-comment">// model pipeline</span><div class="pipeline pipeline--compact"><span>historical data</span><em>→</em><span>features</span><em>→</em><span>XGBoost</span><em>→</em><span>SHAP</span><em>→</em><span>Streamlit</span></div></div>
+                <div class="stack-map stack-map--compact"><div><strong>Pandas</strong><span>cleaning and feature preparation</span></div><div><strong>XGBoost</strong><span>touchdown-outcome classification</span></div><div><strong>SHAP</strong><span>feature-level prediction explanations</span></div><div><strong>Streamlit</strong><span>interactive product interface</span></div></div>
+                <div class="annotation-value annotation-value--metric"><b>"value"</b><p>Connects ML prediction with explanation and a usable interface.</p><strong>88% reported accuracy</strong></div>
+                <div class="annotated-actions"><button type="button" data-project-open="nfl">Model details</button><a href="https://github.com/SheltonBumhe/machine-learning-nfl-touchdowns" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+                <div class="syntax-close"><span>Python</span><span>XGBoost</span><span>SHAP</span><span>Streamlit</span><b>}</b></div>
+              </div>
+            </article>
+            <div class="json-collection json-collection--close" aria-hidden="true">]</div>
           </div>
+        </div>
+      </section>
+
+      <section class="organizations section-shell section-space" id="organizations">
+        <div class="section-heading-wrap">
+          <div><span class="section-index">04 / INVOLVEMENT</span><h2>Organizations &amp; Involvement</h2></div>
+          <p>Communities and programs shaping my leadership, technical growth, and career development.</p>
+        </div>
+        <div class="organization-track">
+          <article><div class="organization-marker"><span>01</span></div><p>Management Leadership for Tomorrow</p><h3>Career Prep Fellow</h3><div class="organization-role">CAREER DEVELOPMENT</div><p>Developing leadership, communication, professional readiness, technical interview preparation, networking, and product thinking through a high-accountability program. The experience strengthens how I communicate technical ideas and connect engineering decisions to business impact.</p><div class="tech-row"><span>Leadership</span><span>Career Development</span><span>Interview Prep</span><span>Product Thinking</span></div></article>
+          <article><div class="organization-marker"><span>02</span></div><p>ColorStack</p><h3>Member</h3><div class="organization-role">TECH COMMUNITY</div><p>Active member of a community supporting Black and Latinx computer science students through career development, technical growth, mentorship, and access to opportunities in technology.</p><div class="tech-row"><span>Community</span><span>Career Growth</span><span>Mentorship</span><span>Technology</span></div></article>
+          <article><div class="organization-marker"><span>03</span></div><p>National Society of Black Engineers</p><h3>Member</h3><div class="organization-role">ENGINEERING COMMUNITY</div><p>Member of an engineering community focused on academic excellence, professional development, leadership, and increasing representation in engineering and technology.</p><div class="tech-row"><span>Leadership</span><span>Professional Development</span><span>Representation</span></div></article>
         </div>
       </section>
 
       <section class="skills section-shell section-space" id="skills">
         <div class="section-heading-wrap">
           <div>
-            <span class="section-index">04 / CAPABILITIES</span>
+            <span class="section-index">05 / CAPABILITIES</span>
             <h2>Tools organized by the work they do.</h2>
           </div>
           <p>I care about systems that are useful, not just impressive.</p>
@@ -341,7 +312,7 @@
       <section class="assistant-section section-space" id="ask-shelton">
         <div class="section-shell assistant-layout">
           <div class="assistant-copy">
-            <span class="section-index">05 / PORTFOLIO ASSISTANT</span>
+            <span class="section-index">06 / PORTFOLIO ASSISTANT</span>
             <h2>Ask Shelton AI</h2>
             <p>A focused guide to my experience, projects, technical strengths, architecture decisions, and career goals. It answers from a structured portfolio knowledge base.</p>
             <ul>
@@ -376,7 +347,7 @@
       <section class="contact section-shell section-space" id="contact">
         <div class="contact-card">
           <div class="contact-copy">
-            <span class="section-index">06 / CONTACT</span>
+            <span class="section-index">07 / CONTACT</span>
             <h2>Let’s build something useful.</h2>
             <p>I’m interested in software engineering opportunities where backend systems, real user problems, and strong engineering judgment matter.</p>
             <div class="contact-links">

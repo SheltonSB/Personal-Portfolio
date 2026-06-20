@@ -303,15 +303,14 @@ window.portfolioAgentData = {
     },
     {
       id: 'experience',
-      keywords: ['experience', 'fiserv', 'dominion', 'mlt', 'work history', 'leadership', 'mentor', 'teaching'],
+      keywords: ['experience', 'fiserv', 'dominion', 'work history', 'teaching'],
       summary:
-        "Shelton's experience combines enterprise backend engineering at Fiserv, operational software development and tutoring at Dominion College, and structured leadership development through MLT.",
+        "Shelton's work experience combines enterprise backend engineering at Fiserv with operational software development and math tutoring at Dominion College.",
       highlights: [
         'At Fiserv he contributes to an enterprise file-tracking platform with Java, Spring Boot, SQL, search APIs, and event-driven architecture planning using Kafka concepts.',
         'At Dominion College he built a Python and SQL tracking workflow for student records, tutoring activity, and progress reporting while also teaching algebra and calculus.',
-        'Through MLT he is developing communication, leadership, technical interview preparation, networking, and product thinking in a high-accountability environment.',
       ],
-      followUp: 'Do you want the engineering experience version, the leadership version, or the mentoring angle?',
+      followUp: 'Do you want the Fiserv engineering work or the Dominion workflow explained in more detail?',
     },
     {
       id: 'books-backend',
@@ -327,14 +326,15 @@ window.portfolioAgentData = {
     },
     {
       id: 'community',
-      keywords: ['community', 'colorstack', 'nsbe', 'organizations', 'involvement'],
+      keywords: ['community', 'colorstack', 'nsbe', 'mlt', 'management leadership for tomorrow', 'organizations', 'involvement'],
       summary:
-        'Shelton stays involved with ColorStack and the National Society of Black Engineers.',
+        'Shelton’s organizations and involvement include Management Leadership for Tomorrow, ColorStack, and the National Society of Black Engineers.',
       highlights: [
-        'ColorStack strengthens mentorship, peer network, and student-to-industry access. Link: https://www.colorstack.org/about-us',
-        'NSBE reinforces engineering identity, leadership, and service-oriented growth. Link: https://nsbe.org/about/',
+        'As an MLT Career Prep Fellow, he develops leadership, communication, technical interview preparation, networking, professional readiness, and product thinking.',
+        'ColorStack supports his career development, technical growth, mentorship, and access to opportunities within a community for Black and Latinx computer science students.',
+        'NSBE reinforces academic excellence, professional development, leadership, and representation in engineering and technology.',
       ],
-      followUp: 'Do you want the short explanation of ColorStack, NSBE, or both?',
+      followUp: 'Do you want the MLT, ColorStack, or NSBE involvement explained in more detail?',
     },
     {
       id: 'outside-interests',

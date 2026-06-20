@@ -96,7 +96,7 @@ function initializeNavigation() {
     }));
   }
 
-  const sectionIds = ['hero', 'about', 'systems', 'experience', 'skills', 'ask-shelton', 'contact'];
+  const sectionIds = ['hero', 'experience', 'systems', 'organizations', 'skills', 'ask-shelton', 'contact'];
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
@@ -109,7 +109,7 @@ function initializeNavigation() {
 }
 
 function initializeReveal() {
-  const targets = document.querySelectorAll('.section-heading-wrap, .about-statement, .about-profile, .experience-feature, .experience-secondary, .system-card, .skills-grid article, .assistant-copy, .agent-console, .contact-card');
+  const targets = document.querySelectorAll('.section-heading-wrap, .about-statement, .about-profile, .experience-feature, .experience-secondary, .annotated-system, .organization-track article, .skills-grid article, .assistant-copy, .agent-console, .contact-card');
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
     targets.forEach((target) => target.classList.add('is-visible'));
     return;
