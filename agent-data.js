@@ -2,20 +2,20 @@
 window.portfolioAgentData = {
   assistantName: 'Ask Shelton AI',
   greeting:
-    "Ask me about Shelton's projects, system design choices, books, experience, outside-school interests, or contact details. I answer from the portfolio's structured knowledge base.",
+    "Hi — I’m Shelton’s portfolio assistant. Ask what he built at Fiserv, how one of his systems works, where his technical strengths are, or what he is looking for next.",
   promptPlaceholder: 'Ask about a project, systems thinking, or technical strengths',
   emptyState:
-    'Try asking about Shelton, the e-commerce architecture, the NFL predictor, his books, his outside-school interests, or his technical focus.',
+    'Try asking what Shelton built at Fiserv, which projects show system design, or why he would be a strong software engineering intern.',
   suggestions: [
-    'Summarize Shelton',
-    'Explain the e-commerce architecture',
-    'What makes the NFL project impressive?',
-    'What does he do outside school?',
+    'What did Shelton build at Fiserv?',
+    'What backend systems has Shelton worked on?',
+    'Explain Grand Pilot.',
+    'Why would Shelton be a strong software engineering intern?',
   ],
   fallback: {
     answer:
-      "I do not have that exact phrasing in Shelton's current portfolio knowledge yet, but I can help with his resume, projects, system design choices, experience, communities, books, outside-school interests, and contact details.",
-    followUp: 'Do you want a summary, a project deep dive, his current reading, or a contact overview?',
+      "I don’t have that exact detail in Shelton’s portfolio knowledge base. I can help with his Fiserv experience, backend systems, Grand Pilot, student tracking work, e-commerce platform, NFL predictor, skills, career goals, or contact information.",
+    followUp: 'Would you like an experience summary, a system deep dive, or a recruiter-focused overview?',
   },
   annotationPhrases: [
     '[init] booting backend workspace...',
@@ -219,14 +219,50 @@ window.portfolioAgentData = {
   ],
   topics: [
     {
+      id: 'fiserv',
+      keywords: ['fiserv', 'file tracking', 'enterprise file', 'file platform', 'software engineering intern', 'kafka', 'cid'],
+      summary:
+        'At Fiserv, Shelton works on an enterprise file-tracking platform that gives teams clearer visibility into files moving across multiple internal systems.',
+      highlights: [
+        'He helps build Java and Spring Boot services that capture file events, structure records, apply business rules, preserve processing history, and expose search APIs.',
+        'Kafka supports event-driven updates, while SQL stores file history, relationships, and processing details.',
+        'Teams can find files by CID, file name, job number, client, and status, making operational state easier to understand.',
+      ],
+      followUp: 'Would you like the event flow, technology choices, or operational problem explained in more detail?',
+    },
+    {
+      id: 'grand-pilot',
+      keywords: ['grand pilot', 'founder', 'small business', 'mentor', 'mentorship', 'platform idea'],
+      summary:
+        'Grand Pilot is Shelton’s product concept for making practical founder and mentor guidance more accessible to small business owners.',
+      highlights: [
+        'The concept starts with the access problem: many owners need tactical guidance but do not have trusted founder networks.',
+        'The planned flow lets owners discover founders or mentors, request a conversation, and get guidance on growth, operations, or strategy.',
+        'Shelton’s role covers problem definition, user-flow planning, product concept, and platform strategy.',
+      ],
+      followUp: 'Would you like the user flow, product rationale, or expected value?',
+    },
+    {
+      id: 'intern-fit',
+      keywords: ['strong intern', 'software engineering intern', 'why hire', 'why would', 'candidate', 'internship fit', 'google'],
+      summary:
+        'Shelton would bring a combination of backend execution, operational problem framing, and clear technical communication to a software engineering internship.',
+      highlights: [
+        'His Fiserv work exposes him to Java, Spring Boot, Kafka, SQL, event modeling, APIs, and enterprise workflow constraints.',
+        'His projects show range across backend platforms, machine learning, data workflows, and early product strategy without losing the user problem.',
+        'Tutoring and MLT Career Prep strengthen his ability to explain technical ideas, take feedback, and work across technical and non-technical contexts.',
+      ],
+      followUp: 'Would you like the backend, product-thinking, or communication angle expanded?',
+    },
+    {
       id: 'recruiter-summary',
       keywords: ['recruiter', 'summary', 'introduce', 'overview', 'who is shelton', 'candidate', 'fit'],
       summary:
-        'Shelton Bumhe is a Computer Science student at the University of Nebraska-Lincoln focused on backend systems, machine learning, and production-minded project work.',
+        'Shelton Bumhe is a Computer Science student at the University of Nebraska–Lincoln and Software Engineering Intern at Fiserv, focused on backend systems, event-driven workflows, and production-minded project work.',
       highlights: [
-        'He combines academic preparation with two portfolio projects that show architecture, measurable outcomes, and product thinking.',
+        'He combines enterprise backend experience with portfolio systems that show architecture, data thinking, and product judgment.',
         'His Dominion College experience and MLT involvement show communication, mentorship, and professional growth alongside technical execution.',
-        'He is strongest when discussing backend systems, explainable ML, and projects that are easy to defend in a technical conversation.',
+        'He is strongest when discussing backend systems, real operational workflows, explainable ML, and technology choices he can defend clearly.',
       ],
       followUp: 'Do you want the backend angle, the ML angle, or the project-by-project version of that summary?',
     },
@@ -234,7 +270,7 @@ window.portfolioAgentData = {
       id: 'strengths',
       keywords: ['backend', 'skills', 'stack', 'technical', 'strengths', 'what does he know', 'api'],
       summary:
-        'Shelton’s strongest technical lane is backend and data-oriented engineering, with hands-on work in Python, Java, JavaScript, SQL, C#, .NET, PostgreSQL, Redis, XGBoost, Streamlit, and testing tools like xUnit and JUnit.',
+        'Shelton’s strongest technical lane is backend and data-oriented engineering, with hands-on work in Java, Spring Boot, Kafka, SQL, C#, ASP.NET Core, Python, PostgreSQL, Redis, XGBoost, and React.',
       highlights: [
         'The recurring pattern in his portfolio is not just writing code, but combining architecture, measurable performance, and clear explanation.',
         'He is also building stronger systems intuition through current reading in system design and data-intensive application design.',
@@ -243,13 +279,13 @@ window.portfolioAgentData = {
     },
     {
       id: 'experience',
-      keywords: ['experience', 'dominion', 'mlt', 'work history', 'leadership', 'mentor', 'teaching'],
+      keywords: ['experience', 'fiserv', 'dominion', 'mlt', 'work history', 'leadership', 'mentor', 'teaching'],
       summary:
-        "Shelton's experience combines software development, tutoring, and structured leadership development, which shows up in how he builds systems and explains them.",
+        "Shelton's experience combines enterprise backend engineering at Fiserv, operational software development and tutoring at Dominion College, and structured leadership development through MLT.",
       highlights: [
-        'At Dominion College he built a Python and SQL tracking workflow, generated weekly reports, reduced manual entry work, and supported a 99% pass rate as a math tutor.',
-        'That role blended operational thinking with communication, because he had to make data useful to instructors and students instead of only writing code in isolation.',
-        'Through MLT he is sharpening professional communication, structured thinking, and long-term career strategy in a high-accountability environment.',
+        'At Fiserv he helps build an event-driven enterprise file-tracking platform with Java, Spring Boot, Kafka, SQL, and search APIs.',
+        'At Dominion College he built a Python and SQL tracking workflow for student records, tutoring activity, and progress reporting while also teaching algebra and calculus.',
+        'Through MLT he is developing communication, leadership, technical interview preparation, networking, and product thinking in a high-accountability environment.',
       ],
       followUp: 'Do you want the engineering experience version, the leadership version, or the mentoring angle?',
     },

@@ -3,635 +3,398 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shelton Bumhe | Software Engineer</title>
+    <meta name="theme-color" content="#07100d" />
     <meta
       name="description"
-      content="Shelton Bumhe is a Computer Science student building software systems, APIs, and machine learning projects."
+      content="Shelton Bumhe is a software engineer building backend systems, APIs, event-driven workflows, and AI-assisted tools for real-world operations."
     />
+    <title>Shelton Bumhe | Backend Systems & Software Engineering</title>
     <link rel="stylesheet" href="Style.css" />
   </head>
   <body>
-    <div class="motion-background" aria-hidden="true">
-      <div class="motion-background__gradient motion-background__gradient--one"></div>
-      <div class="motion-background__gradient motion-background__gradient--two"></div>
-      <div class="motion-background__gradient motion-background__gradient--three"></div>
-      <div class="motion-background__grid"></div>
-      <div class="annotation-stream" id="annotation-stream"></div>
-    </div>
+    <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <header class="hero" id="hero">
-      <nav class="navigation-bar">
-        <a href="#hero" class="brand-mark">SB</a>
-        <ul class="navigation">
-          <li class="navigation__item navigation__item--active" id="nav-hero"><a href="#hero">Home</a></li>
-          <li class="navigation__item" id="nav-about"><a href="#about">About</a></li>
-          <li class="navigation__item" id="nav-projects"><a href="#projects">Projects</a></li>
-          <li class="navigation__item" id="nav-experience"><a href="#experience">Experience</a></li>
-          <li class="navigation__item" id="nav-gallery"><a href="gallery.html">Gallery</a></li>
-          <li class="navigation__item" id="nav-contact"><a href="#contact">Contact</a></li>
-        </ul>
+    <div class="site-grid" aria-hidden="true"></div>
+
+    <header class="site-header" id="hero">
+      <nav class="navigation-bar" aria-label="Main navigation">
+        <a class="brand-mark" href="#hero" aria-label="Shelton Bumhe, home">
+          <span>SB</span>
+          <small>Software Engineer</small>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navigation-links">
+          <span class="sr-only">Toggle navigation</span>
+          <i></i><i></i>
+        </button>
+        <div class="navigation-links" id="navigation-links">
+          <a href="#experience">Experience</a>
+          <a href="#systems">Systems</a>
+          <a href="#skills">Skills</a>
+          <a href="#ask-shelton">Ask AI</a>
+          <a href="#contact">Contact</a>
+          <a class="nav-resume" href="Shelton Bumhe....pdf" target="_blank" rel="noreferrer">Resume <span aria-hidden="true">↗</span></a>
+        </div>
       </nav>
 
-      <div class="hero__shell">
+      <div class="hero section-shell">
         <div class="hero__copy">
-          <span class="hero__eyebrow">Systems, APIs, and ML</span>
-          <h1 class="hero__title">Software Engineer</h1>
-          <p class="hero__subtitle">Focused on backend systems, APIs, data, and machine learning.</p>
-          <div class="hero__actions">
-            <a href="Shelton Bumhe....pdf" class="hero__btn hero__btn--primary" download>Download Resume</a>
-            <a href="#projects" class="hero__btn hero__btn--secondary">Explore Projects</a>
+          <div class="availability-pill"><span></span> Building systems for real operations</div>
+          <h1>Software Engineer building backend systems for <em>real-world operations.</em></h1>
+          <p class="hero__subtitle">
+            I’m Shelton Bumhe, a Computer Science student at the University of Nebraska–Lincoln and Software Engineering Intern at Fiserv. I build backend systems, APIs, event-driven workflows, and AI-assisted tools that make complex operations easier to track, understand, and improve.
+          </p>
+          <div class="hero__actions" aria-label="Primary actions">
+            <a class="button button--primary" href="Shelton Bumhe....pdf" target="_blank" rel="noreferrer">View Resume <span aria-hidden="true">↗</span></a>
+            <a class="button button--secondary" href="#systems">Explore Systems <span aria-hidden="true">↓</span></a>
+            <a class="button button--secondary" href="#ask-shelton">Ask Shelton AI <span aria-hidden="true">✦</span></a>
+            <a class="text-link" href="#contact">Contact Me <span aria-hidden="true">→</span></a>
           </div>
-          <div class="hero__signals">
-            <div class="hero__signal">
-              <span class="hero__signal-label">Expected Graduation</span>
-              <strong>December 2027</strong>
-            </div>
-            <div class="hero__signal">
-              <span class="hero__signal-label">Current Focus</span>
-              <strong>APIs, platform thinking, and ML tools</strong>
-            </div>
-          </div>
+          <p class="hero__identity"><span aria-hidden="true">//</span> I like turning unclear workflows into clear software.</p>
         </div>
 
+        <div class="hero-system" aria-label="A system flow from raw events to useful software">
+          <div class="system-window__top">
+            <div><i></i><i></i><i></i></div>
+            <span>workflow.map</span>
+            <small>LIVE</small>
+          </div>
+          <div class="system-flow">
+            <div class="system-node system-node--source">
+              <span class="system-node__number">01</span>
+              <div><small>INPUT</small><strong>Messy events</strong></div>
+              <i class="node-status"></i>
+            </div>
+            <div class="system-connector"><span>capture</span></div>
+            <div class="system-node">
+              <span class="system-node__number">02</span>
+              <div><small>SERVICE</small><strong>Structure + rules</strong></div>
+              <i class="node-status"></i>
+            </div>
+            <div class="system-connector"><span>persist</span></div>
+            <div class="system-node">
+              <span class="system-node__number">03</span>
+              <div><small>OUTPUT</small><strong>Clear product</strong></div>
+              <i class="node-status"></i>
+            </div>
+          </div>
+          <div class="event-console" aria-hidden="true">
+            <div><span>09:42:17</span><code>event.received</code><b>200</b></div>
+            <div><span>09:42:18</span><code>rules.applied</code><b>200</b></div>
+            <div><span>09:42:18</span><code>record.indexed</code><b>200</b></div>
+          </div>
+          <div class="system-result">
+            <span>System state</span>
+            <strong><i></i> Searchable & trackable</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="quick-links section-shell" aria-label="Professional links">
+        <span>Find me online</span>
+        <a href="https://github.com/SheltonSB" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+        <a href="https://www.linkedin.com/in/shelton-bumhe-027476312/" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a>
+        <a href="mailto:sbumhe2@huskers.unl.edu">Email <span>↗</span></a>
+        <a href="Shelton Bumhe....pdf" target="_blank" rel="noreferrer">Resume <span>↗</span></a>
       </div>
     </header>
 
-    <main>
-      <section class="about section-shell" id="about">
+    <main id="main-content">
+      <section class="experience section-shell section-space" id="experience">
         <div class="section-heading-wrap">
-          <span class="section-kicker">Profile</span>
-          <h2 class="section-heading">About</h2>
+          <div>
+            <span class="section-index">01 / EXPERIENCE</span>
+            <h2>Engineering shaped by the operation.</h2>
+          </div>
+          <p>My best work sits between backend engineering, product thinking, and real-world operations.</p>
         </div>
-        <div class="about__content">
-          <div class="profile-card">
-            <div class="profile-card__body">
-              <p class="profile__blurb">
-                I am a Computer Science student at the University of Nebraska-Lincoln building software projects that
-                show system judgment, clear implementation choices, and measurable outcomes.
-              </p>
-              <ul class="profile__focus">
-                <li>BS in Computer Science, GPA 3.5, expected December 2027.</li>
-                <li>Coursework in data structures, algorithms, discrete math, linear algebra, statistics, and software engineering.</li>
-                <li>Looking for internships where I can contribute to APIs, platform features, and technically rigorous product work.</li>
-              </ul>
+
+        <article class="experience-feature">
+          <div class="experience-feature__rail">
+            <span class="experience-status"><i></i> Current</span>
+            <span class="experience-company">FISERV</span>
+            <div class="vertical-line"></div>
+            <span class="experience-type">Enterprise systems</span>
+          </div>
+          <div class="experience-feature__content">
+            <div class="experience-title-row">
+              <div>
+                <p>Fiserv</p>
+                <h3>Software Engineering Intern</h3>
+              </div>
+              <span>Backend · Events · Data</span>
+            </div>
+            <p class="experience-lead">
+              I work on an enterprise file-tracking platform built to solve a visibility problem across large-scale file-processing workflows. Files move through multiple internal systems; teams need one clear way to see where a file is, what stage it is in, whether it failed, and how it connects to related files or jobs.
+            </p>
+            <div class="experience-detail-grid">
+              <div>
+                <span>What I build</span>
+                <p>Backend services that capture file events, convert them into structured records, apply business rules, preserve history, and expose search flows.</p>
+              </div>
+              <div>
+                <span>How teams use it</span>
+                <p>Teams can search by CID, file name, job number, client, and status to understand processing history and relationships.</p>
+              </div>
+              <div>
+                <span>Engineering approach</span>
+                <p>I also contributed to an AI-assisted development workflow for code structure, documentation, and business-rule validation—with final decisions kept under developer control.</p>
+              </div>
+            </div>
+            <div class="tech-row" aria-label="Fiserv technologies">
+              <span>Java</span><span>Spring Boot</span><span>Kafka</span><span>SQL</span><span>REST APIs</span><span>AI-assisted development</span>
             </div>
           </div>
+        </article>
 
-          <div class="skills-panel">
-            <div class="skills-panel__intro">
-              <span class="skills-panel__eyebrow">Technical Stack</span>
-              <h3>Tools I actually build with</h3>
-              <p>
-                These are the tools that show up consistently across my coursework, shipped projects, and technical interests.
-              </p>
+        <div class="experience-secondary">
+          <article>
+            <div class="experience-secondary__top"><span>2022—2023</span><small>02</small></div>
+            <p>Dominion College</p>
+            <h3>Software Developer & Math Tutor</h3>
+            <p>Built a Python and SQL tracking workflow to organize student records, tutoring activity, and progress reporting when manual processes made it difficult to see who needed help and where students were improving.</p>
+            <div class="tech-row"><span>Python</span><span>SQL</span><span>Reporting workflows</span></div>
+          </article>
+          <article>
+            <div class="experience-secondary__top"><span>PROFESSIONAL DEVELOPMENT</span><small>03</small></div>
+            <p>Management Leadership for Tomorrow</p>
+            <h3>MLT Career Prep Fellow</h3>
+            <p>Developing communication, leadership, technical interview preparation, networking, and product thinking in a high-accountability environment. That founder-minded perspective also informs Grand Pilot, my concept for connecting small businesses with mentors and experienced founders.</p>
+            <div class="tech-row"><span>Leadership</span><span>Product thinking</span><span>Technical interviews</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="systems section-space" id="systems">
+        <div class="section-shell">
+          <div class="section-heading-wrap">
+            <div>
+              <span class="section-index">02 / SELECTED SYSTEMS</span>
+              <h2>Systems I’ve Built Around Real Problems</h2>
             </div>
-            <div class="skills">
-              <div class="skills__row">
-                <div class="skills__item skills__item--html">
-                  <img src="logos/python.svg" alt="Python" />
-                  <div class="skills__item-copy">
-                    <strong class="skills__item-name">Python</strong>
-                    <span class="skills__item-meta">ML workflows, analytics, APIs</span>
-                  </div>
-                </div>
-                <div class="skills__item skills__item--webpack">
-                  <img src="logos/cpp.svg" alt="C# and .NET" />
-                  <div class="skills__item-copy">
-                    <strong class="skills__item-name">C# / .NET</strong>
-                    <span class="skills__item-meta">ASP.NET Core, EF Core, backend services</span>
-                  </div>
-                </div>
-                <div class="skills__item skills__item--js">
-                  <img src="logos/java.svg" alt="Java" />
-                  <div class="skills__item-copy">
-                    <strong class="skills__item-name">Java</strong>
-                    <span class="skills__item-meta">Object-oriented systems and coursework</span>
-                  </div>
-                </div>
-              </div>
-              <div class="skills__row">
-                <div class="skills__item skills__item--git">
-                  <img src="logos/sql.svg" alt="SQL" />
-                  <div class="skills__item-copy">
-                    <strong class="skills__item-name">SQL</strong>
-                    <span class="skills__item-meta">PostgreSQL, reporting, data flows</span>
-                  </div>
-                </div>
-                <div class="skills__item skills__item--sass">
-                  <img src="logos/javascript.svg" alt="JavaScript" />
-                  <div class="skills__item-copy">
-                    <strong class="skills__item-name">JavaScript</strong>
-                    <span class="skills__item-meta">Frontend interaction and tooling</span>
-                  </div>
-                </div>
-                <div class="skills__item skills__item--npm">
-                  <img src="logos/python.svg" alt="Machine learning" />
-                  <div class="skills__item-copy">
-                    <strong class="skills__item-name">TensorFlow / XGBoost</strong>
-                    <span class="skills__item-meta">Modeling, training, explainability</span>
-                  </div>
-                </div>
-              </div>
-              <div class="skills__row">
-                <div class="skills__item skills__item--python">
-                  <img src="logos/sql.svg" alt="Frameworks" />
-                  <div class="skills__item-copy">
-                    <strong class="skills__item-name">Spring / Django</strong>
-                    <span class="skills__item-meta">Backend patterns and APIs</span>
-                  </div>
-                </div>
-                <div class="skills__item skills__item--react">
-                  <img src="logos/java.svg" alt="Testing" />
-                  <div class="skills__item-copy">
-                    <strong class="skills__item-name">xUnit / JUnit</strong>
-                    <span class="skills__item-meta">Testing discipline and confidence</span>
-                  </div>
-                </div>
-                <div class="skills__item skills__item--r skills__item--css">
-                  <img src="logos/c.svg" alt="Systems tools" />
-                  <div class="skills__item-copy">
-                    <strong class="skills__item-name">EF Core / ASP.NET</strong>
-                    <span class="skills__item-meta">Data access, services, auth flows</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <p>I build with the user problem first, then choose the technology that fits.</p>
           </div>
 
-          <article class="skills-panel reading-panel">
-            <div class="skills-panel__intro">
-              <span class="skills-panel__eyebrow">Current Reading</span>
-              <h3>What I am studying right now</h3>
-              <p>
-                I use current reading to sharpen how I think about architecture, reliability, system tradeoffs, and the
-                engineering judgment behind the code.
-              </p>
-            </div>
-            <div class="reading-list">
-              <a href="https://www.amazon.com/System-Design-Interview-Insiders-Guide/dp/1736049119" target="_blank" rel="noreferrer" class="reading-list__item">
-                <span class="reading-list__label">System Design</span>
-                <strong>System Design Interview</strong>
-                <span class="reading-list__meta">Alex Xu</span>
-              </a>
-              <a href="https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/" target="_blank" rel="noreferrer" class="reading-list__item">
-                <span class="reading-list__label">Data Systems</span>
-                <strong>Designing Data-Intensive Applications</strong>
-                <span class="reading-list__meta">Martin Kleppmann</span>
-              </a>
-            </div>
-          </article>
+          <div class="systems-grid">
+            <article class="system-card system-card--featured">
+              <div class="system-card__header">
+                <div><span class="system-card__number">SYS.01</span><small>Enterprise workflow</small></div>
+                <span class="status-tag">IN PROGRESS</span>
+              </div>
+              <div class="system-card__main">
+                <div>
+                  <h3>Enterprise File Tracking Platform</h3>
+                  <p class="system-card__role">Backend development · Service design · Event modeling · Search/API logic</p>
+                </div>
+                <div class="mini-flow" aria-label="File tracking event flow">
+                  <span>File event</span><i></i><span>Kafka</span><i></i><span>Service</span><i></i><span>History</span><i></i><span>Search API</span>
+                </div>
+              </div>
+              <div class="system-card__details">
+                <div><span>Problem</span><p>File workflows become difficult to monitor when files cross several internal systems without one clear tracking view.</p></div>
+                <div><span>How it works</span><p>Events are captured, structured, stored, and exposed through APIs so teams can search by CID, file name, job number, client, and status.</p></div>
+                <div><span>Technology in context</span><p>Java and Spring Boot power service logic and APIs, Kafka carries event-driven updates, and SQL stores history, relationships, and processing details.</p></div>
+                <div><span>Value</span><p>Creates a clearer operational view of file state, failure points, processing history, and related work.</p></div>
+              </div>
+            </article>
+
+            <article class="system-card">
+              <div class="system-card__header">
+                <div><span class="system-card__number">SYS.02</span><small>Product concept</small></div>
+                <span class="status-tag status-tag--concept">CONCEPT</span>
+              </div>
+              <h3>Grand Pilot</h3>
+              <p class="system-card__subtitle">Small Business & Founder Connection Platform</p>
+              <dl>
+                <div><dt>Problem</dt><dd>Small business owners need practical guidance but may not have access to experienced founders, mentors, or trusted networks.</dd></div>
+                <div><dt>My role</dt><dd>Product concept, problem definition, user-flow planning, and platform strategy.</dd></div>
+                <div><dt>System flow</dt><dd>Discover a mentor → request a conversation → get guidance on growth, operations, or strategy.</dd></div>
+                <div><dt>Expected value</dt><dd>Makes founder knowledge and mentorship more accessible to small businesses.</dd></div>
+              </dl>
+            </article>
+
+            <article class="system-card">
+              <div class="system-card__header">
+                <div><span class="system-card__number">SYS.03</span><small>Operational workflow</small></div>
+                <span class="status-tag status-tag--built">BUILT</span>
+              </div>
+              <h3>Dominion Student Tracking</h3>
+              <p class="system-card__subtitle">A clearer workflow for student progress and tutoring activity</p>
+              <dl>
+                <div><dt>Problem</dt><dd>Manual tracking made it harder to review progress, attendance, tutoring notes, and performance updates.</dd></div>
+                <div><dt>My role</dt><dd>Designed and built the Python and SQL-based tracking workflow.</dd></div>
+                <div><dt>System flow</dt><dd>Student records and tutoring updates are organized into a consistent reporting process for staff review.</dd></div>
+                <div><dt>Value</dt><dd>Improved visibility into student progress and reduced the friction of manual tracking.</dd></div>
+              </dl>
+              <div class="tech-row"><span>Python</span><span>SQL</span><span>Data workflows</span></div>
+            </article>
+
+            <article class="system-card">
+              <div class="system-card__header">
+                <div><span class="system-card__number">SYS.04</span><small>Research exploration</small></div>
+                <span class="status-tag status-tag--research">RESEARCH</span>
+              </div>
+              <h3>AY Trucking Drone Inspection</h3>
+              <p class="system-card__subtitle">Exploring a more consistent vehicle inspection workflow</p>
+              <dl>
+                <div><dt>Problem</dt><dd>Truck and trailer inspections can be slow, repetitive, and inconsistent when completed only through manual walk-arounds.</dd></div>
+                <div><dt>My role</dt><dd>Research and product exploration.</dd></div>
+                <div><dt>System flow</dt><dd>A phone-controlled drone follows planned inspection checkpoints and captures images or video of key areas.</dd></div>
+                <div><dt>Expected value</dt><dd>Could reduce inspection time, improve documentation, and give operators better visibility.</dd></div>
+              </dl>
+            </article>
+
+            <article class="system-card system-card--product">
+              <div class="system-card__header">
+                <div><span class="system-card__number">SYS.05</span><small>Backend product</small></div>
+                <span class="status-tag status-tag--built">BUILT</span>
+              </div>
+              <h3>Retail Intelligence / E-commerce Platform</h3>
+              <p class="system-card__subtitle">A commerce system designed beyond basic CRUD</p>
+              <dl>
+                <div><dt>Problem</dt><dd>Commerce systems need reliable transactions, fast catalog reads, protected checkout paths, and a clear path to deployment.</dd></div>
+                <div><dt>My role</dt><dd>Full-stack development, API design, data modeling, caching, integrations, and deployment workflow.</dd></div>
+                <div><dt>System flow</dt><dd>React calls an ASP.NET Core API; PostgreSQL stores transactional data, Redis serves repeated reads, and Stripe and Cloudinary isolate payments and media concerns.</dd></div>
+                <div><dt>Value</dt><dd>Demonstrates production-minded decisions around caching, rate limiting, horizontal scaling, and delivery.</dd></div>
+              </dl>
+              <div class="tech-row"><span>C#</span><span>ASP.NET Core</span><span>React</span><span>PostgreSQL</span><span>Redis</span><span>Azure</span></div>
+              <div class="card-actions">
+                <button type="button" data-project-open="ecommerce">Architecture details</button>
+                <a href="https://github.com/SheltonBumhe/ecommerce-api" target="_blank" rel="noreferrer">GitHub ↗</a>
+              </div>
+            </article>
+
+            <article class="system-card system-card--ml">
+              <div class="system-card__header">
+                <div><span class="system-card__number">SYS.06</span><small>Machine learning product</small></div>
+                <span class="status-tag status-tag--built">BUILT</span>
+              </div>
+              <h3>NFL QB Touchdown Predictor</h3>
+              <p class="system-card__subtitle">Prediction paired with explanation and a usable interface</p>
+              <dl>
+                <div><dt>Problem</dt><dd>A prediction is less useful when users cannot understand the data behind it or the features influencing the result.</dd></div>
+                <div><dt>My role</dt><dd>Data preparation, feature engineering, model training, evaluation, explainability, and Streamlit delivery.</dd></div>
+                <div><dt>System flow</dt><dd>Historical game data is cleaned into model features, XGBoost predicts touchdown outcomes, and SHAP explains which inputs moved each result.</dd></div>
+                <div><dt>Demonstrates</dt><dd>How to connect a machine-learning pipeline to an interpretable, user-facing product rather than stop at a notebook.</dd></div>
+              </dl>
+              <div class="model-signal"><span>Reported model accuracy</span><strong>88%</strong><small>trained on 10,000+ plays</small></div>
+              <div class="tech-row"><span>Python</span><span>Pandas</span><span>XGBoost</span><span>SHAP</span><span>Streamlit</span></div>
+              <div class="card-actions">
+                <button type="button" data-project-open="nfl">Model details</button>
+                <a href="https://github.com/SheltonBumhe/machine-learning-nfl-touchdowns" target="_blank" rel="noreferrer">GitHub ↗</a>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
-      <section class="projects section-shell" id="projects">
+      <section class="skills section-shell section-space" id="skills">
         <div class="section-heading-wrap">
-          <span class="section-kicker">Selected Work</span>
-          <h2 class="section-heading">Projects</h2>
-          <p class="section-intro">
-            A few projects I know well and can walk through clearly.
-          </p>
+          <div>
+            <span class="section-index">03 / CAPABILITIES</span>
+            <h2>Tools organized by the work they do.</h2>
+          </div>
+          <p>I care about systems that are useful, not just impressive.</p>
         </div>
-
-        <div class="project-grid project-grid--stack">
-          <article class="project-card project-card--feature project-card--commerce-bento">
-            <div class="project-card__body">
-              <div class="project-card__meta">
-                <span>Backend Platform</span>
-                <span>Reliability</span>
-              </div>
-              <h3 class="project-card__title">Full-Stack E-Commerce</h3>
-              <p class="project-card__summary">
-                An e-commerce app built with .NET, React, PostgreSQL, Redis, and Azure. It gave me a good way to think through API design, checkout flow, caching, and how the system should scale.
-              </p>
-              <ul class="project-card__highlights">
-                <li>Used PostgreSQL for transactional data and Redis for common catalog reads so the app stays fast on repeated requests.</li>
-                <li>Worked through load balancing, rate limiting, and consistent hashing so I could talk about traffic spikes and scaling, not just a single local instance.</li>
-                <li>Added Stripe, Cloudinary, GitHub Actions, and Azure so payments, media, and deployment all worked inside one system.</li>
-              </ul>
-            </div>
-            <div class="project-card__visual project-card__visual--commerce">
-              <span class="project-card__visual-label">Interactive Prototype</span>
-              <div class="project-prototype" id="commerce-prototype">
-                <div class="project-prototype__toolbar">
-                  <button type="button" class="prototype-chip prototype-chip--active" data-commerce-view="browse">Browse</button>
-                  <button type="button" class="prototype-chip" data-commerce-view="checkout">Checkout</button>
-                  <button type="button" class="prototype-chip" data-commerce-view="peak">Peak Load</button>
-                </div>
-                <div class="prototype-metrics">
-                  <div class="prototype-metric">
-                    <span>Cache Hit Rate</span>
-                    <strong id="commerce-cache-hit">91%</strong>
-                  </div>
-                  <div class="prototype-metric">
-                    <span>P95 Latency</span>
-                    <strong id="commerce-latency">146ms</strong>
-                  </div>
-                  <div class="prototype-metric">
-                    <span>Protected Requests</span>
-                    <strong id="commerce-rate-limit">60/min</strong>
-                  </div>
-                </div>
-                <div class="prototype-bars">
-                  <div class="prototype-bar">
-                    <span>API Throughput</span>
-                    <div><i id="commerce-throughput-bar" style="width: 72%"></i></div>
-                  </div>
-                  <div class="prototype-bar">
-                    <span>Redis Utilization</span>
-                    <div><i id="commerce-cache-bar" style="width: 68%"></i></div>
-                  </div>
-                  <div class="prototype-bar">
-                    <span>Rate Limit Pressure</span>
-                    <div><i id="commerce-pressure-bar" style="width: 34%"></i></div>
-                  </div>
-                </div>
-                <p class="project-prototype__caption" id="commerce-caption">
-                  Browse mode leans on Redis for fast catalog reads before checkout traffic starts to climb.
-                </p>
-              </div>
-            </div>
-            <div class="project-card__actions project-card__actions--footer">
-              <button type="button" class="project-card__button project-card__button--primary" data-project-open="ecommerce">
-                View Details
-              </button>
-              <a href="https://github.com/SheltonBumhe/ecommerce-api" target="_blank" rel="noreferrer" class="project-card__button project-card__button--ghost">
-                GitHub
-              </a>
-            </div>
-          </article>
-
-          <article class="project-card project-card--feature project-card--nfl-bento">
-            <div class="project-card__body">
-              <div class="project-card__meta">
-                <span>Machine Learning</span>
-                <span>Explainability</span>
-              </div>
-              <h3 class="project-card__title">NFL QB Touchdown Predictor</h3>
-              <p class="project-card__summary">
-                An NFL touchdown predictor built with XGBoost, SHAP, and Streamlit. The goal was to make the predictions useful, explainable, and easy to explore.
-              </p>
-              <ul class="project-card__highlights">
-                <li>Trained on 10,000+ historical plays and reported 88% accuracy on the prediction task.</li>
-                <li>Used SHAP so each result could be tied back to the features that pushed it up or down.</li>
-                <li>Wrapped the model in Streamlit so it felt like a small product instead of a notebook.</li>
-              </ul>
-            </div>
-            <div class="project-card__visual project-card__visual--nfl">
-              <span class="project-card__visual-label">Scenario Explorer</span>
-              <div class="project-prototype project-prototype--nfl" id="nfl-prototype">
-                <div class="project-prototype__toolbar">
-                  <button type="button" class="prototype-chip prototype-chip--active" data-nfl-view="balanced">Balanced</button>
-                  <button type="button" class="prototype-chip" data-nfl-view="redzone">Red Zone</button>
-                  <button type="button" class="prototype-chip" data-nfl-view="upset">Upset Pick</button>
-                </div>
-                <div class="prediction-panel">
-                  <div>
-                    <span>Touchdown Probability</span>
-                    <strong id="nfl-probability">67%</strong>
-                  </div>
-                  <div>
-                    <span>Confidence</span>
-                    <strong id="nfl-confidence">High</strong>
-                  </div>
-                </div>
-                <div class="feature-stack" id="nfl-feature-stack">
-                  <div class="feature-pill"><span>Pass Rate</span><i style="width: 78%"></i></div>
-                  <div class="feature-pill"><span>Red Zone Usage</span><i style="width: 62%"></i></div>
-                  <div class="feature-pill"><span>Opponent Pressure</span><i style="width: 38%"></i></div>
-                </div>
-                <p class="project-prototype__caption" id="nfl-caption">
-                  The balanced view shows how the model weighs play tendency, red-zone usage, and pressure in one prediction.
-                </p>
-              </div>
-            </div>
-            <div class="project-card__actions project-card__actions--footer">
-              <button type="button" class="project-card__button project-card__button--primary" data-project-open="nfl">
-                View Details
-              </button>
-              <a href="https://github.com/SheltonBumhe/machine-learning-nfl-touchdowns" target="_blank" rel="noreferrer" class="project-card__button project-card__button--ghost">
-                GitHub
-              </a>
-            </div>
-          </article>
-
+        <div class="skills-grid">
+          <article><span class="skill-icon">{ }</span><div><h3>Backend</h3><p>Building APIs, service layers, business logic, and system workflows.</p><small>Java · Spring Boot · C# · ASP.NET Core · REST APIs · GraphQL</small></div></article>
+          <article><span class="skill-icon">DB</span><div><h3>Databases</h3><p>Designing schemas, relationships, indexes, and query flows for application data.</p><small>SQL Server · PostgreSQL · MySQL · Oracle · JPA · JDBC</small></div></article>
+          <article><span class="skill-icon">⇢</span><div><h3>Event-driven systems</h3><p>Modeling workflows as events and processing updates asynchronously.</p><small>Kafka · Event modeling · Workflow state</small></div></article>
+          <article><span class="skill-icon">UI</span><div><h3>Frontend</h3><p>Building clear interfaces that expose system capabilities to users.</p><small>React · JavaScript · TypeScript</small></div></article>
+          <article><span class="skill-icon">∞</span><div><h3>Cloud & DevOps</h3><p>Packaging, validating, and delivering software through repeatable workflows.</p><small>Docker · GitHub Actions · GitLab · Azure</small></div></article>
+          <article><span class="skill-icon">AI</span><div><h3>AI & Data</h3><p>Turning data into models, explanations, and developer-assisted workflows.</p><small>Python · Pandas · scikit-learn · Machine learning · AI-assisted tools</small></div></article>
         </div>
       </section>
 
-      <section class="experience section-shell" id="experience">
-        <div class="section-heading-wrap">
-          <span class="section-kicker">Experience</span>
-          <h2 class="section-heading">Experience</h2>
-          <p class="section-intro">
-            My experience blends software execution, teaching, and structured career development. Together, those roles sharpened both technical judgment and communication.
-          </p>
-        </div>
-
-        <div class="experience__timeline">
-          <article class="experience__item">
-            <header>
-              <h3>Software Developer &amp; Math Tutor</h3>
-              <p>Dominion College, Harare, Zimbabwe • February 2022 to August 2023</p>
-            </header>
-            <div class="experience__tags">
-              <span>Python</span>
-              <span>SQL</span>
-              <span>Reporting</span>
-              <span>Student Operations</span>
-              <span>Instruction</span>
+      <section class="assistant-section section-space" id="ask-shelton">
+        <div class="section-shell assistant-layout">
+          <div class="assistant-copy">
+            <span class="section-index">04 / PORTFOLIO ASSISTANT</span>
+            <h2>Ask Shelton AI</h2>
+            <p>A focused guide to my experience, projects, technical strengths, architecture decisions, and career goals. It answers from a structured portfolio knowledge base.</p>
+            <ul>
+              <li><span>01</span> Recruiter-friendly summaries</li>
+              <li><span>02</span> System and architecture context</li>
+              <li><span>03</span> Project-specific technical detail</li>
+            </ul>
+          </div>
+          <div class="agent-console">
+            <div class="agent-console__header">
+              <div class="agent-avatar" aria-hidden="true">S</div>
+              <div><strong>Ask Shelton AI</strong><span><i></i> Portfolio knowledge online</span></div>
+              <small>v1.0</small>
             </div>
-            <ul>
-              <li>Built a Python and SQL tracking workflow for 30+ students, which reduced manual data entry time by roughly 40% and made performance data easier to review week to week.</li>
-              <li>Created weekly reporting flows for academic performance, attendance patterns, and intervention follow-up so instructors could move from raw data to action faster.</li>
-              <li>Worked close to the academic side of the operation, turning day-to-day school processes into something more measurable and easier to maintain.</li>
-              <li>Supported a 99% pass rate through adaptive instruction in algebra and calculus, adjusting explanations to different learning styles instead of teaching one way to every student.</li>
-              <li>Balanced technical problem solving with direct communication, which strengthened how I explain systems, metrics, and tradeoffs to people who are not deeply technical.</li>
-            </ul>
-          </article>
-
-          <article class="experience__item">
-            <header>
-              <h3>Career Prep Fellow</h3>
-              <p>Management Leadership For Tomorrow • November 2025 to Present</p>
-            </header>
-            <div class="experience__tags">
-              <span>Leadership</span>
-              <span>Case Practice</span>
-              <span>Career Growth</span>
-              <span>Communication</span>
-              <span>Professional Strategy</span>
+            <div class="agent-chat-log" id="agent-chat-log" aria-live="polite"></div>
+            <div class="agent-suggestions" id="agent-suggestions" aria-label="Suggested questions">
+              <button type="button" class="agent-suggestion">What did Shelton build at Fiserv?</button>
+              <button type="button" class="agent-suggestion">What backend systems has Shelton worked on?</button>
+              <button type="button" class="agent-suggestion">Explain Grand Pilot.</button>
+              <button type="button" class="agent-suggestion">Why would Shelton be a strong software engineering intern?</button>
             </div>
-            <ul>
-              <li>Selected into an 18-month professional development program focused on coaching, technical readiness, leadership habits, and long-term career strategy.</li>
-              <li>Strengthening communication and structured thinking through case work, assessments, and high-accountability preparation that sharpens how I present technical ideas.</li>
-              <li>Using the program to build stronger judgment around collaboration, professional presence, and communicating impact clearly in high-stakes settings.</li>
-              <li>Gaining exposure to industry pathways and expectations through partner organizations including LinkedIn, Bloomberg, and Deloitte.</li>
-              <li>Applying that growth back into my portfolio by making project stories clearer, more technical, and easier to defend beyond surface-level feature lists.</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section class="involvement section-shell" id="involvement">
-        <div class="section-heading-wrap">
-          <span class="section-kicker">Involvement</span>
-          <h2 class="section-heading">Communities shaping how I grow</h2>
-          <p class="section-intro">
-            I keep this part focused. These two communities matter because they expand my network, perspective, and confidence as I keep building as an engineer.
-          </p>
-        </div>
-
-        <div class="community__grid">
-          <article class="community-card">
-            <span class="community-card__label">Tech Community</span>
-            <h3>ColorStack</h3>
-            <p>I am gaining peer support, mentorship, and a clearer view of how to grow from computer science student to industry engineer.</p>
-            <ul>
-              <li>What I am gaining: stronger mentorship, recruiter access, and a more informed view of early-career growth in tech.</li>
-              <li>What it adds: a network of students and professionals who understand the path into software engineering roles.</li>
-            </ul>
-            <a href="https://www.colorstack.org/about-us" target="_blank" rel="noreferrer" class="community-card__link">Visit ColorStack</a>
-          </article>
-
-          <article class="community-card">
-            <span class="community-card__label">Engineering Community</span>
-            <h3>NSBE</h3>
-            <p>I am gaining engineering community, leadership exposure, and a stronger sense of belonging inside technical spaces.</p>
-            <ul>
-              <li>What I am gaining: leadership opportunities, professional connections, and a broader engineering support system.</li>
-              <li>What it adds: a community that ties technical growth to service, excellence, and long-term career development.</li>
-            </ul>
-            <a href="https://nsbe.org/about/" target="_blank" rel="noreferrer" class="community-card__link">Visit NSBE</a>
-          </article>
-        </div>
-      </section>
-
-      <section class="contact section-shell" id="contact">
-        <div class="section-heading-wrap">
-          <span class="section-kicker">Contact</span>
-          <h2 class="section-heading">Contact</h2>
-          <p class="section-intro">
-            If you are hiring for software engineering internships, I would be glad to talk. I am especially interested in teams that value strong fundamentals, fast learning, and clear technical communication.
-          </p>
-        </div>
-
-        <div class="contact__content-grid">
-          <div class="contact__panel">
-            <div class="contact__links">
-              <a href="mailto:sbumhe2@huskers.unl.edu" class="contact-chip">
-                <div class="contact-chip__top">
-                  <span class="contact-chip__icon contact-chip__icon--email" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" focusable="false">
-                      <path d="M3 6.75A1.75 1.75 0 0 1 4.75 5h14.5A1.75 1.75 0 0 1 21 6.75v10.5A1.75 1.75 0 0 1 19.25 19H4.75A1.75 1.75 0 0 1 3 17.25zm1.8-.25L12 11.86 19.2 6.5zm14.7 1.22-6.95 5.18a.9.9 0 0 1-1.1 0L4.5 7.72v9.53c0 .14.11.25.25.25h14.5c.14 0 .25-.11.25-.25z"></path>
-                    </svg>
-                  </span>
-                  <span>Email</span>
-                </div>
-                <strong>sbumhe2@huskers.unl.edu</strong>
-              </a>
-
-              <a href="https://www.linkedin.com/in/shelton-bumhe-027476312/" target="_blank" rel="noreferrer" class="contact-chip">
-                <div class="contact-chip__top">
-                  <span class="contact-chip__icon contact-chip__icon--linkedin" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" focusable="false">
-                      <path d="M6.85 8.7A1.85 1.85 0 1 1 6.84 5a1.85 1.85 0 0 1 .01 3.7M5.5 10h2.7v8.5H5.5zm4.4 0h2.58v1.16h.04c.36-.65 1.24-1.34 2.56-1.34 2.74 0 3.25 1.8 3.25 4.13v4.55h-2.69v-4.04c0-.97-.02-2.2-1.34-2.2-1.34 0-1.55 1.05-1.55 2.13v4.11H9.9z"></path>
-                    </svg>
-                  </span>
-                  <span>LinkedIn</span>
-                </div>
-                <strong>Connect on LinkedIn</strong>
-              </a>
-
-              <a href="https://github.com/SheltonSB" target="_blank" rel="noreferrer" class="contact-chip">
-                <div class="contact-chip__top">
-                  <span class="contact-chip__icon contact-chip__icon--github" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" focusable="false">
-                      <path d="M12 2C6.48 2 2 6.6 2 12.26c0 4.53 2.87 8.37 6.85 9.73.5.1.68-.22.68-.49 0-.24-.01-1.03-.01-1.88-2.79.62-3.38-1.22-3.38-1.22-.46-1.2-1.11-1.52-1.11-1.52-.9-.64.07-.63.07-.63 1 .08 1.52 1.05 1.52 1.05.88 1.56 2.31 1.11 2.88.85.09-.66.35-1.11.63-1.37-2.23-.26-4.58-1.15-4.58-5.13 0-1.13.39-2.05 1.03-2.78-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.06A9.3 9.3 0 0 1 12 7.78a9.3 9.3 0 0 1 2.5.35c1.91-1.34 2.75-1.06 2.75-1.06.55 1.41.2 2.46.1 2.72.64.73 1.03 1.65 1.03 2.78 0 3.99-2.35 4.87-4.59 5.13.36.32.68.95.68 1.92 0 1.39-.01 2.5-.01 2.84 0 .27.18.59.69.49A10.27 10.27 0 0 0 22 12.26C22 6.6 17.52 2 12 2"></path>
-                    </svg>
-                  </span>
-                  <span>GitHub</span>
-                </div>
-                <strong>View GitHub Profile</strong>
-              </a>
-
-              <a href="tel:+13086633469" class="contact-chip">
-                <div class="contact-chip__top">
-                  <span class="contact-chip__icon contact-chip__icon--phone" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" focusable="false">
-                      <path d="M6.62 10.79a15.5 15.5 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.03-.24c1.13.38 2.34.58 3.56.58a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.4 21 3 13.6 3 4a1 1 0 0 1 1-1h3.48a1 1 0 0 1 1 1c0 1.22.2 2.43.58 3.56a1 1 0 0 1-.24 1.03z"></path>
-                    </svg>
-                  </span>
-                  <span>Call</span>
-                </div>
-                <strong>(308) 663-3469</strong>
-              </a>
-            </div>
-
-            <form class="contact__form" action="https://formspree.io/f/mzzbogwp" method="POST">
-              <input class="contact__form-name" type="text" name="name" placeholder="Name" required />
-              <input class="contact__form-email" type="email" name="email" placeholder="Email" required />
-              <textarea class="contact__form-message" name="message" placeholder="Message" required></textarea>
-              <div class="contact__form-error-submit">
-                <div class="form-error">
-                  <div class="form-error__name">Please enter your name.</div>
-                  <div class="form-error__email">Please enter a valid email.</div>
-                  <div class="form-error__msg">Please enter a message.</div>
-                </div>
-                <button type="button" class="contact__form-submit-2" id="form-submit">Send</button>
-              </div>
+            <form class="agent-form" id="agent-form">
+              <label class="sr-only" for="agent-input">Ask Shelton AI a question</label>
+              <input id="agent-input" autocomplete="off" placeholder="Ask about experience, systems, or strengths…" />
+              <button class="agent-form__submit" type="submit" aria-label="Send question">↗</button>
             </form>
+            <p class="agent-disclaimer">Structured demo · No personal data collected</p>
           </div>
+        </div>
+      </section>
+
+      <section class="contact section-shell section-space" id="contact">
+        <div class="contact-card">
+          <div class="contact-copy">
+            <span class="section-index">05 / CONTACT</span>
+            <h2>Let’s build something useful.</h2>
+            <p>I’m interested in software engineering opportunities where backend systems, real user problems, and strong engineering judgment matter.</p>
+            <div class="contact-links">
+              <a href="mailto:sbumhe2@huskers.unl.edu"><span>Email</span><strong>sbumhe2@huskers.unl.edu</strong></a>
+              <a href="https://www.linkedin.com/in/shelton-bumhe-027476312/" target="_blank" rel="noreferrer"><span>LinkedIn</span><strong>Connect with me ↗</strong></a>
+              <a href="https://github.com/SheltonSB" target="_blank" rel="noreferrer"><span>GitHub</span><strong>View my code ↗</strong></a>
+            </div>
+          </div>
+          <form class="contact__form" action="https://formspree.io/f/mzzbogwp" method="POST">
+            <div class="field-row">
+              <label>Name<input class="contact__form-name" type="text" name="name" autocomplete="name" required /></label>
+              <label>Email<input class="contact__form-email" type="email" name="email" autocomplete="email" required /></label>
+            </div>
+            <label>Message<textarea class="contact__form-message" name="message" rows="6" required></textarea></label>
+            <div class="form-errors" aria-live="polite">
+              <span class="form-error__name">Please enter your name.</span>
+              <span class="form-error__email">Please enter a valid email.</span>
+              <span class="form-error__msg">Please enter a message.</span>
+            </div>
+            <button class="contact__form-submit-2 button button--primary" type="submit" id="form-submit">Send message <span aria-hidden="true">↗</span></button>
+          </form>
         </div>
       </section>
     </main>
 
-    <div class="agent-widget">
-      <div class="agent-widget__prompt" aria-hidden="true">Ask about my projects</div>
-      <button
-        type="button"
-        class="agent-launcher"
-        id="agent-launcher"
-        aria-controls="agent-widget-panel"
-        aria-expanded="false"
-        aria-label="Open Ask Shelton AI"
-      >
-        <span class="agent-launcher__icon" aria-hidden="true">
-          <img src="assets/assistant-profile.jpg" alt="" />
-        </span>
-        <span class="agent-launcher__status" aria-hidden="true"></span>
-      </button>
-
-      <div class="agent-widget__panel" id="agent-widget-panel" hidden>
-        <div class="agent-widget__header">
-          <div class="agent-widget__identity">
-            <div class="agent-widget__avatar" aria-hidden="true">
-              <img src="assets/assistant-profile.jpg" alt="" />
-            </div>
-            <div>
-              <div class="agent-panel__eyebrow">Portfolio AI</div>
-              <h3 class="agent-panel__title">Ask Shelton AI</h3>
-            </div>
-          </div>
-          <button type="button" class="agent-widget__close" id="agent-widget-close" aria-label="Close Ask Shelton AI">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <p class="agent-panel__intro">
-          Ask about my projects, engineering strengths, books, experience, outside-school interests, or contact details. The knowledge is hardcoded for now and structured for an easy future AI backend swap.
-        </p>
-        <div class="agent-suggestions" id="agent-suggestions">
-          <button type="button" class="agent-suggestion">Summarize Shelton</button>
-          <button type="button" class="agent-suggestion">Explain the e-commerce architecture</button>
-          <button type="button" class="agent-suggestion">What makes the NFL project impressive?</button>
-          <button type="button" class="agent-suggestion">What does he do outside school?</button>
-        </div>
-        <div class="agent-chat" id="agent-chat-log" aria-live="polite"></div>
-        <form class="agent-form" id="agent-form">
-          <label class="sr-only" for="agent-input">Ask Shelton AI a question</label>
-          <input
-            class="agent-form__input"
-            id="agent-input"
-            type="text"
-            name="agent-question"
-            placeholder="Ask about Shelton, his projects, or technical focus"
-            autocomplete="off"
-          />
-          <button type="submit" class="agent-form__submit">Ask</button>
-        </form>
-      </div>
-    </div>
+    <footer class="footer section-shell">
+      <div><strong>Shelton Bumhe</strong><span>Software Engineer · Lincoln, Nebraska</span></div>
+      <p>Built around real problems. Designed for clarity.</p>
+      <a href="#hero">Back to top ↑</a>
+    </footer>
 
     <div class="project-modal" id="project-modal" hidden>
       <div class="project-modal__backdrop" data-project-close></div>
       <div class="project-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
-        <button type="button" class="project-modal__close" id="project-modal-close" aria-label="Close project details">
-          ×
-        </button>
+        <button type="button" class="project-modal__close" id="project-modal-close" aria-label="Close project details">×</button>
         <div class="project-modal__hero">
-          <div>
-            <span class="project-modal__eyebrow" id="project-modal-kicker"></span>
-            <h3 class="project-modal__title" id="project-modal-title"></h3>
-            <p class="project-modal__tagline" id="project-modal-tagline"></p>
-          </div>
+          <div><span class="project-modal__eyebrow" id="project-modal-kicker"></span><h3 id="project-modal-title"></h3><p id="project-modal-tagline"></p></div>
           <div class="project-modal__links" id="project-modal-links"></div>
         </div>
-
         <div class="project-modal__body">
-          <section class="project-modal__section">
-            <h4>Project Overview</h4>
-            <p id="project-modal-overview"></p>
-          </section>
-          <section class="project-modal__section">
-            <h4>Problem It Solves</h4>
-            <p id="project-modal-problem"></p>
-          </section>
-          <section class="project-modal__section">
-            <h4>Technologies Used</h4>
-            <div class="project-modal__chips" id="project-modal-technologies"></div>
-          </section>
-          <section class="project-modal__section">
-            <h4>Architecture / How It Works</h4>
-            <ul id="project-modal-architecture"></ul>
-          </section>
-          <section class="project-modal__section">
-            <h4>Key Features</h4>
-            <ul id="project-modal-features"></ul>
-          </section>
-          <section class="project-modal__section">
-            <h4>Challenges</h4>
-            <ul id="project-modal-challenges"></ul>
-          </section>
-          <section class="project-modal__section">
-            <h4>Impact / Why It Matters</h4>
-            <ul id="project-modal-impact"></ul>
-          </section>
-          <section class="project-modal__section">
-            <h4>Screenshots / Visual Space</h4>
-            <div class="project-modal__screens" id="project-modal-screens"></div>
-          </section>
+          <section><h4>Overview</h4><p id="project-modal-overview"></p></section>
+          <section><h4>Problem</h4><p id="project-modal-problem"></p></section>
+          <section><h4>Technologies</h4><div class="project-modal__chips" id="project-modal-technologies"></div></section>
+          <section><h4>How the system works</h4><ul id="project-modal-architecture"></ul></section>
+          <section><h4>Key capabilities</h4><ul id="project-modal-features"></ul></section>
+          <section><h4>Engineering challenges</h4><ul id="project-modal-challenges"></ul></section>
+          <section><h4>What it demonstrates</h4><ul id="project-modal-impact"></ul></section>
+          <div id="project-modal-screens" hidden></div>
         </div>
       </div>
     </div>
-
-    <footer class="footer">
-      <a href="#hero" class="return-home" aria-label="Back to top">
-        <svg viewBox="0 0 24 24" focusable="false">
-          <path d="M17.707 10.293l-5-5c-0.391-0.391-1.024-0.391-1.414 0l-5 5c-0.391 0.391-0.391 1.024 0 1.414s1.024 0.391 1.414 0l4.293-4.293 4.293 4.293c0.391 0.391 1.024 0.391 1.414 0s0.391-1.024 0-1.414zM17.707 17.293l-5-5c-0.391-0.391-1.024-0.391-1.414 0l-5 5c-0.391 0.391-0.391 1.024 0 1.414s1.024 0.391 1.414 0l4.293-4.293 4.293 4.293c0.391 0.391 1.024 0.391 1.414 0s0.391-1.024 0-1.414z"></path>
-        </svg>
-      </a>
-
-      <div class="socials">
-        <a href="https://github.com/SheltonSB" target="_blank" rel="noreferrer" class="icon-link icon-link--github" aria-label="GitHub">
-          <div class="socials__icon">
-            <svg viewBox="0 0 24 24" focusable="false">
-              <path d="M12 2C6.48 2 2 6.6 2 12.26c0 4.53 2.87 8.37 6.85 9.73.5.1.68-.22.68-.49 0-.24-.01-1.03-.01-1.88-2.79.62-3.38-1.22-3.38-1.22-.46-1.2-1.11-1.52-1.11-1.52-.9-.64.07-.63.07-.63 1 .08 1.52 1.05 1.52 1.05.88 1.56 2.31 1.11 2.88.85.09-.66.35-1.11.63-1.37-2.23-.26-4.58-1.15-4.58-5.13 0-1.13.39-2.05 1.03-2.78-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.06A9.3 9.3 0 0 1 12 7.78a9.3 9.3 0 0 1 2.5.35c1.91-1.34 2.75-1.06 2.75-1.06.55 1.41.2 2.46.1 2.72.64.73 1.03 1.65 1.03 2.78 0 3.99-2.35 4.87-4.59 5.13.36.32.68.95.68 1.92 0 1.39-.01 2.5-.01 2.84 0 .27.18.59.69.49A10.27 10.27 0 0 0 22 12.26C22 6.6 17.52 2 12 2"></path>
-            </svg>
-          </div>
-        </a>
-        <a href="https://www.linkedin.com/in/shelton-bumhe-027476312/" target="_blank" rel="noreferrer" class="icon-link icon-link--linkedin" aria-label="LinkedIn">
-          <div class="socials__icon">
-            <svg viewBox="0 0 24 24" focusable="false">
-              <path d="M6.85 8.7A1.85 1.85 0 1 1 6.84 5a1.85 1.85 0 0 1 .01 3.7M5.5 10h2.7v8.5H5.5zm4.4 0h2.58v1.16h.04c.36-.65 1.24-1.34 2.56-1.34 2.74 0 3.25 1.8 3.25 4.13v4.55h-2.69v-4.04c0-.97-.02-2.2-1.34-2.2-1.34 0-1.55 1.05-1.55 2.13v4.11H9.9z"></path>
-            </svg>
-          </div>
-        </a>
-        <a href="tel:+13086633469" class="icon-link icon-link--phone" aria-label="Call Shelton">
-          <div class="socials__icon">
-            <svg viewBox="0 0 24 24" focusable="false">
-              <path d="M6.62 10.79a15.5 15.5 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.03-.24c1.13.38 2.34.58 3.56.58a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.4 21 3 13.6 3 4a1 1 0 0 1 1-1h3.48a1 1 0 0 1 1 1c0 1.22.2 2.43.58 3.56a1 1 0 0 1-.24 1.03z"></path>
-            </svg>
-          </div>
-        </a>
-        <a href="mailto:sbumhe2@huskers.unl.edu" class="icon-link icon-link--email" aria-label="Email Shelton">
-          <div class="socials__icon">
-            <svg viewBox="0 0 24 24" focusable="false">
-              <path d="M3 6.75A1.75 1.75 0 0 1 4.75 5h14.5A1.75 1.75 0 0 1 21 6.75v10.5A1.75 1.75 0 0 1 19.25 19H4.75A1.75 1.75 0 0 1 3 17.25zm1.8-.25L12 11.86 19.2 6.5zm14.7 1.22-6.95 5.18a.9.9 0 0 1-1.1 0L4.5 7.72v9.53c0 .14.11.25.25.25h14.5c.14 0 .25-.11.25-.25z"></path>
-            </svg>
-          </div>
-        </a>
-      </div>
-
-      <p class="copyright">Shelton Bumhe ©2025</p>
-    </footer>
 
     <script src="agent-data.js"></script>
     <script src="Edit.js"></script>
