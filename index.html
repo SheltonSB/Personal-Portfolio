@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#07100d" />
+    <meta name="theme-color" content="#061224" />
     <meta
       name="description"
       content="Shelton Bumhe is a software engineer building backend systems, APIs, event-driven workflows, and AI-assisted tools for real-world operations."
@@ -27,10 +27,11 @@
           <i></i><i></i>
         </button>
         <div class="navigation-links" id="navigation-links">
-          <a href="#experience">Experience</a>
+          <a href="#hero">Home</a>
+          <a href="#about">About</a>
           <a href="#systems">Systems</a>
+          <a href="#experience">Experience</a>
           <a href="#skills">Skills</a>
-          <a href="#ask-shelton">Ask AI</a>
           <a href="#contact">Contact</a>
           <a class="nav-resume" href="Shelton Bumhe....pdf" target="_blank" rel="noreferrer">Resume <span aria-hidden="true">↗</span></a>
         </div>
@@ -38,8 +39,8 @@
 
       <div class="hero section-shell">
         <div class="hero__copy">
-          <div class="availability-pill"><span></span> Building systems for real operations</div>
-          <h1>Software Engineer building backend systems for <em>real-world operations.</em></h1>
+          <div class="availability-pill"><span></span> Turning workflow complexity into clear systems</div>
+          <h1>Software Engineer building systems for <em>real-world operations.</em></h1>
           <p class="hero__subtitle">
             I’m Shelton Bumhe, a Computer Science student at the University of Nebraska–Lincoln and Software Engineering Intern at Fiserv. I build backend systems, APIs, event-driven workflows, and AI-assisted tools that make complex operations easier to track, understand, and improve.
           </p>
@@ -99,13 +100,37 @@
     </header>
 
     <main id="main-content">
+      <section class="about section-shell section-space" id="about">
+        <div class="section-heading-wrap">
+          <div>
+            <span class="section-index">01 / ABOUT</span>
+            <h2>I build software that makes operational work easier to see.</h2>
+          </div>
+          <p>My best work sits between backend engineering, product thinking, and real-world operations.</p>
+        </div>
+        <div class="about-grid">
+          <article class="about-statement">
+            <span class="about-label">Core approach</span>
+            <p>I start with the workflow: who needs visibility, what information is missing, where work slows down, and which system boundary should own the fix. Then I choose the technology that fits.</p>
+            <div class="about-principle"><i>01</i><span>Understand the real user and operational constraint.</span></div>
+            <div class="about-principle"><i>02</i><span>Model the workflow clearly across services, events, and data.</span></div>
+            <div class="about-principle"><i>03</i><span>Build an interface that makes system state useful.</span></div>
+          </article>
+          <aside class="about-profile" aria-label="Education and engineering focus">
+            <div><span>Education</span><strong>University of Nebraska–Lincoln</strong><small>B.S. Computer Science · Expected December 2027</small></div>
+            <div><span>Current role</span><strong>Software Engineering Intern</strong><small>Fiserv · Enterprise workflow systems</small></div>
+            <div><span>Engineering focus</span><strong>Backend systems & APIs</strong><small>Events · Data modeling · Product workflows</small></div>
+          </aside>
+        </div>
+      </section>
+
       <section class="experience section-shell section-space" id="experience">
         <div class="section-heading-wrap">
           <div>
-            <span class="section-index">01 / EXPERIENCE</span>
+            <span class="section-index">02 / EXPERIENCE</span>
             <h2>Engineering shaped by the operation.</h2>
           </div>
-          <p>My best work sits between backend engineering, product thinking, and real-world operations.</p>
+          <p>Experience across enterprise backend work, operational data workflows, teaching, and leadership development.</p>
         </div>
 
         <article class="experience-feature">
@@ -124,22 +149,16 @@
               <span>Backend · Events · Data</span>
             </div>
             <p class="experience-lead">
-              I work on an enterprise file-tracking platform built to solve a visibility problem across large-scale file-processing workflows. Files move through multiple internal systems; teams need one clear way to see where a file is, what stage it is in, whether it failed, and how it connects to related files or jobs.
+              Working on an enterprise file-tracking platform built to solve visibility gaps across large-scale file-processing workflows. I contribute to backend services, event modeling, business-rule validation, SQL data modeling, and searchable APIs that help teams understand file movement, status, failures, and relationships across internal systems.
             </p>
-            <div class="experience-detail-grid">
-              <div>
-                <span>What I build</span>
-                <p>Backend services that capture file events, convert them into structured records, apply business rules, preserve history, and expose search flows.</p>
-              </div>
-              <div>
-                <span>How teams use it</span>
-                <p>Teams can search by CID, file name, job number, client, and status to understand processing history and relationships.</p>
-              </div>
-              <div>
-                <span>Engineering approach</span>
-                <p>I also contributed to an AI-assisted development workflow for code structure, documentation, and business-rule validation—with final decisions kept under developer control.</p>
-              </div>
-            </div>
+            <ul class="experience-bullets">
+              <li>Contributed to backend services for a platform designed to process and monitor up to <strong>1M file events per day</strong>.</li>
+              <li>Helped model file movement, processing status, failures, and relationships using structured events and SQL-backed tracking records.</li>
+              <li>Used Java and Spring Boot to support service-layer logic, API behavior, and business-rule validation for searchable file workflows.</li>
+              <li>Supported event-driven architecture planning using Kafka concepts for scalable, asynchronous file updates.</li>
+              <li>Contributed to an AI-assisted development workflow for code structure, documentation, and alignment with engineering standards.</li>
+              <li>Connected technical design to faster issue detection and potential savings of up to <strong>$100K per month</strong> in manual investigation and processing expenses.</li>
+            </ul>
             <div class="tech-row" aria-label="Fiserv technologies">
               <span>Java</span><span>Spring Boot</span><span>Kafka</span><span>SQL</span><span>REST APIs</span><span>AI-assisted development</span>
             </div>
@@ -168,8 +187,8 @@
         <div class="section-shell">
           <div class="section-heading-wrap">
             <div>
-              <span class="section-index">02 / SELECTED SYSTEMS</span>
-              <h2>Systems I’ve Built Around Real Problems</h2>
+              <span class="section-index">03 / SELECTED SYSTEMS</span>
+              <h2>Systems Built Around Real Problems</h2>
             </div>
             <p>I build with the user problem first, then choose the technology that fits.</p>
           </div>
@@ -177,24 +196,31 @@
           <div class="systems-grid">
             <article class="system-card system-card--featured">
               <div class="system-card__header">
-                <div><span class="system-card__number">SYS.01</span><small>Enterprise workflow</small></div>
-                <span class="status-tag">IN PROGRESS</span>
+                <div><span class="system-card__number">SYS.01</span><small>Enterprise workflow visibility</small></div>
+                <div class="featured-chips"><span class="status-tag">ENTERPRISE SCALE</span><span class="status-tag">EVENT DRIVEN</span><span class="status-tag">AI WORKFLOW</span></div>
               </div>
               <div class="system-card__main">
                 <div>
-                  <h3>Enterprise File Tracking Platform</h3>
-                  <p class="system-card__role">Backend development · Service design · Event modeling · Search/API logic</p>
+                  <h3>Fiserv Enterprise File Tracking Platform</h3>
+                  <p class="system-card__role">Software Engineering Intern · Backend services · Event modeling · Search APIs</p>
                 </div>
                 <div class="mini-flow" aria-label="File tracking event flow">
-                  <span>File event</span><i></i><span>Kafka</span><i></i><span>Service</span><i></i><span>History</span><i></i><span>Search API</span>
+                  <span>File Event</span><i></i><span>Business Rules</span><i></i><span>SQL History</span><i></i><span>Search API</span><i></i><span>Dashboard</span>
                 </div>
               </div>
-              <div class="system-card__details">
-                <div><span>Problem</span><p>File workflows become difficult to monitor when files cross several internal systems without one clear tracking view.</p></div>
-                <div><span>How it works</span><p>Events are captured, structured, stored, and exposed through APIs so teams can search by CID, file name, job number, client, and status.</p></div>
-                <div><span>Technology in context</span><p>Java and Spring Boot power service logic and APIs, Kafka carries event-driven updates, and SQL stores history, relationships, and processing details.</p></div>
-                <div><span>Value</span><p>Creates a clearer operational view of file state, failure points, processing history, and related work.</p></div>
+              <div class="fiserv-metrics" aria-label="Fiserv platform scale and value">
+                <div><strong>1M</strong><span>file events / day</span></div>
+                <div><strong>$100K</strong><span>potential savings / month</span></div>
+                <div><strong>CID → status</strong><span>search across file, job, client, and stage</span></div>
               </div>
+              <div class="featured-case-grid">
+                <div><span>Problem</span><p>Large-scale file workflows become difficult to monitor when files move across multiple internal systems without one tracking view. Teams need to see state, failures, relationships, and downstream processing.</p></div>
+                <div><span>What I worked on</span><p>I contributed to the design of backend services that capture file events, apply business rules, store processing history, and expose searchable tracking data for operational visibility.</p></div>
+                <div><span>How the system works</span><p>File updates become consistent records, persist in a relational database, and flow through APIs so teams can search by CID, file name, job number, client, status, and processing stage.</p></div>
+                <div><span>Technologies used</span><p>Java and Spring Boot support service logic, API endpoints, validation, and workflow handling. Kafka concepts support asynchronous event planning. SQL models history, reconciliation details, relationships, and reporting data. An internal AI workflow supports code structure and documentation.</p></div>
+                <div class="featured-case-grid__wide"><span>Scale / impact</span><p>Designed around up to 1M file events per day. The platform aims to reduce manual investigation and help teams detect missing, delayed, failed, or misrouted files faster—with potential operational savings of up to $100K per month.</p></div>
+              </div>
+              <div class="tech-row system-tags"><span>Java</span><span>Spring Boot</span><span>Kafka</span><span>SQL</span><span>APIs</span><span>Enterprise Systems</span><span>AI-Assisted Development</span></div>
             </article>
 
             <article class="system-card">
@@ -203,13 +229,15 @@
                 <span class="status-tag status-tag--concept">CONCEPT</span>
               </div>
               <h3>Grand Pilot</h3>
-              <p class="system-card__subtitle">Small Business & Founder Connection Platform</p>
+              <p class="system-card__subtitle">Founder & Small Business Connection Platform</p>
               <dl>
-                <div><dt>Problem</dt><dd>Small business owners need practical guidance but may not have access to experienced founders, mentors, or trusted networks.</dd></div>
-                <div><dt>My role</dt><dd>Product concept, problem definition, user-flow planning, and platform strategy.</dd></div>
-                <div><dt>System flow</dt><dd>Discover a mentor → request a conversation → get guidance on growth, operations, or strategy.</dd></div>
-                <div><dt>Expected value</dt><dd>Makes founder knowledge and mentorship more accessible to small businesses.</dd></div>
+                <div><dt>Problem</dt><dd>Many small business owners need practical guidance but do not always have access to experienced founders, mentors, or trusted networks.</dd></div>
+                <div><dt>What I worked on</dt><dd>Defined the product concept, user problem, platform flow, and mentorship connection model.</dd></div>
+                <div><dt>How it works</dt><dd>Owners discover founders and mentors, request conversations, and receive guidance on growth, operations, and strategy.</dd></div>
+                <div><dt>Methods used</dt><dd>Product thinking and user research shape the discovery, matching, request, and conversation flows before implementation.</dd></div>
+                <div><dt>Expected value</dt><dd>Makes founder knowledge and practical mentorship more accessible to small businesses.</dd></div>
               </dl>
+              <div class="tech-row system-tags"><span>Product Thinking</span><span>Entrepreneurship</span><span>Mentorship Platform</span><span>User Research</span></div>
             </article>
 
             <article class="system-card">
@@ -221,26 +249,29 @@
               <p class="system-card__subtitle">A clearer workflow for student progress and tutoring activity</p>
               <dl>
                 <div><dt>Problem</dt><dd>Manual tracking made it harder to review progress, attendance, tutoring notes, and performance updates.</dd></div>
-                <div><dt>My role</dt><dd>Designed and built the Python and SQL-based tracking workflow.</dd></div>
-                <div><dt>System flow</dt><dd>Student records and tutoring updates are organized into a consistent reporting process for staff review.</dd></div>
-                <div><dt>Value</dt><dd>Improved visibility into student progress and reduced the friction of manual tracking.</dd></div>
+                <div><dt>What I worked on</dt><dd>Built the Python and SQL-based tracking workflow for student records, tutoring activity, and weekly progress reports.</dd></div>
+                <div><dt>How it works</dt><dd>Python organizes updates into a consistent reporting flow while SQL stores structured student and tutoring records for review.</dd></div>
+                <div><dt>Technologies used</dt><dd>Python handled record processing and report workflows; SQL made progress and tutoring data consistent and queryable.</dd></div>
+                <div><dt>Impact</dt><dd>Reduced manual tracking effort and made student progress easier for staff to review.</dd></div>
               </dl>
-              <div class="tech-row"><span>Python</span><span>SQL</span><span>Data workflows</span></div>
+              <div class="tech-row system-tags"><span>Python</span><span>SQL</span><span>Reporting</span><span>Education Technology</span></div>
             </article>
 
             <article class="system-card">
               <div class="system-card__header">
-                <div><span class="system-card__number">SYS.04</span><small>Research exploration</small></div>
+                <div><span class="system-card__number">SYS.04</span><small>Operations platform concept</small></div>
                 <span class="status-tag status-tag--research">RESEARCH</span>
               </div>
-              <h3>AY Trucking Drone Inspection</h3>
-              <p class="system-card__subtitle">Exploring a more consistent vehicle inspection workflow</p>
+              <h3>AY Logistics Drone Inspection Platform</h3>
+              <p class="system-card__subtitle">A visual workflow for safer, more consistent vehicle inspections</p>
               <dl>
                 <div><dt>Problem</dt><dd>Truck and trailer inspections can be slow, repetitive, and inconsistent when completed only through manual walk-arounds.</dd></div>
-                <div><dt>My role</dt><dd>Research and product exploration.</dd></div>
-                <div><dt>System flow</dt><dd>A phone-controlled drone follows planned inspection checkpoints and captures images or video of key areas.</dd></div>
-                <div><dt>Expected value</dt><dd>Could reduce inspection time, improve documentation, and give operators better visibility.</dd></div>
+                <div><dt>What I worked on</dt><dd>Designed a drone-based inspection workflow with React dashboard and Python/FastAPI backend planning.</dd></div>
+                <div><dt>How it works</dt><dd>Operators manage inspections, review drone-captured images, tag issues, track vehicle history, and follow up on maintenance.</dd></div>
+                <div><dt>Technologies planned</dt><dd>React structures the operations dashboard; Python and FastAPI define the planned inspection and image-data services; computer vision remains an exploration area.</dd></div>
+                <div><dt>Expected value</dt><dd>Could reduce inspection time, improve documentation, and give logistics teams better maintenance visibility.</dd></div>
               </dl>
+              <div class="tech-row system-tags"><span>React Dashboard</span><span>Python</span><span>FastAPI</span><span>Computer Vision</span><span>Operations</span></div>
             </article>
 
             <article class="system-card system-card--product">
@@ -252,9 +283,10 @@
               <p class="system-card__subtitle">A commerce system designed beyond basic CRUD</p>
               <dl>
                 <div><dt>Problem</dt><dd>Commerce systems need reliable transactions, fast catalog reads, protected checkout paths, and a clear path to deployment.</dd></div>
-                <div><dt>My role</dt><dd>Full-stack development, API design, data modeling, caching, integrations, and deployment workflow.</dd></div>
-                <div><dt>System flow</dt><dd>React calls an ASP.NET Core API; PostgreSQL stores transactional data, Redis serves repeated reads, and Stripe and Cloudinary isolate payments and media concerns.</dd></div>
-                <div><dt>Value</dt><dd>Demonstrates production-minded decisions around caching, rate limiting, horizontal scaling, and delivery.</dd></div>
+                <div><dt>What I worked on</dt><dd>Built the user workflows, API and business-logic layers, relational data model, caching strategy, integrations, and deployment workflow.</dd></div>
+                <div><dt>How it works</dt><dd>React handles catalog, cart, authentication, and checkout interactions. ASP.NET Core owns business logic and APIs, while PostgreSQL persists products, users, and orders.</dd></div>
+                <div><dt>Technologies used</dt><dd>Redis reduces repeated catalog reads; Stripe isolates payment processing; Cloudinary manages product media; GitHub Actions and Azure support delivery.</dd></div>
+                <div><dt>Impact</dt><dd>Demonstrates production-minded decisions around caching, protected routes, horizontal scaling, and release automation.</dd></div>
               </dl>
               <div class="tech-row"><span>C#</span><span>ASP.NET Core</span><span>React</span><span>PostgreSQL</span><span>Redis</span><span>Azure</span></div>
               <div class="card-actions">
@@ -272,9 +304,10 @@
               <p class="system-card__subtitle">Prediction paired with explanation and a usable interface</p>
               <dl>
                 <div><dt>Problem</dt><dd>A prediction is less useful when users cannot understand the data behind it or the features influencing the result.</dd></div>
-                <div><dt>My role</dt><dd>Data preparation, feature engineering, model training, evaluation, explainability, and Streamlit delivery.</dd></div>
-                <div><dt>System flow</dt><dd>Historical game data is cleaned into model features, XGBoost predicts touchdown outcomes, and SHAP explains which inputs moved each result.</dd></div>
-                <div><dt>Demonstrates</dt><dd>How to connect a machine-learning pipeline to an interpretable, user-facing product rather than stop at a notebook.</dd></div>
+                <div><dt>What I worked on</dt><dd>Handled data preparation, feature engineering, model training, evaluation, explainability, and the Streamlit product interface.</dd></div>
+                <div><dt>How it works</dt><dd>Historical game data becomes model features, XGBoost predicts touchdown outcomes, and SHAP shows which inputs pushed each result.</dd></div>
+                <div><dt>Technologies used</dt><dd>Pandas supports cleaning and feature preparation; XGBoost performs classification; SHAP adds model explanation; Streamlit exposes the workflow to users.</dd></div>
+                <div><dt>Demonstrates</dt><dd>How to connect an ML pipeline to an interpretable, user-facing product instead of stopping at a notebook.</dd></div>
               </dl>
               <div class="model-signal"><span>Reported model accuracy</span><strong>88%</strong><small>trained on 10,000+ plays</small></div>
               <div class="tech-row"><span>Python</span><span>Pandas</span><span>XGBoost</span><span>SHAP</span><span>Streamlit</span></div>
@@ -290,7 +323,7 @@
       <section class="skills section-shell section-space" id="skills">
         <div class="section-heading-wrap">
           <div>
-            <span class="section-index">03 / CAPABILITIES</span>
+            <span class="section-index">04 / CAPABILITIES</span>
             <h2>Tools organized by the work they do.</h2>
           </div>
           <p>I care about systems that are useful, not just impressive.</p>
@@ -308,7 +341,7 @@
       <section class="assistant-section section-space" id="ask-shelton">
         <div class="section-shell assistant-layout">
           <div class="assistant-copy">
-            <span class="section-index">04 / PORTFOLIO ASSISTANT</span>
+            <span class="section-index">05 / PORTFOLIO ASSISTANT</span>
             <h2>Ask Shelton AI</h2>
             <p>A focused guide to my experience, projects, technical strengths, architecture decisions, and career goals. It answers from a structured portfolio knowledge base.</p>
             <ul>
@@ -343,7 +376,7 @@
       <section class="contact section-shell section-space" id="contact">
         <div class="contact-card">
           <div class="contact-copy">
-            <span class="section-index">05 / CONTACT</span>
+            <span class="section-index">06 / CONTACT</span>
             <h2>Let’s build something useful.</h2>
             <p>I’m interested in software engineering opportunities where backend systems, real user problems, and strong engineering judgment matter.</p>
             <div class="contact-links">

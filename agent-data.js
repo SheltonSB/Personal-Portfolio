@@ -193,7 +193,7 @@ window.portfolioAgentData = {
     {
       matchAny: ['resume', 'cv'],
       answer:
-        "Use the Download Resume button in the hero section to grab Shelton's latest PDF. The portfolio also mirrors the same education, project, experience, and leadership points in a cleaner web format.",
+        "Use the View Resume button in the hero section to open Shelton's latest PDF. The portfolio also summarizes the same education, project, experience, and leadership story in a recruiter-friendly format.",
       followUp: 'Do you want a quick summary or a project deep dive?',
     },
     {
@@ -225,8 +225,8 @@ window.portfolioAgentData = {
         'At Fiserv, Shelton works on an enterprise file-tracking platform that gives teams clearer visibility into files moving across multiple internal systems.',
       highlights: [
         'He helps build Java and Spring Boot services that capture file events, structure records, apply business rules, preserve processing history, and expose search APIs.',
-        'Kafka supports event-driven updates, while SQL stores file history, relationships, and processing details.',
-        'Teams can find files by CID, file name, job number, client, and status, making operational state easier to understand.',
+        'He has supported architecture planning using Kafka concepts for scalable, asynchronous file updates, while SQL stores file history, relationships, reconciliation details, and processing state.',
+        'The platform is designed around up to 1M file events per day and potential savings of up to $100K per month by reducing manual investigation and helping teams detect missing, delayed, failed, or misrouted files faster.',
       ],
       followUp: 'Would you like the event flow, technology choices, or operational problem explained in more detail?',
     },
@@ -243,12 +243,36 @@ window.portfolioAgentData = {
       followUp: 'Would you like the user flow, product rationale, or expected value?',
     },
     {
+      id: 'ay-logistics',
+      keywords: ['ay logistics', 'drone', 'drone inspection', 'truck inspection', 'fastapi', 'computer vision'],
+      summary:
+        'AY Logistics Drone Inspection Platform is Shelton’s product and architecture exploration for making truck and trailer inspections more consistent and easier to document.',
+      highlights: [
+        'The planned React dashboard lets operators manage inspections, review drone-captured images, tag issues, track vehicle history, and follow up on maintenance.',
+        'Python and FastAPI define the planned backend service layer, while computer vision remains an exploration area rather than a claimed completed capability.',
+        'The expected value is faster inspections, clearer documentation, and better maintenance visibility for logistics operations.',
+      ],
+      followUp: 'Would you like the workflow, planned architecture, or operational value?',
+    },
+    {
+      id: 'dominion-tracking',
+      keywords: ['dominion', 'student tracking', 'tutoring workflow', 'education technology', 'progress reports'],
+      summary:
+        'At Dominion College, Shelton built a Python and SQL workflow that organized student records, tutoring activity, and weekly progress reporting.',
+      highlights: [
+        'Python handled record processing and reporting workflows, while SQL made student and tutoring data structured and queryable.',
+        'The system addressed manual tracking that made it difficult to identify who needed help and where students were improving.',
+        'It reduced manual tracking effort and made progress easier for staff to review.',
+      ],
+      followUp: 'Would you like the data flow, technology choices, or tutoring context?',
+    },
+    {
       id: 'intern-fit',
       keywords: ['strong intern', 'software engineering intern', 'why hire', 'why would', 'candidate', 'internship fit', 'google'],
       summary:
         'Shelton would bring a combination of backend execution, operational problem framing, and clear technical communication to a software engineering internship.',
       highlights: [
-        'His Fiserv work exposes him to Java, Spring Boot, Kafka, SQL, event modeling, APIs, and enterprise workflow constraints.',
+        'His Fiserv work exposes him to Java, Spring Boot, SQL, event modeling, search APIs, Kafka-based architecture planning, and enterprise workflow constraints at a scale of up to 1M file events per day.',
         'His projects show range across backend platforms, machine learning, data workflows, and early product strategy without losing the user problem.',
         'Tutoring and MLT Career Prep strengthen his ability to explain technical ideas, take feedback, and work across technical and non-technical contexts.',
       ],
@@ -283,7 +307,7 @@ window.portfolioAgentData = {
       summary:
         "Shelton's experience combines enterprise backend engineering at Fiserv, operational software development and tutoring at Dominion College, and structured leadership development through MLT.",
       highlights: [
-        'At Fiserv he helps build an event-driven enterprise file-tracking platform with Java, Spring Boot, Kafka, SQL, and search APIs.',
+        'At Fiserv he contributes to an enterprise file-tracking platform with Java, Spring Boot, SQL, search APIs, and event-driven architecture planning using Kafka concepts.',
         'At Dominion College he built a Python and SQL tracking workflow for student records, tutoring activity, and progress reporting while also teaching algebra and calculus.',
         'Through MLT he is developing communication, leadership, technical interview preparation, networking, and product thinking in a high-accountability environment.',
       ],
