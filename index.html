@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#050505" />
     <meta
       name="description"
-      content="Shelton Bumhe is a Computer Science student and Software Engineering Intern building backend systems, dashboards, and tools for real business problems."
+      content="Shelton Bumhe is a Computer Science student and Software Engineer Intern building backend systems, data-driven tools, and operational platforms."
     />
     <title>Shelton Bumhe | Software Engineering Portfolio</title>
     <link rel="stylesheet" href="Style.css" />
@@ -43,6 +43,13 @@
         <circle cx="7" cy="18" r="2" />
         <circle cx="17" cy="18" r="2" />
       </symbol>
+      <symbol id="icon-brain" viewBox="0 0 24 24">
+        <path d="M9 4a4 4 0 0 0-4 4v1a4 4 0 0 0 0 6v1a4 4 0 0 0 7 2" />
+        <path d="M15 4a4 4 0 0 1 4 4v1a4 4 0 0 1 0 6v1a4 4 0 0 1-7 2" />
+        <path d="M12 5v14" />
+        <path d="M8 10h2" />
+        <path d="M14 10h2" />
+      </symbol>
       <symbol id="icon-send" viewBox="0 0 24 24">
         <path d="m21 3-8 18-3-8-8-3z" />
         <path d="m21 3-11 10" />
@@ -74,7 +81,7 @@
             <p class="eyebrow">HELLO, I'M</p>
             <h1>Shelton<br />Bumhe.</h1>
             <p class="hero-role">Computer Science Student &amp;<br />Software Engineer Intern</p>
-            <p class="hero-summary">I build backend systems, dashboards, and tools that solve real business problems.</p>
+            <p class="hero-summary">I build backend systems, data-driven tools, and operational platforms that make complex workflows easier to track, understand, and manage.</p>
             <div class="hero-actions" aria-label="Primary actions">
               <a class="btn btn-primary" href="projects.html">
                 <span>VIEW PROJECTS</span>
@@ -107,20 +114,23 @@
           <div class="work-grid">
             <a class="work-card" href="projects.html#file-tracking">
               <span class="icon-box"><svg><use href="#icon-file"></use></svg></span>
-              <h3>File Tracking System</h3>
-              <p>Enterprise file-tracking platform for monitoring file movement, status, and processing events.</p>
+              <h3>File Tracking Pipeline</h3>
+              <p>Backend system for tracking document movement, ingestion status, processing events, duplicates, failures, orphaned files, and reconciliation history across financial workflows.</p>
+              <div class="tag-row"><span>Java</span><span>Spring Boot</span><span>Kafka</span><span>Oracle</span><span>Redis</span></div>
               <span class="card-arrow" aria-hidden="true">-></span>
             </a>
-            <a class="work-card" href="projects.html#retail-intelligence">
-              <span class="icon-box"><svg><use href="#icon-bars"></use></svg></span>
-              <h3>Retail Intelligence Engine</h3>
-              <p>Full-stack analytics and inventory platform for retail operations.</p>
-              <span class="card-arrow" aria-hidden="true">-></span>
-            </a>
-            <a class="work-card" href="projects.html#dispatcheriq">
+            <a class="work-card" href="projects.html#drone-inspection">
               <span class="icon-box"><svg><use href="#icon-truck"></use></svg></span>
-              <h3>DispatcherIQ</h3>
-              <p>Operations platform for trucking companies to centralize fleet and dispatch workflows.</p>
+              <h3>Drone-Based Truck Inspection Platform</h3>
+              <p>Fleet inspection platform designed with AY Logistics to help teams capture inspection evidence, review issues, and manage maintenance follow-ups.</p>
+              <div class="tag-row"><span>React</span><span>Python</span><span>FastAPI</span><span>PostgreSQL</span></div>
+              <span class="card-arrow" aria-hidden="true">-></span>
+            </a>
+            <a class="work-card" href="projects.html#grantpilot">
+              <span class="icon-box"><svg><use href="#icon-brain"></use></svg></span>
+              <h3>GrantPilot AI Grant Success Platform</h3>
+              <p>AI-powered platform that matches underserved founders with relevant grant opportunities and helps track funding pipelines.</p>
+              <div class="tag-row"><span>RAG</span><span>Python</span><span>AI Matching</span><span>Product Strategy</span></div>
               <span class="card-arrow" aria-hidden="true">-></span>
             </a>
           </div>
@@ -134,19 +144,19 @@
           <article class="experience-preview">
             <div class="company-logo">fiserv.</div>
             <div class="preview-title">
-              <h3>Software Engineering Intern</h3>
+              <h3>Software Engineer Intern</h3>
               <p>Fiserv</p>
-              <span>Jun 2026 &ndash; Aug 2026</span>
+              <span>May 2026 &ndash; Present</span>
             </div>
-            <p>Building an end-to-end file tracking proof of concept to improve visibility into enterprise file movement and status.</p>
+            <p>Working on a high-throughput file tracking pipeline that monitors document movement, ingestion status, processing history, duplicate files, failures, orphaned files, and reconciliation events across distributed financial systems.</p>
           </article>
         </section>
 
         <section class="contact-cta" id="contact" aria-label="Contact Shelton">
           <div class="cta-icon"><svg><use href="#icon-send"></use></svg></div>
           <div>
-            <h2>Let's build something great together.</h2>
-            <p>I'm always open to new opportunities and interesting projects.</p>
+            <h2>Let's build something useful.</h2>
+            <p>I'm interested in backend engineering, distributed systems, data platforms, and tools that solve real operational problems.</p>
           </div>
           <a class="btn btn-outline" href="mailto:sbumhe2@huskers.unl.edu">CONTACT ME</a>
         </section>

@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#050505" />
     <meta
       name="description"
-      content="Projects by Shelton Bumhe, including backend systems, retail analytics, dispatch tools, inventory management, and machine learning work."
+      content="Project case studies by Shelton Bumhe, including file tracking pipelines, fleet inspection tools, AI grant matching, and data-driven platforms."
     />
     <title>Projects | Shelton Bumhe</title>
     <link rel="stylesheet" href="Style.css" />
@@ -74,109 +74,185 @@
       <main id="main-content" class="page-content">
         <section class="page-intro">
           <h1>Projects</h1>
-          <p>Here are some of the projects I've worked on. Each one solved a real problem.</p>
+          <p>A closer look at the systems, platforms, and tools I've worked on, with emphasis on the problem, engineering approach, and outcome.</p>
         </section>
 
-        <section class="project-list" aria-label="Project list">
-          <article class="project-card" id="file-tracking">
-            <div class="project-icon"><svg><use href="#icon-file"></use></svg></div>
-            <div class="project-copy">
-              <h2>File Tracking System</h2>
-              <p>Enterprise file-tracking platform for monitoring file movement, status, processing history, and missing file alerts across multiple systems.</p>
-              <div class="tag-row" aria-label="Technologies">
-                <span>Java</span><span>Spring Boot</span><span>SQL</span><span>Kafka</span><span>Redis</span><span>Docker</span>
+        <section class="case-study-list" aria-label="Main case studies">
+          <article class="case-study-card" id="file-tracking">
+            <div class="case-study-header">
+              <div class="project-icon"><svg><use href="#icon-file"></use></svg></div>
+              <div>
+                <p class="case-category">Backend Systems / Financial Technology / Operational Visibility</p>
+                <h2>File Tracking Pipeline</h2>
               </div>
             </div>
-            <div class="project-actions">
-              <a class="btn btn-outline" href="experience.html#fiserv">
-                VIEW CASE STUDY
-                <svg><use href="#icon-arrow"></use></svg>
-              </a>
-              <a class="subtle-link" href="https://github.com/SheltonSB" target="_blank" rel="noreferrer">
-                GitHub <svg><use href="#icon-external"></use></svg>
-              </a>
+            <div class="case-study-grid">
+              <section>
+                <h3>Overview</h3>
+                <p>At Fiserv, I worked with a 6-person engineering team on a high-throughput file tracking pipeline designed to monitor document movement across distributed financial systems. The system helps teams understand where files are, what status they are in, whether failures occurred, and whether reconciliation issues need investigation.</p>
+              </section>
+              <section>
+                <h3>Problem</h3>
+                <p>File movement across multiple systems can become difficult to trace when events are spread across logs, databases, and operational tools. Missing files, duplicates, orphaned records, and failed processing events create investigation overhead for support and engineering teams.</p>
+              </section>
+              <section>
+                <h3>My Role</h3>
+                <ul>
+                  <li>Designed and implemented backend API workflows using Java and Spring Boot.</li>
+                  <li>Built REST endpoints for file status lookup and event tracking.</li>
+                  <li>Worked with Kafka-based event flow concepts for ingesting file activity.</li>
+                  <li>Supported audit logging for ingestion, duplicate detection, failure events, orphaned files, and reconciliation history.</li>
+                  <li>Worked in Agile development cycles with sprint planning, standups, reviews, and iterative delivery.</li>
+                </ul>
+              </section>
+              <section>
+                <h3>Technical Breakdown</h3>
+                <ul>
+                  <li>Java Spring Boot backend services and REST APIs.</li>
+                  <li>Kafka for event-driven file activity ingestion.</li>
+                  <li>Oracle schemas and indexes for structured persistence.</li>
+                  <li>Redis-backed lookup patterns for faster file status searches.</li>
+                  <li>Postman, GitLab, and Docker for testing and development workflow.</li>
+                </ul>
+              </section>
+            </div>
+            <div class="case-impact">
+              <h3>Impact</h3>
+              <p>Improved the ability to search and understand file status across distributed workflows. Helped reduce manual investigation by giving teams a centralized way to inspect file activity, processing history, and operational exceptions.</p>
+            </div>
+            <div class="case-footer">
+              <div class="tag-row" aria-label="Technologies">
+                <span>Java</span><span>Spring Boot</span><span>REST APIs</span><span>Kafka</span><span>Oracle</span><span>Redis</span><span>Docker</span><span>GitLab</span>
+              </div>
+              <span class="btn btn-disabled">CASE STUDY COMING SOON</span>
             </div>
           </article>
 
-          <article class="project-card" id="retail-intelligence">
-            <div class="project-icon"><svg><use href="#icon-bars"></use></svg></div>
-            <div class="project-copy">
-              <h2>Retail Intelligence Engine</h2>
-              <p>Full-stack analytics and inventory platform that provides real-time insights, reporting, and inventory optimization.</p>
-              <div class="tag-row" aria-label="Technologies">
-                <span>.NET</span><span>React</span><span>Redis</span><span>Docker</span><span>SQL</span>
+          <article class="case-study-card" id="drone-inspection">
+            <div class="case-study-header">
+              <div class="project-icon"><svg><use href="#icon-truck"></use></svg></div>
+              <div>
+                <p class="case-category">Fleet Operations / Computer Vision Workflow / Logistics</p>
+                <h2>Drone-Based Truck Inspection Platform</h2>
               </div>
             </div>
-            <div class="project-actions">
-              <a class="btn btn-outline" href="ecommerce-demo.html">
-                VIEW CASE STUDY
-                <svg><use href="#icon-arrow"></use></svg>
-              </a>
-              <a class="subtle-link" href="https://github.com/SheltonBumhe/ecommerce-api" target="_blank" rel="noreferrer">
-                GitHub <svg><use href="#icon-external"></use></svg>
-              </a>
+            <div class="case-study-grid">
+              <section>
+                <h3>Overview</h3>
+                <p>Designed with AY Logistics, this platform helps trucking operations teams capture inspection evidence, review vehicle issues, and track maintenance follow-ups from a web dashboard. The goal is to move truck inspection workflows away from scattered manual notes and toward a centralized operational system.</p>
+              </section>
+              <section>
+                <h3>Problem</h3>
+                <p>Trucking companies need better visibility into truck condition, inspection history, unresolved vehicle issues, and maintenance follow-up status. Without a centralized platform, evidence can be hard to review, issues can be missed, and maintenance tracking becomes inconsistent.</p>
+              </section>
+              <section>
+                <h3>My Role</h3>
+                <ul>
+                  <li>Helped define the product workflow with AY Logistics.</li>
+                  <li>Designed dashboard flows for fleet inspection status.</li>
+                  <li>Built reusable React UI components for cards, forms, status views, and review screens.</li>
+                  <li>Collaborated on backend API design for image ingestion, issue tagging, damage evidence storage, and maintenance follow-up tracking.</li>
+                </ul>
+              </section>
+              <section>
+                <h3>Technical Breakdown</h3>
+                <ul>
+                  <li>React frontend dashboard for operational review workflows.</li>
+                  <li>Python and FastAPI backend API planning.</li>
+                  <li>Image ingestion, issue tagging, and damage evidence storage workflows.</li>
+                  <li>Vehicle inspection history and maintenance follow-up tracking.</li>
+                </ul>
+              </section>
+            </div>
+            <div class="case-impact">
+              <h3>Impact</h3>
+              <p>Created a clearer workflow for fleet inspection review, maintenance visibility, and operational follow-up. The platform is designed to help operations teams manage inspection evidence and vehicle issues from one place.</p>
+            </div>
+            <div class="case-footer">
+              <div class="tag-row" aria-label="Technologies">
+                <span>React</span><span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>Image Ingestion</span><span>Operational Dashboards</span>
+              </div>
+              <span class="btn btn-disabled">CASE STUDY COMING SOON</span>
             </div>
           </article>
 
-          <article class="project-card" id="dispatcheriq">
-            <div class="project-icon"><svg><use href="#icon-truck"></use></svg></div>
-            <div class="project-copy">
-              <h2>DispatcherIQ</h2>
-              <p>Operations platform for trucking companies to centralize fleet, load, and dispatch management with real-time visibility.</p>
-              <div class="tag-row" aria-label="Technologies">
-                <span>Java</span><span>Spring Boot</span><span>PostgreSQL</span><span>Kafka</span>
+          <article class="case-study-card" id="grantpilot">
+            <div class="case-study-header">
+              <div class="project-icon"><svg><use href="#icon-brain"></use></svg></div>
+              <div>
+                <p class="case-category">AI / Product Strategy / Social Impact</p>
+                <h2>GrantPilot AI Grant Success Platform</h2>
               </div>
             </div>
-            <div class="project-actions">
-              <a class="btn btn-outline" href="#dispatcheriq">
-                VIEW CASE STUDY
-                <svg><use href="#icon-arrow"></use></svg>
-              </a>
-              <a class="subtle-link" href="https://github.com/SheltonSB" target="_blank" rel="noreferrer">
-                GitHub <svg><use href="#icon-external"></use></svg>
-              </a>
+            <div class="case-study-grid">
+              <section>
+                <h3>Overview</h3>
+                <p>GrantPilot is an AI-driven platform designed to connect underserved founders with relevant grant opportunities. The platform uses AI matching and pipeline tracking to make funding discovery easier and more organized.</p>
+              </section>
+              <section>
+                <h3>Problem</h3>
+                <p>Founders often struggle to find grants that match their business type, stage, location, and eligibility requirements. The process is fragmented, time-consuming, and difficult to track.</p>
+              </section>
+              <section>
+                <h3>My Role</h3>
+                <ul>
+                  <li>Developed the AI-driven matching engine concept using Retrieval-Augmented Generation.</li>
+                  <li>Helped design opportunity matching and pipeline tracking workflows.</li>
+                  <li>Worked on product strategy for a B2B2C model targeting local government and CDFI sectors.</li>
+                  <li>Contributed to a project that won 1st place among 20+ teams at the MLT Tech Trek Ideathon.</li>
+                </ul>
+              </section>
+              <section>
+                <h3>Technical Breakdown</h3>
+                <ul>
+                  <li>Retrieval-Augmented Generation and AI-driven opportunity matching.</li>
+                  <li>Founder profile matching and grant pipeline tracking workflows.</li>
+                  <li>B2B2C product strategy for local government and CDFI use cases.</li>
+                </ul>
+              </section>
+            </div>
+            <div class="case-impact">
+              <h3>Impact</h3>
+              <p>Won 1st place among 20+ teams at the MLT Tech Trek Ideathon and demonstrated how AI can help founders discover and organize funding opportunities more effectively.</p>
+            </div>
+            <div class="case-footer">
+              <div class="tag-row" aria-label="Technologies">
+                <span>RAG</span><span>Python</span><span>AI Matching</span><span>Founder Profiles</span><span>Product Strategy</span>
+              </div>
+              <span class="btn btn-disabled">CASE STUDY COMING SOON</span>
             </div>
           </article>
+        </section>
 
-          <article class="project-card" id="inventory-invoice">
-            <div class="project-icon"><svg><use href="#icon-database"></use></svg></div>
-            <div class="project-copy">
-              <h2>Inventory / Invoice Management</h2>
-              <p>System for managing inventory, invoices, and customers with reporting and export features.</p>
-              <div class="tag-row" aria-label="Technologies">
-                <span>Java</span><span>MySQL</span><span>JavaFX</span>
-              </div>
-            </div>
-            <div class="project-actions">
-              <a class="btn btn-outline" href="invoice-case-study.html">
-                VIEW CASE STUDY
-                <svg><use href="#icon-arrow"></use></svg>
-              </a>
-              <a class="subtle-link" href="https://github.com/SheltonSB" target="_blank" rel="noreferrer">
-                GitHub <svg><use href="#icon-external"></use></svg>
-              </a>
-            </div>
-          </article>
+        <section class="secondary-projects" aria-labelledby="secondary-projects-heading">
+          <div class="section-bar">
+            <h2 id="secondary-projects-heading">ADDITIONAL PROJECTS</h2>
+          </div>
+          <div class="secondary-project-grid">
+            <article class="mini-project-card" id="retail-intelligence">
+              <div class="project-icon"><svg><use href="#icon-bars"></use></svg></div>
+              <h3>Retail Intelligence Engine</h3>
+              <p>Full-stack analytics and inventory platform for real-time retail reporting and inventory optimization.</p>
+              <div class="tag-row"><span>.NET</span><span>React</span><span>Redis</span><span>SQL</span></div>
+              <a class="subtle-link" href="ecommerce-demo.html">Case study <svg><use href="#icon-external"></use></svg></a>
+            </article>
 
-          <article class="project-card" id="touchdown-predictor">
-            <div class="project-icon"><svg><use href="#icon-brain"></use></svg></div>
-            <div class="project-copy">
-              <h2>ML Touchdown Predictor</h2>
-              <p>Machine learning model that predicts the likelihood of a touchdown based on game and player data.</p>
-              <div class="tag-row" aria-label="Technologies">
-                <span>Python</span><span>scikit-learn</span><span>Pandas</span>
-              </div>
-            </div>
-            <div class="project-actions">
-              <a class="btn btn-outline" href="nfl-case-study.html">
-                VIEW CASE STUDY
-                <svg><use href="#icon-arrow"></use></svg>
-              </a>
-              <a class="subtle-link" href="https://github.com/SheltonBumhe/machine-learning-nfl-touchdowns" target="_blank" rel="noreferrer">
-                GitHub <svg><use href="#icon-external"></use></svg>
-              </a>
-            </div>
-          </article>
+            <article class="mini-project-card" id="inventory-invoice">
+              <div class="project-icon"><svg><use href="#icon-database"></use></svg></div>
+              <h3>Inventory / Invoice Management System</h3>
+              <p>Inventory, invoice, and customer management system with reporting and export workflows.</p>
+              <div class="tag-row"><span>Java</span><span>MySQL</span><span>JavaFX</span></div>
+              <a class="subtle-link" href="invoice-case-study.html">Case study <svg><use href="#icon-external"></use></svg></a>
+            </article>
+
+            <article class="mini-project-card" id="touchdown-predictor">
+              <div class="project-icon"><svg><use href="#icon-brain"></use></svg></div>
+              <h3>ML Touchdown Predictor</h3>
+              <p>Machine learning model for predicting touchdown likelihood from game and player data.</p>
+              <div class="tag-row"><span>Python</span><span>scikit-learn</span><span>Pandas</span></div>
+              <a class="subtle-link" href="nfl-case-study.html">Case study <svg><use href="#icon-external"></use></svg></a>
+            </article>
+          </div>
         </section>
       </main>
 
