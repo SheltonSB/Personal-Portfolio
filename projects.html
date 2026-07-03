@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#050505" />
     <meta
       name="description"
-      content="Project case studies by Shelton Bumhe, including file tracking pipelines, fleet inspection tools, AI grant matching, and data-driven platforms."
+      content="Project case studies by Shelton Bumhe, including fleet inspection tools, AI grant matching, retail platforms, machine learning models, and business software."
     />
     <title>Projects | Shelton Bumhe</title>
     <link rel="stylesheet" href="Style.css" />
@@ -77,100 +77,52 @@
           <p>A closer look at the systems, platforms, and tools I've worked on, with emphasis on the problem, engineering approach, and outcome.</p>
         </section>
 
-        <section class="case-study-list" aria-label="Main case studies">
-          <article class="case-study-card" id="file-tracking">
-            <div class="case-study-header">
-              <div class="project-icon"><svg><use href="#icon-file"></use></svg></div>
-              <div>
-                <p class="case-category">Backend Systems / Financial Technology / Operational Visibility</p>
-                <h2>File Tracking Pipeline</h2>
-              </div>
-            </div>
-            <div class="case-study-grid">
-              <section>
-                <h3>Overview</h3>
-                <p>At Fiserv, I worked with a 6-person engineering team on a high-throughput file tracking pipeline designed to monitor document movement across distributed financial systems. The system helps teams understand where files are, what status they are in, whether failures occurred, and whether reconciliation issues need investigation.</p>
-              </section>
-              <section>
-                <h3>Problem</h3>
-                <p>File movement across multiple systems can become difficult to trace when events are spread across logs, databases, and operational tools. Missing files, duplicates, orphaned records, and failed processing events create investigation overhead for support and engineering teams.</p>
-              </section>
-              <section>
-                <h3>My Role</h3>
-                <ul>
-                  <li>Designed and implemented backend API workflows using Java and Spring Boot.</li>
-                  <li>Built REST endpoints for file status lookup and event tracking.</li>
-                  <li>Worked with Kafka-based event flow concepts for ingesting file activity.</li>
-                  <li>Supported audit logging for ingestion, duplicate detection, failure events, orphaned files, and reconciliation history.</li>
-                  <li>Worked in Agile development cycles with sprint planning, standups, reviews, and iterative delivery.</li>
-                </ul>
-              </section>
-              <section>
-                <h3>Technical Breakdown</h3>
-                <ul>
-                  <li>Java Spring Boot backend services and REST APIs.</li>
-                  <li>Kafka for event-driven file activity ingestion.</li>
-                  <li>Oracle schemas and indexes for structured persistence.</li>
-                  <li>Redis-backed lookup patterns for faster file status searches.</li>
-                  <li>Postman, GitLab, and Docker for testing and development workflow.</li>
-                </ul>
-              </section>
-            </div>
-            <div class="case-impact">
-              <h3>Impact</h3>
-              <p>Improved the ability to search and understand file status across distributed workflows. Helped reduce manual investigation by giving teams a centralized way to inspect file activity, processing history, and operational exceptions.</p>
-            </div>
-            <div class="case-footer">
-              <div class="tag-row" aria-label="Technologies">
-                <span>Java</span><span>Spring Boot</span><span>REST APIs</span><span>Kafka</span><span>Oracle</span><span>Redis</span><span>Docker</span><span>GitLab</span>
-              </div>
-              <span class="btn btn-disabled">CASE STUDY COMING SOON</span>
-            </div>
-          </article>
-
+        <section class="case-study-list" aria-label="Project case studies">
           <article class="case-study-card" id="drone-inspection">
             <div class="case-study-header">
               <div class="project-icon"><svg><use href="#icon-truck"></use></svg></div>
               <div>
-                <p class="case-category">Fleet Operations / Computer Vision Workflow / Logistics</p>
+                <p class="case-category">Logistics / Fleet Operations / AI-Ready Inspection Workflow</p>
                 <h2>Drone-Based Truck Inspection Platform</h2>
               </div>
             </div>
             <div class="case-study-grid">
               <section>
                 <h3>Overview</h3>
-                <p>Designed with AY Logistics, this platform helps trucking operations teams capture inspection evidence, review vehicle issues, and track maintenance follow-ups from a web dashboard. The goal is to move truck inspection workflows away from scattered manual notes and toward a centralized operational system.</p>
+                <p>A fleet inspection platform designed with AY Logistics to centralize truck inspection evidence, vehicle issue review, maintenance follow-ups, and operational reporting through a web dashboard.</p>
               </section>
               <section>
                 <h3>Problem</h3>
-                <p>Trucking companies need better visibility into truck condition, inspection history, unresolved vehicle issues, and maintenance follow-up status. Without a centralized platform, evidence can be hard to review, issues can be missed, and maintenance tracking becomes inconsistent.</p>
+                <p>Truck inspection workflows often rely on scattered photos, manual notes, messages, and disconnected maintenance records. This makes it difficult for operations teams to review vehicle condition, track unresolved issues, and follow up on maintenance work consistently.</p>
               </section>
               <section>
-                <h3>My Role</h3>
+                <h3>What I Built</h3>
                 <ul>
-                  <li>Helped define the product workflow with AY Logistics.</li>
                   <li>Designed dashboard flows for fleet inspection status.</li>
                   <li>Built reusable React UI components for cards, forms, status views, and review screens.</li>
-                  <li>Collaborated on backend API design for image ingestion, issue tagging, damage evidence storage, and maintenance follow-up tracking.</li>
+                  <li>Designed backend API workflows for image ingestion, issue tagging, damage evidence storage, inspection history, and maintenance follow-up tracking.</li>
+                  <li>Planned relational data models for vehicles, inspections, issues, image evidence, and maintenance records.</li>
+                  <li>Structured the product workflow to turn raw inspection evidence into reviewable operational data.</li>
                 </ul>
               </section>
               <section>
                 <h3>Technical Breakdown</h3>
                 <ul>
-                  <li>React frontend dashboard for operational review workflows.</li>
-                  <li>Python and FastAPI backend API planning.</li>
-                  <li>Image ingestion, issue tagging, and damage evidence storage workflows.</li>
-                  <li>Vehicle inspection history and maintenance follow-up tracking.</li>
+                  <li>React frontend dashboard.</li>
+                  <li>Python/FastAPI backend API design.</li>
+                  <li>REST API workflows.</li>
+                  <li>PostgreSQL-style relational data modeling.</li>
+                  <li>Image ingestion, issue tagging, damage evidence storage, inspection history, and maintenance follow-up tracking.</li>
                 </ul>
               </section>
             </div>
             <div class="case-impact">
               <h3>Impact</h3>
-              <p>Created a clearer workflow for fleet inspection review, maintenance visibility, and operational follow-up. The platform is designed to help operations teams manage inspection evidence and vehicle issues from one place.</p>
+              <p>Designed a centralized inspection workflow that gives fleet teams a clearer way to review vehicle issues, manage inspection evidence, and track maintenance follow-ups from one operational dashboard.</p>
             </div>
             <div class="case-footer">
               <div class="tag-row" aria-label="Technologies">
-                <span>React</span><span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>Image Ingestion</span><span>Operational Dashboards</span>
+                <span>React</span><span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>REST APIs</span>
               </div>
               <span class="btn btn-disabled">CASE STUDY COMING SOON</span>
             </div>
@@ -180,26 +132,27 @@
             <div class="case-study-header">
               <div class="project-icon"><svg><use href="#icon-brain"></use></svg></div>
               <div>
-                <p class="case-category">AI / Product Strategy / Social Impact</p>
-                <h2>GrantPilot AI Grant Success Platform</h2>
+                <p class="case-category">AI / Retrieval-Augmented Generation / Product Strategy</p>
+                <h2>GrantPilot &mdash; AI Grant Success Platform</h2>
               </div>
             </div>
             <div class="case-study-grid">
               <section>
                 <h3>Overview</h3>
-                <p>GrantPilot is an AI-driven platform designed to connect underserved founders with relevant grant opportunities. The platform uses AI matching and pipeline tracking to make funding discovery easier and more organized.</p>
+                <p>An AI-powered platform that matches underserved founders with relevant grant opportunities and gives them a structured pipeline for tracking funding applications.</p>
               </section>
               <section>
                 <h3>Problem</h3>
-                <p>Founders often struggle to find grants that match their business type, stage, location, and eligibility requirements. The process is fragmented, time-consuming, and difficult to track.</p>
+                <p>Founders often spend too much time searching across fragmented grant databases, eligibility pages, and funding announcements. The process is difficult to personalize, hard to track, and especially painful for underserved founders with limited support.</p>
               </section>
               <section>
-                <h3>My Role</h3>
+                <h3>What I Built</h3>
                 <ul>
-                  <li>Developed the AI-driven matching engine concept using Retrieval-Augmented Generation.</li>
-                  <li>Helped design opportunity matching and pipeline tracking workflows.</li>
-                  <li>Worked on product strategy for a B2B2C model targeting local government and CDFI sectors.</li>
-                  <li>Contributed to a project that won 1st place among 20+ teams at the MLT Tech Trek Ideathon.</li>
+                  <li>Built an AI-driven matching workflow using Retrieval-Augmented Generation concepts.</li>
+                  <li>Designed founder-to-opportunity matching logic based on business profile, eligibility, sector, and funding fit.</li>
+                  <li>Created grant pipeline tracking workflows for organizing opportunities, application status, and next steps.</li>
+                  <li>Developed product strategy for a B2B2C model targeting local government and CDFI use cases.</li>
+                  <li>Designed a clear user workflow for discovering, saving, and tracking grant opportunities.</li>
                 </ul>
               </section>
               <section>
@@ -213,46 +166,165 @@
             </div>
             <div class="case-impact">
               <h3>Impact</h3>
-              <p>Won 1st place among 20+ teams at the MLT Tech Trek Ideathon and demonstrated how AI can help founders discover and organize funding opportunities more effectively.</p>
+              <p>Built an AI grant discovery concept that won 1st place among 20+ teams at the MLT Tech Trek Ideathon by showing how AI can make funding discovery more targeted, organized, and accessible.</p>
             </div>
             <div class="case-footer">
               <div class="tag-row" aria-label="Technologies">
-                <span>RAG</span><span>Python</span><span>AI Matching</span><span>Founder Profiles</span><span>Product Strategy</span>
+                <span>Python</span><span>RAG</span><span>AI Matching</span><span>Product Strategy</span><span>Pipeline Tracking</span>
               </div>
               <span class="btn btn-disabled">CASE STUDY COMING SOON</span>
             </div>
           </article>
-        </section>
 
-        <section class="secondary-projects" aria-labelledby="secondary-projects-heading">
-          <div class="section-bar">
-            <h2 id="secondary-projects-heading">ADDITIONAL PROJECTS</h2>
-          </div>
-          <div class="secondary-project-grid">
-            <article class="mini-project-card" id="retail-intelligence">
+          <article class="case-study-card" id="retail-intelligence">
+            <div class="case-study-header">
               <div class="project-icon"><svg><use href="#icon-bars"></use></svg></div>
-              <h3>Retail Intelligence Engine</h3>
-              <p>Full-stack analytics and inventory platform for real-time retail reporting and inventory optimization.</p>
-              <div class="tag-row"><span>.NET</span><span>React</span><span>Redis</span><span>SQL</span></div>
-              <a class="subtle-link" href="ecommerce-demo.html">Case study <svg><use href="#icon-external"></use></svg></a>
-            </article>
+              <div>
+                <p class="case-category">Full-Stack Engineering / E-Commerce / Analytics</p>
+                <h2>Retail Intelligence Engine / E-Commerce Platform</h2>
+              </div>
+            </div>
+            <div class="case-study-grid">
+              <section>
+                <h3>Overview</h3>
+                <p>A full-stack retail platform for managing products, orders, inventory, payments, and business analytics through a modern web dashboard.</p>
+              </section>
+              <section>
+                <h3>Problem</h3>
+                <p>Retail teams need more than a storefront. They need visibility into inventory levels, sales activity, customer behavior, order status, and operational trends. Without a centralized dashboard, business decisions become reactive, manual, and fragmented.</p>
+              </section>
+              <section>
+                <h3>What I Built</h3>
+                <ul>
+                  <li>Built a full-stack web application with product, order, inventory, customer, and payment workflows.</li>
+                  <li>Engineered backend APIs for business logic, authentication, reporting, and data access.</li>
+                  <li>Created frontend dashboard views for inventory, sales activity, and operational insights.</li>
+                  <li>Designed database schemas for products, users, orders, payments, and reporting data.</li>
+                  <li>Implemented Redis-backed performance patterns for faster data access where appropriate.</li>
+                  <li>Structured payment workflow integration using Stripe.</li>
+                </ul>
+              </section>
+              <section>
+                <h3>Technical Breakdown</h3>
+                <ul>
+                  <li>Full-stack web application architecture.</li>
+                  <li>REST API backend.</li>
+                  <li>Product and inventory management.</li>
+                  <li>Order and payment workflows.</li>
+                  <li>Admin dashboard, reporting views, and database-backed business workflows.</li>
+                  <li>Authentication and authorization workflows.</li>
+                </ul>
+              </section>
+            </div>
+            <div class="case-impact">
+              <h3>Impact</h3>
+              <p>Built a business-focused retail platform that combines e-commerce workflows with operational analytics, giving users a clearer way to manage inventory, orders, payments, and performance data from one system.</p>
+            </div>
+            <div class="case-footer">
+              <div class="tag-row" aria-label="Technologies">
+                <span>ASP.NET Core</span><span>React</span><span>SQL Server/PostgreSQL</span><span>Redis</span><span>Docker</span><span>Stripe</span><span>REST APIs</span>
+              </div>
+              <span class="btn btn-disabled">CASE STUDY COMING SOON</span>
+            </div>
+          </article>
 
-            <article class="mini-project-card" id="inventory-invoice">
-              <div class="project-icon"><svg><use href="#icon-database"></use></svg></div>
-              <h3>Inventory / Invoice Management System</h3>
-              <p>Inventory, invoice, and customer management system with reporting and export workflows.</p>
-              <div class="tag-row"><span>Java</span><span>MySQL</span><span>JavaFX</span></div>
-              <a class="subtle-link" href="invoice-case-study.html">Case study <svg><use href="#icon-external"></use></svg></a>
-            </article>
-
-            <article class="mini-project-card" id="touchdown-predictor">
+          <article class="case-study-card" id="touchdown-predictor">
+            <div class="case-study-header">
               <div class="project-icon"><svg><use href="#icon-brain"></use></svg></div>
-              <h3>ML Touchdown Predictor</h3>
-              <p>Machine learning model for predicting touchdown likelihood from game and player data.</p>
-              <div class="tag-row"><span>Python</span><span>scikit-learn</span><span>Pandas</span></div>
-              <a class="subtle-link" href="nfl-case-study.html">Case study <svg><use href="#icon-external"></use></svg></a>
-            </article>
-          </div>
+              <div>
+                <p class="case-category">Machine Learning / Sports Analytics / Predictive Modeling</p>
+                <h2>Machine Learning Touchdown Predictor</h2>
+              </div>
+            </div>
+            <div class="case-study-grid">
+              <section>
+                <h3>Overview</h3>
+                <p>A machine learning model that predicts touchdown likelihood using football game and player data. The project applies data preprocessing, feature engineering, model training, and evaluation to a sports analytics problem.</p>
+              </section>
+              <section>
+                <h3>Problem</h3>
+                <p>Football outcomes are influenced by many variables, including field position, player usage, team tendencies, game context, and historical performance. The goal was to turn raw football data into predictive features that estimate touchdown probability.</p>
+              </section>
+              <section>
+                <h3>What I Built</h3>
+                <ul>
+                  <li>Cleaned and prepared football datasets for machine learning workflows.</li>
+                  <li>Engineered features from player, team, and game-context data.</li>
+                  <li>Trained classification models to estimate touchdown likelihood.</li>
+                  <li>Evaluated model performance using accuracy-focused and error-analysis metrics.</li>
+                  <li>Built a repeatable Python workflow for experimentation and model improvement.</li>
+                </ul>
+              </section>
+              <section>
+                <h3>Technical Breakdown</h3>
+                <ul>
+                  <li>Data cleaning and feature engineering.</li>
+                  <li>Classification modeling.</li>
+                  <li>Model evaluation and error analysis.</li>
+                  <li>Repeatable notebook or script-based ML workflow.</li>
+                </ul>
+              </section>
+            </div>
+            <div class="case-impact">
+              <h3>Impact</h3>
+              <p>Created a predictive modeling workflow that transforms raw sports data into touchdown probability estimates, demonstrating practical machine learning skills in data cleaning, feature engineering, model training, and evaluation.</p>
+            </div>
+            <div class="case-footer">
+              <div class="tag-row" aria-label="Technologies">
+                <span>Python</span><span>Pandas</span><span>NumPy</span><span>scikit-learn</span><span>Machine Learning</span>
+              </div>
+              <span class="btn btn-disabled">CASE STUDY COMING SOON</span>
+            </div>
+          </article>
+
+          <article class="case-study-card" id="inventory-invoice">
+            <div class="case-study-header">
+              <div class="project-icon"><svg><use href="#icon-database"></use></svg></div>
+              <div>
+                <p class="case-category">Business Software / Database Systems / Java Application</p>
+                <h2>Inventory / Invoice Management System</h2>
+              </div>
+            </div>
+            <div class="case-study-grid">
+              <section>
+                <h3>Overview</h3>
+                <p>A Java-based business management system for handling inventory, invoices, customers, and reporting workflows.</p>
+              </section>
+              <section>
+                <h3>Problem</h3>
+                <p>Small business operations often rely on spreadsheets or manual tracking for inventory and invoice records. This creates errors, duplicate work, and limited visibility into stock levels and customer transactions.</p>
+              </section>
+              <section>
+                <h3>What I Built</h3>
+                <ul>
+                  <li>Built a Java application for managing inventory, invoices, customers, and transaction records.</li>
+                  <li>Designed a MySQL database schema for storing products, invoices, customer records, and reporting data.</li>
+                  <li>Implemented CRUD workflows for adding, editing, searching, and deleting business records.</li>
+                  <li>Created reporting views for reviewing inventory and invoice activity.</li>
+                  <li>Built user interface workflows for common business operations.</li>
+                </ul>
+              </section>
+              <section>
+                <h3>Technical Breakdown</h3>
+                <ul>
+                  <li>Java application structure.</li>
+                  <li>MySQL relational database.</li>
+                  <li>JDBC data access.</li>
+                  <li>CRUD workflows for inventory, invoice, customer, and reporting records.</li>
+                </ul>
+              </section>
+            </div>
+            <div class="case-impact">
+              <h3>Impact</h3>
+              <p>Built a structured business application that replaces manual inventory and invoice tracking with searchable records, database-backed workflows, and clearer reporting.</p>
+            </div>
+            <div class="case-footer">
+              <div class="tag-row" aria-label="Technologies">
+                <span>Java</span><span>MySQL</span><span>JDBC</span><span>JavaFX</span>
+              </div>
+              <span class="btn btn-disabled">CASE STUDY COMING SOON</span>
+            </div>
+          </article>
         </section>
       </main>
 
