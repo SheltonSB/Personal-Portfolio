@@ -219,6 +219,30 @@ window.portfolioAgentData = {
   ],
   topics: [
     {
+      id: 'nebraska-dhhs',
+      keywords: ['nebraska dhhs', 'dhhs', 'data engineering', 'databricks', 'pyspark', 'delta lake', 'snowflake', 'etl'],
+      summary:
+        'At Nebraska DHHS, Shelton modernizes legacy COBOL reporting workflows as reusable cloud data pipelines and standardized datasets.',
+      highlights: [
+        'He uses Azure Databricks, PySpark, Delta Lake, and Snowflake to transform more than 1 million records.',
+        'His work includes ETL pipelines, source-to-target transformations, automated reconciliation, and data-quality checks.',
+        'He has tested, debugged, and shipped 15+ approved changes through Azure DevOps CI/CD across DEV and UAT environments.',
+      ],
+      followUp: 'Would you like the data pipeline, modernization work, or quality controls explained?',
+    },
+    {
+      id: 'ameritas',
+      keywords: ['ameritas', 'integration', 'third party', 'payload', 'reconciliation', 'enterprise services'],
+      summary:
+        'At Ameritas, Shelton builds integration workflows that connect third-party platforms with internal enterprise services.',
+      highlights: [
+        'He automates data ingestion, transformation, validation, and routing across system boundaries.',
+        'He develops backend logic that normalizes package and transaction payloads and reduces manual handoffs.',
+        'He implements logging, error handling, and reconciliation across 10+ integration points to stop bad data and failed transactions from propagating.',
+      ],
+      followUp: 'Would you like the integration flow, validation work, or operational safeguards explained?',
+    },
+    {
       id: 'fiserv',
       keywords: ['fiserv', 'file tracking', 'enterprise file', 'file platform', 'software engineering intern', 'kafka', 'cid'],
       summary:
